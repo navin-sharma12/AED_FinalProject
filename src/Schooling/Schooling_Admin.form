@@ -16,7 +16,7 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jSplitPane1" alignment="0" pref="756" max="32767" attributes="0"/>
+          <Component id="jSplitPane1" alignment="0" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -46,7 +46,7 @@
                           <Component id="jButtonJobPortal" max="32767" attributes="0"/>
                           <Component id="jButtonPersonalOrganization" max="32767" attributes="0"/>
                           <Component id="jButtonUniversities" max="32767" attributes="0"/>
-                          <Component id="jButton1" max="32767" attributes="0"/>
+                          <Component id="jButtonManageDepartments" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
                   </Group>
@@ -62,7 +62,7 @@
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
                       <Component id="jButtonUniversities" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonManageDepartments" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="194" max="32767" attributes="0"/>
                   </Group>
               </Group>
@@ -81,16 +81,22 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Personal Organization"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonPersonalOrganizationActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonUniversities">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Universities"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="jButtonManageDepartments">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manage Departments"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonManageDepartmentsActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

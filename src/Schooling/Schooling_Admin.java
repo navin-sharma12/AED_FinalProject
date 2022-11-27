@@ -31,7 +31,7 @@ public class Schooling_Admin extends javax.swing.JPanel {
         jButtonJobPortal = new javax.swing.JButton();
         jButtonPersonalOrganization = new javax.swing.JButton();
         jButtonUniversities = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        jButtonManageDepartments = new javax.swing.JButton();
         jPanelRight = new javax.swing.JPanel();
 
         jButtonJobPortal.setText("Job Portal");
@@ -42,10 +42,20 @@ public class Schooling_Admin extends javax.swing.JPanel {
         });
 
         jButtonPersonalOrganization.setText("Personal Organization");
+        jButtonPersonalOrganization.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonPersonalOrganizationActionPerformed(evt);
+            }
+        });
 
         jButtonUniversities.setText("Universities");
 
-        jButton1.setText("Manage Departments");
+        jButtonManageDepartments.setText("Manage Departments");
+        jButtonManageDepartments.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonManageDepartmentsActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanelLeftLayout = new javax.swing.GroupLayout(jPanelLeft);
         jPanelLeft.setLayout(jPanelLeftLayout);
@@ -57,7 +67,7 @@ public class Schooling_Admin extends javax.swing.JPanel {
                     .addComponent(jButtonJobPortal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonPersonalOrganization, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonUniversities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonManageDepartments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
         );
         jPanelLeftLayout.setVerticalGroup(
@@ -70,7 +80,7 @@ public class Schooling_Admin extends javax.swing.JPanel {
                 .addGap(50, 50, 50)
                 .addComponent(jButtonUniversities)
                 .addGap(50, 50, 50)
-                .addComponent(jButton1)
+                .addComponent(jButtonManageDepartments)
                 .addContainerGap(194, Short.MAX_VALUE))
         );
 
@@ -93,7 +103,7 @@ public class Schooling_Admin extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 756, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -103,14 +113,22 @@ public class Schooling_Admin extends javax.swing.JPanel {
 
     private void jButtonJobPortalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJobPortalActionPerformed
         // TODO add your handling code here:
-        Schooling_JobPortal_Login jobportal = new Schooling_JobPortal_Login();
-        jSplitPane1.setRightComponent(jobportal);
     }//GEN-LAST:event_jButtonJobPortalActionPerformed
+
+    private void jButtonPersonalOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPersonalOrganizationActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonPersonalOrganizationActionPerformed
+
+    private void jButtonManageDepartmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageDepartmentsActionPerformed
+        // TODO add your handling code here:
+        Schooling_ManageDepartments md = new Schooling_ManageDepartments();
+        jSplitPane1.setRightComponent(md);
+    }//GEN-LAST:event_jButtonManageDepartmentsActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonJobPortal;
+    private javax.swing.JButton jButtonManageDepartments;
     private javax.swing.JButton jButtonPersonalOrganization;
     private javax.swing.JButton jButtonUniversities;
     private javax.swing.JPanel jPanelLeft;
