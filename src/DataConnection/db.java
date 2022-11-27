@@ -15,8 +15,9 @@ import javax.swing.JOptionPane;
  *
  * @author pikku
  */
-public class db {
-     private static final String URL = "jdbc:mysql://127.0.0.1:3306/AED";
+public class db 
+{
+    private static final String URL = "jdbc:mysql://127.0.0.1:3306/AED";
     private static final String USER_NAME = "root";
     private static final String PASSWORD = "javaProject";
     
@@ -24,31 +25,42 @@ public class db {
     private static Statement statement = null;
     
     /* Creating Connection*/
-    public static void connection(){
-       try{
+    public static void connection()
+    {
+       try
+       {
            System.err.println("enter conection");
-            connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-            statement = connection.createStatement();
-            System.out.println("Connection Opened");
-        }catch(SQLException e){            
-            JOptionPane.showMessageDialog(null, "Connection is not Opened ! " + e.getMessage());      
-        }
+           connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
+           statement = connection.createStatement();
+           System.out.println("Connection Opened");
+       }
+       catch(SQLException e)
+       {
+           JOptionPane.showMessageDialog(null, "Connection is not Opened ! " + e.getMessage());
+       }
     }
      /*  Selecting Query */
-    public static ResultSet selectQuery(String query) {
-        try{
+    public static ResultSet selectQuery(String query) 
+    {
+        try
+        {
             return statement.executeQuery(query);
-        }catch(SQLException e){
+        }
+        catch(SQLException e)
+        {
             e.getMessage();
-            return null;
-            
+            return null;    
         }
     }
     /*  Executing Query */
-    public static boolean query(String query) {
-        try{
+    public static boolean query(String query) 
+    {
+        try
+        {
             return statement.execute(query);
-        }catch(SQLException e){
+        }
+        catch(SQLException e)
+        {
             e.getMessage();
             throw new IllegalArgumentException();
         }
@@ -56,9 +68,14 @@ public class db {
     /* Prepares the data first then execute it */
      public static PreparedStatement getPreStatement(String query)
      {
-       try {
+       try 
+       {
            return statement.getConnection().prepareStatement(query);
-         } catch (SQLException e) {}
+       }
+       catch (SQLException e) 
+       {
+           e.getMessage();
+       }
        return null;
      }
     

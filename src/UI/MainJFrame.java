@@ -6,6 +6,7 @@ package UI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import DataConnection.db;
+import Schooling.Schooling_Admin;
 /**
  *
  * @author pikku
@@ -98,26 +99,24 @@ public class MainJFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtNameActionPerformed
+                String name = txtName.getText();
+                String password = txtPassword.getText();
+        
+        
+                boolean value =  db.query("INSERT into AED.student (name,password)\n"+"values ('"+name+"','"+password+"')");
+
+
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     private void txtPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPasswordActionPerformed
 
-    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
         // TODO add your handling code here:
-        String name = txtName.getText();
-        String password = txtPassword.getText();
-        
-       
-        boolean value =  db.query("INSERT into AED.student (name,password)\n"+"values ('"+name+"','"+password+"')");
-         
-         
-         
-        
-    }//GEN-LAST:event_btnSaveActionPerformed
+    }//GEN-LAST:event_txtNameActionPerformed
 
     /**
      * @param args the command line arguments
