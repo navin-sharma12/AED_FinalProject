@@ -32,64 +32,29 @@ public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
         jLabelTitle = new javax.swing.JLabel();
         jLabelName = new javax.swing.JLabel();
         jTextFieldName = new javax.swing.JTextField();
-        jLabelAge = new javax.swing.JLabel();
-        jTextFieldAge = new javax.swing.JTextField();
-        jLabelGender = new javax.swing.JLabel();
-        jRadioButtonMale = new javax.swing.JRadioButton();
-        jRadioButtonFemale = new javax.swing.JRadioButton();
-        jRadioButtonOther = new javax.swing.JRadioButton();
-        jLabelAddress = new javax.swing.JLabel();
-        jTextFieldAddress = new javax.swing.JTextField();
-        jLabelCity = new javax.swing.JLabel();
-        jTextFieldCity = new javax.swing.JTextField();
-        jLabelPinCode = new javax.swing.JLabel();
-        jTextFieldPinCode = new javax.swing.JTextField();
+        jLabelLastName = new javax.swing.JLabel();
+        jTextFieldLastName = new javax.swing.JTextField();
         jLabelEmailID = new javax.swing.JLabel();
         jTextFieldEmailID = new javax.swing.JTextField();
-        jLabelMobile = new javax.swing.JLabel();
-        jTextFieldMobile = new javax.swing.JTextField();
         jLabelDepartment = new javax.swing.JLabel();
         jComboBoxDepartment = new javax.swing.JComboBox<>();
-        jLabelDateOfBirth = new javax.swing.JLabel();
-        jTextFieldDateOfBirth = new javax.swing.JTextField();
         jButtonAdd = new javax.swing.JButton();
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitle.setText("Add Person");
 
-        jLabelName.setText("Name:");
+        jLabelName.setText("First name:");
 
         jTextFieldName.setToolTipText("");
 
-        jLabelAge.setText("Age:");
-
-        jLabelGender.setText("Gender:");
-
-        buttonGroup1.add(jRadioButtonMale);
-        jRadioButtonMale.setText("Male");
-
-        buttonGroup1.add(jRadioButtonFemale);
-        jRadioButtonFemale.setText("Female");
-
-        buttonGroup1.add(jRadioButtonOther);
-        jRadioButtonOther.setText("Other");
-
-        jLabelAddress.setText("Address:");
-
-        jLabelCity.setText("City:");
-
-        jLabelPinCode.setText("Pin code:");
+        jLabelLastName.setText("Last name:");
 
         jLabelEmailID.setText("Email ID:");
-
-        jLabelMobile.setText("Mobile:");
 
         jLabelDepartment.setText("Department:");
 
         jComboBoxDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jobs Department", "Personal Org. Department", "Universities Department" }));
-
-        jLabelDateOfBirth.setText("Date Of Birth:");
 
         jButtonAdd.setText("Submit");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -106,38 +71,28 @@ public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabelName)
-                    .addComponent(jLabelAge)
-                    .addComponent(jLabelGender)
-                    .addComponent(jLabelAddress)
-                    .addComponent(jLabelCity)
-                    .addComponent(jLabelPinCode)
-                    .addComponent(jLabelEmailID)
-                    .addComponent(jLabelMobile)
-                    .addComponent(jLabelDepartment)
-                    .addComponent(jLabelDateOfBirth))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jTextFieldAge)
-                    .addComponent(jTextFieldName)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jRadioButtonMale)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButtonFemale)
-                        .addGap(18, 18, 18)
-                        .addComponent(jRadioButtonOther))
-                    .addComponent(jTextFieldAddress)
-                    .addComponent(jTextFieldCity)
-                    .addComponent(jTextFieldPinCode)
-                    .addComponent(jTextFieldEmailID)
-                    .addComponent(jTextFieldMobile)
-                    .addComponent(jComboBoxDepartment, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jTextFieldDateOfBirth))
+                        .addComponent(jLabelDepartment)
+                        .addGap(37, 37, 37)
+                        .addComponent(jComboBoxDepartment, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabelEmailID)
+                        .addGap(57, 57, 57)
+                        .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelName)
+                            .addComponent(jLabelLastName))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                            .addComponent(jTextFieldName))))
                 .addGap(60, 60, 60))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButtonAdd)
-                .addGap(122, 122, 122))
+                .addGap(124, 124, 124))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,75 +105,29 @@ public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
                     .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAge)
-                    .addComponent(jTextFieldAge, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelGender)
-                    .addComponent(jRadioButtonMale)
-                    .addComponent(jRadioButtonFemale)
-                    .addComponent(jRadioButtonOther))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDateOfBirth)
-                    .addComponent(jTextFieldDateOfBirth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelAddress)
-                    .addComponent(jTextFieldAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCity)
-                    .addComponent(jTextFieldCity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelPinCode)
-                    .addComponent(jTextFieldPinCode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelLastName)
+                    .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelEmailID)
                     .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelMobile)
-                    .addComponent(jTextFieldMobile, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDepartment)
                     .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addGap(18, 18, 18)
                 .addComponent(jButtonAdd)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
-        String name, age1, gender, dob1, address, city, pincode1, emailId, mobile1, department;
-        int age, pincode;
-        Date dob;
-        long mobile;
+        String first_name, last_name, emailId, department;
         
-        name = jTextFieldName.getText();
-        age1 = jTextFieldAge.getText();
-        if(jRadioButtonMale.isSelected())
-        {
-            gender = "Male";
-        }
-        else if(jRadioButtonFemale.isSelected())
-        {
-            gender = "Female";
-        }
-        else if(jRadioButtonOther.isSelected())
-        {
-            gender = "Other";
-        }
-        dob1 = jTextFieldDateOfBirth.getText();
-        address = jTextFieldAddress.getText();
-        city = jTextFieldCity.getText();
-        pincode1 = jTextFieldPinCode.getText();
+        first_name = jTextFieldName.getText();
+        last_name = jTextFieldLastName.getText();
         emailId = jTextFieldEmailID.getText();
-        mobile1 = jTextFieldMobile.getText();
         department = jComboBoxDepartment.getSelectedItem().toString();
     }//GEN-LAST:event_jButtonAddActionPerformed
 
@@ -227,27 +136,13 @@ public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JComboBox<String> jComboBoxDepartment;
-    private javax.swing.JLabel jLabelAddress;
-    private javax.swing.JLabel jLabelAge;
-    private javax.swing.JLabel jLabelCity;
-    private javax.swing.JLabel jLabelDateOfBirth;
     private javax.swing.JLabel jLabelDepartment;
     private javax.swing.JLabel jLabelEmailID;
-    private javax.swing.JLabel jLabelGender;
-    private javax.swing.JLabel jLabelMobile;
+    private javax.swing.JLabel jLabelLastName;
     private javax.swing.JLabel jLabelName;
-    private javax.swing.JLabel jLabelPinCode;
     private javax.swing.JLabel jLabelTitle;
-    private javax.swing.JRadioButton jRadioButtonFemale;
-    private javax.swing.JRadioButton jRadioButtonMale;
-    private javax.swing.JRadioButton jRadioButtonOther;
-    private javax.swing.JTextField jTextFieldAddress;
-    private javax.swing.JTextField jTextFieldAge;
-    private javax.swing.JTextField jTextFieldCity;
-    private javax.swing.JTextField jTextFieldDateOfBirth;
     private javax.swing.JTextField jTextFieldEmailID;
-    private javax.swing.JTextField jTextFieldMobile;
+    private javax.swing.JTextField jTextFieldLastName;
     private javax.swing.JTextField jTextFieldName;
-    private javax.swing.JTextField jTextFieldPinCode;
     // End of variables declaration//GEN-END:variables
 }
