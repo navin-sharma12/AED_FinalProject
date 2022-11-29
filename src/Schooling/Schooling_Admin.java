@@ -49,6 +49,11 @@ public class Schooling_Admin extends javax.swing.JPanel {
         });
 
         jButtonUniversities.setText("Universities");
+        jButtonUniversities.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUniversitiesActionPerformed(evt);
+            }
+        });
 
         jButtonManageDepartments.setText("Manage Departments");
         jButtonManageDepartments.addActionListener(new java.awt.event.ActionListener() {
@@ -124,6 +129,10 @@ public class Schooling_Admin extends javax.swing.JPanel {
         Schooling_ManageDepartments md = new Schooling_ManageDepartments();
         jSplitPane1.setRightComponent(md);
     }//GEN-LAST:event_jButtonManageDepartmentsActionPerformed
+
+    private void jButtonUniversitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUniversitiesActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonUniversitiesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
