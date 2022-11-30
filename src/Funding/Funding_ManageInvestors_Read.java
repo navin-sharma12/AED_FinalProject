@@ -8,12 +8,12 @@ package Funding;
  *
  * @author richapatel
  */
-public class FundingLoginJPanel extends javax.swing.JPanel {
+public class Funding_ManageInvestors_Read extends javax.swing.JPanel {
 
     /**
-     * Creates new form FundingLoginJPanel
+     * Creates new form Funding_ManageInvestors_Read
      */
-    public FundingLoginJPanel() {
+    public Funding_ManageInvestors_Read() {
         initComponents();
     }
 
