@@ -4,6 +4,8 @@
  */
 package UI;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author navinsharma
@@ -13,7 +15,7 @@ public class Admin_Login extends javax.swing.JPanel {
     /**
      * Creates new form Admin_Login
      */
-    public Admin_Login() {
+    public Admin_Login(JPanel workArea) {
         initComponents();
     }
 

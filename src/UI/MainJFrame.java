@@ -7,6 +7,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import DataConnection.db;
 import Schooling.Schooling_Admin;
+import UI.student.StudentAddJPanel;
+import java.awt.CardLayout;
 /**
  *
  * @author pikku
@@ -20,6 +22,7 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         db.connection();
+        setLayout();
     }
 
     /**
@@ -32,81 +35,22 @@ public class MainJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jSplitPane1 = new javax.swing.JSplitPane();
-        jPanelLeft = new javax.swing.JPanel();
-        jButtonAdmin = new javax.swing.JButton();
-        jButtonNgo = new javax.swing.JButton();
-        jButtonSchooling = new javax.swing.JButton();
-        jButtonFunding = new javax.swing.JButton();
-        jButtonHousing = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
+        controlArea = new javax.swing.JPanel();
+        workArea = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButtonAdmin.setText("Admin");
-        jButtonAdmin.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAdminActionPerformed(evt);
-            }
-        });
+        controlArea.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setLeftComponent(controlArea);
 
-        jButtonNgo.setText("NGO");
-
-        jButtonSchooling.setText("Schooling");
-
-        jButtonFunding.setText("Funding");
-
-        jButtonHousing.setText("Housing");
-
-        javax.swing.GroupLayout jPanelLeftLayout = new javax.swing.GroupLayout(jPanelLeft);
-        jPanelLeft.setLayout(jPanelLeftLayout);
-        jPanelLeftLayout.setHorizontalGroup(
-            jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelLeftLayout.createSequentialGroup()
-                .addGap(54, 54, 54)
-                .addGroup(jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonSchooling, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonNgo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonAdmin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonFunding, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonHousing, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(54, 54, 54))
-        );
-        jPanelLeftLayout.setVerticalGroup(
-            jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelLeftLayout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addComponent(jButtonAdmin)
-                .addGap(50, 50, 50)
-                .addComponent(jButtonNgo)
-                .addGap(50, 50, 50)
-                .addComponent(jButtonSchooling)
-                .addGap(50, 50, 50)
-                .addComponent(jButtonFunding)
-                .addGap(50, 50, 50)
-                .addComponent(jButtonHousing)
-                .addContainerGap(302, Short.MAX_VALUE))
-        );
-
-        jSplitPane1.setLeftComponent(jPanelLeft);
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 601, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 653, Short.MAX_VALUE)
-        );
-
-        jSplitPane1.setRightComponent(jPanel2);
+        workArea.setLayout(new java.awt.CardLayout());
+        jSplitPane1.setRightComponent(workArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 800, Short.MAX_VALUE)
+            .addComponent(jSplitPane1)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -115,12 +59,6 @@ public class MainJFrame extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdminActionPerformed
-        // TODO add your handling code here:
-        Admin_Login al = new Admin_Login();
-        jSplitPane1.setRightComponent(al);
-    }//GEN-LAST:event_jButtonAdminActionPerformed
 
     /**
      * @param args the command line arguments
@@ -158,13 +96,27 @@ public class MainJFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAdmin;
-    private javax.swing.JButton jButtonFunding;
-    private javax.swing.JButton jButtonHousing;
-    private javax.swing.JButton jButtonNgo;
-    private javax.swing.JButton jButtonSchooling;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanelLeft;
+    private javax.swing.JPanel controlArea;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
+
+    private void setLayout() {
+//        Admin_Login admin_login = new Admin_Login(workArea);
+//        workArea.add("Admin_Login",admin_login);
+//        CardLayout layout = (CardLayout)workArea.getLayout();
+//        layout.next(workArea); 
+        
+//        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea);
+//        controlArea.add("ControlAreaJPanel",cajp);
+//        CardLayout layout2 = (CardLayout)controlArea.getLayout();
+//        layout2.next(controlArea); 
+
+         StudentAddJPanel sajp = new StudentAddJPanel(workArea);
+        workArea.add("StudentAddJPanel",sajp);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea); 
+    
+    }
+    
 }
