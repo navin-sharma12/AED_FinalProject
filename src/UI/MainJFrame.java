@@ -23,6 +23,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         db.connection();
         setLayout();
+        setSize(600, 600);
     }
 
     /**
@@ -34,27 +35,27 @@ public class MainJFrame extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
+        jSplitPane2 = new javax.swing.JSplitPane();
         controlArea = new javax.swing.JPanel();
         workArea = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         controlArea.setLayout(new java.awt.CardLayout());
-        jSplitPane1.setLeftComponent(controlArea);
+        jSplitPane2.setLeftComponent(controlArea);
 
         workArea.setLayout(new java.awt.CardLayout());
-        jSplitPane1.setRightComponent(workArea);
+        jSplitPane2.setRightComponent(workArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 551, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(jSplitPane2)
         );
 
         pack();
@@ -97,7 +98,7 @@ public class MainJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel controlArea;
-    private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JSplitPane jSplitPane2;
     private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 
@@ -107,10 +108,10 @@ public class MainJFrame extends javax.swing.JFrame {
 //        CardLayout layout = (CardLayout)workArea.getLayout();
 //        layout.next(workArea); 
         
-//        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea);
-//        controlArea.add("ControlAreaJPanel",cajp);
-//        CardLayout layout2 = (CardLayout)controlArea.getLayout();
-//        layout2.next(controlArea); 
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel",cajp);
+        CardLayout layout2 = (CardLayout)controlArea.getLayout();
+        layout2.next(controlArea); 
 
          StudentAddJPanel sajp = new StudentAddJPanel(workArea);
         workArea.add("StudentAddJPanel",sajp);

@@ -31,16 +31,17 @@ public class StudentDirectory {
 
     public void addStudent(Student s) throws SQLException {
         try {
-            PreparedStatement ps = db.getPreStatement("Insert into student(firstname,lastname,age,contact_no,dob,type,address,zipcode,gender)" + "values (?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = db.getPreStatement("Insert into student(firstname,lastname,gender,age,contact_no,dob,type,address,zipcode)" + "values (?,?,?,?,?,?,?,?,?)");
             ps.setString(1, s.getFirstname());
             ps.setString(2, s.getLastname());
-            ps.setInt(3, s.getAge());
-            ps.setLong(4, s.getContact_no());
-            ps.setDate(5, new java.sql.Date(s.getDob().getTime()));
-            ps.setString(6, s.getType());
-            ps.setString(7, s.getAddress());
-            ps.setString(8, s.getZipcode());
- ps.execute();
+            ps.setString(3, s.getGender());
+            ps.setInt(4, s.getAge());
+            ps.setLong(5, s.getContact_no());
+            ps.setDate(6, new java.sql.Date(s.getDob().getTime()));
+            ps.setString(7, s.getType());
+            ps.setString(8, s.getAddress());
+            ps.setString(9, s.getZipcode());
+            ps.execute();
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not saved");
         }

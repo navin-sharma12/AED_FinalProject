@@ -4,6 +4,8 @@
  */
 package UI;
 
+import Schooling.Schooling_Admin;
+import java.awt.CardLayout;
 import javax.swing.JPanel;
 
 /**
@@ -15,8 +17,12 @@ public class Admin_Login extends javax.swing.JPanel {
     /**
      * Creates new form Admin_Login
      */
-    public Admin_Login(JPanel workArea) {
+    JPanel controlArea;
+    JPanel workArea;
+    public Admin_Login(JPanel workArea, JPanel controlArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
     }
 
     /**
@@ -104,8 +110,28 @@ public class Admin_Login extends javax.swing.JPanel {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
+        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel",cajp);
+        CardLayout layout2 = (CardLayout)controlArea.getLayout();
+        layout2.next(controlArea); 
     }//GEN-LAST:event_jButtonLoginActionPerformed
-
+//private void setLayout() {
+////        Admin_Login admin_login = new Admin_Login(workArea);
+////        workArea.add("Admin_Login",admin_login);
+////        CardLayout layout = (CardLayout)workArea.getLayout();
+////        layout.next(workArea); 
+//        
+//        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
+//        controlArea.add("ControlAreaJPanel",cajp);
+//        CardLayout layout2 = (CardLayout)controlArea.getLayout();
+//        layout2.next(controlArea); 
+//
+////         StudentAddJPanel sajp = new StudentAddJPanel(workArea);
+////        workArea.add("StudentAddJPanel",sajp);
+////        CardLayout layout = (CardLayout)workArea.getLayout();
+////        layout.next(workArea); 
+//    
+//    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;
