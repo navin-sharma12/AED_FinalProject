@@ -3,11 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/navinsharma/Desktop/AED/AED_FinalProject/src/Schooling/Schooling_ManageDepartments.java</file>
-            <file>file:/Users/navinsharma/Desktop/AED/AED_FinalProject/src/Schooling/Schooling_ManageDepartments_Add.java</file>
-            <file>file:/Users/navinsharma/Desktop/AED/AED_FinalProject/src/DataConnection/db.java</file>
-            <file>file:/Users/navinsharma/Desktop/AED/AED_FinalProject/src/UI/MainJFrame.java</file>
-            <file>file:/Users/navinsharma/Desktop/AED/AED_FinalProject/src/Schooling/Schooling_Admin.java</file>
+            <file>file:/Users/richapatel/Desktop/AED_Final_Project/AED_FinalProject/src/Schooling/Schooling_ManageDepartments_Delete.java</file>
+            <file>file:/Users/richapatel/Desktop/AED_Final_Project/AED_FinalProject/src/Schooling/Schooling_ManageDepartments_Update.java</file>
+            <file>file:/Users/richapatel/Desktop/AED_Final_Project/AED_FinalProject/src/Schooling/Schooling_Login.java</file>
+            <file>file:/Users/richapatel/Desktop/AED_Final_Project/AED_FinalProject/src/Funding/FundingLoginJPanel.java</file>
+            <file>file:/Users/richapatel/Desktop/AED_Final_Project/AED_FinalProject/src/DataConnection/db.java</file>
         </group>
     </open-files>
 </project-private>

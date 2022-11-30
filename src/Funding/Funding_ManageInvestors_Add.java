@@ -2,20 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Schooling;
-
-import java.util.Date;
+package Funding;
 
 /**
  *
- * @author navinsharma
+ * @author richapatel
  */
-public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
+public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
 
     /**
-     * Creates new form Schooling_Add_Person
+     * Creates new form Funding_ManageInvestors_Add
      */
-    public Schooling_ManageDepartments_Add() {
+    public Funding_ManageInvestors_Add() {
         initComponents();
     }
 
@@ -28,7 +26,6 @@ public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        buttonGroup1 = new javax.swing.ButtonGroup();
         jLabelTitle = new javax.swing.JLabel();
         jLabelName = new javax.swing.JLabel();
         jTextFieldName = new javax.swing.JTextField();
@@ -38,11 +35,11 @@ public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
         jTextFieldEmailID = new javax.swing.JTextField();
         jLabelDepartment = new javax.swing.JLabel();
         jComboBoxDepartment = new javax.swing.JComboBox<>();
-        jButtonAdd = new javax.swing.JButton();
+        jButtonAdd2 = new javax.swing.JButton();
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle.setText("Add Person");
+        jLabelTitle.setText("Add Investor");
 
         jLabelName.setText("First name:");
 
@@ -54,12 +51,12 @@ public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
 
         jLabelDepartment.setText("Department:");
 
-        jComboBoxDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jobs Department", "Personal Org. Department", "Universities Department" }));
+        jComboBoxDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Local Investor", "Government Organization" }));
 
-        jButtonAdd.setText("Submit");
-        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAdd2.setText("Submit");
+        jButtonAdd2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddActionPerformed(evt);
+                jButtonAdd2ActionPerformed(evt);
             }
         });
 
@@ -93,7 +90,7 @@ public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
                 .addGap(60, 60, 60))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonAdd)
+                .addComponent(jButtonAdd2)
                 .addGap(124, 124, 124))
         );
         layout.setVerticalGroup(
@@ -118,25 +115,26 @@ public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
                     .addComponent(jLabelDepartment)
                     .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonAdd)
+                .addComponent(jButtonAdd2)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
+    private void jButtonAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdd2ActionPerformed
         // TODO add your handling code here:
         String first_name, last_name, emailId, department;
-        
+
         first_name = jTextFieldName.getText();
         last_name = jTextFieldLastName.getText();
         emailId = jTextFieldEmailID.getText();
         department = jComboBoxDepartment.getSelectedItem().toString();
-    }//GEN-LAST:event_jButtonAddActionPerformed
+    }//GEN-LAST:event_jButtonAdd2ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonAdd1;
+    private javax.swing.JButton jButtonAdd2;
     private javax.swing.JComboBox<String> jComboBoxDepartment;
     private javax.swing.JLabel jLabelDepartment;
     private javax.swing.JLabel jLabelEmailID;
