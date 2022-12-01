@@ -44,6 +44,7 @@ public class StudentAddJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
         lblHeader = new java.awt.Label();
         lblFirstname = new java.awt.Label();
         txtFirstname = new javax.swing.JTextField();
@@ -64,6 +65,9 @@ public class StudentAddJPanel extends javax.swing.JPanel {
         txtZipcode = new javax.swing.JTextField();
         btnAdd = new java.awt.Button();
         comboxType = new javax.swing.JComboBox<>();
+
+        jCheckBoxMenuItem1.setSelected(true);
+        jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
         lblHeader.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
         lblHeader.setText("Add Student");
@@ -310,6 +314,7 @@ public class StudentAddJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnAdd;
     private javax.swing.JComboBox<String> comboxType;
+    private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private java.awt.Label lblAddress;
     private java.awt.Label lblAge;
     private java.awt.Label lblContact;
