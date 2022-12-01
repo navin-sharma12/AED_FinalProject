@@ -6,7 +6,7 @@ package UI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import DataConnection.db;
-import Schooling.Schooling_Admin;
+import Schooling.Admin;
 import UI.student.StudentAddJPanel;
 import java.awt.CardLayout;
 /**
@@ -23,7 +23,7 @@ public class MainJFrame extends javax.swing.JFrame {
         initComponents();
         db.connection();
         setLayout();
-        setSize(600, 600);
+        setSize(800, 800);
     }
 
     /**
@@ -55,7 +55,7 @@ public class MainJFrame extends javax.swing.JFrame {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 542, Short.MAX_VALUE)
         );
 
         pack();
@@ -113,7 +113,7 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
 
-         StudentAddJPanel sajp = new StudentAddJPanel(workArea);
+        StudentAddJPanel sajp = new StudentAddJPanel(workArea);
         workArea.add("StudentAddJPanel",sajp);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea); 

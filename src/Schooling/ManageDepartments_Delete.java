@@ -8,12 +8,12 @@ package Schooling;
  *
  * @author navinsharma
  */
-public class Schooling_ManageDepartments_Delete extends javax.swing.JPanel {
+public class ManageDepartments_Delete extends javax.swing.JPanel {
 
     /**
      * Creates new form Schooling_Delete_Person
      */
-    public Schooling_ManageDepartments_Delete() {
+    public ManageDepartments_Delete() {
         initComponents();
     }
 
@@ -30,11 +30,11 @@ public class Schooling_ManageDepartments_Delete extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGap(0, 561, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGap(0, 532, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

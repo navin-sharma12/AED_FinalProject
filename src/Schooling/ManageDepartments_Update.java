@@ -8,12 +8,12 @@ package Schooling;
  *
  * @author navinsharma
  */
-public class Schooling_ManageDepartments_Update extends javax.swing.JPanel {
+public class ManageDepartments_Update extends javax.swing.JPanel {
 
     /**
      * Creates new form Schooling_Update_Person
      */
-    public Schooling_ManageDepartments_Update() {
+    public ManageDepartments_Update() {
         initComponents();
     }
 

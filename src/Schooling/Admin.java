@@ -10,12 +10,12 @@ import javax.swing.JPanel;
  *
  * @author navinsharma
  */
-public class Schooling_Admin extends javax.swing.JPanel {
+public class Admin extends javax.swing.JPanel {
 
     /**
      * Creates new form Schooling_Admin
      */
-    public Schooling_Admin(JPanel controlArea, JPanel workArea) {
+    public Admin(JPanel controlArea, JPanel workArea) {
         initComponents();
     }
 
@@ -28,13 +28,14 @@ public class Schooling_Admin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jSeparator1 = new javax.swing.JSeparator();
         jSplitPane1 = new javax.swing.JSplitPane();
-        jPanelLeft = new javax.swing.JPanel();
+        controlArea = new javax.swing.JPanel();
         jButtonJobPortal = new javax.swing.JButton();
         jButtonPersonalOrganization = new javax.swing.JButton();
         jButtonUniversities = new javax.swing.JButton();
         jButtonManageDepartments = new javax.swing.JButton();
-        jPanelRight = new javax.swing.JPanel();
+        workArea = new javax.swing.JPanel();
 
         jButtonJobPortal.setText("Job Portal");
         jButtonJobPortal.addActionListener(new java.awt.event.ActionListener() {
@@ -64,22 +65,22 @@ public class Schooling_Admin extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout jPanelLeftLayout = new javax.swing.GroupLayout(jPanelLeft);
-        jPanelLeft.setLayout(jPanelLeftLayout);
-        jPanelLeftLayout.setHorizontalGroup(
-            jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelLeftLayout.createSequentialGroup()
+        javax.swing.GroupLayout controlAreaLayout = new javax.swing.GroupLayout(controlArea);
+        controlArea.setLayout(controlAreaLayout);
+        controlAreaLayout.setHorizontalGroup(
+            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(controlAreaLayout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonJobPortal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonPersonalOrganization, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonUniversities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonManageDepartments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
         );
-        jPanelLeftLayout.setVerticalGroup(
-            jPanelLeftLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanelLeftLayout.createSequentialGroup()
+        controlAreaLayout.setVerticalGroup(
+            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(controlAreaLayout.createSequentialGroup()
                 .addGap(51, 51, 51)
                 .addComponent(jButtonJobPortal)
                 .addGap(50, 50, 50)
@@ -91,20 +92,20 @@ public class Schooling_Admin extends javax.swing.JPanel {
                 .addContainerGap(194, Short.MAX_VALUE))
         );
 
-        jSplitPane1.setLeftComponent(jPanelLeft);
+        jSplitPane1.setLeftComponent(controlArea);
 
-        javax.swing.GroupLayout jPanelRightLayout = new javax.swing.GroupLayout(jPanelRight);
-        jPanelRight.setLayout(jPanelRightLayout);
-        jPanelRightLayout.setHorizontalGroup(
-            jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
+        workArea.setLayout(workAreaLayout);
+        workAreaLayout.setHorizontalGroup(
+            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 519, Short.MAX_VALUE)
         );
-        jPanelRightLayout.setVerticalGroup(
-            jPanelRightLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        workAreaLayout.setVerticalGroup(
+            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 487, Short.MAX_VALUE)
         );
 
-        jSplitPane1.setRightComponent(jPanelRight);
+        jSplitPane1.setRightComponent(workArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -128,22 +129,25 @@ public class Schooling_Admin extends javax.swing.JPanel {
 
     private void jButtonManageDepartmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageDepartmentsActionPerformed
         // TODO add your handling code here:
-        Schooling_ManageDepartments md = new Schooling_ManageDepartments();
-        jSplitPane1.setRightComponent(md);
+        ManageDepartments smd = new ManageDepartments();
+        jSplitPane1.setRightComponent(smd);
     }//GEN-LAST:event_jButtonManageDepartmentsActionPerformed
 
     private void jButtonUniversitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUniversitiesActionPerformed
         // TODO add your handling code here:
+        University_ManageUniversity su = new University_ManageUniversity();
+        jSplitPane1.setRightComponent(su);
     }//GEN-LAST:event_jButtonUniversitiesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel controlArea;
     private javax.swing.JButton jButtonJobPortal;
     private javax.swing.JButton jButtonManageDepartments;
     private javax.swing.JButton jButtonPersonalOrganization;
     private javax.swing.JButton jButtonUniversities;
-    private javax.swing.JPanel jPanelLeft;
-    private javax.swing.JPanel jPanelRight;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSplitPane jSplitPane1;
+    private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 }

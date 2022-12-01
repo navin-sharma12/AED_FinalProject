@@ -4,19 +4,24 @@
  */
 package Schooling;
 
+import Users.Users;
+import Users.UsersDirectory;
+import java.sql.SQLException;
 import java.util.Date;
 
 /**
  *
  * @author navinsharma
  */
-public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
+public class ManageDepartments_Add extends javax.swing.JPanel {
 
     /**
      * Creates new form Schooling_Add_Person
      */
-    public Schooling_ManageDepartments_Add() {
+    UsersDirectory userslist;
+    public ManageDepartments_Add() {
         initComponents();
+        this.userslist = new UsersDirectory();
     }
 
     /**
@@ -42,7 +47,7 @@ public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle.setText("Add Person");
+        jLabelTitle.setText("Manage Departments");
 
         jLabelName.setText("First name:");
 
@@ -125,12 +130,24 @@ public class Schooling_ManageDepartments_Add extends javax.swing.JPanel {
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
-        String first_name, last_name, emailId, department;
+        String first_name, last_name, emailId, department, username, password;
         
         first_name = jTextFieldName.getText();
         last_name = jTextFieldLastName.getText();
         emailId = jTextFieldEmailID.getText();
         department = jComboBoxDepartment.getSelectedItem().toString();
+        username = last_name+"."+first_name;
+        password = last_name+"."+first_name;
+        
+        Users u = new Users(first_name, last_name, emailId, department, username, password);
+        try
+        {
+            userslist.addUsers(u);
+        }
+        catch(SQLException e)
+        {
+            System.out.println(e); 
+        }
     }//GEN-LAST:event_jButtonAddActionPerformed
 
 
