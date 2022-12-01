@@ -29,7 +29,7 @@ public class db
     {
        try
        {
-           System.err.println("enter conection");
+           System.err.println("enter connection");
            connection = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
            statement = connection.createStatement();
            System.out.println("Connection Opened");

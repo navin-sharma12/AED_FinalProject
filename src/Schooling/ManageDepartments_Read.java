@@ -58,6 +58,11 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable);
 
         jButtonFetch.setText("Fetch");
+        jButtonFetch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFetchActionPerformed(evt);
+            }
+        });
 
         jButtonView.setText("View");
 
@@ -79,7 +84,7 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(23, 23, 23)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -136,6 +141,12 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonFetchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFetchActionPerformed
+        // TODO add your handling code here:
+        
+//        callTableName(InputSearch);
+    }//GEN-LAST:event_jButtonFetchActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

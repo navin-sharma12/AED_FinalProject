@@ -10,12 +10,12 @@ import javax.swing.JPanel;
  *
  * @author navinsharma
  */
-public class Admin extends javax.swing.JPanel {
+public class Schooling_Admin extends javax.swing.JPanel {
 
     /**
      * Creates new form Schooling_Admin
      */
-    public Admin(JPanel controlArea, JPanel workArea) {
+    public Schooling_Admin(JPanel controlArea, JPanel workArea) {
         initComponents();
     }
 

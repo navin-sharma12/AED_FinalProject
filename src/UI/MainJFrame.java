@@ -6,7 +6,7 @@ package UI;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import DataConnection.db;
-import Schooling.Admin;
+import Schooling.Schooling_Admin;
 import UI.student.StudentAddJPanel;
 import java.awt.CardLayout;
 /**

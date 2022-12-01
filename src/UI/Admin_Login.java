@@ -4,7 +4,7 @@
  */
 package UI;
 
-import Schooling.Admin;
+import Schooling.Schooling_Admin;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -110,7 +110,7 @@ public class Admin_Login extends javax.swing.JPanel {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
-        Admin cajp = new Admin(controlArea, workArea);
+        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 

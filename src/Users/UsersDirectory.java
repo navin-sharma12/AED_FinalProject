@@ -6,6 +6,7 @@ package Users;
 
 import DataConnection.db;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -45,5 +46,26 @@ public class UsersDirectory
             throw new IllegalArgumentException(e.getMessage() + "Record not saved");
         }
 
+    }
+    
+    public void getUsers(Users ug) throws SQLException
+    {
+        try
+        {
+            ResultSet sq = db.selectQuery("select * from users");
+//            sq.getString(1);
+//            sq.execute();
+            while(sq.next())
+            {
+                ug.setFirstname(sq.getString(1));
+                ug.setLastname(sq.getString(2));
+                ug.setEmailid(sq.getString(3));
+                ug.setDepartments(sq.getString(4));
+            }
+        }
+        catch (IllegalArgumentException e) 
+        {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
     }
 }
