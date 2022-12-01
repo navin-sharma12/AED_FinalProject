@@ -8,12 +8,12 @@ package Schooling;
  *
  * @author navinsharma
  */
-public class Schooling_University_Login extends javax.swing.JPanel {
+public class University_ManageUniversity_Delete extends javax.swing.JPanel {
 
     /**
-     * Creates new form Schooling_University_Login
+     * Creates new form Schooling_ManageUniversity_Delete
      */
-    public Schooling_University_Login() {
+    public University_ManageUniversity_Delete() {
         initComponents();
     }
 
