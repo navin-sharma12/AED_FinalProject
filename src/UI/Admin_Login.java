@@ -4,7 +4,7 @@
  */
 package UI;
 
-import Schooling.Schooling_Admin;
+import Schooling.UI.Schooling_Admin;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 

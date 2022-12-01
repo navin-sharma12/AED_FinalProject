@@ -43,8 +43,9 @@
                   <Group type="102" alignment="1" attributes="0">
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Component id="jButton1" max="32767" attributes="0"/>
-                          <Component id="jButton2" min="-2" pref="138" max="-2" attributes="0"/>
+                          <Component id="jButtonManageUIniversity" max="32767" attributes="0"/>
+                          <Component id="jButtonManageCourses" max="32767" attributes="0"/>
+                          <Component id="jButtonManageFieldOfInterest" alignment="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   </Group>
@@ -54,23 +55,33 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="76" max="-2" attributes="0"/>
-                      <Component id="jButton1" min="-2" max="-2" attributes="0"/>
+                      <Component id="jButtonManageUIniversity" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
-                      <Component id="jButton2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace pref="393" max="32767" attributes="0"/>
+                      <Component id="jButtonManageCourses" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="jButtonManageFieldOfInterest" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="322" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
           </Layout>
           <SubComponents>
-            <Component class="javax.swing.JButton" name="jButton1">
+            <Component class="javax.swing.JButton" name="jButtonManageUIniversity">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manage University"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonManageUIniversityActionPerformed"/>
+              </Events>
             </Component>
-            <Component class="javax.swing.JButton" name="jButton2">
+            <Component class="javax.swing.JButton" name="jButtonManageCourses">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manage Courses"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JButton" name="jButtonManageFieldOfInterest">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manage Field Of Interest"/>
               </Properties>
             </Component>
           </SubComponents>

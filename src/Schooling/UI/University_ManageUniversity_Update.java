@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Schooling;
+package Schooling.UI;
 
 /**
  *
  * @author navinsharma
  */
-public class ManageDepartments_Update extends javax.swing.JPanel {
+public class University_ManageUniversity_Update extends javax.swing.JPanel {
 
     /**
-     * Creates new form Schooling_Update_Person
+     * Creates new form Schooling_ManageUniversity_Update
      */
-    public ManageDepartments_Update() {
+    public University_ManageUniversity_Update() {
         initComponents();
     }
 

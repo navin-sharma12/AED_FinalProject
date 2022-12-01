@@ -2,18 +2,18 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Schooling;
+package Schooling.UI;
 
 /**
  *
  * @author navinsharma
  */
-public class ManageDepartments_Delete extends javax.swing.JPanel {
+public class University_ManageUniversity_Add extends javax.swing.JPanel {
 
     /**
-     * Creates new form Schooling_Delete_Person
+     * Creates new form Schooling_ManageUniversity_Add
      */
-    public ManageDepartments_Delete() {
+    public University_ManageUniversity_Add() {
         initComponents();
     }
 
@@ -30,11 +30,11 @@ public class ManageDepartments_Delete extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 561, Short.MAX_VALUE)
+            .addGap(0, 514, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 532, Short.MAX_VALUE)
+            .addGap(0, 485, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 

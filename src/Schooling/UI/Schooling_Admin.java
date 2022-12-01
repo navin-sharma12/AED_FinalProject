@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Schooling;
+package Schooling.UI;
 
 import javax.swing.JPanel;
 
@@ -135,7 +135,7 @@ public class Schooling_Admin extends javax.swing.JPanel {
 
     private void jButtonUniversitiesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUniversitiesActionPerformed
         // TODO add your handling code here:
-        University_ManageUniversity su = new University_ManageUniversity();
+        Schooling_University su = new Schooling_University();
         jSplitPane1.setRightComponent(su);
     }//GEN-LAST:event_jButtonUniversitiesActionPerformed
 
