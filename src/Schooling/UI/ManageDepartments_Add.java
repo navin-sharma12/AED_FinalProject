@@ -131,6 +131,7 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
         String first_name, last_name, emailId, department, username, password;
+        int department_id;
         
         first_name = jTextFieldName.getText();
         last_name = jTextFieldLastName.getText();
@@ -138,8 +139,9 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
         department = jComboBoxDepartment.getSelectedItem().toString();
         username = last_name+"."+first_name;
         password = last_name+"."+first_name;
+        department_id = 1; //to be changed with loop of id
         
-        Users u = new Users(first_name, last_name, emailId, department, username, password);
+        Users u = new Users(department_id, first_name, last_name, emailId, department, username, password);
         try
         {
             userslist.addUsers(u);
