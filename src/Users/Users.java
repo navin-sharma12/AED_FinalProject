@@ -11,8 +11,9 @@ package Users;
 public class Users 
 {
     private String firstname, lastname, emailid, departments, username, password;
+    private int department_id;
     
-    public Users(String firstname, String lastname, String emailid, String departments, String username, String password)
+    public Users(int department_id, String firstname, String lastname, String emailid, String departments, String username, String password)
     {
         this.firstname = firstname;
         this.lastname = lastname;
@@ -20,6 +21,15 @@ public class Users
         this.departments = departments;
         this.username = username;
         this.password = password;
+        this.department_id = department_id;
+    }
+
+    public int getDepartment_id() {
+        return department_id;
+    }
+
+    public void setDepartment_id(int department_id) {
+        this.department_id = department_id;
     }
 
     public String getFirstname() {

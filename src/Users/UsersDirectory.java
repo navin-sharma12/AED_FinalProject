@@ -32,13 +32,14 @@ public class UsersDirectory
     {
         try 
         {
-            PreparedStatement ps = db.getPreStatement("Insert into user(firstname, lastname, emailid, organization, username, password)" + "values (?,?,?,?,?,?)");
-            ps.setString(1, u.getFirstname());
-            ps.setString(2, u.getLastname());
-            ps.setString(3, u.getEmailid());
-            ps.setString(4, u.getDepartments());
-            ps.setString(5, u.getUsername());
-            ps.setString(6, u.getPassword());
+            PreparedStatement ps = db.getPreStatement("Insert into user(department_id, firstname, lastname, emailid, organization, username, password)" + "values (?,?,?,?,?,?,?)");
+            ps.setInt(1, u.getDepartment_id());
+            ps.setString(2, u.getFirstname());
+            ps.setString(3, u.getLastname());
+            ps.setString(4, u.getEmailid());
+            ps.setString(5, u.getDepartments());
+            ps.setString(6, u.getUsername());
+            ps.setString(7, u.getPassword());
             ps.execute();
         } 
         catch (IllegalArgumentException e) 
@@ -53,8 +54,6 @@ public class UsersDirectory
         try
         {
             ResultSet sq = db.selectQuery("select * from users");
-//            sq.getString(1);
-//            sq.execute();
             while(sq.next())
             {
                 ug.setFirstname(sq.getString(1));

@@ -30,6 +30,8 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
         jLabelCoursename = new javax.swing.JLabel();
         jTextFieldCourseName = new javax.swing.JTextField();
         jButtonSubmit = new javax.swing.JButton();
+        jComboBoxCategory = new javax.swing.JComboBox<>();
+        jLabelCategory = new javax.swing.JLabel();
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -40,6 +42,10 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
 
         jButtonSubmit.setText("Submit");
 
+        jComboBoxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+
+        jLabelCategory.setText("Category:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -47,9 +53,13 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
             .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(58, 58, 58)
-                .addComponent(jLabelCoursename)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelCoursename)
+                    .addComponent(jLabelCategory))
                 .addGap(49, 49, 49)
-                .addComponent(jTextFieldCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, 198, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBoxCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextFieldCourseName, javax.swing.GroupLayout.DEFAULT_SIZE, 198, Short.MAX_VALUE))
                 .addContainerGap(49, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -66,14 +76,20 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
                     .addComponent(jLabelCoursename)
                     .addComponent(jTextFieldCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCategory))
+                .addGap(18, 18, 18)
                 .addComponent(jButtonSubmit)
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonSubmit;
+    private javax.swing.JComboBox<String> jComboBoxCategory;
+    private javax.swing.JLabel jLabelCategory;
     private javax.swing.JLabel jLabelCoursename;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JTextField jTextFieldCourseName;

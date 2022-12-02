@@ -26,19 +26,106 @@ public class University_ManageUniversity_Add extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButtonSubmit = new javax.swing.JButton();
+        jLabelCoursename = new javax.swing.JLabel();
+        jLabelTitle = new javax.swing.JLabel();
+        jLabelCategory = new javax.swing.JLabel();
+        jComboBoxCategory = new javax.swing.JComboBox<>();
+        jComboBoxCourseName = new javax.swing.JComboBox<>();
+        jLabelUniversityName = new javax.swing.JLabel();
+        jTextFieldUniversityName = new javax.swing.JTextField();
+        jLabelSeatsInCourse = new javax.swing.JLabel();
+        jTextFieldSeatInCourse = new javax.swing.JTextField();
+
+        jButtonSubmit.setText("Submit");
+
+        jLabelCoursename.setText("Course name:");
+
+        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("Add University");
+        jLabelTitle.setToolTipText("");
+
+        jLabelCategory.setText("Category:");
+
+        jComboBoxCourseName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCourseNameActionPerformed(evt);
+            }
+        });
+
+        jLabelUniversityName.setText("University name:");
+
+        jLabelSeatsInCourse.setText("Seats in course:");
+
+        jTextFieldSeatInCourse.setToolTipText("");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 514, Short.MAX_VALUE)
+            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 421, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelCoursename)
+                    .addComponent(jLabelCategory)
+                    .addComponent(jLabelUniversityName)
+                    .addComponent(jLabelSeatsInCourse))
+                .addGap(32, 32, 32)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jComboBoxCategory, 0, 198, Short.MAX_VALUE)
+                    .addComponent(jComboBoxCourseName, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jTextFieldUniversityName)
+                    .addComponent(jTextFieldSeatInCourse))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jButtonSubmit)
+                .addGap(108, 108, 108))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 485, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addComponent(jLabelTitle)
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelUniversityName)
+                    .addComponent(jTextFieldUniversityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCoursename)
+                    .addComponent(jComboBoxCourseName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelCategory))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelSeatsInCourse)
+                    .addComponent(jTextFieldSeatInCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(jButtonSubmit)
+                .addContainerGap(24, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBoxCourseNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCourseNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCourseNameActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonSubmit;
+    private javax.swing.JComboBox<String> jComboBoxCategory;
+    private javax.swing.JComboBox<String> jComboBoxCourseName;
+    private javax.swing.JLabel jLabelCategory;
+    private javax.swing.JLabel jLabelCoursename;
+    private javax.swing.JLabel jLabelSeatsInCourse;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JLabel jLabelUniversityName;
+    private javax.swing.JTextField jTextFieldSeatInCourse;
+    private javax.swing.JTextField jTextFieldUniversityName;
     // End of variables declaration//GEN-END:variables
 }
