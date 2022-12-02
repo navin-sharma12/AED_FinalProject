@@ -43,7 +43,21 @@ public class Student {
         this.address = address;
         this.zipcode = zipcode;
     }
-
+    
+    public Student(int id,String firstname,String lastname,String gender,int age,long contact_no,Date dob,String type,String address,String zipcode)
+    {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.gender = gender;
+        this.age = age;
+        this.contact_no = contact_no;
+        this.dob = dob;
+        this.type = type;
+        this.address = address;
+        this.zipcode = zipcode;
+    }        
+            
     public int getId() {
         return id;
     }
