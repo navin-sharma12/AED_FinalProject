@@ -7,7 +7,10 @@ package Student;
 import DataConnection.db;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
+import java.sql.ResultSet;
+
 import java.sql.SQLException;
+import java.util.Date;
 
 /**
  *
@@ -15,10 +18,10 @@ import java.sql.SQLException;
  */
 public class StudentDirectory {
 
-    ArrayList<Student> studentlist = new ArrayList();
+    private ArrayList<Student> studentlist;
 
     public StudentDirectory() {
-//        studentlist = new ArrayList();
+        this.studentlist = new ArrayList<Student>();
     }
 
     public ArrayList<Student> getStudentlist() {
@@ -44,6 +47,30 @@ public class StudentDirectory {
             ps.execute();
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+
+    }
+
+    public void getStudent() throws SQLException {
+        try {
+            ResultSet resultSet = db.selectQuery("select * from student");
+            while (resultSet.next()) {
+                System.out.println(resultSet.getString(2));
+                studentlist.add(new Student(resultSet.getInt(1),
+                        resultSet.getString(2),
+                        resultSet.getString(3),
+                        resultSet.getString(6),
+                        resultSet.getInt(5),
+                        resultSet.getLong(7),
+                       resultSet.getDate(8),
+                        resultSet.getString(13),
+                        resultSet.getString(15),
+                        resultSet.getString(16)));
+            }
+           
+
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
         }
 
     }

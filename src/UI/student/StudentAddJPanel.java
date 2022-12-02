@@ -29,9 +29,11 @@ public class StudentAddJPanel extends javax.swing.JPanel {
      JPanel workArea;
     public StudentAddJPanel(JPanel workArea)
     {
-         initComponents();
+        initComponents();
         this.student_list = new StudentDirectory();
         this.workArea = workArea;
+        showTable();
+        
       
     }
 
@@ -334,4 +336,16 @@ public class StudentAddJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtLastname;
     private javax.swing.JTextField txtZipcode;
     // End of variables declaration//GEN-END:variables
+
+    private void showTable() {
+       try{
+           student_list.getStudent();
+         System.out.println(student_list.getStudentlist()) ;   
+       } 
+      
+        catch(SQLException e)
+        {
+            System.out.println(e); 
+        }
+    }
 }
