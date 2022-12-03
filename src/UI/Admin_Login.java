@@ -4,9 +4,11 @@
  */
 package UI;
 
+import Admin.Admin;
 import Schooling.UI.Schooling_Admin;
 import System_Admin.System_Admin;
 import java.awt.CardLayout;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JPanel;
 
@@ -21,14 +23,14 @@ public class Admin_Login extends javax.swing.JPanel {
      */
     JPanel controlArea;
     JPanel workArea;
-    System_Admin system_admin;
+    Admin admin;
 
-    public Admin_Login(JPanel workArea, JPanel controlArea, System_Admin system_admin) {
+    public Admin_Login(JPanel workArea, JPanel controlArea) {
         initComponents();
         this.controlArea = controlArea;
         this.workArea = workArea;
-        this.system_admin = system_admin;
-        getAdmin();
+        this.admin = new Admin();
+//        getAdmin();
     }
 
     /**
@@ -121,10 +123,17 @@ public class Admin_Login extends javax.swing.JPanel {
         String password = jPasswordFieldPassword.getText();
         String department = String.valueOf(jComboBoxCategory.getSelectedItem());
 
-        boolean login = system_admin.getAdmin_directory().checkLogin(username, password, department.toLowerCase());
+        try {
+            ResultSet res = admin.checkLogin(username, password, department.toLowerCase());
+            if(res.next())
+            {
+                 System.out.println(res.getString(2));
+            }
+           
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
 
-        System.out.println(login);
-        System.out.println(department);
 //        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
 //        controlArea.add("ControlAreaJPanel", cajp);
 //        CardLayout layout2 = (CardLayout) controlArea.getLayout();
@@ -159,11 +168,11 @@ public class Admin_Login extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
 
-    private void getAdmin() {
-        try {
-            system_admin.getAdmin_directory().getAdminList();
-        } catch (SQLException e) {
-            System.out.println(e);
-        }
-    }
+//    private void getAdmin() {
+//        try {
+//            .getAdmin_directory().getAdminList();
+//        } catch (SQLException e) {
+//            System.out.println(e);
+//        }
+//    }
 }

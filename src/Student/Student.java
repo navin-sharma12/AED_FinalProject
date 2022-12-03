@@ -4,7 +4,12 @@
  */
 package Student;
 
+import DataConnection.db;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.Date;
+
 
 /**
  *
@@ -26,13 +31,16 @@ public class Student {
     private String type;
     private String housing_type;
     private String address;
-    private String zipcode;
+    private int zipcode;
     private String university_id;
     private String school_id;
     
     
-    public Student(String firstname,String lastname,String gender,int age,long contact_no,Date dob,String type,String address,String zipcode)
+    
+    public Student(String firstname,String lastname,String gender,int age,long contact_no,Date dob,String type,String address,int zipcode)
     {
+        System.out.println("entered");
+        System.out.println(dob);
         this.firstname = firstname;
         this.lastname = lastname;
         this.gender = gender;
@@ -42,9 +50,10 @@ public class Student {
         this.type = type;
         this.address = address;
         this.zipcode = zipcode;
+        System.out.println("this dob" + this.dob);
     }
     
-    public Student(int id,String firstname,String lastname,String gender,int age,long contact_no,Date dob,String type,String address,String zipcode)
+    public Student(int id,String firstname,String lastname,String gender,int age,long contact_no,Date dob,String type,String address,int zipcode)
     {
         this.id = id;
         this.firstname = firstname;
@@ -57,6 +66,9 @@ public class Student {
         this.address = address;
         this.zipcode = zipcode;
     }        
+
+    public Student() {
+    }
             
     public int getId() {
         return id;
@@ -170,13 +182,15 @@ public class Student {
         this.address = address;
     }
 
-    public String getZipcode() {
+    public int getZipcode() {
         return zipcode;
     }
 
-    public void setZipcode(String zipcode) {
+    public void setZipcode(int zipcode) {
         this.zipcode = zipcode;
     }
+
+   
 
     public String getUniversity_id() {
         return university_id;
@@ -192,6 +206,52 @@ public class Student {
 
     public void setSchool_id(String school_id) {
         this.school_id = school_id;
+    }
+    
+    
+    public void addStudent(Student s) throws SQLException {
+        try {
+             System.out.print("Inside dob");
+            System.out.print(s.getDob());
+            PreparedStatement ps = db.getPreStatement("Insert into student(firstname,lastname,gender,age,contact_no,dob,type,address,zipcode)" + "values (?,?,?,?,?,?,?,?,?)");
+            ps.setString(1, s.getFirstname());
+            ps.setString(2, s.getLastname());
+            ps.setString(3, s.getGender());
+            ps.setInt(4, s.getAge());
+            ps.setLong(5, s.getContact_no());
+            ps.setDate(6, new java.sql.Date(s.getDob().getTime()));
+            ps.setString(7, s.getType());
+            ps.setString(8, s.getAddress());
+            ps.setInt(9, s.getZipcode());
+            ps.execute();
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+
+    }
+    
+    public ResultSet getStudent() throws SQLException {
+        try {
+            ResultSet resultSet = db.selectQuery("select * from student");
+//            while (resultSet.next()) 
+//            {
+//                studentlist.add(new Student(resultSet.getInt(1),
+//                        resultSet.getString(2),
+//                        resultSet.getString(3),
+//                        resultSet.getString(6),
+//                        resultSet.getInt(5),
+//                        resultSet.getLong(7),
+//                       resultSet.getDate(8),
+//                        resultSet.getString(13),
+//                        resultSet.getString(15),
+//                        resultSet.getString(16)));
+//            }
+           return resultSet;
+
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
     }
     
 }
