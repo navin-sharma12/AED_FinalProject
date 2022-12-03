@@ -4,9 +4,13 @@
  */
 package Schooling.UI;
 
+import DataConnection.db;
 import Schooling.Model.FieldOfInterest;
 import Schooling.Model.FieldOfInterestDirectory;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,11 +22,9 @@ public class University_ManageFieldOfInterest_Add extends javax.swing.JPanel {
     /**
      * Creates new form University_ManageFieldOfInterest_Add
      */
-    FieldOfInterestDirectory field_of_interest_directory;
     public University_ManageFieldOfInterest_Add() 
     {
         initComponents();
-        this.field_of_interest_directory = field_of_interest_directory;
     }
 
     /**
@@ -92,14 +94,15 @@ public class University_ManageFieldOfInterest_Add extends javax.swing.JPanel {
         }
         else
         {
-            FieldOfInterest foi = new FieldOfInterest(category);
             try 
             {
-                field_of_interest_directory.addFieldOfInterest(foi);
+                PreparedStatement ps = db.getPreStatement("Insert into field_of_interest(category)" + "values (?)");
+                ps.setString(1, category);
+                ps.execute();
             } 
-            catch (SQLException e)
+            catch (SQLException ex) 
             {
-                System.out.println(e);
+                Logger.getLogger(University_ManageFieldOfInterest_Add.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jButtonSubmitActionPerformed

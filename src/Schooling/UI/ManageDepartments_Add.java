@@ -4,10 +4,14 @@
  */
 package Schooling.UI;
 
+import DataConnection.db;
 import Users.Users;
 import Users.UsersDirectory;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -160,14 +164,21 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
                     password = last_name + "." + first_name;
                     department_id = 1; //to be changed with loop of id
 
-                    Users u = new Users(department_id, first_name, last_name, emailId, department, username, password);
                     try 
                     {
-                        userslist.addUsers(u);
-                    } 
-                    catch (SQLException e) 
+                        PreparedStatement ps = db.getPreStatement("Insert into user(department_id, firstname, lastname, emailid, organization, username, password)" + "values (?,?,?,?,?,?,?)");
+                        ps.setInt(1, department_id);
+                        ps.setString(2, first_name);
+                        ps.setString(3, last_name);
+                        ps.setString(4, emailId);
+                        ps.setString(5, department);
+                        ps.setString(6, username);
+                        ps.setString(7, password);
+                        ps.execute();
+                    }
+                    catch (SQLException ex) 
                     {
-                        System.out.println(e);
+                        Logger.getLogger(ManageDepartments_Add.class.getName()).log(Level.SEVERE, null, ex);
                     }
                 }
             }

@@ -4,8 +4,14 @@
  */
 package Schooling.UI;
 
+import DataConnection.db;
+import Student.Student;
 import Users.Users;
 import Users.UsersDirectory;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -17,16 +23,9 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_Read_Person
      */
-    UsersDirectory users_directory;
-    public ManageDepartments_Read(UsersDirectory users_directory) 
+    public ManageDepartments_Read() 
     {
         initComponents();
-        this.users_directory = users_directory;
-    }
-    
-    public ManageDepartments_Read()
-    {
-        
     }
 
     /**
@@ -156,7 +155,14 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
 
     private void jButtonFetchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFetchActionPerformed
         // TODO add your handling code here:
-        ViewTable();
+        try 
+        {
+            ViewTable();
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(ManageDepartments_Read.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonFetchActionPerformed
 
 
@@ -176,19 +182,27 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
 
-    private void ViewTable()
+    private void ViewTable() throws SQLException
     {
         DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
         table_model.setRowCount(0);
         
-        for (Users u : users_directory.getUserslist())
+        try 
         {
-            Object[] row = new Object[4];
-            row[0] = u;
-            row[1] = u.getLastname();
-            row[2] = u.getEmailid();
-            row[3] = u.getDepartments();
+            ResultSet resultSet = db.selectQuery("select * from user");
+            while (resultSet.next()) 
+            {
+                Object[] row = new Object[4];
+                row[0] = resultSet.getString(3);
+                row[1] = resultSet.getString(4);
+                row[2] = resultSet.getString(5);
+                row[3] = resultSet.getString(6);
+                table_model.addRow(row);
+            }
+        } 
+        catch (IllegalArgumentException e) 
+        {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
         }
     }
-    
 }

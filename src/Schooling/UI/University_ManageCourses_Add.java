@@ -4,6 +4,14 @@
  */
 package Schooling.UI;
 
+import DataConnection.db;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author navinsharma
@@ -13,8 +21,14 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
     /**
      * Creates new form University_ManageCourses_Add
      */
-    public University_ManageCourses_Add() {
+    public University_ManageCourses_Add() throws SQLException {
         initComponents();
+        jComboBoxCategory.removeAllItems();
+        ResultSet resultSet = db.selectQuery("select * from field_of_interest");
+        while(resultSet.next())
+        {
+            jComboBoxCategory.addItem(resultSet.getString(2));
+        }
     }
 
     /**
@@ -46,8 +60,6 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
                 jButtonSubmitActionPerformed(evt);
             }
         });
-
-        jComboBoxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jLabelCategory.setText("Category:");
 
@@ -95,7 +107,33 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
         String course_name, category;
         
         course_name = jTextFieldCourseName.getText();
-        category = jComboBoxCategory.getSelectedItem().toString();
+        if(course_name.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Course name cannot be null.");
+        }
+        else
+        {
+            category = jComboBoxCategory.getSelectedItem().toString();
+            try 
+            {
+                ResultSet resultSet = db.selectQuery("select * from field_of_interest");
+                while (resultSet.next()) 
+                {
+                    if (resultSet.getString(2).equals(category))
+                    {
+                        PreparedStatement ps = db.getPreStatement("Insert into course(category_id, course_name)" + "values (?, ?)");
+                        ps.setInt(1, resultSet.getInt(1));
+                        ps.setString(2, course_name);
+                        ps.execute();
+                        break;
+                    }
+                }
+            } 
+            catch (SQLException ex) 
+            {
+                Logger.getLogger(University_ManageCourses_Add.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jButtonSubmitActionPerformed
 
 
