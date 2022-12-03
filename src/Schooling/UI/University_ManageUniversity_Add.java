@@ -38,6 +38,11 @@ public class University_ManageUniversity_Add extends javax.swing.JPanel {
         jTextFieldSeatInCourse = new javax.swing.JTextField();
 
         jButtonSubmit.setText("Submit");
+        jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSubmitActionPerformed(evt);
+            }
+        });
 
         jLabelCoursename.setText("Course name:");
 
@@ -114,6 +119,10 @@ public class University_ManageUniversity_Add extends javax.swing.JPanel {
     private void jComboBoxCourseNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCourseNameActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBoxCourseNameActionPerformed
+
+    private void jButtonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmitActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonSubmitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

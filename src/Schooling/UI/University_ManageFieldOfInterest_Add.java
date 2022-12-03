@@ -4,6 +4,11 @@
  */
 package Schooling.UI;
 
+import Schooling.Model.FieldOfInterest;
+import Schooling.Model.FieldOfInterestDirectory;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author navinsharma
@@ -13,8 +18,11 @@ public class University_ManageFieldOfInterest_Add extends javax.swing.JPanel {
     /**
      * Creates new form University_ManageFieldOfInterest_Add
      */
-    public University_ManageFieldOfInterest_Add() {
+    FieldOfInterestDirectory field_of_interest_directory;
+    public University_ManageFieldOfInterest_Add() 
+    {
         initComponents();
+        this.field_of_interest_directory = field_of_interest_directory;
     }
 
     /**
@@ -38,6 +46,11 @@ public class University_ManageFieldOfInterest_Add extends javax.swing.JPanel {
         jLabelCourseField.setText("Course field:");
 
         jButtonSubmit.setText("Submit");
+        jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSubmitActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -69,6 +82,27 @@ public class University_ManageFieldOfInterest_Add extends javax.swing.JPanel {
                 .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmitActionPerformed
+        // TODO add your handling code here:
+        String category = jTextFieldCourseField.getText();
+        if(category.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Category cannot be null.");
+        }
+        else
+        {
+            FieldOfInterest foi = new FieldOfInterest(category);
+            try 
+            {
+                field_of_interest_directory.addFieldOfInterest(foi);
+            } 
+            catch (SQLException e)
+            {
+                System.out.println(e);
+            }
+        }
+    }//GEN-LAST:event_jButtonSubmitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

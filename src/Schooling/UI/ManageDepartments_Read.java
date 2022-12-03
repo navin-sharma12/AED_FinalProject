@@ -4,6 +4,10 @@
  */
 package Schooling.UI;
 
+import Users.Users;
+import Users.UsersDirectory;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author navinsharma
@@ -13,8 +17,16 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_Read_Person
      */
-    public ManageDepartments_Read() {
+    UsersDirectory users_directory;
+    public ManageDepartments_Read(UsersDirectory users_directory) 
+    {
         initComponents();
+        this.users_directory = users_directory;
+    }
+    
+    public ManageDepartments_Read()
+    {
+        
     }
 
     /**
@@ -144,8 +156,7 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
 
     private void jButtonFetchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFetchActionPerformed
         // TODO add your handling code here:
-        
-//        callTableName(InputSearch);
+        ViewTable();
     }//GEN-LAST:event_jButtonFetchActionPerformed
 
 
@@ -164,4 +175,20 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldLastName;
     private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
+
+    private void ViewTable()
+    {
+        DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
+        table_model.setRowCount(0);
+        
+        for (Users u : users_directory.getUserslist())
+        {
+            Object[] row = new Object[4];
+            row[0] = u;
+            row[1] = u.getLastname();
+            row[2] = u.getEmailid();
+            row[3] = u.getDepartments();
+        }
+    }
+    
 }

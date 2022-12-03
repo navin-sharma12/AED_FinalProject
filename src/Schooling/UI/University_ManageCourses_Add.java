@@ -41,6 +41,11 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
         jLabelCoursename.setText("Course name:");
 
         jButtonSubmit.setText("Submit");
+        jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSubmitActionPerformed(evt);
+            }
+        });
 
         jComboBoxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -84,6 +89,14 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButtonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmitActionPerformed
+        // TODO add your handling code here:
+        String course_name, category;
+        
+        course_name = jTextFieldCourseName.getText();
+        category = jComboBoxCategory.getSelectedItem().toString();
+    }//GEN-LAST:event_jButtonSubmitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

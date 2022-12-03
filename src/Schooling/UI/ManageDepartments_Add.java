@@ -8,6 +8,7 @@ import Users.Users;
 import Users.UsersDirectory;
 import java.sql.SQLException;
 import java.util.Date;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -134,21 +135,42 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
         int department_id;
         
         first_name = jTextFieldName.getText();
-        last_name = jTextFieldLastName.getText();
-        emailId = jTextFieldEmailID.getText();
-        department = jComboBoxDepartment.getSelectedItem().toString();
-        username = last_name+"."+first_name;
-        password = last_name+"."+first_name;
-        department_id = 1; //to be changed with loop of id
-        
-        Users u = new Users(department_id, first_name, last_name, emailId, department, username, password);
-        try
+        if(first_name.isEmpty())
         {
-            userslist.addUsers(u);
+            JOptionPane.showMessageDialog(this, "First name cannot be null.");
         }
-        catch(SQLException e)
+        else
         {
-            System.out.println(e); 
+            last_name = jTextFieldLastName.getText();
+            if (last_name.isEmpty()) 
+            {
+                JOptionPane.showMessageDialog(this, "Last name cannot be null.");
+            } 
+            else 
+            {
+                emailId = jTextFieldEmailID.getText();
+                department = jComboBoxDepartment.getSelectedItem().toString();
+                if (department.isEmpty()) 
+                {
+                    JOptionPane.showMessageDialog(this, "department cannot be null.");
+                }
+                else
+                {
+                    username = last_name + "." + first_name;
+                    password = last_name + "." + first_name;
+                    department_id = 1; //to be changed with loop of id
+
+                    Users u = new Users(department_id, first_name, last_name, emailId, department, username, password);
+                    try 
+                    {
+                        userslist.addUsers(u);
+                    } 
+                    catch (SQLException e) 
+                    {
+                        System.out.println(e);
+                    }
+                }
+            }
         }
     }//GEN-LAST:event_jButtonAddActionPerformed
 

@@ -8,7 +8,6 @@ import DataConnection.db;
 import java.sql.PreparedStatement;
 import java.util.ArrayList;
 import java.sql.ResultSet;
-
 import java.sql.SQLException;
 import java.util.Date;
 
@@ -54,8 +53,8 @@ public class StudentDirectory {
     public void getStudent() throws SQLException {
         try {
             ResultSet resultSet = db.selectQuery("select * from student");
-            while (resultSet.next()) {
-                System.out.println(resultSet.getString(2));
+            while (resultSet.next()) 
+            {
                 studentlist.add(new Student(resultSet.getInt(1),
                         resultSet.getString(2),
                         resultSet.getString(3),

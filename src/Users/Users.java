@@ -11,7 +11,7 @@ package Users;
 public class Users 
 {
     private String firstname, lastname, emailid, departments, username, password;
-    private int department_id;
+    private int department_id, id;
     
     public Users(int department_id, String firstname, String lastname, String emailid, String departments, String username, String password)
     {
@@ -23,14 +23,16 @@ public class Users
         this.password = password;
         this.department_id = department_id;
     }
-
-    public int getDepartment_id() {
-        return department_id;
-    }
-
-    public void setDepartment_id(int department_id) {
+    
+    public Users(int id, int department_id, String firstname, String lastname, String emailid, String departments)
+    {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.emailid = emailid;
+        this.departments = departments;
         this.department_id = department_id;
-    }
+    }    
 
     public String getFirstname() {
         return firstname;
@@ -79,6 +81,25 @@ public class Users
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public int getDepartment_id() {
+        return department_id;
+    }
+
+    public void setDepartment_id(int department_id) {
+        this.department_id = department_id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
     
-    
+    @Override
+    public String toString() {
+        return firstname;
+    }
 }

@@ -17,6 +17,11 @@ import java.util.ArrayList;
 public class UsersDirectory 
 {
     ArrayList<Users> userslist = new ArrayList();
+    
+    public UsersDirectory()
+    {
+        this.userslist = new ArrayList<Users>();
+    }
 
     public ArrayList<Users> getUserslist() 
     {
@@ -49,17 +54,19 @@ public class UsersDirectory
 
     }
     
-    public void getUsers(Users ug) throws SQLException
+    public void getUsers() throws SQLException
     {
         try
         {
             ResultSet sq = db.selectQuery("select * from users");
             while(sq.next())
             {
-                ug.setFirstname(sq.getString(1));
-                ug.setLastname(sq.getString(2));
-                ug.setEmailid(sq.getString(3));
-                ug.setDepartments(sq.getString(4));
+                userslist.add(new Users(sq.getInt(1), 
+                        sq.getInt(2), 
+                        sq.getString(3), 
+                        sq.getString(4), 
+                        sq.getString(5), 
+                        sq.getString(6)));
             }
         }
         catch (IllegalArgumentException e) 
