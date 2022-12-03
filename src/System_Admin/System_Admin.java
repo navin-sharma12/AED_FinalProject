@@ -4,6 +4,7 @@
  */
 package System_Admin;
 
+import Admin.AdminDirectory;
 import Schooling.Model.CoursesDirectory;
 import Schooling.Model.FieldOfInterest;
 import Schooling.Model.UniversityDirectory;
@@ -16,11 +17,13 @@ import Users.UsersDirectory;
  */
 public class System_Admin 
 {
+    
     private UsersDirectory users_directory;
     private StudentDirectory student_directory;
     private CoursesDirectory courses_directory;
     private FieldOfInterest field_of_interest_directory;
     private UniversityDirectory university_directory;
+    private AdminDirectory admin_directory;
     
     public System_Admin()
     {
@@ -29,6 +32,15 @@ public class System_Admin
         this.courses_directory = courses_directory;
         this.field_of_interest_directory = field_of_interest_directory;
         this.university_directory = university_directory;
+        this.admin_directory = new AdminDirectory();
+    }
+
+    public AdminDirectory getAdmin_directory() {
+        return admin_directory;
+    }
+
+    public void setAdmin_directory(AdminDirectory admin_directory) {
+        this.admin_directory = admin_directory;
     }
 
     public UsersDirectory getUsers_directory() {

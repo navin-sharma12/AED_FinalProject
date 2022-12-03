@@ -5,7 +5,9 @@
 package UI;
 
 import Schooling.UI.Schooling_Admin;
+import System_Admin.System_Admin;
 import java.awt.CardLayout;
+import java.sql.SQLException;
 import javax.swing.JPanel;
 
 /**
@@ -19,10 +21,14 @@ public class Admin_Login extends javax.swing.JPanel {
      */
     JPanel controlArea;
     JPanel workArea;
-    public Admin_Login(JPanel workArea, JPanel controlArea) {
+    System_Admin system_admin;
+
+    public Admin_Login(JPanel workArea, JPanel controlArea, System_Admin system_admin) {
         initComponents();
         this.controlArea = controlArea;
         this.workArea = workArea;
+        this.system_admin = system_admin;
+        getAdmin();
     }
 
     /**
@@ -110,10 +116,19 @@ public class Admin_Login extends javax.swing.JPanel {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
-        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
-        controlArea.add("ControlAreaJPanel",cajp);
-        CardLayout layout2 = (CardLayout)controlArea.getLayout();
-        layout2.next(controlArea); 
+
+        String username = jTextFieldUsername.getText();
+        String password = jPasswordFieldPassword.getText();
+        String department = String.valueOf(jComboBoxCategory.getSelectedItem());
+
+        boolean login = system_admin.getAdmin_directory().checkLogin(username, password, department.toLowerCase());
+
+        System.out.println(login);
+        System.out.println(department);
+//        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
+//        controlArea.add("ControlAreaJPanel", cajp);
+//        CardLayout layout2 = (CardLayout) controlArea.getLayout();
+//        layout2.next(controlArea);
     }//GEN-LAST:event_jButtonLoginActionPerformed
 //private void setLayout() {
 ////        Admin_Login admin_login = new Admin_Login(workArea);
@@ -143,4 +158,12 @@ public class Admin_Login extends javax.swing.JPanel {
     private javax.swing.JPasswordField jPasswordFieldPassword;
     private javax.swing.JTextField jTextFieldUsername;
     // End of variables declaration//GEN-END:variables
+
+    private void getAdmin() {
+        try {
+            system_admin.getAdmin_directory().getAdminList();
+        } catch (SQLException e) {
+            System.out.println(e);
+        }
+    }
 }
