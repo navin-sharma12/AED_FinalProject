@@ -4,7 +4,6 @@
  */
 package UI;
 
-import System_Admin.System_Admin;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -19,12 +18,12 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
      */
     JPanel controlArea;
     JPanel workArea;
-    System_Admin system_admin;
-    public ControlAreaJPanel(JPanel controlArea, JPanel workArea, System_Admin system_admin) {
+    
+    public ControlAreaJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.workArea = workArea;
         this.controlArea = controlArea;
-        this.system_admin = system_admin;
+       
     }
 
     /**
@@ -110,7 +109,7 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
         // TODO add your handling code here:
-        Admin_Login al = new Admin_Login(workArea, controlArea,system_admin);
+        Admin_Login al = new Admin_Login(workArea, controlArea);
         workArea.add("Admin_Login",al);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea); 

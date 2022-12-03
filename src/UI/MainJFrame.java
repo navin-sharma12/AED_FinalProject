@@ -7,7 +7,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import DataConnection.db;
 import Schooling.UI.Schooling_Admin;
-import System_Admin.System_Admin;
 import UI.student.StudentAddJPanel;
 import java.awt.CardLayout;
 /**
@@ -19,12 +18,12 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    System_Admin system_admin;
+   
     public MainJFrame() {
         initComponents();
         db.connection();
         setSize(800, 800);
-        this.system_admin = new System_Admin();
+       
         setLayout();
     }
 
@@ -105,12 +104,12 @@ public class MainJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setLayout() {
-        Admin_Login admin_login = new Admin_Login(controlArea, workArea,system_admin);
+        Admin_Login admin_login = new Admin_Login(controlArea, workArea);
         workArea.add("Admin_Login",admin_login);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea); 
         
-        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea,system_admin);
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 

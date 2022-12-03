@@ -8,6 +8,7 @@ import Admin.AdminDirectory;
 import Schooling.Model.CoursesDirectory;
 import Schooling.Model.FieldOfInterest;
 import Schooling.Model.UniversityDirectory;
+import Student.Student;
 import Student.StudentDirectory;
 import Users.UsersDirectory;
 
@@ -24,6 +25,7 @@ public class System_Admin
     private FieldOfInterest field_of_interest_directory;
     private UniversityDirectory university_directory;
     private AdminDirectory admin_directory;
+    private Student student;
     
     public System_Admin()
     {
@@ -33,6 +35,7 @@ public class System_Admin
         this.field_of_interest_directory = field_of_interest_directory;
         this.university_directory = university_directory;
         this.admin_directory = new AdminDirectory();
+        this.student = new Student();
     }
 
     public AdminDirectory getAdmin_directory() {

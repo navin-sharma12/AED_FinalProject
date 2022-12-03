@@ -5,7 +5,6 @@
 package UI.student;
 
 import Student.Student;
-import Student.StudentDirectory;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -19,7 +18,7 @@ import javax.swing.JPanel;
  */
 public class StudentAddJPanel extends javax.swing.JPanel {
 
-   StudentDirectory student_list;
+   
  
     /**
      * Creates new form StudentAddJPanel
@@ -27,10 +26,11 @@ public class StudentAddJPanel extends javax.swing.JPanel {
   
 
      JPanel workArea;
+     Student s;
     public StudentAddJPanel(JPanel workArea)
     {
         initComponents();
-        this.student_list = new StudentDirectory();
+        this.s = new Student();
         this.workArea = workArea;
         showTable();
         
@@ -288,12 +288,12 @@ public class StudentAddJPanel extends javax.swing.JPanel {
 //        Date dob = new Date(txtDob.getText());
 //        System.out.println(dob);
         String address = txtAddress.getText();
-        String zipcode = txtZipcode.getText();
+        int zipcode = Integer.parseInt(txtZipcode.getText());
         String type = String.valueOf(comboxType.getSelectedItem());
-        
-        Student s = new Student(firstname,lastname,gender,age,contact_no, date,type,address,zipcode);
+        System.out.println(date);
+        Student s_new = new Student(firstname,lastname,gender,age,contact_no, date,type,address,zipcode);
         try{
-             student_list.addStudent(s);
+             s_new.addStudent(s_new);
         }
         catch(SQLException e)
         {
@@ -339,8 +339,8 @@ public class StudentAddJPanel extends javax.swing.JPanel {
 
     private void showTable() {
        try{
-           student_list.getStudent();
-         System.out.println(student_list.getStudentlist()) ;   
+           s.getStudent();
+//         System.out.println(s.getStudent()) ;   
        } 
       
         catch(SQLException e)
