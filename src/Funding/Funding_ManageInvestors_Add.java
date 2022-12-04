@@ -4,6 +4,14 @@
  */
 package Funding;
 
+import DataConnection.db;
+import Schooling.UI.ManageDepartments_Add;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author richapatel
@@ -35,7 +43,7 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
         jTextFieldEmailID = new javax.swing.JTextField();
         jLabelDepartment = new javax.swing.JLabel();
         jComboBoxDepartment = new javax.swing.JComboBox<>();
-        jButtonAdd2 = new javax.swing.JButton();
+        jButtonAddSubmit = new javax.swing.JButton();
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -53,10 +61,10 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
 
         jComboBoxDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Local Investor", "Government Organization" }));
 
-        jButtonAdd2.setText("Submit");
-        jButtonAdd2.addActionListener(new java.awt.event.ActionListener() {
+        jButtonAddSubmit.setText("Submit");
+        jButtonAddSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAdd2ActionPerformed(evt);
+                jButtonAddSubmitActionPerformed(evt);
             }
         });
 
@@ -90,7 +98,7 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
                 .addGap(60, 60, 60))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonAdd2)
+                .addComponent(jButtonAddSubmit)
                 .addGap(124, 124, 124))
         );
         layout.setVerticalGroup(
@@ -115,26 +123,66 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
                     .addComponent(jLabelDepartment)
                     .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(jButtonAdd2)
+                .addComponent(jButtonAddSubmit)
                 .addContainerGap(28, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAdd2ActionPerformed
+    private void jButtonAddSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSubmitActionPerformed
         // TODO add your handling code here:
-        String first_name, last_name, emailId, department;
+        String first_name, last_name, emailId, department, username, password;
+        int department_id;
 
         first_name = jTextFieldName.getText();
-        last_name = jTextFieldLastName.getText();
-        emailId = jTextFieldEmailID.getText();
-        department = jComboBoxDepartment.getSelectedItem().toString();
-    }//GEN-LAST:event_jButtonAdd2ActionPerformed
+        if(first_name.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "First name cannot be null.");
+        }
+        else
+        {
+            last_name = jTextFieldLastName.getText();
+            if (last_name.isEmpty()) 
+            {
+                JOptionPane.showMessageDialog(this, "Last name cannot be null.");
+            } 
+            else 
+            {
+                emailId = jTextFieldEmailID.getText();
+                department = jComboBoxDepartment.getSelectedItem().toString();
+                if (department.isEmpty()) 
+                {
+                    JOptionPane.showMessageDialog(this, "department cannot be null.");
+                }
+                else
+                {
+                    username = last_name + "." + first_name;
+                    password = last_name + "." + first_name;
+                    department_id = 2; //to be changed with loop of id
+
+                    try 
+                    {
+                        PreparedStatement ps = db.getPreStatement("Insert into user(department_id, firstname, lastname, emailid, organization, username, password)" + "values (?,?,?,?,?,?,?)");
+                        ps.setInt(1, department_id);
+                        ps.setString(2, first_name);
+                        ps.setString(3, last_name);
+                        ps.setString(4, emailId);
+                        ps.setString(5, department);
+                        ps.setString(6, username);
+                        ps.setString(7, password);
+                        ps.execute();
+                    }
+                    catch (SQLException ex) 
+                    {
+                        Logger.getLogger(ManageDepartments_Add.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+            }
+        }
+    }//GEN-LAST:event_jButtonAddSubmitActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonAdd;
-    private javax.swing.JButton jButtonAdd1;
-    private javax.swing.JButton jButtonAdd2;
+    private javax.swing.JButton jButtonAddSubmit;
     private javax.swing.JComboBox<String> jComboBoxDepartment;
     private javax.swing.JLabel jLabelDepartment;
     private javax.swing.JLabel jLabelEmailID;
