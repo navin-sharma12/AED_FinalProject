@@ -78,11 +78,17 @@
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manage Courses"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonManageCoursesActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="jButtonManageFieldOfInterest">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Manage Field Of Interest"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonManageFieldOfInterestActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>

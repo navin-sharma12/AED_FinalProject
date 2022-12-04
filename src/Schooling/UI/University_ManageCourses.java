@@ -4,6 +4,10 @@
  */
 package Schooling.UI;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author navinsharma
@@ -107,8 +111,15 @@ public class University_ManageCourses extends javax.swing.JPanel {
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
-        University_ManageCourses_Add add = new University_ManageCourses_Add();
-        jSplitPane1.setRightComponent(add);
+        try 
+        {
+            University_ManageCourses_Add add = new University_ManageCourses_Add();
+            jSplitPane1.setRightComponent(add);
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(University_ManageCourses.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReadActionPerformed

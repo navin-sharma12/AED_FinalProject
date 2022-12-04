@@ -127,7 +127,14 @@ public class Admin_Login extends javax.swing.JPanel {
             ResultSet res = admin.checkLogin(username, password, department.toLowerCase());
             if(res.next())
             {
-                 System.out.println(res.getString(2));
+                System.out.println(res.getString(2));
+                if ("Schooling".equals(department)) 
+                {
+                    Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
+                    controlArea.add("ControlAreaJPanel", cajp);
+                    CardLayout layout2 = (CardLayout) controlArea.getLayout();
+                    layout2.next(controlArea);
+                }
             }
            
         } catch (SQLException e) {

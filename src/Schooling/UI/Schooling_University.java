@@ -41,8 +41,18 @@ public class Schooling_University extends javax.swing.JPanel {
         });
 
         jButtonManageCourses.setText("Manage Courses");
+        jButtonManageCourses.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonManageCoursesActionPerformed(evt);
+            }
+        });
 
         jButtonManageFieldOfInterest.setText("Manage Field Of Interest");
+        jButtonManageFieldOfInterest.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonManageFieldOfInterestActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout controlAreaLayout = new javax.swing.GroupLayout(controlArea);
         controlArea.setLayout(controlAreaLayout);
@@ -98,8 +108,20 @@ public class Schooling_University extends javax.swing.JPanel {
     private void jButtonManageUIniversityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageUIniversityActionPerformed
         // TODO add your handling code here:
         University_ManageUniversity umu = new University_ManageUniversity();
-        
+        jSplitPane1.setRightComponent(umu);
     }//GEN-LAST:event_jButtonManageUIniversityActionPerformed
+
+    private void jButtonManageFieldOfInterestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageFieldOfInterestActionPerformed
+        // TODO add your handling code here:
+        University_ManageFieldOfInterest mfoi = new University_ManageFieldOfInterest();
+        jSplitPane1.setRightComponent(mfoi);
+    }//GEN-LAST:event_jButtonManageFieldOfInterestActionPerformed
+
+    private void jButtonManageCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageCoursesActionPerformed
+        // TODO add your handling code here:
+        University_ManageCourses umc = new University_ManageCourses();
+        jSplitPane1.setRightComponent(umc);
+    }//GEN-LAST:event_jButtonManageCoursesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -23,10 +23,8 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_Add_Person
      */
-    UsersDirectory userslist;
     public ManageDepartments_Add() {
         initComponents();
-        this.userslist = new UsersDirectory();
     }
 
     /**
@@ -162,7 +160,7 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
                 {
                     username = last_name + "." + first_name;
                     password = last_name + "." + first_name;
-                    department_id = 1; //to be changed with loop of id
+                    department_id = 2; //to be changed with loop of id
 
                     try 
                     {

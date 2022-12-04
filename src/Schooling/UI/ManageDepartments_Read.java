@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -23,9 +24,11 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_Read_Person
      */
+    ResultSet resultSet;
     public ManageDepartments_Read() 
     {
         initComponents();
+        this.resultSet = db.selectQuery("select * from user");
     }
 
     /**
@@ -76,6 +79,11 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
         });
 
         jButtonView.setText("View");
+        jButtonView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonViewActionPerformed(evt);
+            }
+        });
 
         jTextFieldName.setToolTipText("");
 
@@ -165,6 +173,45 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonFetchActionPerformed
 
+    private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = jTable.getSelectedRow();
+        if (selectedRowIndex<0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
+            return;
+        }
+        DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
+        try 
+        {
+            while(resultSet.next())
+            {
+                if(resultSet.getString(3).equals(table_model.getValueAt(selectedRowIndex, 0)))                
+                {
+                    jTextFieldName.setText(resultSet.getString(3));
+                    jTextFieldLastName.setText(resultSet.getString(4));
+                    jTextFieldEmailID.setText(resultSet.getString(5));
+                    if(resultSet.getString(5).equals("Jobs Department"))
+                    {
+                        jComboBoxDepartment.setSelectedItem(1);
+                    }
+                    if(resultSet.getString(5).equals("Personal Org. Department"))
+                    {
+                        jComboBoxDepartment.setSelectedItem(2);
+                    }
+                    if(resultSet.getString(5).equals("Universities Department"))
+                    {
+                        jComboBoxDepartment.setSelectedItem(3);
+                    }
+                }
+            }
+        } 
+        catch (SQLException ex) 
+        {
+            Logger.getLogger(ManageDepartments_Read.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonViewActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFetch;
@@ -189,7 +236,6 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
         
         try 
         {
-            ResultSet resultSet = db.selectQuery("select * from user");
             while (resultSet.next()) 
             {
                 Object[] row = new Object[4];

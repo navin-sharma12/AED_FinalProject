@@ -21,12 +21,13 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
     /**
      * Creates new form University_ManageCourses_Add
      */
+    ResultSet resultSet;
+
     public University_ManageCourses_Add() throws SQLException {
         initComponents();
+        this.resultSet = db.selectQuery("select * from field_of_interest");
         jComboBoxCategory.removeAllItems();
-        ResultSet resultSet = db.selectQuery("select * from field_of_interest");
-        while(resultSet.next())
-        {
+        while (resultSet.next()) {
             jComboBoxCategory.addItem(resultSet.getString(2));
         }
     }
@@ -105,32 +106,25 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
     private void jButtonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmitActionPerformed
         // TODO add your handling code here:
         String course_name, category;
-        
+
         course_name = jTextFieldCourseName.getText();
-        if(course_name.isEmpty())
-        {
+        if (course_name.isEmpty()) {
             JOptionPane.showMessageDialog(this, "Course name cannot be null.");
-        }
-        else
-        {
+        } else {
             category = jComboBoxCategory.getSelectedItem().toString();
-            try 
-            {
-                ResultSet resultSet = db.selectQuery("select * from field_of_interest");
-                while (resultSet.next()) 
+            resultSet = db.selectQuery("select * from field_of_interest");
+            try {
+                while (resultSet.next())
                 {
-                    if (resultSet.getString(2).equals(category))
+                    if (resultSet.getString(2).equals(category)) 
                     {
                         PreparedStatement ps = db.getPreStatement("Insert into course(category_id, course_name)" + "values (?, ?)");
                         ps.setInt(1, resultSet.getInt(1));
                         ps.setString(2, course_name);
                         ps.execute();
-                        break;
                     }
                 }
-            } 
-            catch (SQLException ex) 
-            {
+            } catch (SQLException ex) {
                 Logger.getLogger(University_ManageCourses_Add.class.getName()).log(Level.SEVERE, null, ex);
             }
         }

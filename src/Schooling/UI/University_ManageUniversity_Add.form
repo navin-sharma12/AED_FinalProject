@@ -16,7 +16,6 @@
   <Layout>
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
-          <Component id="jLabelTitle" alignment="0" pref="421" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
@@ -27,18 +26,21 @@
               </Group>
               <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jComboBoxCategory" pref="198" max="32767" attributes="0"/>
-                  <Component id="jComboBoxCourseName" max="32767" attributes="0"/>
-                  <Component id="jTextFieldUniversityName" max="32767" attributes="0"/>
-                  <Component id="jTextFieldSeatInCourse" max="32767" attributes="0"/>
+                  <Group type="102" alignment="1" attributes="0">
+                      <Component id="jButtonCourse" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace pref="30" max="32767" attributes="0"/>
+                      <Component id="jButtonCategory" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
+                      <Component id="jButtonSubmit" min="-2" max="-2" attributes="0"/>
+                  </Group>
+                  <Component id="jTextFieldSeatInCourse" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jComboBoxCategory" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldUniversityName" alignment="1" max="32767" attributes="0"/>
+                  <Component id="jComboBoxCourseName" alignment="1" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace pref="49" max="32767" attributes="0"/>
           </Group>
-          <Group type="102" alignment="1" attributes="0">
-              <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButtonSubmit" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="108" max="-2" attributes="0"/>
-          </Group>
+          <Component id="jLabelTitle" alignment="1" max="32767" attributes="0"/>
       </Group>
     </DimensionLayout>
     <DimensionLayout dim="1">
@@ -53,21 +55,25 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabelCoursename" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jComboBoxCourseName" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
-              <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jComboBoxCategory" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelCategory" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelCoursename" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jComboBoxCourseName" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelSeatsInCourse" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldSeatInCourse" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButtonSubmit" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jButtonSubmit" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCourse" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jButtonCategory" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
               <EmptySpace pref="24" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -141,6 +147,22 @@
       <Properties>
         <Property name="toolTipText" type="java.lang.String" value=""/>
       </Properties>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonCourse">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Course"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCourseActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonCategory">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Category"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCategoryActionPerformed"/>
+      </Events>
     </Component>
   </SubComponents>
 </Form>
