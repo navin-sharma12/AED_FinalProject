@@ -1,4 +1,5 @@
 /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
@@ -7,6 +8,8 @@ package UI;
 import Admin.Admin;
 import Schooling.UI.Schooling_Admin;
 import System_Admin.System_Admin;
+import UI.Ngo.ManageDepartment_AddJPanel;
+import UI.Ngo.NgoContolAreaJPanel;
 import java.awt.CardLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
