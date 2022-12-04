@@ -51,7 +51,7 @@
           </Group>
           <Group type="102" alignment="1" attributes="0">
               <EmptySpace max="32767" attributes="0"/>
-              <Component id="jButtonAdd2" min="-2" max="-2" attributes="0"/>
+              <Component id="jButtonAddSubmit" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="124" max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -82,7 +82,7 @@
                   <Component id="jComboBoxDepartment" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Component id="jButtonAdd2" min="-2" max="-2" attributes="0"/>
+              <Component id="jButtonAddSubmit" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="28" max="32767" attributes="0"/>
           </Group>
       </Group>
@@ -140,12 +140,12 @@
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
     </Component>
-    <Component class="javax.swing.JButton" name="jButtonAdd2">
+    <Component class="javax.swing.JButton" name="jButtonAddSubmit">
       <Properties>
         <Property name="text" type="java.lang.String" value="Submit"/>
       </Properties>
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAdd2ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonAddSubmitActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>
