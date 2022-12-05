@@ -19,7 +19,7 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
     JPanel controlArea;
     JPanel workArea;
 
-    public NgoContolAreaJPanel(JPanel workArea, JPanel controlArea) {
+    public NgoContolAreaJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.controlArea = controlArea;
         this.workArea = workArea;
@@ -63,10 +63,11 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
 
     private void jButtonManageDepartmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageDepartmentsActionPerformed
         // TODO add your handling code here:
-        ManageDepartmentControlJPanel mdcp = new ManageDepartmentControlJPanel(workArea, controlArea);
+        ManageDepartmentControlJPanel mdcp = new ManageDepartmentControlJPanel(controlArea, workArea);
         controlArea.add("ManageDepartmentControlJPanel", mdcp);
         CardLayout layout = (CardLayout) controlArea.getLayout();
         layout.next(controlArea);
+        
     }//GEN-LAST:event_jButtonManageDepartmentsActionPerformed
 
 
