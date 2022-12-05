@@ -5,8 +5,6 @@
 package Schooling.UI;
 
 import DataConnection.db;
-import Schooling.Model.FieldOfInterest;
-import Schooling.Model.FieldOfInterestDirectory;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;

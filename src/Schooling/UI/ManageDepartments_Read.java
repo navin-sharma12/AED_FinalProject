@@ -5,13 +5,8 @@
 package Schooling.UI;
 
 import DataConnection.db;
-import Student.Student;
-import Users.Users;
-import Users.UsersDirectory;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -181,35 +176,38 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, "Please select a row to view");
             return;
         }
-        DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
-        resultSet = db.selectQuery("select * from user");
-        try 
+        else
         {
-            while(resultSet.next())
+            DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
+            resultSet = db.selectQuery("select * from user");
+            try 
             {
-                if(resultSet.getString(3).equals(table_model.getValueAt(selectedRowIndex, 0)))                
+                while (resultSet.next()) 
                 {
-                    jTextFieldName.setText(resultSet.getString(3));
-                    jTextFieldLastName.setText(resultSet.getString(4));
-                    jTextFieldEmailID.setText(resultSet.getString(5));
-                    if(resultSet.getString(6).equals("Jobs Department"))
+                    if (resultSet.getString(3).equals(table_model.getValueAt(selectedRowIndex, 0))) 
                     {
-                        jComboBoxDepartment.setSelectedItem("Jobs Department");
-                    }
-                    if(resultSet.getString(6).equals("Personal Org. Department"))
-                    {
-                        jComboBoxDepartment.setSelectedItem("Personal Org. Department");
-                    }
-                    if(resultSet.getString(6).equals("Universities Department"))
-                    {
-                        jComboBoxDepartment.setSelectedItem("Universities Department");
+                        jTextFieldName.setText(resultSet.getString(3));
+                        jTextFieldLastName.setText(resultSet.getString(4));
+                        jTextFieldEmailID.setText(resultSet.getString(5));
+                        if (resultSet.getString(6).equals("Jobs Department"))
+                        {
+                            jComboBoxDepartment.setSelectedItem("Jobs Department");
+                        }
+                        if (resultSet.getString(6).equals("Personal Org. Department"))
+                        {
+                            jComboBoxDepartment.setSelectedItem("Personal Org. Department");
+                        }
+                        if (resultSet.getString(6).equals("Universities Department")) 
+                        {
+                            jComboBoxDepartment.setSelectedItem("Universities Department");
+                        }
                     }
                 }
-            }
-        } 
-        catch (SQLException ex) 
-        {
+            } 
+            catch (SQLException ex) 
+            {
 //            Logger.getLogger(ManageDepartments_Read.class.getName()).log(Level.SEVERE, null, ex);
+            }
         }
     }//GEN-LAST:event_jButtonViewActionPerformed
 

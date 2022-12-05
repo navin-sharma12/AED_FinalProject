@@ -29,7 +29,6 @@ public class University_ManageFieldOfInterest extends javax.swing.JPanel {
         jSplitPane1 = new javax.swing.JSplitPane();
         controlArea = new javax.swing.JPanel();
         jButtonUpdate = new javax.swing.JButton();
-        jButtonRead = new javax.swing.JButton();
         jButtonAdd = new javax.swing.JButton();
         workArea = new javax.swing.JPanel();
 
@@ -37,13 +36,6 @@ public class University_ManageFieldOfInterest extends javax.swing.JPanel {
         jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonUpdateActionPerformed(evt);
-            }
-        });
-
-        jButtonRead.setText("Read");
-        jButtonRead.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonReadActionPerformed(evt);
             }
         });
 
@@ -62,7 +54,6 @@ public class University_ManageFieldOfInterest extends javax.swing.JPanel {
                 .addGap(38, 38, 38)
                 .addGroup(controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonRead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(38, 38, 38))
         );
@@ -71,11 +62,9 @@ public class University_ManageFieldOfInterest extends javax.swing.JPanel {
             .addGroup(controlAreaLayout.createSequentialGroup()
                 .addGap(58, 58, 58)
                 .addComponent(jButtonAdd)
-                .addGap(45, 45, 45)
-                .addComponent(jButtonRead)
-                .addGap(45, 45, 45)
+                .addGap(60, 60, 60)
                 .addComponent(jButtonUpdate)
-                .addContainerGap(253, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(controlArea);
@@ -111,12 +100,6 @@ public class University_ManageFieldOfInterest extends javax.swing.JPanel {
         jSplitPane1.setRightComponent(update);
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
-    private void jButtonReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReadActionPerformed
-        // TODO add your handling code here:
-        University_ManageFieldOfInterest_Read read = new University_ManageFieldOfInterest_Read();
-        jSplitPane1.setRightComponent(read);
-    }//GEN-LAST:event_jButtonReadActionPerformed
-
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
         University_ManageFieldOfInterest_Add add = new University_ManageFieldOfInterest_Add();
@@ -127,7 +110,6 @@ public class University_ManageFieldOfInterest extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel controlArea;
     private javax.swing.JButton jButtonAdd;
-    private javax.swing.JButton jButtonRead;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JSplitPane jSplitPane1;
     private javax.swing.JPanel workArea;

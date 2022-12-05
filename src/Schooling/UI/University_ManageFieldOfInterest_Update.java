@@ -4,6 +4,12 @@
  */
 package Schooling.UI;
 
+import DataConnection.db;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author navinsharma
@@ -13,6 +19,7 @@ public class University_ManageFieldOfInterest_Update extends javax.swing.JPanel 
     /**
      * Creates new form University_ManageFieldOfInterest_Update
      */
+    ResultSet resultSet;
     public University_ManageFieldOfInterest_Update() {
         initComponents();
     }
@@ -26,19 +33,169 @@ public class University_ManageFieldOfInterest_Update extends javax.swing.JPanel 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
+        jLabelTitle = new javax.swing.JLabel();
+        jTextFieldSearch = new javax.swing.JTextField();
+        jButtonSearch = new javax.swing.JButton();
+        jButtonView = new javax.swing.JButton();
+        jButtonUpdate = new javax.swing.JButton();
+        jTextFieldUpdate = new javax.swing.JTextField();
+
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null},
+                {null},
+                {null},
+                {null}
+            },
+            new String [] {
+                "Category"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable);
+
+        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("Update Category");
+
+        jButtonSearch.setText("Search");
+        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSearchActionPerformed(evt);
+            }
+        });
+
+        jButtonView.setText("View");
+        jButtonView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonViewActionPerformed(evt);
+            }
+        });
+
+        jButtonUpdate.setText("Update");
+        jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonUpdateActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(jTextFieldUpdate, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                    .addComponent(jTextFieldSearch, javax.swing.GroupLayout.Alignment.LEADING))
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonSearch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, 80, Short.MAX_VALUE)
+                    .addComponent(jButtonView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(jLabelTitle)
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonSearch))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(74, 74, 74)
+                        .addComponent(jButtonView)))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jTextFieldUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonUpdate))
+                .addGap(21, 21, 21))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
+        // TODO add your handling code here:
+        String course_name;
+        course_name = jTextFieldSearch.getText();
+        if(course_name.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Course name cannot be null.");
+        }
+        else
+        {
+            try 
+            {
+                resultSet = db.selectQuery("select * from field_of_interest where category LIKE '%"+course_name+"%'");
+                ViewTable();
+            } 
+            catch (SQLException ex)
+            {
+//                Logger.getLogger(University_ManageFieldOfInterest_Update.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_jButtonSearchActionPerformed
+
+    private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = jTable.getSelectedRow();
+        if (selectedRowIndex<0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
+            return;
+        }
+        else
+        {
+            DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
+            jTextFieldUpdate.setText(table_model.getValueAt(selectedRowIndex, 0).toString());
+        }
+    }//GEN-LAST:event_jButtonViewActionPerformed
+
+    private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
+        // TODO add your handling code here:
+        String updated_course;
+        updated_course = jTextFieldUpdate.getText();
+        int selectedRowIndex = jTable.getSelectedRow();
+        DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
+        db.query("UPDATE field_of_interest set category = '"+updated_course+"'where category = '"+table_model.getValueAt(selectedRowIndex, 0).toString()+"'");
+    }//GEN-LAST:event_jButtonUpdateActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonSearch;
+    private javax.swing.JButton jButtonUpdate;
+    private javax.swing.JButton jButtonView;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable;
+    private javax.swing.JTextField jTextFieldSearch;
+    private javax.swing.JTextField jTextFieldUpdate;
     // End of variables declaration//GEN-END:variables
+private void ViewTable() throws SQLException
+    {
+        DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
+        table_model.setRowCount(0);
+        
+        try 
+        {
+            while (resultSet.next()) 
+            {
+                Object[] row = new Object[1];
+                row[0] = resultSet.getString(2);
+                table_model.addRow(row);
+            }
+        } 
+        catch (IllegalArgumentException e) 
+        {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+    }
 }
