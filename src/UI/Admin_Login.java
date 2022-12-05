@@ -1,4 +1,5 @@
 /*
+/*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
@@ -7,6 +8,8 @@ package UI;
 import Admin.Admin;
 import Schooling.UI.Schooling_Admin;
 import System_Admin.System_Admin;
+import UI.Ngo.ManageDepartment_AddJPanel;
+import UI.Ngo.NgoContolAreaJPanel;
 import java.awt.CardLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,7 +28,7 @@ public class Admin_Login extends javax.swing.JPanel {
     JPanel workArea;
     Admin admin;
 
-    public Admin_Login(JPanel workArea, JPanel controlArea) {
+    public Admin_Login(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.controlArea = controlArea;
         this.workArea = workArea;
@@ -134,6 +137,18 @@ public class Admin_Login extends javax.swing.JPanel {
                     controlArea.add("ControlAreaJPanel", cajp);
                     CardLayout layout2 = (CardLayout) controlArea.getLayout();
                     layout2.next(controlArea);
+                }
+                if(res.getString(2).equals("ngo"))
+                {
+                    workArea.remove(this);
+                    
+                    NgoContolAreaJPanel ngap = new NgoContolAreaJPanel(controlArea, workArea);
+                    controlArea.add("NgoContolAreaJPanel", ngap);
+                    CardLayout layout = (CardLayout) controlArea.getLayout();
+                    layout.next(controlArea);
+                    
+                    
+
                 }
             }
            

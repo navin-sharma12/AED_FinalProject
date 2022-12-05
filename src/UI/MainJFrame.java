@@ -3,11 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package UI;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import DataConnection.db;
 import Schooling.UI.Schooling_Admin;
-import UI.student.StudentAddJPanel;
+
 import java.awt.CardLayout;
 /**
  *
@@ -118,6 +116,8 @@ public class MainJFrame extends javax.swing.JFrame {
 //        workArea.add("StudentAddJPanel",sajp);
 //        CardLayout layout = (CardLayout)workArea.getLayout();
 //        layout.next(workArea); 
+
+        
     
     }
     
