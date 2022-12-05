@@ -28,7 +28,7 @@ public class Admin_Login extends javax.swing.JPanel {
     JPanel workArea;
     Admin admin;
 
-    public Admin_Login(JPanel workArea, JPanel controlArea) {
+    public Admin_Login(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.controlArea = controlArea;
         this.workArea = workArea;
@@ -137,6 +137,18 @@ public class Admin_Login extends javax.swing.JPanel {
                     controlArea.add("ControlAreaJPanel", cajp);
                     CardLayout layout2 = (CardLayout) controlArea.getLayout();
                     layout2.next(controlArea);
+                }
+                if(res.getString(2).equals("ngo"))
+                {
+                    workArea.remove(this);
+                    
+                    NgoContolAreaJPanel ngap = new NgoContolAreaJPanel(controlArea, workArea);
+                    controlArea.add("NgoContolAreaJPanel", ngap);
+                    CardLayout layout = (CardLayout) controlArea.getLayout();
+                    layout.next(controlArea);
+                    
+                    
+
                 }
             }
            

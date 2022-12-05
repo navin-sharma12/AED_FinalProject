@@ -18,7 +18,7 @@ public class ManageDepartmentControlJPanel extends javax.swing.JPanel {
      */
      JPanel controlArea;
     JPanel workArea;
-    public ManageDepartmentControlJPanel(JPanel workArea, JPanel controlArea) {
+    public ManageDepartmentControlJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.controlArea = controlArea;
         this.workArea = workArea;
@@ -35,8 +35,8 @@ public class ManageDepartmentControlJPanel extends javax.swing.JPanel {
 
         btnAdd = new javax.swing.JButton();
         btnRead = new javax.swing.JButton();
-        btnRead1 = new javax.swing.JButton();
-        btnRead2 = new javax.swing.JButton();
+        btnUpdate = new javax.swing.JButton();
+        btnDelete = new javax.swing.JButton();
 
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -46,10 +46,25 @@ public class ManageDepartmentControlJPanel extends javax.swing.JPanel {
         });
 
         btnRead.setText("Read");
+        btnRead.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnReadActionPerformed(evt);
+            }
+        });
 
-        btnRead1.setText("Update");
+        btnUpdate.setText("Update");
+        btnUpdate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdateActionPerformed(evt);
+            }
+        });
 
-        btnRead2.setText("Delete");
+        btnDelete.setText("Delete");
+        btnDelete.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDeleteActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -58,8 +73,8 @@ public class ManageDepartmentControlJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnRead2)
-                    .addComponent(btnRead1)
+                    .addComponent(btnDelete)
+                    .addComponent(btnUpdate)
                     .addComponent(btnRead)
                     .addComponent(btnAdd))
                 .addContainerGap(39, Short.MAX_VALUE))
@@ -72,26 +87,54 @@ public class ManageDepartmentControlJPanel extends javax.swing.JPanel {
                 .addGap(31, 31, 31)
                 .addComponent(btnRead)
                 .addGap(30, 30, 30)
-                .addComponent(btnRead1)
+                .addComponent(btnUpdate)
                 .addGap(35, 35, 35)
-                .addComponent(btnRead2)
+                .addComponent(btnDelete)
                 .addContainerGap(129, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-          ManageDepartment_AddJPanel adjp = new ManageDepartment_AddJPanel(workArea, controlArea);
+        workArea.removeAll();
+        ManageDepartment_AddJPanel adjp = new ManageDepartment_AddJPanel(controlArea, workArea);
         workArea.add("ManageDepartment_AddJPanel", adjp);
-        CardLayout layout = (CardLayout) workArea.getLayout();
-        layout.next(workArea);
+        CardLayout layout1 = (CardLayout) workArea.getLayout();
+        layout1.next(workArea);
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+        // TODO add your handling code here:
+        workArea.removeAll();
+        ManageDepartmentDeleteJPanel mdup = new ManageDepartmentDeleteJPanel(controlArea, workArea);
+        workArea.add("ManageDepartmentDeleteJPanel",mdup);
+        CardLayout layout2 = (CardLayout)workArea.getLayout();
+        layout2.next(workArea);
+    }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
+        // TODO add your handling code here:
+       workArea.removeAll();
+         ManageDepartment_ViewJPanel mdjp = new ManageDepartment_ViewJPanel(controlArea, workArea);
+        workArea.add("ManageDepartment_ViewJPanel",mdjp);
+        CardLayout layout3 = (CardLayout)workArea.getLayout();
+        layout3.next(workArea);
+    }//GEN-LAST:event_btnReadActionPerformed
+
+    private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
+        // TODO add your handling code here:
+       workArea.removeAll();
+        ManageDepartmentUpdateJPanel mup = new ManageDepartmentUpdateJPanel(controlArea, workArea);
+        workArea.add("ManageDepartmentUpdateJPanel", mup);
+        CardLayout layout4 = (CardLayout) workArea.getLayout();
+        layout4.next(workArea);
+    }//GEN-LAST:event_btnUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
+    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRead;
-    private javax.swing.JButton btnRead1;
-    private javax.swing.JButton btnRead2;
+    private javax.swing.JButton btnUpdate;
     // End of variables declaration//GEN-END:variables
 }

@@ -3,11 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package UI;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import DataConnection.db;
 import Schooling.UI.Schooling_Admin;
-import UI.student.StudentAddJPanel;
+
 import java.awt.CardLayout;
 /**
  *
@@ -104,12 +102,12 @@ public class MainJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setLayout() {
-        Admin_Login admin_login = new Admin_Login(workArea, controlArea);
+        Admin_Login admin_login = new Admin_Login(controlArea, workArea);
         workArea.add("Admin_Login",admin_login);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea); 
         
-        ControlAreaJPanel cajp = new ControlAreaJPanel(workArea, controlArea);
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
@@ -118,6 +116,8 @@ public class MainJFrame extends javax.swing.JFrame {
 //        workArea.add("StudentAddJPanel",sajp);
 //        CardLayout layout = (CardLayout)workArea.getLayout();
 //        layout.next(workArea); 
+
+        
     
     }
     
