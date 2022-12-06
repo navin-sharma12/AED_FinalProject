@@ -4,12 +4,9 @@
  */
 package Schooling.UI;
 
-import DataConnection.db;
-import java.sql.PreparedStatement;
+import Schooling.Model.Courses;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 /**
@@ -25,9 +22,11 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
 
     public University_ManageCourses_Add() throws SQLException {
         initComponents();
-        this.resultSet = db.selectQuery("select * from field_of_interest");
+        Courses course1 = new Courses();
+        resultSet = course1.getallFOI();
         jComboBoxCategory.removeAllItems();
-        while (resultSet.next()) {
+        while (resultSet.next()) 
+        {
             jComboBoxCategory.addItem(resultSet.getString(2));
         }
     }
@@ -108,24 +107,28 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
         String course_name, category;
 
         course_name = jTextFieldCourseName.getText();
-        if (course_name.isEmpty()) {
+        if (course_name.isEmpty()) 
+        {
             JOptionPane.showMessageDialog(this, "Course name cannot be null.");
-        } else {
+        } else 
+        {
             category = jComboBoxCategory.getSelectedItem().toString();
-            resultSet = db.selectQuery("select * from field_of_interest");
-            try {
+            Courses c = new Courses();
+            resultSet = c.getallFOI();
+            try 
+            {
                 while (resultSet.next())
                 {
                     if (resultSet.getString(2).equals(category)) 
                     {
-                        PreparedStatement ps = db.getPreStatement("Insert into course(category_id, course_name)" + "values (?, ?)");
-                        ps.setInt(1, resultSet.getInt(1));
-                        ps.setString(2, course_name);
-                        ps.execute();
+                        Courses course = new Courses(resultSet.getInt(1), course_name);
+                        course.addCourses(resultSet.getInt(1), course_name);
                     }
                 }
-            } catch (SQLException ex) {
-                Logger.getLogger(University_ManageCourses_Add.class.getName()).log(Level.SEVERE, null, ex);
+            } 
+            catch (SQLException ex) 
+            {
+//                Logger.getLogger(University_ManageCourses_Add.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jButtonSubmitActionPerformed

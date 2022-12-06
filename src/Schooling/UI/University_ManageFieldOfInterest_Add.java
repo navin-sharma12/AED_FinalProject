@@ -5,6 +5,7 @@
 package Schooling.UI;
 
 import DataConnection.db;
+import Schooling.Model.FieldOfInterest;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -92,15 +93,14 @@ public class University_ManageFieldOfInterest_Add extends javax.swing.JPanel {
         }
         else
         {
+            FieldOfInterest foi = new FieldOfInterest(category);
             try 
             {
-                PreparedStatement ps = db.getPreStatement("Insert into field_of_interest(category)" + "values (?)");
-                ps.setString(1, category);
-                ps.execute();
+                foi.addFieldOfInterest(category);
             } 
             catch (SQLException ex) 
             {
-                Logger.getLogger(University_ManageFieldOfInterest_Add.class.getName()).log(Level.SEVERE, null, ex);
+//                Logger.getLogger(University_ManageFieldOfInterest_Add.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
     }//GEN-LAST:event_jButtonSubmitActionPerformed

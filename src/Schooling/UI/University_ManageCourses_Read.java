@@ -5,6 +5,7 @@
 package Schooling.UI;
 
 import DataConnection.db;
+import Schooling.Model.Courses;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -129,7 +130,8 @@ public class University_ManageCourses_Read extends javax.swing.JPanel {
         // TODO add your handling code here:
         try 
         {
-            resultSet = db.selectQuery("select field_of_interest.category, course.course_name from course inner join field_of_interest on course.category_id = field_of_interest.id");
+            Courses course = new Courses();
+            resultSet = course.getCourses();
             ViewTable();
         } 
         catch (SQLException ex) 

@@ -5,8 +5,11 @@
 package Schooling.UI;
 
 import DataConnection.db;
+import Schooling.Model.FieldOfInterest;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -132,12 +135,13 @@ public class University_ManageFieldOfInterest_Update extends javax.swing.JPanel 
         }
         else
         {
+            FieldOfInterest foi = new FieldOfInterest(course_name);
+            resultSet = foi.getFieldOfInterest(course_name);
             try 
             {
-                resultSet = db.selectQuery("select * from field_of_interest where category LIKE '%"+course_name+"%'");
                 ViewTable();
             } 
-            catch (SQLException ex)
+            catch (SQLException ex) 
             {
 //                Logger.getLogger(University_ManageFieldOfInterest_Update.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -150,7 +154,6 @@ public class University_ManageFieldOfInterest_Update extends javax.swing.JPanel 
         if (selectedRowIndex<0)
         {
             JOptionPane.showMessageDialog(this, "Please select a row to view");
-            return;
         }
         else
         {
@@ -165,7 +168,8 @@ public class University_ManageFieldOfInterest_Update extends javax.swing.JPanel 
         updated_course = jTextFieldUpdate.getText();
         int selectedRowIndex = jTable.getSelectedRow();
         DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
-        db.query("UPDATE field_of_interest set category = '"+updated_course+"'where category = '"+table_model.getValueAt(selectedRowIndex, 0).toString()+"'");
+        FieldOfInterest foi = new FieldOfInterest(updated_course, table_model.getValueAt(selectedRowIndex, 0).toString());
+        foi.updateFieldOfInterest(updated_course, table_model.getValueAt(selectedRowIndex, 0).toString());db.query("UPDATE field_of_interest set category = '"+updated_course+"'where category = '"+table_model.getValueAt(selectedRowIndex, 0).toString()+"'");
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
 

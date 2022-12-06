@@ -7,8 +7,6 @@ package UI;
 
 import Admin.Admin;
 import Schooling.UI.Schooling_Admin;
-import System_Admin.System_Admin;
-import UI.Ngo.ManageDepartment_AddJPanel;
 import UI.Ngo.NgoContolAreaJPanel;
 import java.awt.CardLayout;
 import java.sql.ResultSet;

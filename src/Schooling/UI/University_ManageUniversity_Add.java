@@ -4,8 +4,9 @@
  */
 package Schooling.UI;
 
-import DataConnection.db;
-import java.sql.PreparedStatement;
+import Schooling.Model.Courses;
+import Schooling.Model.FieldOfInterest;
+import Schooling.Model.University;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -23,6 +24,7 @@ public class University_ManageUniversity_Add extends javax.swing.JPanel {
     ResultSet resultSet_course;
     ResultSet resultSet_course1;
     ResultSet resultSet_category1;
+    ResultSet resultSet_university;
     public University_ManageUniversity_Add() throws SQLException {
         initComponents();
         jComboBoxCategory.removeAllItems();
@@ -197,28 +199,25 @@ public class University_ManageUniversity_Add extends javax.swing.JPanel {
                     try 
                     {
                         //add university name to university database
-                        PreparedStatement ps = db.getPreStatement("Insert into universities(university_name)" + "values (?)");
-                        ps.setString(1, university_name);
-                        ps.execute();
-
+                        University uni = new University(university_name);
+                        uni.addUniversity(university_name);
+                        
                         //fetch data of university from database
-                        ResultSet resultSet_university = db.selectQuery("select * from universities");
+                        resultSet_university = uni.getallUniversity();
                         while (resultSet_university.next()) 
                         {
                             if (resultSet_university.getString(2).equals(university_name)) 
                             {
                                 university_id = resultSet_university.getInt(1);
-                                resultSet_course1 = db.selectQuery("select * from course");
+                                Courses course = new Courses();
+                                resultSet_course1 = course.getCourses();
                                 while(resultSet_course1.next())
                                 {
                                     if(resultSet_course1.getString(3).equals(course_name))
                                     {
                                         course_id = resultSet_course1.getInt(1);
-                                        ps = db.getPreStatement("Insert into courses_in_university(course_id, university_id, seats)" + "values (?, ?, ?)");
-                                        ps.setInt(1, course_id);
-                                        ps.setInt(2, university_id);
-                                        ps.setInt(3, seats);
-                                        ps.execute();
+                                        University university = new University(course_id, university_id, seats);
+                                        university.addCoursesInUniversity(course_id, university_id, seats);
                                     }
                                 }
                             }
@@ -239,12 +238,14 @@ public class University_ManageUniversity_Add extends javax.swing.JPanel {
         {
             jComboBoxCourseName.removeAllItems();
             String category = jComboBoxCategory.getSelectedItem().toString();
-            resultSet_category1 = db.selectQuery("select * from field_of_interest");
+            FieldOfInterest foi = new FieldOfInterest();
+            resultSet_category1 = foi.getallFieldOfInterest();
             while(resultSet_category1.next())
             {
                 if(resultSet_category1.getString(2).equals(category))                
                 {
-                    resultSet_course = db.selectQuery("select * from course where category_id = "+resultSet_category1.getString(1));
+                    Courses course = new Courses(resultSet_category1.getInt(1));
+                    resultSet_course = course.getCourseByCategory(resultSet_category1.getInt(1));
                     while (resultSet_course.next()) 
                     {
                         jComboBoxCourseName.addItem(resultSet_course.getString(3));
@@ -260,7 +261,8 @@ public class University_ManageUniversity_Add extends javax.swing.JPanel {
 
     private void jButtonCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCategoryActionPerformed
         // TODO add your handling code here:
-        resultSet_category = db.selectQuery("select * from field_of_interest");
+        FieldOfInterest foi = new FieldOfInterest();
+        resultSet_category = foi.getallFieldOfInterest();
         try 
         {
             jComboBoxCategory.removeAllItems();
