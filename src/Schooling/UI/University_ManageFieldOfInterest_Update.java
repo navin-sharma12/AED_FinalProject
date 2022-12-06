@@ -8,8 +8,6 @@ import DataConnection.db;
 import Schooling.Model.FieldOfInterest;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 

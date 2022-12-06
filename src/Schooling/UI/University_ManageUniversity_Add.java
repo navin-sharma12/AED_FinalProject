@@ -203,7 +203,7 @@ public class University_ManageUniversity_Add extends javax.swing.JPanel {
                         uni.addUniversity(university_name);
                         
                         //fetch data of university from database
-                        resultSet_university = uni.getallUniversity();
+                        resultSet_university = uni.getUniversity();
                         while (resultSet_university.next()) 
                         {
                             if (resultSet_university.getString(2).equals(university_name)) 

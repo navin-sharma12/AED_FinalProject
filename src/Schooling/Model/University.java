@@ -102,7 +102,7 @@ public class University
         ps.execute();
     }
     
-    public ResultSet getallUniversity()
+    public ResultSet getUniversity()
     {
         resultSet = db.selectQuery("select * from universities");
         return resultSet;
@@ -115,5 +115,11 @@ public class University
         ps.setInt(2, university_id);
         ps.setInt(3, seats);
         ps.execute();
+    }
+    
+    public ResultSet getallUniversity()
+    {
+        resultSet = db.selectQuery("select * from universities");
+        return resultSet;
     }
 }

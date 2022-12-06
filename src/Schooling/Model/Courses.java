@@ -17,7 +17,7 @@ public class Courses
 {
 
     private String course_name;
-    private int category_id;
+    private int category_id, course_id;
     private ResultSet resultSet;
 
     public Courses(int category_id, String course_name) 
@@ -34,6 +34,12 @@ public class Courses
     public Courses()
     {
         
+    }
+    
+    public Courses(String course_name, int course_id)
+    {
+        this.course_name = course_name;
+        this.course_id = course_id;
     }
 
     public int getCategory_id() 
@@ -56,6 +62,22 @@ public class Courses
         this.course_name = course_name;
     }
 
+    public int getCourse_id() {
+        return course_id;
+    }
+
+    public void setCourse_id(int course_id) {
+        this.course_id = course_id;
+    }
+
+    public ResultSet getResultSet() {
+        return resultSet;
+    }
+
+    public void setResultSet(ResultSet resultSet) {
+        this.resultSet = resultSet;
+    }
+
     public void addCourses(int category_id, String course_name) throws SQLException 
     {
         PreparedStatement ps = db.getPreStatement("Insert into course(category_id, course_name)" + "values (?, ?)");
@@ -72,7 +94,7 @@ public class Courses
     
     public ResultSet getCourses()
     {
-        resultSet = db.selectQuery("select field_of_interest.category, course.course_name from course inner join field_of_interest on course.category_id = field_of_interest.id");
+        resultSet = db.selectQuery("select course.id, field_of_interest.category, course.course_name from course inner join field_of_interest on course.category_id = field_of_interest.id");
         return resultSet;
     }
     
@@ -80,5 +102,10 @@ public class Courses
     {
         resultSet = db.selectQuery("select * from course where category_id = "+category_id);
         return resultSet;
+    }
+    
+    public void updateCourses(String course_name, int course_id)
+    {
+        db.query("UPDATE field_of_interest set course_name = '"+course_name+"'where id = '"+course_id+"'");
     }
 }
