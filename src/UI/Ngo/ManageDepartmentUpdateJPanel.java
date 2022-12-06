@@ -29,6 +29,7 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
     int id;
     JPanel controlArea;
     JPanel workArea;
+
     public ManageDepartmentUpdateJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.user = new Users();
@@ -190,7 +191,7 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
 
         DefaultTableModel model = (DefaultTableModel) tblDepartment.getModel();
 
-         id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+        id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
         jTextFieldName.setText(model.getValueAt(selectedRowIndex, 1).toString());
         jTextFieldLastName.setText(model.getValueAt(selectedRowIndex, 2).toString());
         jTextFieldEmailID.setText(model.getValueAt(selectedRowIndex, 3).toString());
@@ -220,22 +221,13 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
             username = last_name + "." + first_name;
             password = last_name + "." + first_name;
             try {
-                PreparedStatement ps = db.getPreStatement("update user set department_id = ?, firstname = ?, lastname = ?, emailid = ?, organization = ?, username = ?, password = ? where id = ?");
-                ps.setInt(1, department_id);
-                ps.setString(2, first_name);
-                ps.setString(3, last_name);
-                ps.setString(4, emailId);
-                ps.setString(5, department);
-                ps.setString(6, username);
-                ps.setString(7, password);
-                ps.setInt(8, id);
 
+                Users us_new = new Users(id, department_id, first_name, last_name, emailId, department, username, password);
+                us_new.updateUser(us_new);
                 jTextFieldName.setText("");
                 jTextFieldLastName.setText("");
                 jTextFieldEmailID.setText("");
                 jComboBoxDepartment.setSelectedIndex(0);
-
-                ps.execute();
                 populateTable(1);
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
@@ -250,13 +242,14 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-         workArea.removeAll();
-       NgoContolAreaJPanel ngap = new NgoContolAreaJPanel(controlArea, workArea);
+
+        NgoContolAreaJPanel ngap = new NgoContolAreaJPanel(controlArea, workArea);
         controlArea.add("NgoContolAreaJPanel", ngap);
         CardLayout layout = (CardLayout) controlArea.getLayout();
         layout.next(controlArea);
+        workArea.remove(this);
 
-       
+
     }//GEN-LAST:event_btnBackActionPerformed
 
     public boolean getEmail(String email) {

@@ -89,11 +89,12 @@ public class ManageDepartment_ViewJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-         workArea.removeAll();
+         
         NgoContolAreaJPanel ngap = new NgoContolAreaJPanel(controlArea, workArea);
         controlArea.add("NgoContolAreaJPanel", ngap);
         CardLayout layout = (CardLayout) controlArea.getLayout();
         layout.next(controlArea);
+        workArea.remove(this);
 
        
     }//GEN-LAST:event_btnBackActionPerformed
