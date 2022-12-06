@@ -16,8 +16,9 @@ public class ManageDepartmentControlJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ManageDepartmentControlJPanel
      */
-     JPanel controlArea;
+    JPanel controlArea;
     JPanel workArea;
+
     public ManageDepartmentControlJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.controlArea = controlArea;
@@ -107,23 +108,23 @@ public class ManageDepartmentControlJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         workArea.removeAll();
         ManageDepartmentDeleteJPanel mdup = new ManageDepartmentDeleteJPanel(controlArea, workArea);
-        workArea.add("ManageDepartmentDeleteJPanel",mdup);
-        CardLayout layout2 = (CardLayout)workArea.getLayout();
+        workArea.add("ManageDepartmentDeleteJPanel", mdup);
+        CardLayout layout2 = (CardLayout) workArea.getLayout();
         layout2.next(workArea);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
     private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
         // TODO add your handling code here:
-       workArea.removeAll();
-         ManageDepartment_ViewJPanel mdjp = new ManageDepartment_ViewJPanel(controlArea, workArea);
-        workArea.add("ManageDepartment_ViewJPanel",mdjp);
-        CardLayout layout3 = (CardLayout)workArea.getLayout();
+        workArea.removeAll();
+        ManageDepartment_ViewJPanel mdjp = new ManageDepartment_ViewJPanel(controlArea, workArea);
+        workArea.add("ManageDepartment_ViewJPanel", mdjp);
+        CardLayout layout3 = (CardLayout) workArea.getLayout();
         layout3.next(workArea);
     }//GEN-LAST:event_btnReadActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-       workArea.removeAll();
+        workArea.removeAll();
         ManageDepartmentUpdateJPanel mup = new ManageDepartmentUpdateJPanel(controlArea, workArea);
         workArea.add("ManageDepartmentUpdateJPanel", mup);
         CardLayout layout4 = (CardLayout) workArea.getLayout();

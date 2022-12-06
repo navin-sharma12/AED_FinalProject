@@ -5,6 +5,7 @@
 package UI.Ngo;
 
 import DataConnection.db;
+import Users.Users;
 import java.awt.CardLayout;
 import javax.swing.JOptionPane;
 import java.sql.PreparedStatement;
@@ -28,11 +29,13 @@ public class ManageDepartment_AddJPanel extends javax.swing.JPanel {
 //   
     JPanel controlArea;
     JPanel workArea;
+    Users user;
+
     public ManageDepartment_AddJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.controlArea = controlArea;
         this.workArea = workArea;
-        
+        this.user = new Users();
 
     }
 
@@ -179,21 +182,13 @@ public class ManageDepartment_AddJPanel extends javax.swing.JPanel {
             username = last_name + "." + first_name;
             password = last_name + "." + first_name;
             try {
-                PreparedStatement ps = db.getPreStatement("Insert into user(department_id, firstname, lastname, emailid, organization, username, password)" + "values (?,?,?,?,?,?,?)");
-                ps.setInt(1, department_id);
-                ps.setString(2, first_name);
-                ps.setString(3, last_name);
-                ps.setString(4, emailId);
-                ps.setString(5, department);
-                ps.setString(6, username);
-                ps.setString(7, password);
-
+                Users us_new = new Users(department_id, first_name, last_name, emailId, department, username, password);
+                user.addUser(us_new);
                 jTextFieldName.setText("");
                 jTextFieldLastName.setText("");
                 jTextFieldEmailID.setText("");
                 jComboBoxDepartment.setSelectedIndex(0);
 
-                ps.execute();
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
             }
@@ -208,14 +203,15 @@ public class ManageDepartment_AddJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        workArea.removeAll();
-        
+
+        System.out.println(workArea);
         NgoContolAreaJPanel ngap = new NgoContolAreaJPanel(controlArea, workArea);
         controlArea.add("NgoContolAreaJPanel", ngap);
         CardLayout layout = (CardLayout) controlArea.getLayout();
         layout.next(controlArea);
-        
-        
+        workArea.remove(this);
+        System.out.println(this);
+
     }//GEN-LAST:event_btnBackActionPerformed
 
 

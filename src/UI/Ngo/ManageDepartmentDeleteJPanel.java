@@ -117,10 +117,8 @@ public class ManageDepartmentDeleteJPanel extends javax.swing.JPanel {
 
          id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
            try {
-                PreparedStatement ps = db.getPreStatement("delete from user where id = ?");
-                ps.setInt(1, id);
-                ps.execute();
-                populateTable(1);
+               user.deleteUser(id);
+               populateTable(1);
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
             }
@@ -129,11 +127,12 @@ public class ManageDepartmentDeleteJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
 //        workArea.remove(this);
-    workArea.removeAll();
+   
        NgoContolAreaJPanel ngap = new NgoContolAreaJPanel(controlArea, workArea);
         controlArea.add("NgoContolAreaJPanel", ngap);
         CardLayout layout = (CardLayout) controlArea.getLayout();
         layout.next(controlArea);
+         workArea.remove(this);
 
         
     }//GEN-LAST:event_btnBackActionPerformed
