@@ -4,11 +4,10 @@
  */
 package Schooling.UI;
 
-import DataConnection.db;
-import java.sql.PreparedStatement;
+import Users.Users;
 import java.sql.SQLException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 
 /**
@@ -20,8 +19,10 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_Add_Person
      */
+    Users user;
     public ManageDepartments_Add() {
         initComponents();
+        this.user = new Users();
     }
 
     /**
@@ -148,32 +149,36 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
             else 
             {
                 emailId = jTextFieldEmailID.getText();
-                department = jComboBoxDepartment.getSelectedItem().toString();
-                if (department.isEmpty()) 
+                if (emailId.isEmpty())
                 {
-                    JOptionPane.showMessageDialog(this, "department cannot be null.");
+                    JOptionPane.showMessageDialog(this, "Email id cannot be null.");
+                }
+                else if(!getEmail(emailId))
+                {
+                    JOptionPane.showMessageDialog(this, "Invalid email id.");
                 }
                 else
                 {
-                    username = last_name + "." + first_name;
-                    password = last_name + "." + first_name;
-                    department_id = 2; //to be changed with loop of id
-
-                    try 
+                    department = jComboBoxDepartment.getSelectedItem().toString();
+                    if (department.isEmpty()) 
                     {
-                        PreparedStatement ps = db.getPreStatement("Insert into user(department_id, firstname, lastname, emailid, organization, username, password)" + "values (?,?,?,?,?,?,?)");
-                        ps.setInt(1, department_id);
-                        ps.setString(2, first_name);
-                        ps.setString(3, last_name);
-                        ps.setString(4, emailId);
-                        ps.setString(5, department);
-                        ps.setString(6, username);
-                        ps.setString(7, password);
-                        ps.execute();
-                    }
-                    catch (SQLException ex) 
+                        JOptionPane.showMessageDialog(this, "Department cannot be null.");
+                    } 
+                    else 
                     {
-                        Logger.getLogger(ManageDepartments_Add.class.getName()).log(Level.SEVERE, null, ex);
+                        username = last_name + "." + first_name;
+                        password = last_name + "." + first_name;
+                        department_id = 2;
+                        
+                        try 
+                        {
+                            Users us = new Users(department_id, first_name, last_name, emailId, department, username, password);
+                            user.addUser(us);
+                        } 
+                        catch (SQLException ex) 
+                        {
+//                            Logger.getLogger(ManageDepartments_Add.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                     }
                 }
             }
@@ -194,4 +199,12 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldLastName;
     private javax.swing.JTextField jTextFieldName;
     // End of variables declaration//GEN-END:variables
+
+    public boolean getEmail(String email)
+    {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
 }
