@@ -4,6 +4,7 @@
  */
 package UI.Ngo;
 
+import UI.student.StudentControlJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -35,11 +36,19 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jButtonManageDepartments = new javax.swing.JButton();
+        btnStudents = new javax.swing.JButton();
 
         jButtonManageDepartments.setText("Manage Departments");
         jButtonManageDepartments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonManageDepartmentsActionPerformed(evt);
+            }
+        });
+
+        btnStudents.setText("Manage Students");
+        btnStudents.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnStudentsActionPerformed(evt);
             }
         });
 
@@ -49,7 +58,9 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addComponent(jButtonManageDepartments, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonManageDepartments, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -57,7 +68,9 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(41, 41, 41)
                 .addComponent(jButtonManageDepartments)
-                .addContainerGap(376, Short.MAX_VALUE))
+                .addGap(27, 27, 27)
+                .addComponent(btnStudents)
+                .addContainerGap(326, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -70,8 +83,17 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
         
     }//GEN-LAST:event_jButtonManageDepartmentsActionPerformed
 
+    private void btnStudentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudentsActionPerformed
+        // TODO add your handling code here:
+        StudentControlJPanel scjp = new StudentControlJPanel(controlArea, workArea);
+        controlArea.add("StudentControlJPanel", scjp);
+        CardLayout layout1 = (CardLayout) controlArea.getLayout();
+        layout1.next(controlArea);
+    }//GEN-LAST:event_btnStudentsActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnStudents;
     private javax.swing.JButton jButtonManageDepartments;
     // End of variables declaration//GEN-END:variables
 }
