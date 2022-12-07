@@ -206,16 +206,17 @@ public class Student {
         try {
             System.out.print("Inside dob");
             System.out.print(s.getDob());
-            PreparedStatement ps = db.getPreStatement("Insert into student(firstname,lastname,gender,age,contact_no,dob,type,address,zipcode)" + "values (?,?,?,?,?,?,?,?,?)");
+            PreparedStatement ps = db.getPreStatement("Insert into student(firstname,lastname,gender,age,contact_no,dob,address,zipcode,education_status)" + "values (?,?,?,?,?,?,?,?,?)");
             ps.setString(1, s.getFirstname());
             ps.setString(2, s.getLastname());
             ps.setString(3, s.getGender());
             ps.setInt(4, s.getAge());
             ps.setLong(5, s.getContact_no());
             ps.setDate(6, new java.sql.Date(s.getDob().getTime()));
-            ps.setString(7, s.getType());
-            ps.setString(8, s.getAddress());
-            ps.setInt(9, s.getZipcode());
+//            ps.setString(7, s.getType());
+            ps.setString(7, s.getAddress());
+            ps.setInt(8, s.getZipcode());
+            ps.setString(9, "Not Admitted");
             ps.execute();
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not saved");
