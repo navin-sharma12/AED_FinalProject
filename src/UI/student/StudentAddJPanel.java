@@ -5,11 +5,16 @@
 package UI.student;
 
 import Student.Student;
+import UI.Ngo.NgoContolAreaJPanel;
+import java.awt.CardLayout;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -18,23 +23,19 @@ import javax.swing.JPanel;
  */
 public class StudentAddJPanel extends javax.swing.JPanel {
 
-   
- 
     /**
      * Creates new form StudentAddJPanel
      */
-  
+    Student s;
+    JPanel controlArea;
+    JPanel workArea;
 
-     JPanel workArea;
-     Student s;
-    public StudentAddJPanel(JPanel workArea)
-    {
+    public StudentAddJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.s = new Student();
+        this.controlArea = controlArea;
         this.workArea = workArea;
-        showTable();
-        
-      
+
     }
 
     /**
@@ -52,7 +53,6 @@ public class StudentAddJPanel extends javax.swing.JPanel {
         txtFirstname = new javax.swing.JTextField();
         lblLastname = new java.awt.Label();
         txtLastname = new javax.swing.JTextField();
-        lblType = new java.awt.Label();
         lblAge = new java.awt.Label();
         lblContact = new java.awt.Label();
         lblDob = new java.awt.Label();
@@ -62,11 +62,11 @@ public class StudentAddJPanel extends javax.swing.JPanel {
         txtGender = new javax.swing.JTextField();
         txtAge = new javax.swing.JTextField();
         txtContact = new javax.swing.JTextField();
-        txtDob = new javax.swing.JTextField();
         txtAddress = new javax.swing.JTextField();
         txtZipcode = new javax.swing.JTextField();
         btnAdd = new java.awt.Button();
-        comboxType = new javax.swing.JComboBox<>();
+        txtDate = new com.toedter.calendar.JDateChooser();
+        btnBack = new javax.swing.JButton();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
@@ -89,8 +89,6 @@ public class StudentAddJPanel extends javax.swing.JPanel {
                 txtLastnameActionPerformed(evt);
             }
         });
-
-        lblType.setText("Type");
 
         lblAge.setText("Age");
 
@@ -122,12 +120,6 @@ public class StudentAddJPanel extends javax.swing.JPanel {
             }
         });
 
-        txtDob.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDobActionPerformed(evt);
-            }
-        });
-
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddressActionPerformed(evt);
@@ -147,15 +139,20 @@ public class StudentAddJPanel extends javax.swing.JPanel {
             }
         });
 
-        comboxType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "University", "School" }));
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(lblHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(126, 126, 126)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(126, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -164,7 +161,6 @@ public class StudentAddJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                 .addComponent(lblLastname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblFirstname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblType, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(lblDob, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
                                 .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
@@ -172,16 +168,19 @@ public class StudentAddJPanel extends javax.swing.JPanel {
                                 .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGap(98, 98, 98)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtLastname)
                             .addComponent(txtFirstname)
+                            .addComponent(txtLastname)
                             .addComponent(txtGender)
                             .addComponent(txtAge)
-                            .addComponent(txtContact)
-                            .addComponent(txtDob)
                             .addComponent(txtAddress)
-                            .addComponent(txtZipcode)
-                            .addComponent(comboxType, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addContainerGap(238, Short.MAX_VALUE))
+                            .addComponent(txtDate, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(txtContact)
+                            .addComponent(txtZipcode))))
+                .addGap(185, 185, 185))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
+                .addComponent(btnBack)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,49 +191,49 @@ public class StudentAddJPanel extends javax.swing.JPanel {
                         .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGap(47, 47, 47)
-                                .addComponent(txtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGap(50, 50, 50)
-                                .addComponent(lblFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnBack)
+                                .addGap(19, 19, 19)
+                                .addComponent(lblFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(txtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(25, 25, 25)
                                 .addComponent(lblLastname, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(18, 18, 18)
-                                .addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(18, 18, 18)
-                        .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblType, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(comboxType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(22, 22, 22)
+                        .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(19, 19, 19)
+                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(24, 24, 24)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)
-                        .addComponent(lblContact, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(txtContact, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30)
+                    .addComponent(lblContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblDob, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDob, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(37, 37, 37)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(36, 36, 36)
+                    .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(23, 23, 23)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(32, 32, 32)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -268,54 +267,74 @@ public class StudentAddJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        
-        SimpleDateFormat formatter = new SimpleDateFormat("dd-MMM-yyyy", Locale.ENGLISH);
-        Date date = new Date();
-        String dateInString = "7-Jun-2013";
-        try{
-           date = formatter.parse(dateInString);  
+        if (txtFirstname.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "First name cannot be null.");
+        } else if (txtLastname.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Last name cannot be null.");
+        } else if (txtGender.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Gender cannot be null");
+        } else if (txtAge.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Age cannot be null.");
+        } else if (Pattern.matches("[a-zA-Z]+", txtAge.getText())) {
+            JOptionPane.showMessageDialog(this, "Age should be in digits.");
+        } else if (Pattern.matches("[a-zA-Z]+", txtAge.getText())) {
+            JOptionPane.showMessageDialog(this, "Age should be in digits.");
+        } else if (!getContact(txtContact.getText())) {
+            JOptionPane.showMessageDialog(this, "Invalid Contact No");
+        } else if (txtDate.getDate() == null) {
+            JOptionPane.showMessageDialog(this, "Dob cannot be null");
+        } else if (txtAddress.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Address cannot be null");
+        } else if (txtZipcode.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "ZipCode cannot be null.");
+        } else if (Pattern.matches("[a-zA-Z]+", txtZipcode.getText())) {
+            JOptionPane.showMessageDialog(this, "ZipCode should be in digits.");
+        } else {
+            System.out.println(getContact(txtContact.getText()));
+            String firstname = txtFirstname.getText();
+            String lastname = txtLastname.getText();
+            String gender = txtGender.getText();
+            int age = Integer.parseInt(txtAge.getText());
+            long contact_no = Long.parseLong(txtContact.getText());
+            Date dob = txtDate.getDate();
+            String address = txtAddress.getText();
+            int zipcode = Integer.parseInt(txtZipcode.getText());
+            Student s_new = new Student(firstname, lastname, gender, age, contact_no, dob, address, zipcode);
+            try {
+                s_new.addStudent(s_new);
+                txtFirstname.setText("");
+                txtLastname.setText("");
+                txtGender.setText("");
+                txtAge.setText("");
+                txtContact.setText("");
+                txtDate.setDate(null);
+                txtAddress.setText("");
+                txtZipcode.setText("");
+                JOptionPane.showMessageDialog(this, "Student Added");
+            } catch (SQLException e) {
+                JOptionPane.showMessageDialog(this, e.getMessage());
+            }
         }
-        catch(ParseException e)
-        {
-            System.out.println(e);
-        }
-        
-        String firstname = txtFirstname.getText();
-        String lastname = txtLastname.getText();
-        String gender = txtGender.getText();
-        int age = Integer.parseInt(txtAge.getText());
-        int contact_no = Integer.parseInt(txtContact.getText());
-//        Date dob = new Date(txtDob.getText());
-//        System.out.println(dob);
-        String address = txtAddress.getText();
-        int zipcode = Integer.parseInt(txtZipcode.getText());
-        String type = String.valueOf(comboxType.getSelectedItem());
-        System.out.println(date);
-        Student s_new = new Student(firstname,lastname,gender,age,contact_no, date,type,address,zipcode);
-        try{
-             s_new.addStudent(s_new);
-        }
-        catch(SQLException e)
-        {
-            System.out.println(e); 
-        }
-       
-      
-        
-        
-        
-        
-        
+
+
     }//GEN-LAST:event_btnAddActionPerformed
 
-    private void txtDobActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDobActionPerformed
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtDobActionPerformed
+
+       
+        NgoContolAreaJPanel ngap = new NgoContolAreaJPanel(controlArea, workArea);
+        controlArea.add("NgoContolAreaJPanel", ngap);
+        CardLayout layout = (CardLayout) controlArea.getLayout();
+        layout.next(controlArea);
+        workArea.remove(this);
+        
+    }//GEN-LAST:event_btnBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnAdd;
-    private javax.swing.JComboBox<String> comboxType;
+    private javax.swing.JButton btnBack;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
     private java.awt.Label lblAddress;
     private java.awt.Label lblAge;
@@ -325,27 +344,21 @@ public class StudentAddJPanel extends javax.swing.JPanel {
     private java.awt.Label lblGender;
     private java.awt.Label lblHeader;
     private java.awt.Label lblLastname;
-    private java.awt.Label lblType;
     private java.awt.Label lblZipcode;
     private javax.swing.JTextField txtAddress;
     private javax.swing.JTextField txtAge;
     private javax.swing.JTextField txtContact;
-    private javax.swing.JTextField txtDob;
+    private com.toedter.calendar.JDateChooser txtDate;
     private javax.swing.JTextField txtFirstname;
     private javax.swing.JTextField txtGender;
     private javax.swing.JTextField txtLastname;
     private javax.swing.JTextField txtZipcode;
     // End of variables declaration//GEN-END:variables
 
-    private void showTable() {
-       try{
-           s.getStudent();
-//         System.out.println(s.getStudent()) ;   
-       } 
-      
-        catch(SQLException e)
-        {
-            System.out.println(e); 
-        }
+    public boolean getContact(String no) {
+        String regex = "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(no);
+        return matcher.matches();
     }
 }

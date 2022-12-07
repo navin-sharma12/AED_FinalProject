@@ -10,12 +10,12 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 
-
 /**
  *
  * @author pikku
  */
 public class Student {
+
     private int id;
     private String firstname;
     private String lastname;
@@ -34,11 +34,8 @@ public class Student {
     private int zipcode;
     private String university_id;
     private String school_id;
-    
-    
-    
-    public Student(String firstname,String lastname,String gender,int age,long contact_no,Date dob,String type,String address,int zipcode)
-    {
+
+    public Student(String firstname, String lastname, String gender, int age, long contact_no, Date dob, String address, int zipcode) {
         System.out.println("entered");
         System.out.println(dob);
         this.firstname = firstname;
@@ -47,14 +44,13 @@ public class Student {
         this.age = age;
         this.contact_no = contact_no;
         this.dob = dob;
-        this.type = type;
+//        this.type = type;
         this.address = address;
         this.zipcode = zipcode;
         System.out.println("this dob" + this.dob);
     }
-    
-    public Student(int id,String firstname,String lastname,String gender,int age,long contact_no,Date dob,String type,String address,int zipcode)
-    {
+
+    public Student(int id, String firstname, String lastname, String gender, int age, long contact_no, Date dob, String address, int zipcode) {
         this.id = id;
         this.firstname = firstname;
         this.lastname = lastname;
@@ -65,11 +61,11 @@ public class Student {
         this.type = type;
         this.address = address;
         this.zipcode = zipcode;
-    }        
+    }
 
     public Student() {
     }
-            
+
     public int getId() {
         return id;
     }
@@ -190,8 +186,6 @@ public class Student {
         this.zipcode = zipcode;
     }
 
-   
-
     public String getUniversity_id() {
         return university_id;
     }
@@ -207,11 +201,10 @@ public class Student {
     public void setSchool_id(String school_id) {
         this.school_id = school_id;
     }
-    
-    
+
     public void addStudent(Student s) throws SQLException {
         try {
-             System.out.print("Inside dob");
+            System.out.print("Inside dob");
             System.out.print(s.getDob());
             PreparedStatement ps = db.getPreStatement("Insert into student(firstname,lastname,gender,age,contact_no,dob,type,address,zipcode)" + "values (?,?,?,?,?,?,?,?,?)");
             ps.setString(1, s.getFirstname());
@@ -229,29 +222,62 @@ public class Student {
         }
 
     }
-    
+
     public ResultSet getStudent() throws SQLException {
         try {
+            System.out.print("entered");
             ResultSet resultSet = db.selectQuery("select * from student");
-//            while (resultSet.next()) 
-//            {
-//                studentlist.add(new Student(resultSet.getInt(1),
-//                        resultSet.getString(2),
-//                        resultSet.getString(3),
-//                        resultSet.getString(6),
-//                        resultSet.getInt(5),
-//                        resultSet.getLong(7),
-//                       resultSet.getDate(8),
-//                        resultSet.getString(13),
-//                        resultSet.getString(15),
-//                        resultSet.getString(16)));
-//            }
-           return resultSet;
+            return resultSet;
 
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not found");
         }
 
     }
+
+//    get student by ID
+    public ResultSet getStudentById(int id) throws SQLException {
+        try {
+
+            ResultSet resultSet = db.selectQuery("select * from student where id = '" + id + "'");
+            return resultSet;
+
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
+    }
+
+//    update student
+    public void UpdateStudentById(Student s) throws SQLException {
+
+        try {
+            PreparedStatement ps = db.getPreStatement("update student set firstname = ?, lastname = ?,  age = ?, contact_no = ?, dob = ?, address = ?, zipcode = ?,gender = ?  where id = ?");
+            ps.setString(1, s.getFirstname());
+            ps.setString(2, s.getLastname());
+            ps.setInt(3, s.getAge());
+            ps.setString(4, String.valueOf(s.getContact_no()));
+            ps.setDate(5, new java.sql.Date(s.getDob().getTime()));
+            ps.setString(6, s.getAddress());
+            ps.setInt(7, s.getZipcode());
+            ps.setString(8, s.getGender());
+            ps.setInt(9, s.getId());
+            ps.execute();
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+
+    }
     
+//  delete student
+     public void deleteStudent(int id) throws SQLException{
+        try{
+            PreparedStatement ps = db.getPreStatement("delete from student where id = ?");
+                ps.setInt(1, id);
+                ps.execute(); 
+        }
+        catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+    }
 }
