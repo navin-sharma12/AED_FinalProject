@@ -3,6 +3,11 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
 package Schooling.UI;
+import Schooling.Model.University;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -13,6 +18,7 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_ManageUniversity_Read
      */
+    ResultSet resultSet;
     public University_ManageUniversity_Read() {
         initComponents();
     }
@@ -69,16 +75,26 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
         jScrollPane1.setViewportView(jTable);
 
         jButtonFetch.setText("Fetch");
+        jButtonFetch.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonFetchActionPerformed(evt);
+            }
+        });
 
         jButtonView.setText("View");
+        jButtonView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonViewActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 506, Short.MAX_VALUE)
+            .addComponent(jLabelTitle, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(46, 46, 46)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
@@ -95,9 +111,9 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
                             .addComponent(jTextFieldCourseName)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 139, Short.MAX_VALUE)
+                        .addGap(139, 139, 139)
                         .addComponent(jButtonFetch, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(47, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -110,7 +126,7 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonFetch)
                     .addComponent(jButtonView))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUniversityName)
                     .addComponent(jTextFieldUniversityName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -130,6 +146,38 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonFetchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFetchActionPerformed
+        // TODO add your handling code here:
+        University uni = new University();
+        resultSet = uni.getallUniversity();
+        try 
+        {
+            ViewTable();
+        } 
+        catch (SQLException ex) 
+        {
+//            Logger.getLogger(University_ManageUniversity_Read.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonFetchActionPerformed
+
+    private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = jTable.getSelectedRow();
+        if (selectedRowIndex<0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
+            return;
+        }
+        else
+        {
+            DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
+            jTextFieldUniversityName.setText(table_model.getValueAt(selectedRowIndex, 0).toString());
+            jTextFieldCategory.setText(table_model.getValueAt(selectedRowIndex, 1).toString());
+            jTextFieldCourseName.setText(table_model.getValueAt(selectedRowIndex, 2).toString());
+            jTextFieldSeatInCourse.setText(table_model.getValueAt(selectedRowIndex, 3).toString());
+        }
+    }//GEN-LAST:event_jButtonViewActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonFetch;
@@ -146,4 +194,27 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldSeatInCourse;
     private javax.swing.JTextField jTextFieldUniversityName;
     // End of variables declaration//GEN-END:variables
+
+    private void ViewTable() throws SQLException
+    {
+        DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
+        table_model.setRowCount(0);
+        
+        try 
+        {
+            while (resultSet.next()) 
+            {
+                Object[] row = new Object[4];
+                row[0] = resultSet.getString(2);
+                row[1] = resultSet.getString(3);
+                row[2] = resultSet.getString(4);
+                row[3] = resultSet.getString(5);
+                table_model.addRow(row);
+            }
+        } 
+        catch (IllegalArgumentException e) 
+        {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+    }
 }

@@ -177,7 +177,7 @@ public class University_ManageCourses_Read extends javax.swing.JPanel {
         {
             while (resultSet.next()) 
             {
-                Object[] row = new Object[12];
+                Object[] row = new Object[2];
                 row[0] = resultSet.getString(2);
                 row[1] = resultSet.getString(3);
                 table_model.addRow(row);

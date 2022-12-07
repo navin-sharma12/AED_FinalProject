@@ -38,6 +38,17 @@ public class University
         this.university_id = university_id;
         this.seats = seats;
     }
+
+    public University()
+    {
+        
+    }
+
+    public University(String university_name, int university_id) 
+    {
+        this.university_name = university_name;
+        this.university_id = university_id;
+    }
     
     public int getCourse_id() {
         return course_id;
@@ -119,7 +130,41 @@ public class University
     
     public ResultSet getallUniversity()
     {
-        resultSet = db.selectQuery("select * from universities");
+        resultSet = db.selectQuery("select universities.id, universities.university_name, field_of_interest.category, course.course_name, courses_in_university.seats from universities inner join courses_in_university on courses_in_university.university_id = universities.id, field_of_interest inner join course on course.category_id = field_of_interest.id");
         return resultSet;
+    }
+    
+    public void updateUniversity(String university_name, int university_id) throws SQLException
+    {
+        PreparedStatement ps = db.getPreStatement("UPDATE universities set university_name = ? where id = ?");
+        ps.setString(1, university_name);
+        ps.setInt(2, university_id);
+        ps.execute();
+    }
+    
+    public void updateSeats(int course_id, int university_id, int seats) throws SQLException
+    {
+        PreparedStatement ps = db.getPreStatement("UPDATE courses_in_university set seats = ? where university_id = ? and course_id = ?");
+        ps.setInt(1, seats);
+        ps.setInt(2, university_id);
+        ps.setInt(3, course_id);
+        ps.execute();
+    }
+    
+    public void deleteUniversity(String university_name, int university_id) throws SQLException
+    {
+        PreparedStatement ps = db.getPreStatement("delete from universities where university_name = ? and id = ?");
+        ps.setString(1, university_name);
+        ps.setInt(2, university_id);
+        ps.execute(); 
+    }
+    
+    public void deleteSeats(int course_id, int university_id, int seats) throws SQLException
+    {
+        PreparedStatement ps = db.getPreStatement("delete from courses_in_university where seats = ? and university_id = ? and course_id = ?");
+        ps.setInt(1, seats);
+        ps.setInt(2, university_id);
+        ps.setInt(3, course_id);
+        ps.execute();
     }
 }
