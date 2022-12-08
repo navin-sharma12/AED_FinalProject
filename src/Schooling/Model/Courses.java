@@ -108,4 +108,18 @@ public class Courses
     {
         db.query("UPDATE field_of_interest set course_name = '"+course_name+"'where id = '"+course_id+"'");
     }
+    
+    public ResultSet getCourseIdByName(String name)
+    {
+         resultSet = db.selectQuery("select id from course where course_name = '"+name+"'");
+         return resultSet;
+    }
+    
+    public ResultSet findSeats(int course_id,int university_id)
+    {
+        resultSet = db.selectQuery("select seats from courses_in_university where course_id = '"+course_id+"' AND university_id = '"+university_id+"'");
+        return resultSet;
+    }
+    
+    
 }

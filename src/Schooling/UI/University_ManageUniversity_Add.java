@@ -81,6 +81,12 @@ public class University_ManageUniversity_Add extends javax.swing.JPanel {
 
         jLabelCategory.setText("Category:");
 
+        jComboBoxCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCategoryActionPerformed(evt);
+            }
+        });
+
         jComboBoxCourseName.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBoxCourseNameActionPerformed(evt);
@@ -276,6 +282,10 @@ public class University_ManageUniversity_Add extends javax.swing.JPanel {
 //            Logger.getLogger(University_ManageUniversity_Add.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButtonCategoryActionPerformed
+
+    private void jComboBoxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCategoryActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

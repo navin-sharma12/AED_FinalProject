@@ -269,16 +269,25 @@ public class Student {
         }
 
     }
-    
+
 //  delete student
-     public void deleteStudent(int id) throws SQLException{
-        try{
+    public void deleteStudent(int id) throws SQLException {
+        try {
             PreparedStatement ps = db.getPreStatement("delete from student where id = ?");
-                ps.setInt(1, id);
-                ps.execute(); 
-        }
-        catch (IllegalArgumentException e) {
+            ps.setInt(1, id);
+            ps.execute();
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not saved");
         }
+    }
+
+    public void updateStudentCollege(int student_id, int course_id, int university_id, String status, String email) throws SQLException {
+        PreparedStatement ps = db.getPreStatement("update student set course_id = ?, university_id = ? , education_status = ? , email = ? where id = ?");
+        ps.setInt(1, course_id);
+        ps.setInt(2, university_id);
+        ps.setString(3, status);
+        ps.setString(4, email);
+        ps.setInt(5, student_id);
+        ps.execute();
     }
 }

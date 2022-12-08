@@ -45,6 +45,7 @@ public class Users {
 //        this.departments = departments;
 //        this.department_id = department_id;
 //    }
+    
 //    Created for update users
     public Users(int id, int department_id,String firstname, String lastname, String emailid, String departments,String username,String password) {
         this.id = id;
