@@ -8,7 +8,7 @@ import DataConnection.db;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
+import java.util.Properties;
 /**
  *
  * @author navinsharma
@@ -194,4 +194,14 @@ public class Users {
             throw new IllegalArgumentException(e.getMessage() + "Record not saved");
         }
     }
+    
+//    sent email
+//    public boolean sentEmail(String email,String university){
+//        Properties properties = new Properties();
+//        properties.put("mail.smtp.auth", "true");
+//        properties.put("mail.smtp.starttls.enable","true");
+//        properties.put("mail.smtp.host", "smtp.gmail.com");
+//        properties.put("mail.smtp.port", "587");
+//        Session session = Session.get
+//    }
 }

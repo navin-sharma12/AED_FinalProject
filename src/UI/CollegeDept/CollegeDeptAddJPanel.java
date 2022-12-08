@@ -8,11 +8,22 @@ import Schooling.Model.Courses;
 import Schooling.Model.FieldOfInterest;
 import Schooling.Model.University;
 import Student.Student;
+import com.sun.mail.handlers.text_plain;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Date;
+import java.util.Properties;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.Message.RecipientType;
+import javax.mail.PasswordAuthentication;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 
 /**
  *
@@ -308,11 +319,11 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
                     University uni = new University();
                     rs_university_id = uni.getUniversityIdByName(university_name);
                     student_email = model.getValueAt(selectedRowIndex, 2).toString().toLowerCase() + "." + model.getValueAt(selectedRowIndex, 1).toString().toLowerCase().charAt(0) + "@" + university_name.toLowerCase().split(" ")[0] + ".edu";
-                     while (rs_university_id.next()) {
+                    while (rs_university_id.next()) {
                         university_id = rs_university_id.getInt(1);
                         System.out.println(course_id);
                         System.out.println(university_id);
-                      
+
                         rs_seats = cs.findSeats(course_id, university_id);
                         while (rs_seats.next()) {
                             if (rs_seats.getInt(1) < 1) {
@@ -325,7 +336,8 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
                                 ComboBoxFOI.removeAllItems();
                                 ComboBoxCourse.removeAllItems();
                                 ComboBoxUniversity.removeAllItems();
-
+                                System.out.println(student_email);
+                                sentEmail(student_email, university_name);
                             }
                         }
                     }
@@ -364,6 +376,37 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
+    }
+
+    private void sentEmail(String email, String university) {
+        try {
+            Properties properties = new Properties();
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", "587");
+            Session session = Session.getDefaultInstance(properties,
+                    new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication("helpinghomeless.aed@gmail.com", "zhbgmahzmzkuagbi");
+
+                }
+            });
+            System.out.println(session);
+            Message message = new MimeMessage(session);
+            message.setSubject("Welcome to" +university+ "");
+            message.setContent("Welcome to university", "text/plain");
+            message.setFrom(new InternetAddress("helpinghomeless.aed@gmail.com"));
+            message.setRecipient(RecipientType.TO, new InternetAddress(email));
+            message.setSentDate(new Date());
+
+            Transport.send(message);
+            JOptionPane.showMessageDialog(this, "Email Sent");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxCourse;
