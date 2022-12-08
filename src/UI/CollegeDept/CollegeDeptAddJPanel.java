@@ -378,36 +378,7 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
         }
     }
 
-    private void sentEmail(String email, String university) {
-        try {
-            Properties properties = new Properties();
-            properties.put("mail.smtp.auth", "true");
-            properties.put("mail.smtp.starttls.enable", "true");
-            properties.put("mail.smtp.host", "smtp.gmail.com");
-            properties.put("mail.smtp.port", "587");
-            Session session = Session.getDefaultInstance(properties,
-                    new Authenticator() {
-                @Override
-                protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("helpinghomeless.aed@gmail.com", "zhbgmahzmzkuagbi");
-
-                }
-            });
-            System.out.println(session);
-            Message message = new MimeMessage(session);
-            message.setSubject("Welcome to" +university+ "");
-            message.setContent("Welcome to university", "text/plain");
-            message.setFrom(new InternetAddress("helpinghomeless.aed@gmail.com"));
-            message.setRecipient(RecipientType.TO, new InternetAddress(email));
-            message.setSentDate(new Date());
-
-            Transport.send(message);
-            JOptionPane.showMessageDialog(this, "Email Sent");
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, e.getMessage());
-        }
-
-    }
+   
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxCourse;
     private javax.swing.JComboBox<String> ComboBoxFOI;
@@ -442,6 +413,37 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
             }
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+
+    }
+    
+     private void sentEmail(String email, String university) {
+        try {
+            Properties properties = new Properties();
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", "587");
+            Session session = Session.getDefaultInstance(properties,
+                    new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication("helpinghomeless.aed@gmail.com", "zhbgmahzmzkuagbi");
+
+                }
+            });
+            System.out.println(session);
+            Message message = new MimeMessage(session);
+            message.setSubject("Welcome to" +university+ "");
+            message.setContent("Welcome to" +university+ "", "text/plain");
+            message.setFrom(new InternetAddress("helpinghomeless.aed@gmail.com"));
+            message.setRecipient(RecipientType.TO, new InternetAddress(email));
+            message.setSentDate(new Date());
+
+            Transport.send(message);
+            JOptionPane.showMessageDialog(this, "Email Sent");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
         }
 
     }
