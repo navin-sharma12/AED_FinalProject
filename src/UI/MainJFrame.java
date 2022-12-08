@@ -5,6 +5,7 @@
 package UI;
 import DataConnection.db;
 import Schooling.UI.Schooling_Admin;
+import UI.CollegeDept.CollegeDeptAddJPanel;
 import UI.student.StudentAddJPanel;
 import UI.student.StudentDeleteJPanel;
 import UI.student.StudentUpdateJPanel;
@@ -115,6 +116,11 @@ public class MainJFrame extends javax.swing.JFrame {
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
+        
+//         CollegeDeptAddJPanel cdajp = new CollegeDeptAddJPanel(controlArea, workArea);
+//        workArea.add("CollegeDeptAddJPanel",cdajp);
+//        CardLayout layout = (CardLayout)workArea.getLayout();
+//        layout.next(workArea);
 
         
 

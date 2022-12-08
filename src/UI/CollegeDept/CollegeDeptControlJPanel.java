@@ -89,38 +89,38 @@ public class CollegeDeptControlJPanel extends javax.swing.JPanel {
 
     private void btnAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddActionPerformed
         // TODO add your handling code here:
-        workArea.removeAll();
-        ManageDepartment_AddJPanel adjp = new ManageDepartment_AddJPanel(controlArea, workArea);
-        workArea.add("ManageDepartment_AddJPanel", adjp);
-        CardLayout layout1 = (CardLayout) workArea.getLayout();
-        layout1.next(workArea);
+//        workArea.removeAll();
+//        ManageDepartment_AddJPanel adjp = new ManageDepartment_AddJPanel(controlArea, workArea);
+//        workArea.add("ManageDepartment_AddJPanel", adjp);
+//        CardLayout layout1 = (CardLayout) workArea.getLayout();
+//        layout1.next(workArea);
     }//GEN-LAST:event_btnAddActionPerformed
 
     private void btnReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnReadActionPerformed
         // TODO add your handling code here:
-        workArea.removeAll();
-        ManageDepartment_ViewJPanel mdjp = new ManageDepartment_ViewJPanel(controlArea, workArea);
-        workArea.add("ManageDepartment_ViewJPanel", mdjp);
-        CardLayout layout3 = (CardLayout) workArea.getLayout();
-        layout3.next(workArea);
+//        workArea.removeAll();
+//        ManageDepartment_ViewJPanel mdjp = new ManageDepartment_ViewJPanel(controlArea, workArea);
+//        workArea.add("ManageDepartment_ViewJPanel", mdjp);
+//        CardLayout layout3 = (CardLayout) workArea.getLayout();
+//        layout3.next(workArea);
     }//GEN-LAST:event_btnReadActionPerformed
 
     private void btnUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateActionPerformed
         // TODO add your handling code here:
-        workArea.removeAll();
-        ManageDepartmentUpdateJPanel mup = new ManageDepartmentUpdateJPanel(controlArea, workArea);
-        workArea.add("ManageDepartmentUpdateJPanel", mup);
-        CardLayout layout4 = (CardLayout) workArea.getLayout();
-        layout4.next(workArea);
+//        workArea.removeAll();
+//        ManageDepartmentUpdateJPanel mup = new ManageDepartmentUpdateJPanel(controlArea, workArea);
+//        workArea.add("ManageDepartmentUpdateJPanel", mup);
+//        CardLayout layout4 = (CardLayout) workArea.getLayout();
+//        layout4.next(workArea);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
         // TODO add your handling code here:
-        workArea.removeAll();
-        ManageDepartmentDeleteJPanel mdup = new ManageDepartmentDeleteJPanel(controlArea, workArea);
-        workArea.add("ManageDepartmentDeleteJPanel", mdup);
-        CardLayout layout2 = (CardLayout) workArea.getLayout();
-        layout2.next(workArea);
+//        workArea.removeAll();
+//        ManageDepartmentDeleteJPanel mdup = new ManageDepartmentDeleteJPanel(controlArea, workArea);
+//        workArea.add("ManageDepartmentDeleteJPanel", mdup);
+//        CardLayout layout2 = (CardLayout) workArea.getLayout();
+//        layout2.next(workArea);
     }//GEN-LAST:event_btnDeleteActionPerformed
 
 

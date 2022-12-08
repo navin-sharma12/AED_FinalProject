@@ -167,4 +167,26 @@ public class University
         ps.setInt(3, course_id);
         ps.execute();
     }
+    
+//   get all universities
+    public ResultSet getAllUniversityStudent() throws SQLException
+    {
+        
+        ResultSet resultset = db.selectQuery("SELECT c.id as course_id,c.course_name,u.id as university_id,u.university_name, cu.seats FROM AED.courses_in_university as cu LEFT JOIN AED.course AS c ON cu.course_id = c.id LEFT JOIN AED.universities AS u ON cu.university_id = u.id");
+        return resultset;
+    }
+    
+    public ResultSet getUniversityByCourseId(int id)
+    {
+        resultSet = db.selectQuery("SELECT ciu.university_id, ciu.course_id,u.university_name,ciu.seats FROM courses_in_university as ciu left join universities as u on ciu.university_id = u.id where ciu.course_id = '"+id+"'");
+       
+        return resultSet;
+    }
+    
+    public ResultSet getUniversityIdByName(String name)
+    {
+        resultSet = db.selectQuery("select id from universities where university_name = '"+name+"'");
+        return resultSet;
+    }
 }
+

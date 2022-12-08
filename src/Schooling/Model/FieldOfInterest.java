@@ -67,4 +67,10 @@ public class FieldOfInterest {
         resultSet = db.selectQuery("select * from field_of_interest");
         return resultSet;
     }
+    
+    public ResultSet getIdByName(String name)
+    {
+        resultSet = db.selectQuery("select id from field_of_interest where category = '"+name+"'");
+        return resultSet;
+    }
 }
