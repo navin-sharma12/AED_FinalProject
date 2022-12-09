@@ -34,6 +34,7 @@ public class Student {
     private int zipcode;
     private String university_id;
     private String school_id;
+    private String university_personal_id;
 
     public Student(String firstname, String lastname, String gender, int age, long contact_no, Date dob, String address, int zipcode) {
         System.out.println("entered");
@@ -281,13 +282,14 @@ public class Student {
         }
     }
 
-    public void updateStudentCollege(int student_id, int course_id, int university_id, String status, String email) throws SQLException {
-        PreparedStatement ps = db.getPreStatement("update student set course_id = ?, university_id = ? , education_status = ? , email = ? where id = ?");
+    public void updateStudentCollege(int student_id, int course_id, int university_id,String university_personal_id, String status, String email) throws SQLException {
+        PreparedStatement ps = db.getPreStatement("update student set course_id = ?, university_id = ? ,university_personal_id = ?, education_status = ? , email = ? where id = ?");
         ps.setInt(1, course_id);
         ps.setInt(2, university_id);
-        ps.setString(3, status);
-        ps.setString(4, email);
-        ps.setInt(5, student_id);
+        ps.setString(3,university_personal_id);
+        ps.setString(4, status);
+        ps.setString(5, email);
+        ps.setInt(6, student_id);
         ps.execute();
     }
 }

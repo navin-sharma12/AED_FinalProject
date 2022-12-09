@@ -9,10 +9,16 @@ import Schooling.Model.FieldOfInterest;
 import Schooling.Model.University;
 import Student.Student;
 import com.sun.mail.handlers.text_plain;
+import java.util.List;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Properties;
+import java.util.Random;
+import java.util.Set;
 import javax.mail.Authenticator;
 import javax.mail.Message;
 import javax.mail.Message.RecipientType;
@@ -331,13 +337,14 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
                             } else {
                                 uni.updateSeats(course_id, university_id, rs_seats.getInt(1) - 1);
                                 Student s_update = new Student();
-                                s_update.updateStudentCollege(student_id, course_id, university_id, "Admitted", student_email);
+                                String student_college_id = university_name.substring(0,3).toUpperCase() + "-" +getRandomNumber();
+                                 s_update.updateStudentCollege(student_id, course_id, university_id,student_college_id, "Admitted", student_email);
                                 showUniversityTable();
                                 ComboBoxFOI.removeAllItems();
                                 ComboBoxCourse.removeAllItems();
                                 ComboBoxUniversity.removeAllItems();
                                 System.out.println(student_email);
-                                sentEmail(student_email, university_name);
+                                sentEmail(student_email, university_name,student_college_id);
                             }
                         }
                     }
@@ -378,7 +385,21 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
         }
     }
 
-   
+    public String getRandomNumber() {
+         List<Integer> numbers;
+        numbers = new ArrayList<Integer>();
+    for(int i = 0; i < 10; i++){
+        numbers.add(i);
+    }
+
+    Collections.shuffle(numbers);
+
+    String result = "";
+    for(int i = 0; i < 4; i++){
+        result += numbers.get(i).toString();
+    }
+    return result;
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxCourse;
     private javax.swing.JComboBox<String> ComboBoxFOI;
@@ -416,8 +437,8 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
         }
 
     }
-    
-     private void sentEmail(String email, String university) {
+
+    private void sentEmail(String email, String university, String password) {
         try {
             Properties properties = new Properties();
             properties.put("mail.smtp.auth", "true");
@@ -432,10 +453,11 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
 
                 }
             });
+            String content = "Welcome to" + university + ".\r\n Your email" + email + "and password" + password + "/r/n for the portal";
             System.out.println(session);
             Message message = new MimeMessage(session);
-            message.setSubject("Welcome to" +university+ "");
-            message.setContent("Welcome to" +university+ "", "text/plain");
+            message.setSubject("Welcome to" + university + "");
+            message.setContent(content, "text/plain");
             message.setFrom(new InternetAddress("helpinghomeless.aed@gmail.com"));
             message.setRecipient(RecipientType.TO, new InternetAddress(email));
             message.setSentDate(new Date());
