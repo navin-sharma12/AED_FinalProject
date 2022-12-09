@@ -218,8 +218,8 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
         } else if (department.isEmpty()) {
             JOptionPane.showMessageDialog(this, "department cannot be null.");
         } else {
-            username = last_name + "." + first_name;
-            password = last_name + "." + first_name;
+            username = last_name.toLowerCase() + "." + first_name.toLowerCase();
+            password = last_name.toLowerCase() + "." + first_name.toLowerCase();
             try {
 
                 Users us_new = new Users(id, department_id, first_name, last_name, emailId, department, username, password);
