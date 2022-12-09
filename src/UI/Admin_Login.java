@@ -6,11 +6,14 @@
 package UI;
 
 import Admin.Admin;
+import UI.Funding.Funding_Admin;
+import UI.Funding.Funding_ManageInvestors;
 import Schooling.UI.Schooling_Admin;
 import UI.Ngo.NgoContolAreaJPanel;
 import java.awt.CardLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -144,14 +147,23 @@ public class Admin_Login extends javax.swing.JPanel {
                     controlArea.add("NgoContolAreaJPanel", ngap);
                     CardLayout layout = (CardLayout) controlArea.getLayout();
                     layout.next(controlArea);
-                    
-                    
-
                 }
+                 if(res.getString(2).equals("funding"))
+                {
+                    workArea.remove(this);
+                     Funding_Admin fa = new Funding_Admin(controlArea, workArea);
+                    controlArea.add("Funding_Admin", fa);
+                    CardLayout layout3 = (CardLayout) controlArea.getLayout();
+                    layout3.next(controlArea);
+                   
+                }
+            }
+            else{
+                 JOptionPane.showMessageDialog(this, "Invalid Input");
             }
            
         } catch (SQLException e) {
-            System.out.println(e);
+           JOptionPane.showMessageDialog(this, e.getMessage());
         }
 
 //        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);

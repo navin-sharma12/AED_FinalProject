@@ -4,6 +4,10 @@
  */
 package UI;
 import DataConnection.db;
+import UI.Funding.Funding_ManageInvestor_Delete;
+import UI.Funding.Funding_ManageInvestor_Update;
+import UI.Funding.Funding_ManageInvestors_Add;
+import UI.Funding.Funding_ManageInvestors_Read;
 import Schooling.UI.Schooling_Admin;
 import UI.CollegeDept.CollegeDeptAddJPanel;
 import UI.student.StudentAddJPanel;
@@ -117,10 +121,7 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
         
-//         CollegeDeptAddJPanel cdajp = new CollegeDeptAddJPanel(controlArea, workArea);
-//        workArea.add("CollegeDeptAddJPanel",cdajp);
-//        CardLayout layout = (CardLayout)workArea.getLayout();
-//        layout.next(workArea);
+      
 
         
 
