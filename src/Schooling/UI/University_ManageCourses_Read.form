@@ -31,12 +31,8 @@
                           <Component id="jTextFieldCategory" pref="191" max="32767" attributes="0"/>
                       </Group>
                   </Group>
-                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                      <Group type="102" attributes="0">
-                          <Component id="jButtonView" min="-2" pref="116" max="-2" attributes="0"/>
-                          <EmptySpace max="32767" attributes="0"/>
-                          <Component id="jButtonFetch" min="-2" pref="116" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="103" groupAlignment="1" attributes="0">
+                      <Component id="jButtonView" alignment="0" min="-2" pref="116" max="-2" attributes="0"/>
                       <Component id="jScrollPane1" min="-2" pref="321" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -52,10 +48,7 @@
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="146" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jButtonFetch" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="jButtonView" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="jButtonView" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jLabelCoursename" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -117,14 +110,6 @@
         </Component>
       </SubComponents>
     </Container>
-    <Component class="javax.swing.JButton" name="jButtonFetch">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Fetch"/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonFetchActionPerformed"/>
-      </Events>
-    </Component>
     <Component class="javax.swing.JButton" name="jButtonView">
       <Properties>
         <Property name="text" type="java.lang.String" value="View"/>

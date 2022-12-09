@@ -20,7 +20,17 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
      */
     ResultSet resultSet;
     public University_ManageUniversity_Read() {
-        initComponents();
+        try 
+        {
+            initComponents();
+            University uni = new University();
+            resultSet = uni.getallUniversity();
+            ViewTable();
+        } 
+        catch (SQLException ex) 
+        {
+//            Logger.getLogger(University_ManageUniversity_Read.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -41,7 +51,6 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
         jLabelCoursename = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
-        jButtonFetch = new javax.swing.JButton();
         jButtonView = new javax.swing.JButton();
         jTextFieldCategory = new javax.swing.JTextField();
         jTextFieldCourseName = new javax.swing.JTextField();
@@ -74,13 +83,6 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable);
 
-        jButtonFetch.setText("Fetch");
-        jButtonFetch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFetchActionPerformed(evt);
-            }
-        });
-
         jButtonView.setText("View");
         jButtonView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -111,8 +113,7 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
                             .addComponent(jTextFieldCourseName)))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(139, 139, 139)
-                        .addComponent(jButtonFetch, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(276, 276, 276)))
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
@@ -123,9 +124,7 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 168, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonFetch)
-                    .addComponent(jButtonView))
+                .addComponent(jButtonView)
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUniversityName)
@@ -145,20 +144,6 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
                 .addGap(22, 22, 22))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonFetchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFetchActionPerformed
-        // TODO add your handling code here:
-        University uni = new University();
-        resultSet = uni.getallUniversity();
-        try 
-        {
-            ViewTable();
-        } 
-        catch (SQLException ex) 
-        {
-//            Logger.getLogger(University_ManageUniversity_Read.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButtonFetchActionPerformed
 
     private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
         // TODO add your handling code here:
@@ -180,7 +165,6 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonFetch;
     private javax.swing.JButton jButtonView;
     private javax.swing.JLabel jLabelCategory;
     private javax.swing.JLabel jLabelCoursename;

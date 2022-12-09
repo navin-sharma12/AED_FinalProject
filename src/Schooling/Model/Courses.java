@@ -106,7 +106,7 @@ public class Courses
     
     public void updateCourses(String course_name, int course_id)
     {
-        db.query("UPDATE field_of_interest set course_name = '"+course_name+"'where id = '"+course_id+"'");
+        db.query("UPDATE field_of_interest set course_name = '"+course_name+"' where id = '"+course_id+"'");
     }
     
     public ResultSet getCourseIdByName(String name)
