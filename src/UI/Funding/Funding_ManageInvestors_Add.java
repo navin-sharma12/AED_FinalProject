@@ -2,15 +2,20 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package Funding;
+package UI.Funding;
 
 import DataConnection.db;
 import Schooling.UI.ManageDepartments_Add;
+import Users.Users;
+import java.awt.CardLayout;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -21,8 +26,15 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
     /**
      * Creates new form Funding_ManageInvestors_Add
      */
-    public Funding_ManageInvestors_Add() {
+    JPanel controlArea;
+    JPanel workArea;
+    Users user;
+
+    public Funding_ManageInvestors_Add(JPanel controlArea, JPanel workArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
+        this.user = new Users();
     }
 
     /**
@@ -44,6 +56,7 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
         jLabelDepartment = new javax.swing.JLabel();
         jComboBoxDepartment = new javax.swing.JComboBox<>();
         jButtonAddSubmit = new javax.swing.JButton();
+        btnBack = new javax.swing.JButton();
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -68,11 +81,22 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
             }
         });
 
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(btnBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -104,8 +128,13 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jLabelTitle)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(35, 35, 35)
+                        .addComponent(jLabelTitle))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBack)))
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelName)
@@ -131,57 +160,55 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
     private void jButtonAddSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSubmitActionPerformed
         // TODO add your handling code here:
         String first_name, last_name, emailId, department, username, password;
-        int department_id;
+        int department_id = 2;
 
         first_name = jTextFieldName.getText();
-        if(first_name.isEmpty())
-        {
+        last_name = jTextFieldLastName.getText();
+        emailId = jTextFieldEmailID.getText();
+        department = jComboBoxDepartment.getSelectedItem().toString();
+        if (first_name.isEmpty()) {
             JOptionPane.showMessageDialog(this, "First name cannot be null.");
-        }
-        else
-        {
-            last_name = jTextFieldLastName.getText();
-            if (last_name.isEmpty()) 
-            {
-                JOptionPane.showMessageDialog(this, "Last name cannot be null.");
-            } 
-            else 
-            {
-                emailId = jTextFieldEmailID.getText();
-                department = jComboBoxDepartment.getSelectedItem().toString();
-                if (department.isEmpty()) 
-                {
-                    JOptionPane.showMessageDialog(this, "department cannot be null.");
-                }
-                else
-                {
-                    username = last_name + "." + first_name;
-                    password = last_name + "." + first_name;
-                    department_id = 2; //to be changed with loop of id
+        } else if (last_name.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Last name cannot be null.");
+        } else if (!getEmail(emailId)) {
+            JOptionPane.showMessageDialog(this, "Invalid Email address");
+        } else if (department.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "department cannot be null.");
+        } else {
+            username = last_name.toLowerCase() + "." + first_name.toLowerCase();
+            password = last_name.toLowerCase() + "." + first_name.toLowerCase();
+            try {
+                Users us_new = new Users(department_id, first_name, last_name, emailId, department, username, password);
+                user.addUser(us_new);
+                jTextFieldName.setText("");
+                jTextFieldLastName.setText("");
+                jTextFieldEmailID.setText("");
+                jComboBoxDepartment.setSelectedIndex(0);
 
-                    try 
-                    {
-                        PreparedStatement ps = db.getPreStatement("Insert into user(department_id, firstname, lastname, emailid, organization, username, password)" + "values (?,?,?,?,?,?,?)");
-                        ps.setInt(1, department_id);
-                        ps.setString(2, first_name);
-                        ps.setString(3, last_name);
-                        ps.setString(4, emailId);
-                        ps.setString(5, department);
-                        ps.setString(6, username);
-                        ps.setString(7, password);
-                        ps.execute();
-                    }
-                    catch (SQLException ex) 
-                    {
-                        Logger.getLogger(ManageDepartments_Add.class.getName()).log(Level.SEVERE, null, ex);
-                    }
-                }
+            } catch (SQLException ex) {
+                JOptionPane.showMessageDialog(this, ex.getMessage());
             }
         }
     }//GEN-LAST:event_jButtonAddSubmitActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        Funding_Admin fa = new Funding_Admin(controlArea, workArea);
+        controlArea.add("Funding_Admin", fa);
+        CardLayout layout = (CardLayout) controlArea.getLayout();
+        layout.next(controlArea);
+        workArea.remove(this);
 
+    }//GEN-LAST:event_btnBackActionPerformed
+
+    public boolean getEmail(String email) {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton jButtonAddSubmit;
     private javax.swing.JComboBox<String> jComboBoxDepartment;
     private javax.swing.JLabel jLabelDepartment;

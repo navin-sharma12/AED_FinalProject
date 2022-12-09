@@ -21,7 +21,17 @@ public class University_ManageCourses_Read extends javax.swing.JPanel {
      */
     ResultSet resultSet;
     public University_ManageCourses_Read() {
-        initComponents();
+        try
+        {
+            initComponents();
+            Courses course = new Courses();
+            resultSet = course.getCourses();
+            ViewTable();
+        } 
+        catch (SQLException ex) 
+        {
+//            Logger.getLogger(University_ManageCourses_Read.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -36,7 +46,6 @@ public class University_ManageCourses_Read extends javax.swing.JPanel {
         jLabelTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
-        jButtonFetch = new javax.swing.JButton();
         jButtonView = new javax.swing.JButton();
         jLabelCategory = new javax.swing.JLabel();
         jTextFieldCourseName = new javax.swing.JTextField();
@@ -59,13 +68,6 @@ public class University_ManageCourses_Read extends javax.swing.JPanel {
             }
         ));
         jScrollPane1.setViewportView(jTable);
-
-        jButtonFetch.setText("Fetch");
-        jButtonFetch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFetchActionPerformed(evt);
-            }
-        });
 
         jButtonView.setText("View");
         jButtonView.addActionListener(new java.awt.event.ActionListener() {
@@ -94,11 +96,8 @@ public class University_ManageCourses_Read extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldCourseName)
                             .addComponent(jTextFieldCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 191, Short.MAX_VALUE)))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButtonFetch, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(jButtonView, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
@@ -110,9 +109,7 @@ public class University_ManageCourses_Read extends javax.swing.JPanel {
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonFetch)
-                    .addComponent(jButtonView))
+                .addComponent(jButtonView)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCoursename)
@@ -124,20 +121,6 @@ public class University_ManageCourses_Read extends javax.swing.JPanel {
                 .addContainerGap(25, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jButtonFetchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFetchActionPerformed
-        // TODO add your handling code here:
-        try 
-        {
-            Courses course = new Courses();
-            resultSet = course.getCourses();
-            ViewTable();
-        } 
-        catch (SQLException ex) 
-        {
-//            Logger.getLogger(University_ManageCourses_Read.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButtonFetchActionPerformed
 
     private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
         // TODO add your handling code here:
@@ -157,7 +140,6 @@ public class University_ManageCourses_Read extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonFetch;
     private javax.swing.JButton jButtonView;
     private javax.swing.JLabel jLabelCategory;
     private javax.swing.JLabel jLabelCoursename;

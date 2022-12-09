@@ -89,7 +89,7 @@ public class Schooling_Admin extends javax.swing.JPanel {
                 .addComponent(jButtonUniversities)
                 .addGap(50, 50, 50)
                 .addComponent(jButtonManageDepartments)
-                .addContainerGap(194, Short.MAX_VALUE))
+                .addContainerGap(457, Short.MAX_VALUE))
         );
 
         jSplitPane1.setLeftComponent(controlArea);
@@ -98,11 +98,11 @@ public class Schooling_Admin extends javax.swing.JPanel {
         workArea.setLayout(workAreaLayout);
         workAreaLayout.setHorizontalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 519, Short.MAX_VALUE)
+            .addGap(0, 694, Short.MAX_VALUE)
         );
         workAreaLayout.setVerticalGroup(
             workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 487, Short.MAX_VALUE)
+            .addGap(0, 750, Short.MAX_VALUE)
         );
 
         jSplitPane1.setRightComponent(workArea);
@@ -111,7 +111,7 @@ public class Schooling_Admin extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 931, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -121,6 +121,8 @@ public class Schooling_Admin extends javax.swing.JPanel {
 
     private void jButtonJobPortalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonJobPortalActionPerformed
         // TODO add your handling code here:
+        Schooling_JobPortal sjp = new Schooling_JobPortal();
+        jSplitPane1.setRightComponent(sjp);
     }//GEN-LAST:event_jButtonJobPortalActionPerformed
 
     private void jButtonPersonalOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPersonalOrganizationActionPerformed
