@@ -10,6 +10,12 @@ import UI.Funding.Funding_ManageInvestors_Add;
 import UI.Funding.Funding_ManageInvestors_Read;
 import Schooling.UI.Schooling_Admin;
 import UI.CollegeDept.CollegeDeptAddJPanel;
+import UI.Funding.Funding_AddGovernmentInvestor;
+import UI.Funding.Funding_AddLocalInvestor;
+import UI.Funding.Funding_AssignFunds_JPanel;
+import UI.Housing.Housing_AssignHousing_JPanel;
+import UI.Housing.Housing_OffCampus_AddJPanel;
+import UI.Housing.Housing_OnCampus_AddJPanel;
 import UI.student.StudentAddJPanel;
 import UI.student.StudentDeleteJPanel;
 import UI.student.StudentUpdateJPanel;
@@ -111,15 +117,20 @@ public class MainJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setLayout() {
-        Admin_Login admin_login = new Admin_Login(controlArea, workArea);
-        workArea.add("Admin_Login",admin_login);
-        CardLayout layout = (CardLayout)workArea.getLayout();
-        layout.next(workArea); 
+//        Admin_Login admin_login = new Admin_Login(controlArea, workArea);
+//        workArea.add("Admin_Login",admin_login);
+//        CardLayout layout = (CardLayout)workArea.getLayout();
+//        layout.next(workArea); 
         
         ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
+        
+        Funding_AssignFunds_JPanel fagi = new Funding_AssignFunds_JPanel(controlArea, workArea);
+        workArea.add("Funding_AssignFunds_JPanel",fagi);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea);
         
       
 
