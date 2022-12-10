@@ -295,8 +295,12 @@ public class Student {
 
     public ResultSet getAdmittedStudent() throws SQLException {
         try {
-            ResultSet rs = db.selectQuery("SELECT s.id,s.firstname,s.lastname,s.gender,s.education_status,u.university_name FROM AED.student as s Left join universities as u ON s.university_id = u.id where s.education_status = 'Admitted' and s.housing_id IS NULL");
+             System.out.println("admitted");
+            ResultSet rs = db.selectQuery("SELECT s.id,s.firstname,s.lastname,s.gender,s.education_status,u.university_name FROM student as s Left join universities as u ON s.university_id = u.id where s.education_status = 'Admitted' and s.housing_id IS NULL");
+           
+            System.out.println(rs);
             return rs;
+            
 
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not found");

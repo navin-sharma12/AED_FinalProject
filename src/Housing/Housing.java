@@ -114,6 +114,7 @@ public class Housing {
         try {
             ResultSet rs;
             if (type.equalsIgnoreCase("On Campus")) {
+                System.out.println("entered housing");
                 rs = db.selectQuery("Select * from housing where university_id = '" + id + "' and is_on_campus = 1");
             } else {
 
