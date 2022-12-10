@@ -5,7 +5,6 @@
 package Schooling.Model;
 
 import DataConnection.db;
-import com.mysql.cj.xdevapi.Result;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.ResultSet;
