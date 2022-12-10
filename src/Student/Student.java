@@ -318,4 +318,31 @@ public class Student {
             throw new IllegalArgumentException(e.getMessage() + "Record not found");
         }
     }
+    
+    public ResultSet getStudentWithFundingPending() throws SQLException
+    {
+    try{
+        ResultSet rs = db.selectQuery("SELECT s.id,s.firstname,s.lastname,s.gender,s.education_status FROM AED.student as s  where s.education_status = 'Admitted' and s.fund_id IS NULL");
+        return rs;
+    }
+    catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+    
+    }
+    
+    
+    public void updateFundsInStudent(int student_id,int fund_id) throws SQLException
+    {
+     try{
+        PreparedStatement ps = db.getPreStatement("update student set fund_id = ? where id = ?");
+        ps.setInt(1, fund_id);
+         ps.setInt(2, student_id);
+        ps.execute();
+    }
+   catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+    
+    }
 }

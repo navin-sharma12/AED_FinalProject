@@ -10,6 +10,9 @@ import UI.Funding.Funding_ManageInvestors_Add;
 import UI.Funding.Funding_ManageInvestors_Read;
 import Schooling.UI.Schooling_Admin;
 import UI.CollegeDept.CollegeDeptAddJPanel;
+import UI.Funding.Funding_AddGovernmentInvestor;
+import UI.Funding.Funding_AddLocalInvestor;
+import UI.Funding.Funding_AssignFunds_JPanel;
 import UI.Housing.Housing_AssignHousing_JPanel;
 import UI.Housing.Housing_OffCampus_AddJPanel;
 import UI.Housing.Housing_OnCampus_AddJPanel;
@@ -124,8 +127,8 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
         
-         Housing_AssignHousing_JPanel hocap = new Housing_AssignHousing_JPanel(controlArea, workArea);
-        workArea.add("Housing_AssignHousing_JPanel",hocap);
+        Funding_AssignFunds_JPanel fagi = new Funding_AssignFunds_JPanel(controlArea, workArea);
+        workArea.add("Funding_AssignFunds_JPanel",fagi);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea);
         

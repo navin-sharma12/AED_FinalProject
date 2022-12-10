@@ -7,6 +7,9 @@ package Investor;
 import DataConnection.db;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.Date;
 
 /**
  *
@@ -28,6 +31,20 @@ public class Investor {
         this.donated_funds = donated_funds;
         this.contact_no = contact_no;
     }
+    
+     public Investor(String organization, String email, String password, String username, int isGovernment, int donated_funds, long contact_no) {
+        this.organization = organization;
+       
+        this.email = email;
+        this.password = password;
+        this.username = username;
+        this.isGovernment = isGovernment;
+        this.donated_funds = donated_funds;
+        this.contact_no = contact_no;
+    }
+     
+     public Investor(){
+     }
 
     public String getFirstname() {
         return firstname;
@@ -117,23 +134,76 @@ public class Investor {
         this.contact_no = contact_no;
     }
 
-    public void addLocalInvestors(Investor in) throws SQLException
-{
-  try {
+    public void addLocalInvestors(Investor in) throws SQLException {
+        try {
             PreparedStatement ps = db.getPreStatement("Insert into investors(firstname, lastname, email, contact_no, password,isLocal, username, donated_funds)" + "values (?,?,?,?,?,?,?,?)");
- ps.setString(1, in.getFirstname());
- ps.setString(2,in.getLastname());
- ps.setString(3,in.getEmail());
- ps.setString(4,String.valueOf(in.getContact_no()));
- ps.setString(5, in.getPassword());
- ps.setInt(6, in.getIsLocal());
- ps.setString(7, in.getUsername());
- ps.setInt(8, in.getDonated_funds());
+            ps.setString(1, in.getFirstname());
+            ps.setString(2, in.getLastname());
+            ps.setString(3, in.getEmail());
+            ps.setString(4, String.valueOf(in.getContact_no()));
+            ps.setString(5, in.getPassword());
+            ps.setInt(6, in.getIsLocal());
+            ps.setString(7, in.getUsername());
+            ps.setInt(8, in.getDonated_funds());
+            ps.execute();
 
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not saved");
         }
 
     }
+    
+    public void addGovernmentInvestors(Investor in) throws SQLException {
+        try {
+            PreparedStatement ps = db.getPreStatement("Insert into investors(organization, email, contact_no, password,isGovernment, username, donated_funds)" + "values (?,?,?,?,?,?,?)");
+           
+            ps.setString(1, in.getOrganization());
+            ps.setString(2, in.getEmail());
+            ps.setString(3, String.valueOf(in.getContact_no()));
+            ps.setString(4, in.getPassword());
+            ps.setInt(5, in.getIsGovernment());
+            ps.setString(6, in.getUsername());
+            ps.setInt(7, in.getDonated_funds());
+            ps.execute();
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+
+    }
+    
+    public ResultSet getAllLocalInvestor() throws SQLException {
+      try{
+        ResultSet rs = db.selectQuery("Select * from investors where isLocal = 1");
+        return rs;
+      }
+     catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+    }
+    
+    
+    public ResultSet getAllGovernmentInvestor() throws SQLException {
+      try{
+        ResultSet rs = db.selectQuery("Select * from investors where isGovernment = 1");
+        return rs;
+      }
+     catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+    }
+    
+    public void updateInvestorFunds(int funds,int id) throws SQLException {
+        try{
+            PreparedStatement ps = db.getPreStatement("update investors set donated_funds = ? where id = ?");
+            ps.setInt(1, funds);
+            ps.setInt(2,id);
+            ps.execute();
+        }
+        catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+    }
+    
+    
 
 }
