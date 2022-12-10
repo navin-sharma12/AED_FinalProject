@@ -5,6 +5,7 @@
 package Schooling.UI;
 
 import Schooling.Model.Courses;
+import Schooling.Model.FieldOfInterest;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -19,11 +20,11 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
      * Creates new form University_ManageCourses_Add
      */
     ResultSet resultSet;
-
-    public University_ManageCourses_Add() throws SQLException {
+    FieldOfInterest category1 = new FieldOfInterest();
+    public University_ManageCourses_Add() throws SQLException
+    {
         initComponents();
-        Courses course1 = new Courses();
-        resultSet = course1.getallFOI();
+        resultSet = category1.getallFieldOfInterest();
         jComboBoxCategory.removeAllItems();
         while (resultSet.next()) 
         {
@@ -113,8 +114,7 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
         } else 
         {
             category = jComboBoxCategory.getSelectedItem().toString();
-            Courses c = new Courses();
-            resultSet = c.getallFOI();
+            resultSet = category1.getallFieldOfInterest();
             try 
             {
                 while (resultSet.next())
@@ -128,7 +128,10 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
             } 
             catch (SQLException ex) 
             {
-//                Logger.getLogger(University_ManageCourses_Add.class.getName()).log(Level.SEVERE, null, ex);
+                if (ex.getMessage().contains("Duplicate entry"))
+                {
+                    JOptionPane.showMessageDialog(this, "User already exists");
+                }
             }
         }
     }//GEN-LAST:event_jButtonSubmitActionPerformed

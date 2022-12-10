@@ -100,7 +100,10 @@ public class University_ManageFieldOfInterest_Add extends javax.swing.JPanel {
             } 
             catch (SQLException ex) 
             {
-//                Logger.getLogger(University_ManageFieldOfInterest_Add.class.getName()).log(Level.SEVERE, null, ex);
+                if(ex.getMessage().contains("Duplicate entry"))
+                {
+                    JOptionPane.showMessageDialog(this, "User already exists");
+                }
             }
         }
     }//GEN-LAST:event_jButtonSubmitActionPerformed

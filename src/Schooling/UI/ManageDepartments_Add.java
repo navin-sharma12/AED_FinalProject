@@ -166,7 +166,7 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
                     } 
                     else 
                     {
-                        username = last_name + "." + first_name;
+                        username = emailId;
                         password = last_name + "." + first_name;
                         department_id = 2;
                         
@@ -177,7 +177,10 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
                         } 
                         catch (SQLException ex) 
                         {
-//                            Logger.getLogger(ManageDepartments_Add.class.getName()).log(Level.SEVERE, null, ex);
+                            if(ex.getMessage().contains("Duplicate entry"))
+                            {
+                                JOptionPane.showMessageDialog(this, "User already exists");
+                            }
                         }
                     }
                 }

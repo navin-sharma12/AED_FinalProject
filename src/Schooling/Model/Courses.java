@@ -86,12 +86,6 @@ public class Courses
         ps.execute();
     }
     
-    public ResultSet getallFOI()
-    {
-        resultSet = db.selectQuery("select * from field_of_interest");
-        return resultSet;
-    }
-    
     public ResultSet getCourses()
     {
         resultSet = db.selectQuery("select course.id, field_of_interest.category, course.course_name from course inner join field_of_interest on course.category_id = field_of_interest.id");

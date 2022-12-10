@@ -127,11 +127,13 @@ public class Schooling_Admin extends javax.swing.JPanel {
 
     private void jButtonPersonalOrganizationActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonPersonalOrganizationActionPerformed
         // TODO add your handling code here:
+        Schooling_PersonalOrg_Admin spo = new Schooling_PersonalOrg_Admin();
+        jSplitPane1.setRightComponent(spo);
     }//GEN-LAST:event_jButtonPersonalOrganizationActionPerformed
 
     private void jButtonManageDepartmentsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageDepartmentsActionPerformed
         // TODO add your handling code here:
-        ManageDepartments smd = new ManageDepartments();
+        Schooling_ManageDepartments smd = new Schooling_ManageDepartments();
         jSplitPane1.setRightComponent(smd);
     }//GEN-LAST:event_jButtonManageDepartmentsActionPerformed
 

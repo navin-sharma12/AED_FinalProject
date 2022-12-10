@@ -44,6 +44,11 @@ public class JobPortal
         this.location = location;
         this.job_description = job_description;
     }
+    
+    public JobPortal(int id)
+    {
+        this.id = id;
+    }
 
     public String getCompany_name() {
         return company_name;
@@ -121,15 +126,13 @@ public class JobPortal
     
     public void updateJob(int id, String company_name, String job_title, String category, String job_type, String location, String job_description)
     {
-//        PreparedStatement ps = db.getPreStatement("UPDATE jobs set company_name = ?, job_title = ?, category = ?, job_type = ?, location = ?, job_description = ?, where id = ?");
-//        ps.setString(1, company_name);
-//        ps.setString(2, job_title);
-//        ps.setString(3, category);
-//        ps.setString(4, job_type);
-//        ps.setString(5, location);
-//        ps.setString(6, job_description);
-//        ps.setInt(7, id);
-//        ps.execute();
-        db.query("UPDATE jobs set company_name = '"+company_name+"', job_title = '"+job_title+"', category = '"+category+"', job_type = '"+job_type+"', location = '"+location+"', job_description = '"+job_description+"', where id = '"+id+"'");
+        db.query("UPDATE jobs set company_name = '"+company_name+"', job_title = '"+job_title+"', category = '"+category+"', job_type = '"+job_type+"', location = '"+location+"', job_description = '"+job_description+"' where id = '"+id+"'");
+    }
+    
+    public void deleteJob(int id) throws SQLException
+    {
+        PreparedStatement ps = db.getPreStatement("delete from jobs where id = ?");
+        ps.setInt(1, id);
+        ps.execute();
     }
 }

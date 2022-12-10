@@ -51,7 +51,7 @@ public class JobPortal_Update extends javax.swing.JPanel {
         jTextFieldCompanyName = new javax.swing.JTextField();
         jLabelCategory = new javax.swing.JLabel();
         jLabelLocation = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        jLabelTitle = new javax.swing.JLabel();
         jTextFieldLocation = new javax.swing.JTextField();
         jLabelJobDescription = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -74,9 +74,9 @@ public class JobPortal_Update extends javax.swing.JPanel {
 
         jLabelLocation.setText("Location:");
 
-        jLabel1.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Read Jobs");
+        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("Read Jobs");
 
         jLabelJobDescription.setText("Job Description:");
 
@@ -124,7 +124,7 @@ public class JobPortal_Update extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -137,11 +137,8 @@ public class JobPortal_Update extends javax.swing.JPanel {
                                     .addComponent(jLabelJobDescription))
                                 .addGap(32, 32, 32)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addGap(0, 0, 0)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                            .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jComboBoxJobType, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -168,7 +165,7 @@ public class JobPortal_Update extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addComponent(jLabel1)
+                .addComponent(jLabelTitle)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -305,24 +302,6 @@ public class JobPortal_Update extends javax.swing.JPanel {
                             resultSet1 = jp.getallJobs();
                             while(resultSet1.next())
                             {
-                                System.out.println(resultSet1.getString(2));
-                                System.out.println(company_name);
-                                System.out.println("");
-                                System.out.println(resultSet1.getString(3));
-                                System.out.println(job_title);
-                                System.out.println("");
-                                System.out.println(resultSet1.getString(4));
-                                System.out.println(category);
-                                System.out.println("");
-                                System.out.println(resultSet1.getString(5));
-                                System.out.println(job_type);
-                                System.out.println("");
-                                System.out.println(resultSet1.getString(6));
-                                System.out.println(location);
-                                System.out.println("");
-                                System.out.println(resultSet1.getString(7));
-                                System.out.println(job_description);
-                                System.out.println("");
                                 if(resultSet1.getString(2).equals(company_name) && 
                                         resultSet1.getString(3).equals(job_title) && 
                                         resultSet1.getString(4).equals(category) && 
@@ -330,12 +309,9 @@ public class JobPortal_Update extends javax.swing.JPanel {
                                         resultSet1.getString(6).equals(location) && 
                                         resultSet1.getString(7).equals(job_description))
                                 {
-                                    System.out.println("Condition satisfied");
                                     int id = resultSet1.getInt(1);
-                                    System.out.println(id);
                                     JobPortal jp2 = new JobPortal(id, company_name2, job_title2, category2, job_type2, location2, job_description2);
                                     jp2.updateJob(id, company_name2, job_title2, category2, job_type2, location2, job_description2);
-                                    System.out.println("done");
                                 }
                             }
                         } 
@@ -355,13 +331,13 @@ public class JobPortal_Update extends javax.swing.JPanel {
     private javax.swing.JButton jButtonView;
     private javax.swing.JComboBox<String> jComboBoxCategory;
     private javax.swing.JComboBox<String> jComboBoxJobType;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelCategory;
     private javax.swing.JLabel jLabelCompanyName;
     private javax.swing.JLabel jLabelJobDescription;
     private javax.swing.JLabel jLabelJobTitle;
     private javax.swing.JLabel jLabelJobType;
     private javax.swing.JLabel jLabelLocation;
+    private javax.swing.JLabel jLabelTitle;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPaneJobDescription;
     private javax.swing.JTable jTable;
