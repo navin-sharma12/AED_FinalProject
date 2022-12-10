@@ -127,8 +127,8 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
         
-        Funding_AssignFunds_JPanel fagi = new Funding_AssignFunds_JPanel(controlArea, workArea);
-        workArea.add("Funding_AssignFunds_JPanel",fagi);
+        Housing_AssignHousing_JPanel admin_login = new Housing_AssignHousing_JPanel(controlArea, workArea);
+        workArea.add("Housing_AssignHousing_JPanel",admin_login);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea);
         

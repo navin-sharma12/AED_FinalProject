@@ -201,13 +201,16 @@ public class Housing_AssignHousing_JPanel extends javax.swing.JPanel {
                     } else {
                         int housing_id = rs_housing.getInt(1);
                         Student s = new Student();
+                        System.out.println(model.getValueAt(selectedRowIndex, 0).toString());
                         int student_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
                         String address = rs_housing.getString(2);
                         String zipcode = rs_housing.getString(3);
                         s.updateStudentHousing(student_id, housing_id, address, zipcode);
-                        h_new.updateHousingSlots(housing_id, rs_housing.getInt(2) - 1);
+                        h_new.updateHousingSlots(housing_id, rs_housing.getInt(4) - 1);
                         JOptionPane.showMessageDialog(this, "Housing Assign");
                         populatedTable();
+                         DefaultTableModel model2 = (DefaultTableModel) tblHousing.getModel();
+                         model2.setRowCount(0);
                     }
                 }
 
@@ -248,17 +251,12 @@ public class Housing_AssignHousing_JPanel extends javax.swing.JPanel {
 
     private void btnFilterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFilterActionPerformed
         // TODO add your handling code here:
-        int selectedRowIndex = tblStudent.getSelectedRow();
-        if (selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a row");
-            return;
-        }
-        DefaultTableModel model = (DefaultTableModel) tblStudent.getModel();
-        populateHousing();
 
+                populateHousing();
     }//GEN-LAST:event_btnFilterActionPerformed
 
     public void populateHousing() {
+        System.out.println("housing");
         int selectedRowIndex = tblStudent.getSelectedRow();
         if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row");
@@ -266,26 +264,28 @@ public class Housing_AssignHousing_JPanel extends javax.swing.JPanel {
         }
         DefaultTableModel model = (DefaultTableModel) tblStudent.getModel();
         String university_name = model.getValueAt(selectedRowIndex, 5).toString();
+         DefaultTableModel model2 = (DefaultTableModel) tblHousing.getModel();
+          model2.setRowCount(0);
         University un = new University();
         ResultSet rs = un.getUniversityIdByName(university_name);
         try {
             while (rs.next()) {
                 Housing hu = new Housing();
                 university_id = rs.getInt(1);
-                ResultSet rs_housing = hu.getHousingByUniversityAndType(university_id, ComboBoxHousingType.getSelectedItem().toString());
-                DefaultTableModel model2 = (DefaultTableModel) tblHousing.getModel();
-                model2.setRowCount(0);
+                System.out.println(university_id);
+                ResultSet rs_housing = hu.getHousingByUniversityAndType(university_id, comboBoxFilter.getSelectedItem().toString());
+               
                 while (rs_housing.next()) {
                     Object[] row = new Object[4];
-                    row[0] = rs.getInt(1);
-                    row[1] = rs.getString(7);
-                    row[2] = rs.getString(8);
-                    row[3] = rs.getInt(5);
+                    row[0] = rs_housing.getInt(1);
+                    row[1] = rs_housing.getString(7);
+                    row[2] = rs_housing.getString(8);
+                    row[3] = rs_housing.getInt(5);
                      model2.addRow(row);
                 }
             }
         } catch (SQLException e) {
-            e.getMessage();
+           e.getMessage();
         }
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
