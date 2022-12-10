@@ -5,9 +5,20 @@
 package UI.Funding;
 
 import Investor.Investor;
+import java.sql.SQLException;
+import java.util.Date;
+import java.util.Properties;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import javax.mail.Authenticator;
+import javax.mail.Message;
+import javax.mail.PasswordAuthentication;
+import javax.mail.Session;
+import javax.mail.Transport;
+import javax.mail.internet.InternetAddress;
+import javax.mail.internet.MimeMessage;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -18,7 +29,7 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
     /**
      * Creates new form Funding_AddLocalInvestor
      */
-    public Funding_AddLocalInvestor() {
+    public Funding_AddLocalInvestor(JPanel controlArea, JPanel workArea) {
         initComponents();
     }
 
@@ -124,15 +135,11 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(98, 98, 98)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(111, 111, 111)
-                        .addComponent(lblFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(txtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)))
+                    .addComponent(txtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(lblLastname, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -199,11 +206,18 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
             String username = lastname.toLowerCase() + "." + firstname.toLowerCase();
             String password = lastname.toLowerCase() + "." + firstname.toLowerCase();
             try{
-//                Investor in = new Investor(firstname, lastname, email, password, username, 1, funds, contact_no);
-//                in.addLocalInvestors(in);
+                Investor in = new Investor(firstname, lastname, email, password, username, 1, funds, contact_no);
+                in.addLocalInvestors(in);
                 JOptionPane.showMessageDialog(this, "Investor added");
+//                sentEmail(email,username,password);
+                txtFirstname.setText("");
+                txtLastname.setText("");
+                txtEmail.setText("");
+                txtContact.setText("");
+                txtFunds.setText("");
+                
             }
-            catch(IllegalArgumentException e)
+            catch(SQLException e)
             {
                JOptionPane.showMessageDialog(this, e.getMessage());
             }
@@ -225,6 +239,39 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
+    }
+    
+     private void sentEmail(String email,String username, String password) {
+        try {
+            Properties properties = new Properties();
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.ssl.host", "smtp.gmail.com");
+          
+            properties.put("mail.smtp.port", 587);
+            Session session = Session.getDefaultInstance(properties,
+                    new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication("helpinghomeless.aed@gmail.com", "gygsgpsczxfzjvjj");
+
+                }
+            });
+//            String content = "Welcome to" + university + ".\r\n Your email" + email + "and password" + password + "/r/n for the portal";
+            System.out.println(session);
+            Message message = new MimeMessage(session);
+            message.setSubject("Welcome to");
+            message.setContent("hi", "text/plain");
+            message.setFrom(new InternetAddress("helpinghomeless.aed@gmail.com"));
+            message.setRecipient(Message.RecipientType.TO, new InternetAddress(email));
+            message.setSentDate(new Date());
+
+            Transport.send(message);
+            JOptionPane.showMessageDialog(this, "Email Sent");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
