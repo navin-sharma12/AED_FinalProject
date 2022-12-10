@@ -4,6 +4,8 @@
  */
 package Schooling.UI;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author navinsharma
@@ -13,8 +15,12 @@ public class ManageDepartments_Delete extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_Delete_Person
      */
-    public ManageDepartments_Delete() {
+    JPanel controlArea;
+    JPanel workArea;
+    public ManageDepartments_Delete(JPanel controlArea, JPanel workArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
     }
 
     /**

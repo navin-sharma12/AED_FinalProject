@@ -10,6 +10,7 @@ import Schooling.Model.University;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -20,13 +21,13 @@ public class University_ManageUniversity_Add extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_ManageUniversity_Add
      */
-    ResultSet resultSet_category;
-    ResultSet resultSet_course;
-    ResultSet resultSet_course1;
-    ResultSet resultSet_category1;
-    ResultSet resultSet_university;
-    public University_ManageUniversity_Add() throws SQLException {
+    JPanel controlArea;
+    JPanel workArea;
+    ResultSet resultSet_category, resultSet_course, resultSet_course1, resultSet_category1, resultSet_university;
+    public University_ManageUniversity_Add(JPanel controlArea, JPanel workArea) throws SQLException {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
         jComboBoxCategory.removeAllItems();
         jComboBoxCourseName.removeAllItems();
         

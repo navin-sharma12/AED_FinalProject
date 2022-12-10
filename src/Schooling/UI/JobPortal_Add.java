@@ -7,6 +7,7 @@ package Schooling.UI;
 import Schooling.Model.JobPortal;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -17,8 +18,12 @@ public class JobPortal_Add extends javax.swing.JPanel {
     /**
      * Creates new form JobPortal_Delete
      */
-    public JobPortal_Add() {
+    JPanel controlArea;
+    JPanel workArea;
+    public JobPortal_Add(JPanel controlArea, JPanel workArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
         jComboBoxJobType.removeAllItems();
     }
 
@@ -31,48 +36,23 @@ public class JobPortal_Add extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelTitle = new javax.swing.JLabel();
-        jLabelJobTitle = new javax.swing.JLabel();
-        jTextFieldJobTitle = new javax.swing.JTextField();
-        jLabelJobType = new javax.swing.JLabel();
         jComboBoxJobType = new javax.swing.JComboBox<>();
-        jLabelCompanyName = new javax.swing.JLabel();
-        jTextFieldCompanyName = new javax.swing.JTextField();
-        jLabelLocation = new javax.swing.JLabel();
-        jTextFieldLocation = new javax.swing.JTextField();
-        jLabelJobDescription = new javax.swing.JLabel();
+        jLabelJobType = new javax.swing.JLabel();
+        jComboBoxCategory = new javax.swing.JComboBox<>();
+        jTextFieldJobTitle = new javax.swing.JTextField();
+        jLabelCategory = new javax.swing.JLabel();
+        jLabelJobTitle = new javax.swing.JLabel();
+        jButtonSubmit = new javax.swing.JButton();
+        jLabelTitle = new javax.swing.JLabel();
         jScrollPaneJobDescription = new javax.swing.JScrollPane();
         jTextAreaJobDescription = new javax.swing.JTextArea();
-        jButtonSubmit = new javax.swing.JButton();
-        jLabelCategory = new javax.swing.JLabel();
-        jComboBoxCategory = new javax.swing.JComboBox<>();
-
-        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle.setText("Add Job");
-
-        jLabelJobTitle.setText("Job Title:");
+        jLabelJobDescription = new javax.swing.JLabel();
+        jTextFieldLocation = new javax.swing.JTextField();
+        jLabelLocation = new javax.swing.JLabel();
+        jTextFieldCompanyName = new javax.swing.JTextField();
+        jLabelCompanyName = new javax.swing.JLabel();
 
         jLabelJobType.setText("Job Type:");
-
-        jLabelCompanyName.setText("Company Name:");
-
-        jLabelLocation.setText("Location:");
-
-        jLabelJobDescription.setText("Job Description:");
-
-        jTextAreaJobDescription.setColumns(20);
-        jTextAreaJobDescription.setRows(5);
-        jScrollPaneJobDescription.setViewportView(jTextAreaJobDescription);
-
-        jButtonSubmit.setText("Submit");
-        jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSubmitActionPerformed(evt);
-            }
-        });
-
-        jLabelCategory.setText("Category:");
 
         jComboBoxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "On Campus", "Off Campus" }));
         jComboBoxCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -81,13 +61,37 @@ public class JobPortal_Add extends javax.swing.JPanel {
             }
         });
 
+        jLabelCategory.setText("Category:");
+
+        jLabelJobTitle.setText("Job Title:");
+
+        jButtonSubmit.setText("Submit");
+        jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonSubmitActionPerformed(evt);
+            }
+        });
+
+        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("Add Job");
+
+        jTextAreaJobDescription.setColumns(20);
+        jTextAreaJobDescription.setRows(5);
+        jScrollPaneJobDescription.setViewportView(jTextAreaJobDescription);
+
+        jLabelJobDescription.setText("Job Description:");
+
+        jLabelLocation.setText("Location:");
+
+        jLabelCompanyName.setText("Company Name:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(44, 44, 44)
+                .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -107,7 +111,7 @@ public class JobPortal_Add extends javax.swing.JPanel {
                                         .addGap(78, 78, 78))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(jTextFieldLocation)
-                                        .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.DEFAULT_SIZE, 235, Short.MAX_VALUE))))))
+                                        .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -121,13 +125,14 @@ public class JobPortal_Add extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldJobTitle)
                             .addComponent(jTextFieldCompanyName)
-                            .addComponent(jComboBoxCategory, 0, 235, Short.MAX_VALUE))))
-                .addGap(44, 44, 44))
+                            .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(30, 30, 30))
+            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
+                .addGap(38, 38, 38)
                 .addComponent(jLabelTitle)
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -158,7 +163,7 @@ public class JobPortal_Add extends javax.swing.JPanel {
                         .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSubmit)
-                .addContainerGap(19, Short.MAX_VALUE))
+                .addContainerGap(22, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

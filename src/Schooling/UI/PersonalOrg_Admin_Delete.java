@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -21,14 +22,18 @@ public class PersonalOrg_Admin_Delete extends javax.swing.JPanel {
     /**
      * Creates new form PersonalOrg_Admin_Delete
      */
+    JPanel controlArea;
+    JPanel workArea;
     ResultSet resultSet, resultSet1;
     String emailid;
     PersonalOrganization po = new PersonalOrganization();
-    public PersonalOrg_Admin_Delete() 
+    public PersonalOrg_Admin_Delete(JPanel controlArea, JPanel workArea) 
     {
         try 
         {
             initComponents();
+            this.controlArea = controlArea;
+            this.workArea = workArea;
             ViewTable();
         } 
         catch (SQLException ex) 

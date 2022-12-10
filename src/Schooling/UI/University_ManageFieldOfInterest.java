@@ -4,6 +4,9 @@
  */
 package Schooling.UI;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author navinsharma
@@ -13,8 +16,12 @@ public class University_ManageFieldOfInterest extends javax.swing.JPanel {
     /**
      * Creates new form University_ManageFieldOfInterest
      */
-    public University_ManageFieldOfInterest() {
+    JPanel controlArea;
+    JPanel workArea;
+    public University_ManageFieldOfInterest(JPanel controlArea, JPanel workArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
     }
 
     /**
@@ -26,11 +33,8 @@ public class University_ManageFieldOfInterest extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        controlArea = new javax.swing.JPanel();
         jButtonUpdate = new javax.swing.JButton();
         jButtonAdd = new javax.swing.JButton();
-        workArea = new javax.swing.JPanel();
 
         jButtonUpdate.setText("Update");
         jButtonUpdate.addActionListener(new java.awt.event.ActionListener() {
@@ -46,72 +50,47 @@ public class University_ManageFieldOfInterest extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout controlAreaLayout = new javax.swing.GroupLayout(controlArea);
-        controlArea.setLayout(controlAreaLayout);
-        controlAreaLayout.setHorizontalGroup(
-            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(controlAreaLayout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(38, 38, 38))
-        );
-        controlAreaLayout.setVerticalGroup(
-            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(controlAreaLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
-                .addComponent(jButtonAdd)
-                .addGap(60, 60, 60)
-                .addComponent(jButtonUpdate)
-                .addContainerGap(306, Short.MAX_VALUE))
-        );
-
-        jSplitPane1.setLeftComponent(controlArea);
-
-        javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
-        workArea.setLayout(workAreaLayout);
-        workAreaLayout.setHorizontalGroup(
-            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 448, Short.MAX_VALUE)
-        );
-        workAreaLayout.setVerticalGroup(
-            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-        );
-
-        jSplitPane1.setRightComponent(workArea);
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(39, 39, 39)
+                .addComponent(jButtonAdd)
+                .addGap(60, 60, 60)
+                .addComponent(jButtonUpdate)
+                .addContainerGap(53, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
         // TODO add your handling code here:
-        University_ManageFieldOfInterest_Update update = new University_ManageFieldOfInterest_Update();
-        jSplitPane1.setRightComponent(update);
+        University_ManageFieldOfInterest_Update update = new University_ManageFieldOfInterest_Update(controlArea, workArea);
+        workArea.add("University_ManageFieldOfInterest_Update",update);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea); 
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
-        University_ManageFieldOfInterest_Add add = new University_ManageFieldOfInterest_Add();
-        jSplitPane1.setRightComponent(add);
+        University_ManageFieldOfInterest_Add add = new University_ManageFieldOfInterest_Add(controlArea, workArea);
+        workArea.add("University_ManageFieldOfInterest_Add",add);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea); 
     }//GEN-LAST:event_jButtonAddActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel controlArea;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 }

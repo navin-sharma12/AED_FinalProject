@@ -9,6 +9,7 @@ import Schooling.Model.FieldOfInterest;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,11 +20,15 @@ public class University_ManageCourses_Add extends javax.swing.JPanel {
     /**
      * Creates new form University_ManageCourses_Add
      */
+    JPanel controlArea;
+    JPanel workArea;
     ResultSet resultSet;
     FieldOfInterest category1 = new FieldOfInterest();
-    public University_ManageCourses_Add() throws SQLException
+    public University_ManageCourses_Add(JPanel controlArea, JPanel workArea) throws SQLException
     {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
         resultSet = category1.getallFieldOfInterest();
         jComboBoxCategory.removeAllItems();
         while (resultSet.next()) 

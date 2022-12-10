@@ -12,6 +12,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -22,11 +23,15 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
     /**
      * Creates new form PersonalOrg_Admin_Add
      */
+    JPanel controlArea;
+    JPanel workArea;
     ResultSet resultSet, resultSet1, resultSet2, resultSet3, resultSet4;
     FieldOfInterest foi = new FieldOfInterest();
-    public PersonalOrg_Admin_Add() 
+    public PersonalOrg_Admin_Add(JPanel controlArea, JPanel workArea) 
     {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
         jComboBoxCategory.removeAllItems();
         jComboBoxCourse.removeAllItems();
         

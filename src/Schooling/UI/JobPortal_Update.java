@@ -8,6 +8,7 @@ import Schooling.Model.JobPortal;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,14 +20,18 @@ public class JobPortal_Update extends javax.swing.JPanel {
     /**
      * Creates new form JobPortal_Update
      */
+    JPanel controlArea;
+    JPanel workArea;
     ResultSet resultSet;
     String company_name, job_title, job_type, location, job_description, category;
     JobPortal jp = new JobPortal();
-    public JobPortal_Update() 
+    public JobPortal_Update(JPanel controlArea, JPanel workArea) 
     {
         try 
         {
             initComponents();
+            this.controlArea = controlArea;
+            this.workArea = workArea;
             resultSet = jp.getallJobs();
             ViewTable();
         } 

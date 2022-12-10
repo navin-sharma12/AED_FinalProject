@@ -4,6 +4,9 @@
  */
 package Schooling.UI;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author navinsharma
@@ -13,8 +16,12 @@ public class Schooling_University extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_University
      */
-    public Schooling_University() {
+    JPanel controlArea;
+    JPanel workArea;
+    public Schooling_University(JPanel controlArea, JPanel workArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
     }
 
     /**
@@ -26,17 +33,14 @@ public class Schooling_University extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        controlArea = new javax.swing.JPanel();
-        jButtonManageUIniversity = new javax.swing.JButton();
-        jButtonManageCourses = new javax.swing.JButton();
         jButtonManageFieldOfInterest = new javax.swing.JButton();
-        workArea = new javax.swing.JPanel();
+        jButtonManageCourses = new javax.swing.JButton();
+        jButtonManageUIniversity = new javax.swing.JButton();
 
-        jButtonManageUIniversity.setText("Manage University");
-        jButtonManageUIniversity.addActionListener(new java.awt.event.ActionListener() {
+        jButtonManageFieldOfInterest.setText("Manage Field Of Interest");
+        jButtonManageFieldOfInterest.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonManageUIniversityActionPerformed(evt);
+                jButtonManageFieldOfInterestActionPerformed(evt);
             }
         });
 
@@ -47,89 +51,66 @@ public class Schooling_University extends javax.swing.JPanel {
             }
         });
 
-        jButtonManageFieldOfInterest.setText("Manage Field Of Interest");
-        jButtonManageFieldOfInterest.addActionListener(new java.awt.event.ActionListener() {
+        jButtonManageUIniversity.setText("Manage University");
+        jButtonManageUIniversity.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonManageFieldOfInterestActionPerformed(evt);
+                jButtonManageUIniversityActionPerformed(evt);
             }
         });
-
-        javax.swing.GroupLayout controlAreaLayout = new javax.swing.GroupLayout(controlArea);
-        controlArea.setLayout(controlAreaLayout);
-        controlAreaLayout.setHorizontalGroup(
-            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, controlAreaLayout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jButtonManageUIniversity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonManageCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonManageFieldOfInterest, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(30, 30, 30))
-        );
-        controlAreaLayout.setVerticalGroup(
-            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(controlAreaLayout.createSequentialGroup()
-                .addGap(76, 76, 76)
-                .addComponent(jButtonManageUIniversity)
-                .addGap(47, 47, 47)
-                .addComponent(jButtonManageCourses)
-                .addGap(48, 48, 48)
-                .addComponent(jButtonManageFieldOfInterest)
-                .addContainerGap(322, Short.MAX_VALUE))
-        );
-
-        jSplitPane1.setLeftComponent(controlArea);
-
-        javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
-        workArea.setLayout(workAreaLayout);
-        workAreaLayout.setHorizontalGroup(
-            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 512, Short.MAX_VALUE)
-        );
-        workAreaLayout.setVerticalGroup(
-            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 562, Short.MAX_VALUE)
-        );
-
-        jSplitPane1.setRightComponent(workArea);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(37, 37, 37)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonManageUIniversity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonManageCourses, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonManageFieldOfInterest))
+                .addContainerGap(39, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(52, 52, 52)
+                .addComponent(jButtonManageUIniversity)
+                .addGap(47, 47, 47)
+                .addComponent(jButtonManageCourses)
+                .addGap(48, 48, 48)
+                .addComponent(jButtonManageFieldOfInterest)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonManageUIniversityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageUIniversityActionPerformed
         // TODO add your handling code here:
-        University_ManageUniversity umu = new University_ManageUniversity();
-        jSplitPane1.setRightComponent(umu);
+        University_ManageUniversity umu = new University_ManageUniversity(controlArea, workArea);
+        controlArea.add("University_ManageUniversity",umu);
+        CardLayout layout = (CardLayout)controlArea.getLayout();
+        layout.next(controlArea); 
     }//GEN-LAST:event_jButtonManageUIniversityActionPerformed
 
     private void jButtonManageFieldOfInterestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageFieldOfInterestActionPerformed
         // TODO add your handling code here:
-        University_ManageFieldOfInterest mfoi = new University_ManageFieldOfInterest();
-        jSplitPane1.setRightComponent(mfoi);
+        University_ManageFieldOfInterest mfoi = new University_ManageFieldOfInterest(controlArea, workArea);
+        controlArea.add("University_ManageFieldOfInterest",mfoi);
+        CardLayout layout = (CardLayout)controlArea.getLayout();
+        layout.next(controlArea); 
     }//GEN-LAST:event_jButtonManageFieldOfInterestActionPerformed
 
     private void jButtonManageCoursesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonManageCoursesActionPerformed
         // TODO add your handling code here:
-        University_ManageCourses umc = new University_ManageCourses();
-        jSplitPane1.setRightComponent(umc);
+        University_ManageCourses umc = new University_ManageCourses(controlArea, workArea);
+        controlArea.add("University_ManageCourses",umc);
+        CardLayout layout = (CardLayout)controlArea.getLayout();
+        layout.next(controlArea); 
     }//GEN-LAST:event_jButtonManageCoursesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel controlArea;
     private javax.swing.JButton jButtonManageCourses;
     private javax.swing.JButton jButtonManageFieldOfInterest;
     private javax.swing.JButton jButtonManageUIniversity;
-    private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 }

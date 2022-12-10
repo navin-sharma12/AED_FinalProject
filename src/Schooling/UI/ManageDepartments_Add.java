@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -19,9 +20,13 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_Add_Person
      */
+    JPanel controlArea;
+    JPanel workArea;
     Users user;
-    public ManageDepartments_Add() {
+    public ManageDepartments_Add(JPanel controlArea, JPanel workArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
         this.user = new Users();
     }
 

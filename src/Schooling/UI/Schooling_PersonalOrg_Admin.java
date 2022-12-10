@@ -4,6 +4,9 @@
  */
 package Schooling.UI;
 
+import java.awt.CardLayout;
+import javax.swing.JPanel;
+
 /**
  *
  * @author navinsharma
@@ -13,8 +16,12 @@ public class Schooling_PersonalOrg_Admin extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_PersonalOrg
      */
-    public Schooling_PersonalOrg_Admin() {
+    JPanel controlArea;
+    JPanel workArea;
+    public Schooling_PersonalOrg_Admin(JPanel controlArea, JPanel workArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
     }
 
     /**
@@ -26,29 +33,10 @@ public class Schooling_PersonalOrg_Admin extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        controlArea = new javax.swing.JPanel();
-        jButtonAdd = new javax.swing.JButton();
-        jButtonRead = new javax.swing.JButton();
-        jButtonUpdate = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
-        workArea = new javax.swing.JPanel();
-
-        jButtonAdd.setText("Add");
-        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddActionPerformed(evt);
-            }
-        });
-
-        jButtonRead.setText("Read");
-        jButtonRead.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonReadActionPerformed(evt);
-            }
-        });
-
-        jButtonUpdate.setText("Update");
+        jButtonUpdate = new javax.swing.JButton();
+        jButtonRead = new javax.swing.JButton();
+        jButtonAdd = new javax.swing.JButton();
 
         jButtonDelete.setText("Delete");
         jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
@@ -57,23 +45,39 @@ public class Schooling_PersonalOrg_Admin extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout controlAreaLayout = new javax.swing.GroupLayout(controlArea);
-        controlArea.setLayout(controlAreaLayout);
-        controlAreaLayout.setHorizontalGroup(
-            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(controlAreaLayout.createSequentialGroup()
-                .addGap(40, 40, 40)
-                .addGroup(controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        jButtonUpdate.setText("Update");
+
+        jButtonRead.setText("Read");
+        jButtonRead.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonReadActionPerformed(evt);
+            }
+        });
+
+        jButtonAdd.setText("Add");
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonDelete)
                     .addComponent(jButtonUpdate)
                     .addComponent(jButtonRead)
                     .addComponent(jButtonAdd))
-                .addGap(40, 40, 40))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
-        controlAreaLayout.setVerticalGroup(
-            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(controlAreaLayout.createSequentialGroup()
-                .addGap(31, 31, 31)
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(49, 49, 49)
                 .addComponent(jButtonAdd)
                 .addGap(50, 50, 50)
                 .addComponent(jButtonRead)
@@ -81,62 +85,39 @@ public class Schooling_PersonalOrg_Admin extends javax.swing.JPanel {
                 .addComponent(jButtonUpdate)
                 .addGap(50, 50, 50)
                 .addComponent(jButtonDelete)
-                .addContainerGap(324, Short.MAX_VALUE))
-        );
-
-        jSplitPane1.setLeftComponent(controlArea);
-
-        javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
-        workArea.setLayout(workAreaLayout);
-        workAreaLayout.setHorizontalGroup(
-            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 492, Short.MAX_VALUE)
-        );
-        workAreaLayout.setVerticalGroup(
-            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 597, Short.MAX_VALUE)
-        );
-
-        jSplitPane1.setRightComponent(workArea);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+                .addContainerGap(46, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
-        PersonalOrg_Admin_Add poa = new PersonalOrg_Admin_Add();
-        jSplitPane1.setRightComponent(poa);
+        PersonalOrg_Admin_Add poa = new PersonalOrg_Admin_Add(controlArea, workArea);
+        workArea.add("PersonalOrg_Admin_Add",poa);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea);
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReadActionPerformed
         // TODO add your handling code here:
-        PersonalOrg_Admin_Read por = new PersonalOrg_Admin_Read();
-        jSplitPane1.setRightComponent(por);
+        PersonalOrg_Admin_Read por = new PersonalOrg_Admin_Read(controlArea, workArea);
+        workArea.add("PersonalOrg_Admin_Add",por);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea);
     }//GEN-LAST:event_jButtonReadActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         // TODO add your handling code here:
-        PersonalOrg_Admin_Delete pod = new PersonalOrg_Admin_Delete();
-        jSplitPane1.setRightComponent(pod);
+        PersonalOrg_Admin_Delete pod = new PersonalOrg_Admin_Delete(controlArea, workArea);
+        workArea.add("PersonalOrg_Admin_Add",pod);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea);
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel controlArea;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonRead;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 }

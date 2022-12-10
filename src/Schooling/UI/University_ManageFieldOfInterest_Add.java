@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 /**
  *
@@ -21,9 +22,13 @@ public class University_ManageFieldOfInterest_Add extends javax.swing.JPanel {
     /**
      * Creates new form University_ManageFieldOfInterest_Add
      */
-    public University_ManageFieldOfInterest_Add() 
+    JPanel controlArea;
+    JPanel workArea;
+    public University_ManageFieldOfInterest_Add(JPanel controlArea, JPanel workArea) 
     {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
     }
 
     /**

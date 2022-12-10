@@ -8,6 +8,7 @@ import Schooling.Model.Courses;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,8 +20,12 @@ public class University_ManageCourses_Update extends javax.swing.JPanel {
     /**
      * Creates new form University_ManageCourses_Update
      */
-    public University_ManageCourses_Update() {
+    JPanel controlArea;
+    JPanel workArea;
+    public University_ManageCourses_Update(JPanel controlArea, JPanel workArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
         jTextFieldCategory.setEditable(false);
     }
 

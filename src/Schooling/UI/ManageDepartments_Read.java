@@ -8,6 +8,7 @@ import DataConnection.db;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -19,10 +20,14 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_Read_Person
      */
+    JPanel controlArea;
+    JPanel workArea;
     ResultSet resultSet;
-    public ManageDepartments_Read() 
+    public ManageDepartments_Read(JPanel controlArea, JPanel workArea) 
     {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
     }
 
     /**

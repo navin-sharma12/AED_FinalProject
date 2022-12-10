@@ -15,15 +15,15 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author navinsharma
  */
-public class JobPortal_Read extends javax.swing.JPanel {
+public class JobPortal_Student_Apply extends javax.swing.JPanel {
 
     /**
-     * Creates new form JobPortal_Read
+     * Creates new form JobPortal_Student_Apply
      */
     JPanel controlArea;
     JPanel workArea;
     ResultSet resultSet;
-    public JobPortal_Read(JPanel controlArea, JPanel workArea) 
+    public JobPortal_Student_Apply(JPanel controlArea, JPanel workArea) 
     {
         try 
         {
@@ -50,22 +50,23 @@ public class JobPortal_Read extends javax.swing.JPanel {
     private void initComponents() {
 
         jButtonView = new javax.swing.JButton();
-        jLabelJobTitle = new javax.swing.JLabel();
+        jButtonApply = new javax.swing.JButton();
         jComboBoxCategory = new javax.swing.JComboBox<>();
-        jTextFieldLocation = new javax.swing.JTextField();
         jLabelLocation = new javax.swing.JLabel();
+        jLabelJobDescription = new javax.swing.JLabel();
         jLabelCategory = new javax.swing.JLabel();
         jTextFieldCompanyName = new javax.swing.JTextField();
-        jLabelCompanyName = new javax.swing.JLabel();
-        jComboBoxJobType = new javax.swing.JComboBox<>();
-        jLabelJobType = new javax.swing.JLabel();
-        jScrollPaneJobDescription = new javax.swing.JScrollPane();
-        jTextAreaJobDescription = new javax.swing.JTextArea();
-        jTextFieldJobTitle = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
-        jLabelJobDescription = new javax.swing.JLabel();
+        jLabelCompanyName = new javax.swing.JLabel();
+        jTextFieldLocation = new javax.swing.JTextField();
+        jComboBoxJobType = new javax.swing.JComboBox<>();
         jLabelTitle = new javax.swing.JLabel();
+        jLabelJobType = new javax.swing.JLabel();
+        jTextFieldJobTitle = new javax.swing.JTextField();
+        jScrollPaneJobDescription = new javax.swing.JScrollPane();
+        jTextAreaJobDescription = new javax.swing.JTextArea();
+        jLabelJobTitle = new javax.swing.JLabel();
 
         jButtonView.setText("View");
         jButtonView.addActionListener(new java.awt.event.ActionListener() {
@@ -74,7 +75,12 @@ public class JobPortal_Read extends javax.swing.JPanel {
             }
         });
 
-        jLabelJobTitle.setText("Job Title:");
+        jButtonApply.setText("Apply");
+        jButtonApply.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonApplyActionPerformed(evt);
+            }
+        });
 
         jComboBoxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "On Campus", "Off Campus" }));
         jComboBoxCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -85,17 +91,9 @@ public class JobPortal_Read extends javax.swing.JPanel {
 
         jLabelLocation.setText("Location:");
 
+        jLabelJobDescription.setText("Job Description:");
+
         jLabelCategory.setText("Category:");
-
-        jLabelCompanyName.setText("Company Name:");
-
-        jComboBoxJobType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Part time", "Full time", "Intern" }));
-
-        jLabelJobType.setText("Job Type:");
-
-        jTextAreaJobDescription.setColumns(20);
-        jTextAreaJobDescription.setRows(5);
-        jScrollPaneJobDescription.setViewportView(jTextAreaJobDescription);
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -110,57 +108,72 @@ public class JobPortal_Read extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable);
 
-        jLabelJobDescription.setText("Job Description:");
+        jLabelCompanyName.setText("Company Name:");
+
+        jComboBoxJobType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Part time", "Full time", "Intern" }));
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitle.setText("Read Jobs");
+
+        jLabelJobType.setText("Job Type:");
+
+        jTextAreaJobDescription.setColumns(20);
+        jTextAreaJobDescription.setRows(5);
+        jScrollPaneJobDescription.setViewportView(jTextAreaJobDescription);
+
+        jLabelJobTitle.setText("Job Title:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelJobType)
-                                    .addComponent(jLabelLocation)
-                                    .addComponent(jLabelJobDescription))
-                                .addGap(32, 32, 32)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxJobType, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
                                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabelCompanyName)
-                                            .addComponent(jLabelJobTitle))
-                                        .addGap(30, 30, 30))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jLabelCategory)
-                                        .addGap(72, 72, 72)))
+                                            .addComponent(jLabelJobType)
+                                            .addComponent(jLabelLocation)
+                                            .addComponent(jLabelJobDescription))
+                                        .addGap(32, 32, 32)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxJobType, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabelCompanyName)
+                                                    .addComponent(jLabelJobTitle))
+                                                .addGap(30, 30, 30))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabelCategory)
+                                                .addGap(72, 72, 72)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldJobTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldCompanyName, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(104, 104, 104)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldJobTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextFieldCompanyName, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGap(104, 104, 104)
-                        .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
-            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
+                                    .addComponent(jButtonView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jButtonApply, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(30, 30, 30)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(39, 39, 39)
+                .addGap(32, 32, 32)
                 .addComponent(jLabelTitle)
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -170,7 +183,8 @@ public class JobPortal_Read extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelJobTitle)
-                    .addComponent(jTextFieldJobTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextFieldJobTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonApply))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCategory)
@@ -190,7 +204,7 @@ public class JobPortal_Read extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -248,8 +262,13 @@ public class JobPortal_Read extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonViewActionPerformed
 
+    private void jButtonApplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApplyActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButtonApplyActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonApply;
     private javax.swing.JButton jButtonView;
     private javax.swing.JComboBox<String> jComboBoxCategory;
     private javax.swing.JComboBox<String> jComboBoxJobType;

@@ -4,7 +4,9 @@
  */
 package Schooling.UI;
 
+import java.awt.CardLayout;
 import java.sql.SQLException;
+import javax.swing.JPanel;
 
 /**
  *
@@ -15,8 +17,12 @@ public class Schooling_JobPortal extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_JobPortal
      */
-    public Schooling_JobPortal() {
+    JPanel controlArea;
+    JPanel workArea;
+    public Schooling_JobPortal(JPanel controlArea, JPanel workArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
     }
 
     /**
@@ -28,25 +34,15 @@ public class Schooling_JobPortal extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        controlArea = new javax.swing.JPanel();
-        jButtonAdd = new javax.swing.JButton();
-        jButtonRead = new javax.swing.JButton();
-        jButtonUpdate = new javax.swing.JButton();
         jButtonDelete = new javax.swing.JButton();
-        workArea = new javax.swing.JPanel();
+        jButtonUpdate = new javax.swing.JButton();
+        jButtonRead = new javax.swing.JButton();
+        jButtonAdd = new javax.swing.JButton();
 
-        jButtonAdd.setText("Add");
-        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+        jButtonDelete.setText("Delete");
+        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonAddActionPerformed(evt);
-            }
-        });
-
-        jButtonRead.setText("Read");
-        jButtonRead.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonReadActionPerformed(evt);
+                jButtonDeleteActionPerformed(evt);
             }
         });
 
@@ -57,30 +53,37 @@ public class Schooling_JobPortal extends javax.swing.JPanel {
             }
         });
 
-        jButtonDelete.setText("Delete");
-        jButtonDelete.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRead.setText("Read");
+        jButtonRead.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonDeleteActionPerformed(evt);
+                jButtonReadActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout controlAreaLayout = new javax.swing.GroupLayout(controlArea);
-        controlArea.setLayout(controlAreaLayout);
-        controlAreaLayout.setHorizontalGroup(
-            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(controlAreaLayout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+        jButtonAdd.setText("Add");
+        jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonAddActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonRead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(35, 35, 35))
+                    .addComponent(jButtonDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41))
         );
-        controlAreaLayout.setVerticalGroup(
-            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(controlAreaLayout.createSequentialGroup()
-                .addGap(44, 44, 44)
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(54, 54, 54)
                 .addComponent(jButtonAdd)
                 .addGap(43, 43, 43)
                 .addComponent(jButtonRead)
@@ -88,70 +91,47 @@ public class Schooling_JobPortal extends javax.swing.JPanel {
                 .addComponent(jButtonUpdate)
                 .addGap(43, 43, 43)
                 .addComponent(jButtonDelete)
-                .addContainerGap(522, Short.MAX_VALUE))
-        );
-
-        jSplitPane1.setLeftComponent(controlArea);
-
-        workArea.setSize(new java.awt.Dimension(649, 655));
-
-        javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
-        workArea.setLayout(workAreaLayout);
-        workAreaLayout.setHorizontalGroup(
-            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-        workAreaLayout.setVerticalGroup(
-            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
-
-        jSplitPane1.setRightComponent(workArea);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 859, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+                .addContainerGap(57, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
-        JobPortal_Add jpa = new JobPortal_Add();
-        jSplitPane1.setRightComponent(jpa);
+        JobPortal_Add jpa = new JobPortal_Add(controlArea, workArea);
+        workArea.add("JobPortal_Add",jpa);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea); 
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jButtonReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReadActionPerformed
         // TODO add your handling code here:
-        JobPortal_Read jpr = new JobPortal_Read();
-        jSplitPane1.setRightComponent(jpr);
+        JobPortal_Read jpr = new JobPortal_Read(controlArea, workArea);
+        workArea.add("JobPortal_Read",jpr);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea); 
     }//GEN-LAST:event_jButtonReadActionPerformed
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
         // TODO add your handling code here:
-        JobPortal_Update jpu = new JobPortal_Update();
-        jSplitPane1.setRightComponent(jpu);
+        JobPortal_Update jpu = new JobPortal_Update(controlArea, workArea);
+        workArea.add("JobPortal_Update",jpu);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea); 
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
     private void jButtonDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonDeleteActionPerformed
         // TODO add your handling code here:
-        JobPortal_Delete jpd = new JobPortal_Delete();
-        jSplitPane1.setRightComponent(jpd);
+        JobPortal_Delete jpd = new JobPortal_Delete(controlArea, workArea);
+        workArea.add("JobPortal_Delete",jpd);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea); 
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel controlArea;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonRead;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 }

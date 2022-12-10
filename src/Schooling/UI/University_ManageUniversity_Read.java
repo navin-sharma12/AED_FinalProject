@@ -7,6 +7,7 @@ import Schooling.Model.University;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -18,11 +19,15 @@ public class University_ManageUniversity_Read extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_ManageUniversity_Read
      */
+    JPanel controlArea;
+    JPanel workArea;
     ResultSet resultSet;
-    public University_ManageUniversity_Read() {
+    public University_ManageUniversity_Read(JPanel controlArea, JPanel workArea) {
         try 
         {
             initComponents();
+            this.controlArea = controlArea;
+            this.workArea = workArea;
             University uni = new University();
             resultSet = uni.getallUniversity();
             ViewTable();

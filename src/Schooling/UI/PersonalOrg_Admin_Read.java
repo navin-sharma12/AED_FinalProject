@@ -8,6 +8,7 @@ import Schooling.Model.PersonalOrganization;
 import java.sql.SQLException;
 import java.sql.ResultSet;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,12 +21,15 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
      * Creates new form PersonalOrg_Admin_Read
      */
     ResultSet resultSet;
-    
-    public PersonalOrg_Admin_Read() 
+    JPanel controlArea;
+    JPanel workArea;
+    public PersonalOrg_Admin_Read(JPanel controlArea, JPanel workArea) 
     {
         try 
         {
             initComponents();
+            this.controlArea = controlArea;
+            this.workArea = workArea;
             ViewTable();
         } 
         catch (SQLException ex) 

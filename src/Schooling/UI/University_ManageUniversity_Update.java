@@ -9,6 +9,7 @@ import Schooling.Model.University;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -20,10 +21,14 @@ public class University_ManageUniversity_Update extends javax.swing.JPanel {
     /**
      * Creates new form Schooling_ManageUniversity_Update
      */
+    JPanel controlArea;
+    JPanel workArea;
     ResultSet resultSetuni, resultSetcourse;
     String university_name, seats1, course_name;
-    public University_ManageUniversity_Update() {
+    public University_ManageUniversity_Update(JPanel controlArea, JPanel workArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
         jTextFieldCategory.setEditable(false);
         jTextFieldCourseName.setEditable(false);
         

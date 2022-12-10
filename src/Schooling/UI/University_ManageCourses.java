@@ -4,9 +4,11 @@
  */
 package Schooling.UI;
 
+import java.awt.CardLayout;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JPanel;
 
 /**
  *
@@ -17,8 +19,12 @@ public class University_ManageCourses extends javax.swing.JPanel {
     /**
      * Creates new form University_ManageCourses
      */
-    public University_ManageCourses() {
+    JPanel controlArea;
+    JPanel workArea;
+    public University_ManageCourses(JPanel controlArea, JPanel workArea) {
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
     }
 
     /**
@@ -30,12 +36,9 @@ public class University_ManageCourses extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jSplitPane1 = new javax.swing.JSplitPane();
-        controlArea = new javax.swing.JPanel();
         jButtonAdd = new javax.swing.JButton();
         jButtonRead = new javax.swing.JButton();
         jButtonUpdate = new javax.swing.JButton();
-        workArea = new javax.swing.JPanel();
 
         jButtonAdd.setText("Add");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -58,54 +61,28 @@ public class University_ManageCourses extends javax.swing.JPanel {
             }
         });
 
-        javax.swing.GroupLayout controlAreaLayout = new javax.swing.GroupLayout(controlArea);
-        controlArea.setLayout(controlAreaLayout);
-        controlAreaLayout.setHorizontalGroup(
-            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(controlAreaLayout.createSequentialGroup()
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
+        this.setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
                 .addGap(38, 38, 38)
-                .addGroup(controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonUpdate, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonRead, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(38, 38, 38))
+                    .addComponent(jButtonAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
-        controlAreaLayout.setVerticalGroup(
-            controlAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(controlAreaLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(26, 26, 26)
                 .addComponent(jButtonAdd)
                 .addGap(45, 45, 45)
                 .addComponent(jButtonRead)
                 .addGap(45, 45, 45)
                 .addComponent(jButtonUpdate)
-                .addContainerGap(292, Short.MAX_VALUE))
-        );
-
-        jSplitPane1.setLeftComponent(controlArea);
-
-        javax.swing.GroupLayout workAreaLayout = new javax.swing.GroupLayout(workArea);
-        workArea.setLayout(workAreaLayout);
-        workAreaLayout.setHorizontalGroup(
-            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 430, Short.MAX_VALUE)
-        );
-        workAreaLayout.setVerticalGroup(
-            workAreaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 509, Short.MAX_VALUE)
-        );
-
-        jSplitPane1.setRightComponent(workArea);
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane1)
+                .addContainerGap(47, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,8 +90,10 @@ public class University_ManageCourses extends javax.swing.JPanel {
         // TODO add your handling code here:
         try 
         {
-            University_ManageCourses_Add add = new University_ManageCourses_Add();
-            jSplitPane1.setRightComponent(add);
+            University_ManageCourses_Add add = new University_ManageCourses_Add(controlArea, workArea);
+            workArea.add("University_ManageCourses_Add",add);
+            CardLayout layout = (CardLayout)workArea.getLayout();
+            layout.next(workArea); 
         } 
         catch (SQLException ex) 
         {
@@ -124,23 +103,24 @@ public class University_ManageCourses extends javax.swing.JPanel {
 
     private void jButtonReadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonReadActionPerformed
         // TODO add your handling code here:
-        University_ManageCourses_Read read = new University_ManageCourses_Read();
-        jSplitPane1.setRightComponent(read);
+        University_ManageCourses_Read read = new University_ManageCourses_Read(controlArea, workArea);
+        workArea.add("University_ManageCourses_Read",read);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea); 
     }//GEN-LAST:event_jButtonReadActionPerformed
 
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
         // TODO add your handling code here:
-        University_ManageCourses_Update update = new University_ManageCourses_Update();
-        jSplitPane1.setRightComponent(update);
+        University_ManageCourses_Update update = new University_ManageCourses_Update(controlArea, workArea);
+        workArea.add("University_ManageCourses_Update",update);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea); 
     }//GEN-LAST:event_jButtonUpdateActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel controlArea;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonRead;
     private javax.swing.JButton jButtonUpdate;
-    private javax.swing.JSplitPane jSplitPane1;
-    private javax.swing.JPanel workArea;
     // End of variables declaration//GEN-END:variables
 }
