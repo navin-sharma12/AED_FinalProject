@@ -31,10 +31,22 @@ public class Investor {
         this.donated_funds = donated_funds;
         this.contact_no = contact_no;
     }
-    
-     public Investor(String organization, String email, String password, String username, int isGovernment, int donated_funds, long contact_no) {
+
+    public Investor(int id, String firstname, String lastname, String email, String password, String username, int donated_funds, long contact_no) {
+        this.id = id;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.password = password;
+        this.username = username;
+        this.isLocal = isLocal;
+        this.donated_funds = donated_funds;
+        this.contact_no = contact_no;
+    }
+
+    public Investor(String organization, String email, String password, String username, int isGovernment, int donated_funds, long contact_no) {
         this.organization = organization;
-       
+
         this.email = email;
         this.password = password;
         this.username = username;
@@ -42,9 +54,17 @@ public class Investor {
         this.donated_funds = donated_funds;
         this.contact_no = contact_no;
     }
-     
-     public Investor(){
-     }
+
+    public Investor() {
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId() {
+        this.id = id;
+    }
 
     public String getFirstname() {
         return firstname;
@@ -152,11 +172,11 @@ public class Investor {
         }
 
     }
-    
+
     public void addGovernmentInvestors(Investor in) throws SQLException {
         try {
             PreparedStatement ps = db.getPreStatement("Insert into investors(organization, email, contact_no, password,isGovernment, username, donated_funds)" + "values (?,?,?,?,?,?,?)");
-           
+
             ps.setString(1, in.getOrganization());
             ps.setString(2, in.getEmail());
             ps.setString(3, String.valueOf(in.getContact_no()));
@@ -170,40 +190,65 @@ public class Investor {
         }
 
     }
-    
+
     public ResultSet getAllLocalInvestor() throws SQLException {
-      try{
-        ResultSet rs = db.selectQuery("Select * from investors where isLocal = 1");
-        return rs;
-      }
-     catch (IllegalArgumentException e) {
+        try {
+            ResultSet rs = db.selectQuery("Select * from investors where isLocal = 1");
+            return rs;
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not saved");
         }
     }
-    
-    
+
     public ResultSet getAllGovernmentInvestor() throws SQLException {
-      try{
-        ResultSet rs = db.selectQuery("Select * from investors where isGovernment = 1");
-        return rs;
-      }
-     catch (IllegalArgumentException e) {
+        try {
+            ResultSet rs = db.selectQuery("Select * from investors where isGovernment = 1");
+            return rs;
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not saved");
         }
     }
-    
-    public void updateInvestorFunds(int funds,int id) throws SQLException {
-        try{
+
+    public void updateInvestorFunds(int funds, int id) throws SQLException {
+        try {
             PreparedStatement ps = db.getPreStatement("update investors set donated_funds = ? where id = ?");
             ps.setInt(1, funds);
-            ps.setInt(2,id);
+            ps.setInt(2, id);
             ps.execute();
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not saved");
         }
     }
-    
-    
+
+    public void updateLocalInvestorsDetails(Investor in) throws SQLException {
+        try {
+            PreparedStatement ps = db.getPreStatement("Update investors set firstname = ?, lastname = ?, email = ?, contact_no = ?, password = ?, username = ?, donated_funds = ? where id = ?");
+            ps.setString(1, in.getFirstname());
+            ps.setString(2, in.getLastname());
+            ps.setString(3, in.getEmail());
+            ps.setString(4, String.valueOf(in.getContact_no()));
+            ps.setString(5, in.getPassword());
+            ps.setString(6, in.getUsername());
+            ps.setInt(7, in.getDonated_funds());
+            ps.setInt(8, in.getId());
+            ps.execute();
+
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+
+    }
+
+    public void deleteInvestor(int id) throws SQLException {
+        try {
+           
+            PreparedStatement ps = db.getPreStatement("delete from investors where id = ?");
+            ps.setInt(1, id);
+            ps.execute() ;
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not delete");
+        }
+
+    }
 
 }
