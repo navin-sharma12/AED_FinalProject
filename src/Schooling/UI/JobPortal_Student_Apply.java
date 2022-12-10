@@ -5,6 +5,7 @@
 package Schooling.UI;
 
 import Schooling.Model.JobPortal;
+import Student.Student;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -23,6 +24,8 @@ public class JobPortal_Student_Apply extends javax.swing.JPanel {
     JPanel controlArea;
     JPanel workArea;
     ResultSet resultSet;
+    String company_name, job_title, job_type, location, job_description, category;
+    JobPortal jp = new JobPortal();
     public JobPortal_Student_Apply(JPanel controlArea, JPanel workArea) 
     {
         try 
@@ -264,6 +267,76 @@ public class JobPortal_Student_Apply extends javax.swing.JPanel {
 
     private void jButtonApplyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonApplyActionPerformed
         // TODO add your handling code here:
+        String company_name2, job_title2, job_type2, location2, job_description2, category2;
+        ResultSet resultSet1, resultSet2;
+
+        company_name2 = jTextFieldCompanyName.getText();
+        if(company_name2.isEmpty())
+        {
+            JOptionPane.showMessageDialog(this, "Company name cannot be null.");
+        }
+        else
+        {
+            job_title2 = jTextFieldJobTitle.getText();
+            if(job_title2.isEmpty())
+            {
+                JOptionPane.showMessageDialog(this, "Job title cannot be null.");
+            }
+            else
+            {
+                category2 = jComboBoxCategory.getSelectedItem().toString();
+                if("Off Campus".equals(category2))
+                {
+                    job_type2 = jComboBoxJobType.getSelectedItem().toString();
+                }
+                else
+                {
+                    job_type2 = "";
+                }
+                location2 = jTextFieldLocation.getText();
+                if (location2.isEmpty())
+                {
+                    JOptionPane.showMessageDialog(this, "Location cannot be null.");
+                }
+                else
+                {
+                    job_description2 = jTextAreaJobDescription.getText();
+                    if (job_description2.isEmpty())
+                    {
+                        JOptionPane.showMessageDialog(this, "Job description cannot be null.");
+                    }
+                    else
+                    {
+                        try
+                        {
+                            resultSet1 = jp.getallJobs();
+                            while(resultSet1.next())
+                            {
+                                if(resultSet1.getString(2).equals(company_name) &&
+                                    resultSet1.getString(3).equals(job_title) &&
+                                    resultSet1.getString(4).equals(category) &&
+                                    resultSet1.getString(5).equals(job_type) &&
+                                    resultSet1.getString(6).equals(location) &&
+                                    resultSet1.getString(7).equals(job_description))
+                                {
+                                    int id = resultSet1.getInt(1);
+                                    Student st = new Student();
+                                    resultSet2 = st.getStudent();
+                                    while(resultSet2.next())
+                                    {
+                                        
+                                    }
+                                }
+                            }
+                        }
+                        catch (SQLException ex)
+                        {
+//                            Logger.getLogger(JobPortal_Add.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                    }
+                }
+            }
+        }
     }//GEN-LAST:event_jButtonApplyActionPerformed
 
 
