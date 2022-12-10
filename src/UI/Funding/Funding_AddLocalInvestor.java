@@ -199,8 +199,8 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
             String username = lastname.toLowerCase() + "." + firstname.toLowerCase();
             String password = lastname.toLowerCase() + "." + firstname.toLowerCase();
             try{
-                Investor in = new Investor(firstname, lastname, email, password, username, 1, funds, contact_no);
-                in.addLocalInvestors(in);
+//                Investor in = new Investor(firstname, lastname, email, password, username, 1, funds, contact_no);
+//                in.addLocalInvestors(in);
                 JOptionPane.showMessageDialog(this, "Investor added");
             }
             catch(IllegalArgumentException e)

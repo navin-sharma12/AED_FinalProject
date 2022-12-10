@@ -282,14 +282,40 @@ public class Student {
         }
     }
 
-    public void updateStudentCollege(int student_id, int course_id, int university_id,String university_personal_id, String status, String email) throws SQLException {
+    public void updateStudentCollege(int student_id, int course_id, int university_id, String university_personal_id, String status, String email) throws SQLException {
         PreparedStatement ps = db.getPreStatement("update student set course_id = ?, university_id = ? ,university_personal_id = ?, education_status = ? , email = ? where id = ?");
         ps.setInt(1, course_id);
         ps.setInt(2, university_id);
-        ps.setString(3,university_personal_id);
+        ps.setString(3, university_personal_id);
         ps.setString(4, status);
         ps.setString(5, email);
         ps.setInt(6, student_id);
         ps.execute();
+    }
+
+    public ResultSet getAdmittedStudent() throws SQLException {
+        try {
+            ResultSet rs = db.selectQuery("SELECT s.id,s.firstname,s.lastname,s.gender,s.education_status,u.university_name FROM AED.student as s Left join universities as u ON s.university_id = u.id where s.education_status = 'Admitted' and s.housing_id IS NULL");
+            return rs;
+
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
+    }
+    
+    
+    public void updateStudentHousing(int student_id,int housing_id,String address,String zipcode) throws SQLException {
+    try{
+        PreparedStatement ps = db.getPreStatement("update student set housing_id = ? , address = ? , zipcode = ? where id = ?");
+        ps.setInt(1, housing_id);
+        ps.setString(2, address);
+        ps.setString(3, zipcode);
+        ps.setInt(4, student_id);
+        ps.execute();
+    }
+   catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
     }
 }

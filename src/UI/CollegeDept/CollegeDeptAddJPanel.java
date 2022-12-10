@@ -443,21 +443,21 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
             Properties properties = new Properties();
             properties.put("mail.smtp.auth", "true");
             properties.put("mail.smtp.starttls.enable", "true");
-            properties.put("mail.smtp.host", "smtp.gmail.com");
-            properties.put("mail.smtp.port", "587");
+            properties.put("mail.smtp.ssl.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", 587);
             Session session = Session.getDefaultInstance(properties,
                     new Authenticator() {
                 @Override
                 protected PasswordAuthentication getPasswordAuthentication() {
-                    return new PasswordAuthentication("helpinghomeless.aed@gmail.com", "zhbgmahzmzkuagbi");
+                    return new PasswordAuthentication("helpinghomeless.aed@gmail.com", "gygsgpsczxfzjvjj");
 
                 }
             });
-            String content = "Welcome to" + university + ".\r\n Your email" + email + "and password" + password + "/r/n for the portal";
+//            String content = "Welcome to" + university + ".\r\n Your email" + email + "and password" + password + "/r/n for the portal";
             System.out.println(session);
             Message message = new MimeMessage(session);
             message.setSubject("Welcome to" + university + "");
-            message.setContent(content, "text/plain");
+            message.setContent("", "text/plain");
             message.setFrom(new InternetAddress("helpinghomeless.aed@gmail.com"));
             message.setRecipient(RecipientType.TO, new InternetAddress(email));
             message.setSentDate(new Date());
