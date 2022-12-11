@@ -19,7 +19,7 @@ public class db
 {
     private static final String URL = "jdbc:mysql://127.0.0.1:3306/AED";
     private static final String USER_NAME = "root";
-    private static final String PASSWORD = "javaProject";
+    private static final String PASSWORD = "15672N@vin";
     
     private static Connection connection = null;
     private static Statement statement = null;
