@@ -28,6 +28,9 @@ import UI.Housing.Housing_ManageUser_Delete;
 import UI.Housing.Housing_ManageUser_Update;
 import UI.Housing.Housing_OffCampus_AddJPanel;
 import UI.Housing.Housing_OnCampus_AddJPanel;
+import UI.Ngo.ManageDepartmentControlJPanel;
+import UI.Ngo.ManageDepartmentDeleteJPanel;
+import UI.Ngo.NgoContolAreaJPanel;
 import UI.student.StudentAddJPanel;
 import UI.student.StudentDeleteJPanel;
 import UI.student.StudentLoginJPanel;
@@ -79,11 +82,11 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
         );
 
         pack();

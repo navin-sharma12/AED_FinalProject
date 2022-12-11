@@ -109,6 +109,7 @@ public class Funding_AddGovernmentInvestor extends javax.swing.JPanel {
         add(txtContact);
         txtContact.setBounds(580, 340, 180, 23);
 
+        jLabel1.setBackground(new java.awt.Color(153, 153, 153));
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         jLabel1.setText("                                     Goverment-Investor : Add");
         add(jLabel1);

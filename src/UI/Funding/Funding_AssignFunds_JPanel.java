@@ -131,7 +131,7 @@ public class Funding_AssignFunds_JPanel extends javax.swing.JPanel {
         add(jScrollPane1);
         jScrollPane1.setBounds(210, 100, 550, 148);
 
-        tblFunder.setBackground(new java.awt.Color(0, 0, 0));
+        tblFunder.setBackground(new java.awt.Color(102, 102, 102));
         tblFunder.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         tblFunder.setForeground(new java.awt.Color(255, 255, 255));
         tblFunder.setModel(new javax.swing.table.DefaultTableModel(
