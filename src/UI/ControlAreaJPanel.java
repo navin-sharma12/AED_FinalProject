@@ -41,6 +41,7 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
         btnSchooling = new java.awt.Button();
         btnFunding = new java.awt.Button();
         btnInvestor = new java.awt.Button();
+        btnHouse = new java.awt.Button();
 
         btnAdmin.setLabel("Admin");
         btnAdmin.addActionListener(new java.awt.event.ActionListener() {
@@ -77,6 +78,13 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnHouse.setLabel("Housing");
+        btnHouse.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnHouseActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -84,6 +92,7 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(70, 70, 70)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnHouse, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFunding, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSchooling, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNgo, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -104,13 +113,15 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
                 .addComponent(btnFunding, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(35, 35, 35)
                 .addComponent(btnInvestor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(199, Short.MAX_VALUE))
+                .addGap(25, 25, 25)
+                .addComponent(btnHouse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(150, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
         // TODO add your handling code here:
-        Admin_Login al = new Admin_Login(workArea, controlArea);
+        Admin_Login al = new Admin_Login(controlArea, workArea);
         workArea.add("Admin_Login",al);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea); 
@@ -118,6 +129,11 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
 
     private void btnNgoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNgoActionPerformed
         // TODO add your handling code here:
+        
+        NgoAdminLogin_JPanel naljp = new NgoAdminLogin_JPanel(controlArea, workArea);
+        workArea.add("NgoAdminLogin_JPanel",naljp);
+        CardLayout layout1 = (CardLayout)workArea.getLayout();
+        layout1.next(workArea); 
     }//GEN-LAST:event_btnNgoActionPerformed
 
     private void btnSchoolingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSchoolingActionPerformed
@@ -137,10 +153,19 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnInvestorActionPerformed
 
+    private void btnHouseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHouseActionPerformed
+        // TODO add your handling code here:
+        HousingAdminLogin_JPanel haljp = new HousingAdminLogin_JPanel(controlArea, workArea);
+        workArea.add("HousingAdminLogin_JPanel",haljp);
+        CardLayout layout3 = (CardLayout)workArea.getLayout();
+        layout3.next(workArea); 
+    }//GEN-LAST:event_btnHouseActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Button btnAdmin;
     private java.awt.Button btnFunding;
+    private java.awt.Button btnHouse;
     private java.awt.Button btnInvestor;
     private java.awt.Button btnNgo;
     private java.awt.Button btnSchooling;

@@ -212,13 +212,21 @@ public class Users {
 
     }
     
-//    sent email
-//    public boolean sentEmail(String email,String university){
-//        Properties properties = new Properties();
-//        properties.put("mail.smtp.auth", "true");
-//        properties.put("mail.smtp.starttls.enable","true");
-//        properties.put("mail.smtp.host", "smtp.gmail.com");
-//        properties.put("mail.smtp.port", "587");
-//        Session session = Session.get
-//    }
+//    check login
+   public ResultSet checkLogin(String email,String password,String department,int department_id)
+   {
+       try 
+        {
+            ResultSet resultset = db.selectQuery("select * from user where emailid = '" + email + "' and password = '" + password + "' and organization = '" + department + "' and department_id = '" + department_id + "'");
+            return resultset;
+        } 
+        catch (IllegalArgumentException e)
+        {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+   
+         
+   }
+    
+
 }

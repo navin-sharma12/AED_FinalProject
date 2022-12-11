@@ -9,6 +9,7 @@ import Admin.Admin;
 import UI.Funding.Funding_Admin;
 import UI.Funding.Funding_ManageInvestors;
 import Schooling.UI.Schooling_Admin;
+import UI.Housing.Housing_AdminControlArea_JPanel;
 import UI.Ngo.NgoContolAreaJPanel;
 import java.awt.CardLayout;
 import java.sql.ResultSet;
@@ -155,6 +156,15 @@ public class Admin_Login extends javax.swing.JPanel {
                     controlArea.add("Funding_Admin", fa);
                     CardLayout layout3 = (CardLayout) controlArea.getLayout();
                     layout3.next(controlArea);
+                   
+                }
+                  if(res.getString(2).equals("housing"))
+                {
+                    workArea.remove(this);
+                    Housing_AdminControlArea_JPanel hacap = new Housing_AdminControlArea_JPanel(controlArea, workArea);
+                    controlArea.add("Housing_AdminControlArea_JPanel", hacap);
+                    CardLayout layout4 = (CardLayout) controlArea.getLayout();
+                    layout4.next(controlArea);
                    
                 }
             }

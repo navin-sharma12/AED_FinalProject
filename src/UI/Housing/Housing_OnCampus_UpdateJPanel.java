@@ -4,7 +4,6 @@
  */
 package UI.Housing;
 
-import javax.swing.JOptionPane;
 import Housing.Housing;
 import Schooling.Model.University;
 import UI.ControlAreaJPanel;
@@ -14,25 +13,27 @@ import java.sql.SQLException;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author pikku
  */
-
-public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
+public class Housing_OnCampus_UpdateJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form Housing_OffCampus_AddJPanel
+     * Creates new form Housing_OnCampus_UpdateJPanel
      */
-     University un;
-     JPanel controlArea;
-    JPanel workArea;
-    public Housing_OffCampus_AddJPanel(JPanel controlArea, JPanel workArea) {
+    University un;
+    int id;
+ JPanel controlArea;
+    JPanel workArea; 
+    public Housing_OnCampus_UpdateJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
-        this.un = new University();
+        populateTable();
          this.controlArea = controlArea;
         this.workArea = workArea;
+        this.un = new University();
         populateUniversity();
     }
 
@@ -45,22 +46,45 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtSlots = new javax.swing.JTextField();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        Update = new javax.swing.JButton();
+        lblAddress = new java.awt.Label();
+        lblZipcode = new java.awt.Label();
+        lblUniversity = new java.awt.Label();
         txtAddress = new javax.swing.JTextField();
         txtZipcode = new javax.swing.JTextField();
         btnAdd = new java.awt.Button();
         ComboBoxUniversity = new javax.swing.JComboBox<>();
         lblSlots = new java.awt.Label();
-        lblAddress = new java.awt.Label();
-        lblZipcode = new java.awt.Label();
-        lblUniversity = new java.awt.Label();
+        txtSlots = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
 
-        txtSlots.addActionListener(new java.awt.event.ActionListener() {
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Id", "University", "Address", "Zipcode", "Slots"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable1);
+
+        Update.setText("Update");
+        Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSlotsActionPerformed(evt);
+                UpdateActionPerformed(evt);
             }
         });
+
+        lblAddress.setText("Address");
+
+        lblZipcode.setText("Zipcode");
+
+        lblUniversity.setText("University");
 
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -85,11 +109,11 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
 
         lblSlots.setText("Slots");
 
-        lblAddress.setText("Address");
-
-        lblZipcode.setText("Zipcode");
-
-        lblUniversity.setText("University");
+        txtSlots.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSlotsActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -103,33 +127,45 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(59, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(lblUniversity, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                            .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblZipcode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblSlots, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(98, 98, 98)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtAddress)
-                            .addComponent(txtZipcode, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                            .addComponent(ComboBoxUniversity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(txtSlots, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))))
-                .addGap(146, 146, 146))
+                .addContainerGap(84, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(76, 76, 76))
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
-                .addComponent(btnBack)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(434, 434, 434)
+                        .addComponent(Update))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(116, 116, 116)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblUniversity, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblZipcode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblSlots, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(98, 98, 98)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtAddress)
+                                    .addComponent(txtZipcode)
+                                    .addComponent(ComboBoxUniversity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtSlots, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(btnBack)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(18, 18, 18)
                 .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGap(1, 1, 1)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 345, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(45, 45, 45)
+                .addComponent(Update)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(lblUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -150,13 +186,25 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
                         .addComponent(txtSlots, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(23, 23, 23)
                 .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(173, 173, 173))
+                .addGap(22, 22, 22))
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtSlotsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSlotsActionPerformed
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtSlotsActionPerformed
+        int selectedRowIndex = jTable1.getSelectedRow();
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+        ComboBoxUniversity.setSelectedItem(model.getValueAt(selectedRowIndex, 1).toString());
+        txtAddress.setText(model.getValueAt(selectedRowIndex, 2).toString());
+        txtZipcode.setText(model.getValueAt(selectedRowIndex, 3).toString());
+        txtSlots.setText(model.getValueAt(selectedRowIndex, 4).toString());
+
+    }//GEN-LAST:event_UpdateActionPerformed
 
     private void txtAddressActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAddressActionPerformed
         // TODO add your handling code here:
@@ -185,17 +233,27 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
             try {
                 while (rs.next()) {
                     int university_id = rs.getInt(1);
-                    Housing h = new Housing(0, 1,university_id, slots, zipcode, address);
-                    h.addHousing(h);
+                    Housing h = new Housing();
+                    h.updateOnCampusHousing(id, university_id, slots, address, zipcode);
                     JOptionPane.showMessageDialog(this, "Housing added");
+                    populateTable();
+
+                    txtAddress.setText("");
+                    txtZipcode.setText("");
+                    txtSlots.setText("");
+                    populateUniversity();
 
                 }
             } catch (SQLException e) {
-                JOptionPane.showMessageDialog(this, e.getMessage());
+                e.getMessage();
             }
 
         }
     }//GEN-LAST:event_btnAddActionPerformed
+
+    private void txtSlotsActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSlotsActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtSlotsActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
@@ -209,8 +267,11 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxUniversity;
+    private javax.swing.JButton Update;
     private java.awt.Button btnAdd;
     private javax.swing.JButton btnBack;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     private java.awt.Label lblAddress;
     private java.awt.Label lblSlots;
     private java.awt.Label lblUniversity;
@@ -219,6 +280,28 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtSlots;
     private javax.swing.JTextField txtZipcode;
     // End of variables declaration//GEN-END:variables
+
+    private void populateTable() {
+        try {
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+            model.setRowCount(0);
+            Housing h = new Housing();
+            ResultSet resultset = h.getAllOnCampusHousing();
+
+            while (resultset.next()) {
+                Object[] row = new Object[5];
+                row[0] = resultset.getInt(1);
+                row[1] = resultset.getString(2);
+                row[2] = resultset.getString(3);
+                row[3] = resultset.getInt(4);
+                row[4] = resultset.getInt(5);
+
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
+    }
 
     private void populateUniversity() {
         try {
@@ -230,5 +313,6 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
+
     }
 }

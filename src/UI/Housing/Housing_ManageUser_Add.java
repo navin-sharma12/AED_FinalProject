@@ -4,7 +4,10 @@
  */
 package UI.Housing;
 
+import UI.Admin_Login;
+import UI.ControlAreaJPanel;
 import Users.Users;
+import java.awt.CardLayout;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -23,7 +26,7 @@ public class Housing_ManageUser_Add extends javax.swing.JPanel {
      JPanel controlArea;
     JPanel workArea;
     Users user;
-    public Housing_ManageUser_Add(JPanel controlArea1, JPanel workArea1) {
+    public Housing_ManageUser_Add(JPanel controlArea, JPanel workArea) {
         initComponents();
          this.controlArea = controlArea;
         this.workArea = workArea;
@@ -49,6 +52,7 @@ public class Housing_ManageUser_Add extends javax.swing.JPanel {
         jLabelLastName = new javax.swing.JLabel();
         jTextFieldLastName = new javax.swing.JTextField();
         jLabelEmailID = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         jLabelDepartment.setText("Department:");
 
@@ -79,11 +83,21 @@ public class Housing_ManageUser_Add extends javax.swing.JPanel {
 
         jLabelEmailID.setText("Email ID:");
 
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 559, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addComponent(btnBack)
+                .addContainerGap(457, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(2, 2, 2)
@@ -116,7 +130,10 @@ public class Housing_ManageUser_Add extends javax.swing.JPanel {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 443, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(33, 33, 33)
+                .addComponent(btnBack)
+                .addContainerGap(387, Short.MAX_VALUE))
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(97, 97, 97)
@@ -182,6 +199,16 @@ public class Housing_ManageUser_Add extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextFieldLastNameActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+         ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout = (CardLayout) controlArea.getLayout();
+        layout.next(controlArea);
+        workArea.remove(this);
+        
+    }//GEN-LAST:event_btnBackActionPerformed
+
  public boolean getEmail(String email) {
         String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
         Pattern pattern = Pattern.compile(regex);
@@ -189,6 +216,7 @@ public class Housing_ManageUser_Add extends javax.swing.JPanel {
         return matcher.matches();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JComboBox<String> jComboBoxDepartment;
     private javax.swing.JLabel jLabelDepartment;

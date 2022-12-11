@@ -143,6 +143,5 @@ public class Housing_Read_JPanel extends javax.swing.JPanel {
     }
 
     private void populateTable() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 }

@@ -4,7 +4,10 @@
  */
 package UI.Housing;
 
+import UI.Admin_Login;
+import UI.ControlAreaJPanel;
 import Users.Users;
+import java.awt.CardLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -24,7 +27,7 @@ public class Housing_ManageUser_Delete extends javax.swing.JPanel {
      int id;
      JPanel controlArea;
     JPanel workArea;
-    public Housing_ManageUser_Delete(JPanel controlArea1, JPanel workArea1) {
+    public Housing_ManageUser_Delete(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.user = new Users();
         this.id = id;
@@ -124,11 +127,11 @@ public class Housing_ManageUser_Delete extends javax.swing.JPanel {
         // TODO add your handling code here:
         //        workArea.remove(this);
 
-//        NgoContolAreaJPanel ngap = new NgoContolAreaJPanel(controlArea, workArea);
-//        controlArea.add("NgoContolAreaJPanel", ngap);
-//        CardLayout layout = (CardLayout) controlArea.getLayout();
-//        layout.next(controlArea);
-//        workArea.remove(this);
+         ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout = (CardLayout) controlArea.getLayout();
+        layout.next(controlArea);
+        workArea.remove(this);
 
     }//GEN-LAST:event_btnBackActionPerformed
 

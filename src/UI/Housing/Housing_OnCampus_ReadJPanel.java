@@ -4,9 +4,8 @@
  */
 package UI.Housing;
 
-import UI.Admin_Login;
+import Housing.Housing;
 import UI.ControlAreaJPanel;
-import Users.Users;
 import java.awt.CardLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -18,21 +17,18 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author pikku
  */
-public class Housing_ManageUser_Read extends javax.swing.JPanel {
+public class Housing_OnCampus_ReadJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form Housing_ManageUser_Read
+     * Creates new form Housing_OnCampus_ReadJPanel
      */
-    Users user;
-    JPanel controlArea;
+     JPanel controlArea;
     JPanel workArea;
-
-    public Housing_ManageUser_Read(JPanel controlArea, JPanel workArea) {
+    public Housing_OnCampus_ReadJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
-        this.user = new Users();
-        populateTable(4);
         this.controlArea = controlArea;
         this.workArea = workArea;
+        populateTable();
     }
 
     /**
@@ -45,21 +41,21 @@ public class Housing_ManageUser_Read extends javax.swing.JPanel {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblDepartment = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
         btnBack = new javax.swing.JButton();
 
-        tblDepartment.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
             },
             new String [] {
-                "Id", "Firstname", "Lastname", "Email", "Organization", "Username"
+                "Id", "University", "Address", "Zipcode", "Slots"
             }
         ));
-        jScrollPane1.setViewportView(tblDepartment);
+        jScrollPane1.setViewportView(jTable1);
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -73,53 +69,49 @@ public class Housing_ManageUser_Read extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(28, 28, 28)
+                .addGap(71, 71, 71)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBack)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(13, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(19, 19, 19)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(23, 23, 23)
                 .addComponent(btnBack)
-                .addGap(31, 31, 31)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(228, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 357, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(50, 50, 50))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
          ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
         controlArea.add("ControlAreaJPanel", cajp);
         CardLayout layout = (CardLayout) controlArea.getLayout();
         layout.next(controlArea);
         workArea.remove(this);
-
     }//GEN-LAST:event_btnBackActionPerformed
 
-    private void populateTable(int id) {
+    private void populateTable() {
         try {
-            DefaultTableModel model = (DefaultTableModel) tblDepartment.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
+            Housing h = new Housing();
+            ResultSet resultset = h.getAllOnCampusHousing();
 
-            ResultSet resultset = user.getAllDepartmentUser(id);
-            System.out.println(resultset);
             while (resultset.next()) {
-                Object[] row = new Object[6];
-
+                Object[] row = new Object[5];
                 row[0] = resultset.getInt(1);
-                row[1] = resultset.getString(3);
-                row[2] = resultset.getString(4);
-                row[3] = resultset.getString(5);
-                row[4] = resultset.getString(6);
-                row[5] = resultset.getString(7);
+                row[1] = resultset.getString(2);
+                row[2] = resultset.getString(3);
+                row[3] = resultset.getInt(4);
+                row[4] = resultset.getInt(5);
+
                 model.addRow(row);
             }
-
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
@@ -127,6 +119,6 @@ public class Housing_ManageUser_Read extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBack;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblDepartment;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

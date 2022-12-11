@@ -2,38 +2,36 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package UI.student;
+package UI.Housing;
 
-import Student.Student;
-import UI.Admin_Login;
+import Housing.Housing;
+import Schooling.Model.University;
 import UI.ControlAreaJPanel;
-import UI.Ngo.NgoContolAreaJPanel;
 import java.awt.CardLayout;
 import java.sql.ResultSet;
-import javax.swing.table.DefaultTableModel;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
  * @author pikku
  */
-public class StudentDeleteJPanel extends javax.swing.JPanel {
+public class Housing_OnCampus_DeleteJPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form StudentDeleteJPanel
+     * Creates new form Housing_OnCampus_DeleteJPanel
      */
-    int student_id;
-    Student s;
-    JPanel controlArea;
+    int id;
+     JPanel controlArea;
     JPanel workArea;
-    public StudentDeleteJPanel(JPanel controlArea, JPanel workArea) {
+    public Housing_OnCampus_DeleteJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
-        this.s = new Student();
-        showTable();
-        this.controlArea = controlArea;
+        populateTable();
+         this.controlArea = controlArea;
         this.workArea = workArea;
+
     }
 
     /**
@@ -45,19 +43,12 @@ public class StudentDeleteJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnDelete = new java.awt.Button();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblStudent = new javax.swing.JTable();
+        jTable1 = new javax.swing.JTable();
+        Update = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
 
-        btnDelete.setLabel("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
-        tblStudent.setModel(new javax.swing.table.DefaultTableModel(
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
@@ -65,10 +56,17 @@ public class StudentDeleteJPanel extends javax.swing.JPanel {
                 {null, null, null, null, null}
             },
             new String [] {
-                "Id", "Firstname", "Lastname", "Contact", "Gender"
+                "Id", "University", "Address", "Zipcode", "Slots"
             }
         ));
-        jScrollPane1.setViewportView(tblStudent);
+        jScrollPane1.setViewportView(jTable1);
+
+        Update.setText("Delete");
+        Update.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                UpdateActionPerformed(evt);
+            }
+        });
 
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
@@ -81,92 +79,88 @@ public class StudentDeleteJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(100, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Update)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(98, 98, 98))
             .addGroup(layout.createSequentialGroup()
-                .addGap(16, 16, 16)
+                .addGap(24, 24, 24)
                 .addComponent(btnBack)
-                .addContainerGap(564, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(100, 100, 100)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addContainerGap(100, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addComponent(btnBack)
-                .addContainerGap(401, Short.MAX_VALUE))
-            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addGap(32, 32, 32)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 348, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addContainerGap(32, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(Update)
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         // TODO add your handling code here:
-        int selectedRowIndex = tblStudent.getSelectedRow();
-
+        int selectedRowIndex = jTable1.getSelectedRow();
         if (selectedRowIndex < 0) {
             JOptionPane.showMessageDialog(this, "Please select a row");
             return;
         }
-
-        DefaultTableModel model = (DefaultTableModel) tblStudent.getModel();
-        student_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
-
-        try {
-            s.deleteStudent(student_id);
-            showTable();
-        } catch (SQLException ex) {
+        DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
+        id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+        
+        try{
+            Housing h = new Housing();
+            h.deleteHousingById(id);
+            JOptionPane.showMessageDialog(this, "Housing deleted");
+            populateTable();
+        }
+        catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
-    }//GEN-LAST:event_btnDeleteActionPerformed
+        
+       
+    }//GEN-LAST:event_UpdateActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
         ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
         controlArea.add("ControlAreaJPanel", cajp);
         CardLayout layout = (CardLayout) controlArea.getLayout();
         layout.next(controlArea);
         workArea.remove(this);
-
     }//GEN-LAST:event_btnBackActionPerformed
 
-private void showTable() {
+     private void populateTable() {
         try {
-            DefaultTableModel model = (DefaultTableModel) tblStudent.getModel();
+            DefaultTableModel model = (DefaultTableModel) jTable1.getModel();
             model.setRowCount(0);
-
-            ResultSet resultset = s.getStudent();
+            Housing h = new Housing();
+            ResultSet resultset = h.getAllOnCampusHousing();
 
             while (resultset.next()) {
                 Object[] row = new Object[5];
-
                 row[0] = resultset.getInt(1);
                 row[1] = resultset.getString(2);
                 row[2] = resultset.getString(3);
-                row[3] = resultset.getString(6);
-                row[4] = resultset.getString(18);
+                row[3] = resultset.getInt(4);
+                row[4] = resultset.getInt(5);
 
                 model.addRow(row);
             }
-
         } catch (SQLException ex) {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     }
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Update;
     private javax.swing.JButton btnBack;
-    private java.awt.Button btnDelete;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblStudent;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

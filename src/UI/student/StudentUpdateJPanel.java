@@ -5,6 +5,8 @@
 package UI.student;
 
 import Student.Student;
+import UI.Admin_Login;
+import UI.ControlAreaJPanel;
 import UI.Ngo.NgoContolAreaJPanel;
 import java.awt.CardLayout;
 import java.sql.ResultSet;
@@ -374,8 +376,8 @@ public class StudentUpdateJPanel extends javax.swing.JPanel {
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
 
-        NgoContolAreaJPanel ngap = new NgoContolAreaJPanel(controlArea, workArea);
-        controlArea.add("NgoContolAreaJPanel", ngap);
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
         CardLayout layout = (CardLayout) controlArea.getLayout();
         layout.next(controlArea);
         workArea.remove(this);
