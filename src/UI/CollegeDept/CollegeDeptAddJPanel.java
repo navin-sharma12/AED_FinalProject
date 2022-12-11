@@ -43,7 +43,7 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
     ResultSet rs_course, rs_university, rs_foiId, rs_foi, rs_all_university, rs_all_student, rs_course_id, rs_university_id, rs_seats;
     int student_id;
     String student_email;
-
+    String password;
     public CollegeDeptAddJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         showTable();
@@ -325,6 +325,7 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
                     University uni = new University();
                     rs_university_id = uni.getUniversityIdByName(university_name);
                     student_email = model.getValueAt(selectedRowIndex, 2).toString().toLowerCase() + "." + model.getValueAt(selectedRowIndex, 1).toString().toLowerCase().charAt(0) + "@" + university_name.toLowerCase().split(" ")[0] + ".edu";
+                    password = model.getValueAt(selectedRowIndex, 1).toString().toLowerCase() + "." + model.getValueAt(selectedRowIndex, 2).toString().toLowerCase();
                     while (rs_university_id.next()) {
                         university_id = rs_university_id.getInt(1);
                         System.out.println(course_id);
@@ -338,13 +339,13 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
                                 uni.updateSeats(course_id, university_id, rs_seats.getInt(1) - 1);
                                 Student s_update = new Student();
                                 String student_college_id = university_name.substring(0,3).toUpperCase() + "-" +getRandomNumber();
-                                 s_update.updateStudentCollege(student_id, course_id, university_id,student_college_id, "Admitted", student_email);
+                                 s_update.updateStudentCollege(student_id, course_id, university_id,student_college_id, "Admitted", student_email,password);
                                 showUniversityTable();
                                 ComboBoxFOI.removeAllItems();
                                 ComboBoxCourse.removeAllItems();
                                 ComboBoxUniversity.removeAllItems();
                                 System.out.println(student_email);
-                                sentEmail(student_email, university_name,student_college_id);
+                                sentEmail(student_email, university_name,password);
                             }
                         }
                     }
@@ -352,7 +353,7 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
                 }
 
             } catch (SQLException ex) {
-                ex.getMessage();
+                JOptionPane.showMessageDialog(this, ex.getMessage());
             }
         }
     }//GEN-LAST:event_btnSaveActionPerformed
@@ -444,6 +445,7 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
             properties.put("mail.smtp.auth", "true");
             properties.put("mail.smtp.starttls.enable", "true");
             properties.put("mail.smtp.ssl.host", "smtp.gmail.com");
+            properties.put("mail.smtp.host", "smtp.gmail.com");
             properties.put("mail.smtp.port", 587);
             Session session = Session.getDefaultInstance(properties,
                     new Authenticator() {
@@ -453,11 +455,11 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
 
                 }
             });
-//            String content = "Welcome to" + university + ".\r\n Your email" + email + "and password" + password + "/r/n for the portal";
+            String content = "Welcome to" + university + ".\r\n Your email: " + email + "\r\n password: " + password + "\r\n for the portal.";
             System.out.println(session);
             Message message = new MimeMessage(session);
             message.setSubject("Welcome to" + university + "");
-            message.setContent("", "text/plain");
+            message.setContent(content, "text/plain");
             message.setFrom(new InternetAddress("helpinghomeless.aed@gmail.com"));
             message.setRecipient(RecipientType.TO, new InternetAddress(email));
             message.setSentDate(new Date());

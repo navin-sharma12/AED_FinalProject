@@ -2,39 +2,35 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package UI.Ngo;
+package UI.Housing;
 
-import DataConnection.db;
 import Users.Users;
-import java.awt.CardLayout;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
-import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 /**
  *
  * @author pikku
  */
-public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
+public class Housing_ManageUser_Update extends javax.swing.JPanel {
 
     /**
-     * Creates new form ManageDepartmentUpdateJPanel
+     * Creates new form Housing_ManageUser_Update
      */
-    Users user;
+      Users user;
     int id;
     JPanel controlArea;
     JPanel workArea;
-
-    public ManageDepartmentUpdateJPanel(JPanel controlArea, JPanel workArea) {
+    public Housing_ManageUser_Update(JPanel controlArea1, JPanel workArea1) {
         initComponents();
         this.user = new Users();
         this.id = id;
-        populateTable(1);
+        populateTable(4);
         this.controlArea = controlArea;
         this.workArea = workArea;
     }
@@ -51,7 +47,6 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDepartment = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
-        jTextFieldEmailID = new javax.swing.JTextField();
         jLabelDepartment = new javax.swing.JLabel();
         jComboBoxDepartment = new javax.swing.JComboBox<>();
         jButtonAdd = new javax.swing.JButton();
@@ -60,6 +55,7 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
         jLabelLastName = new javax.swing.JLabel();
         jTextFieldLastName = new javax.swing.JTextField();
         jLabelEmailID = new javax.swing.JLabel();
+        jTextFieldEmailID = new javax.swing.JTextField();
         btnBack = new javax.swing.JButton();
 
         tblDepartment.setModel(new javax.swing.table.DefaultTableModel(
@@ -84,7 +80,7 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
 
         jLabelDepartment.setText("Department:");
 
-        jComboBoxDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Homeless Department", "College Department" }));
+        jComboBoxDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "On Campus Department", "Off Campus Department" }));
 
         jButtonAdd.setText("Save");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -118,46 +114,47 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelName, javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabelEmailID))
-                            .addComponent(jLabelLastName))
-                        .addGap(121, 121, 121)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(8, 8, 8))
-                    .addComponent(jButtonAdd, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabelDepartment)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(103, 103, 103))
             .addGroup(layout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnBack)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jButton1)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(20, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(133, 133, 133)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelName, javax.swing.GroupLayout.Alignment.TRAILING)
+                                            .addComponent(jLabelEmailID))
+                                        .addComponent(jLabelLastName))
+                                    .addGap(121, 121, 121)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(8, 8, 8))
+                                .addComponent(jButtonAdd, javax.swing.GroupLayout.Alignment.TRAILING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabelDepartment)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 215, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(btnBack)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 598, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(75, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(9, 9, 9)
                 .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 239, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
                 .addComponent(jButton1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelName)
                     .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -175,7 +172,7 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
                     .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonAdd)
-                .addGap(76, 76, 76))
+                .addGap(57, 57, 57))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -196,14 +193,12 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
         jTextFieldLastName.setText(model.getValueAt(selectedRowIndex, 2).toString());
         jTextFieldEmailID.setText(model.getValueAt(selectedRowIndex, 3).toString());
         jComboBoxDepartment.setSelectedItem(model.getValueAt(selectedRowIndex, 4).toString());
-
-
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
         // TODO add your handling code here:
         String first_name, last_name, emailId, department, username, password;
-        int department_id = 1;
+        int department_id = 4;
 
         first_name = jTextFieldName.getText();
         last_name = jTextFieldLastName.getText();
@@ -228,12 +223,11 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
                 jTextFieldLastName.setText("");
                 jTextFieldEmailID.setText("");
                 jComboBoxDepartment.setSelectedIndex(0);
-                populateTable(1);
+                populateTable(4);
             } catch (SQLException ex) {
                 JOptionPane.showMessageDialog(this, ex.getMessage());
             }
         }
-
     }//GEN-LAST:event_jButtonAddActionPerformed
 
     private void jTextFieldLastNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldLastNameActionPerformed
@@ -242,39 +236,20 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-
-        NgoContolAreaJPanel ngap = new NgoContolAreaJPanel(controlArea, workArea);
-        controlArea.add("NgoContolAreaJPanel", ngap);
-        CardLayout layout = (CardLayout) controlArea.getLayout();
-        layout.next(controlArea);
-        workArea.remove(this);
-
-
+//        Funding_Admin fa = new Funding_Admin(controlArea, workArea);
+//        controlArea.add("Funding_Admin", fa);
+//        CardLayout layout = (CardLayout) controlArea.getLayout();
+//        layout.next(controlArea);
+//        workArea.remove(this);
     }//GEN-LAST:event_btnBackActionPerformed
 
-    public boolean getEmail(String email) {
+     public boolean getEmail(String email) {
         String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
-
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBack;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButtonAdd;
-    private javax.swing.JComboBox<String> jComboBoxDepartment;
-    private javax.swing.JLabel jLabelDepartment;
-    private javax.swing.JLabel jLabelEmailID;
-    private javax.swing.JLabel jLabelLastName;
-    private javax.swing.JLabel jLabelName;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextFieldEmailID;
-    private javax.swing.JTextField jTextFieldLastName;
-    private javax.swing.JTextField jTextFieldName;
-    private javax.swing.JTable tblDepartment;
-    // End of variables declaration//GEN-END:variables
-
+    
     private void populateTable(int id) {
         try {
             DefaultTableModel model = (DefaultTableModel) tblDepartment.getModel();
@@ -298,4 +273,20 @@ public class ManageDepartmentUpdateJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, ex.getMessage());
         }
     }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonAdd;
+    private javax.swing.JComboBox<String> jComboBoxDepartment;
+    private javax.swing.JLabel jLabelDepartment;
+    private javax.swing.JLabel jLabelEmailID;
+    private javax.swing.JLabel jLabelLastName;
+    private javax.swing.JLabel jLabelName;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextField jTextFieldEmailID;
+    private javax.swing.JTextField jTextFieldLastName;
+    private javax.swing.JTextField jTextFieldName;
+    private javax.swing.JTable tblDepartment;
+    // End of variables declaration//GEN-END:variables
 }
