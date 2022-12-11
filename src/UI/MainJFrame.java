@@ -22,6 +22,9 @@ import UI.Funding.Funding_UpdateLocalInvestor_JPanel;
 import UI.Housing.Housing_AssignHousing_JPanel;
 import UI.Housing.Housing_OffCampus_AddJPanel;
 import UI.Housing.Housing_OnCampus_AddJPanel;
+import UI.Ngo.ManageDepartmentControlJPanel;
+import UI.Ngo.ManageDepartmentDeleteJPanel;
+import UI.Ngo.NgoContolAreaJPanel;
 import UI.student.StudentAddJPanel;
 import UI.student.StudentDeleteJPanel;
 import UI.student.StudentUpdateJPanel;
@@ -72,11 +75,11 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
         );
 
         pack();
@@ -134,8 +137,8 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
 
-        Funding_Login frijp = new Funding_Login(controlArea, workArea);
-        workArea.add("Funding_Login",frijp);
+        NgoContolAreaJPanel frijp = new NgoContolAreaJPanel(controlArea, workArea);
+        workArea.add("NgoContolAreaJPanel",frijp);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea);
 

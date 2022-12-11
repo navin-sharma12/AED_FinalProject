@@ -6,6 +6,7 @@ package UI.Ngo;
 
 import UI.student.StudentControlJPanel;
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import javax.swing.JPanel;
 
 /**
@@ -24,6 +25,7 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
         initComponents();
         this.controlArea = controlArea;
         this.workArea = workArea;
+         setPreferredSize(new Dimension(230, 576));
     }
 
     /**
@@ -37,7 +39,11 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
 
         jButtonManageDepartments = new javax.swing.JButton();
         btnStudents = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(0, 153, 153));
+
+        jButtonManageDepartments.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         jButtonManageDepartments.setText("Manage Departments");
         jButtonManageDepartments.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,6 +51,7 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnStudents.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         btnStudents.setText("Manage Students");
         btnStudents.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,25 +59,30 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
             }
         });
 
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/ngo 22.jpeg"))); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(14, 14, 14)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnStudents, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButtonManageDepartments, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonManageDepartments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btnStudents, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addComponent(jLabel2)
                 .addGap(41, 41, 41)
                 .addComponent(jButtonManageDepartments)
-                .addGap(27, 27, 27)
+                .addGap(44, 44, 44)
                 .addComponent(btnStudents)
-                .addContainerGap(326, Short.MAX_VALUE))
+                .addContainerGap(232, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -95,5 +107,6 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStudents;
     private javax.swing.JButton jButtonManageDepartments;
+    private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables
 }

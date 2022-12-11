@@ -54,14 +54,15 @@ public class Funding_ManageInvestors_Read extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(204, 204, 204));
+        setBackground(new java.awt.Color(102, 102, 102));
+        setForeground(null);
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitle.setText("Manage Investors : Read Details");
 
         tblDepartment.setBackground(new java.awt.Color(102, 102, 102));
-        tblDepartment.setForeground(new java.awt.Color(255, 255, 255));
+        tblDepartment.setForeground(null);
         tblDepartment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

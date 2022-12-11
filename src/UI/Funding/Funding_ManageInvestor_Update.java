@@ -173,7 +173,7 @@ public class Funding_ManageInvestor_Update extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/main logo .jpg"))); // NOI18N
         add(jLabel3);
-        jLabel3.setBounds(480, 340, 220, 140);
+        jLabel3.setBounds(480, 350, 200, 130);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
