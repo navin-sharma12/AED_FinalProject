@@ -15,7 +15,10 @@ import UI.Funding.Funding_AddGovernmentInvestor;
 import UI.Funding.Funding_AddLocalInvestor;
 import UI.Funding.Funding_AssignFunds_JPanel;
 import UI.Funding.Funding_DeleteLocalInvestor_JPanel;
+import UI.Funding.Funding_LocalInvestor;
+import UI.Funding.Funding_Login;
 import UI.Funding.Funding_ReadLocalInvestor_JPanel;
+import UI.Funding.Funding_UpdateGovernmentInvestor_JPanel;
 import UI.Funding.Funding_UpdateLocalInvestor_JPanel;
 import UI.Housing.Housing_AssignHousing_JPanel;
 import UI.Housing.Housing_ManageUser_Add;
@@ -30,6 +33,7 @@ import UI.student.StudentUpdateJPanel;
 import UI.student.StudentViewJPanel;
 
 import java.awt.CardLayout;
+import java.awt.Dimension;
 /**
  *
  * @author pikku
@@ -43,9 +47,9 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         db.connection();
-        setSize(800, 800);
-       
-        setLayout();
+         setSize(1000, 1000);
+       setPreferredSize(new Dimension(1000,1000));
+       setLayout();
     }
 
     /**
@@ -73,11 +77,11 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 762, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 655, Short.MAX_VALUE)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 503, Short.MAX_VALUE)
         );
 
         pack();
@@ -125,10 +129,10 @@ public class MainJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setLayout() {
-//        Admin_Login admin_login = new Admin_Login(controlArea, workArea);
-//        workArea.add("Admin_Login",admin_login);
-//        CardLayout layout = (CardLayout)workArea.getLayout();
-//        layout.next(workArea); 
+        Admin_Login admin_login = new Admin_Login(controlArea, workArea);
+        workArea.add("Admin_Login",admin_login);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea); 
         
         ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
         controlArea.add("ControlAreaJPanel",cajp);

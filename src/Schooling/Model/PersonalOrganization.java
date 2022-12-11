@@ -16,10 +16,10 @@ import java.sql.ResultSet;
 public class PersonalOrganization 
 {
     String first_name, last_name, emailid, zoom_link, username, password;
-    int category, course;
+    int category, course, seats;
     ResultSet resultSet;
     
-    public PersonalOrganization(String first_name, String last_name, String emailid, int category, int course, String zoom_link, String username, String password)
+    public PersonalOrganization(String first_name, String last_name, String emailid, int category, int course, String zoom_link, int seats, String username, String password)
     {
         this.first_name = first_name;
         this.last_name = last_name;
@@ -27,6 +27,7 @@ public class PersonalOrganization
         this.category = category;
         this.course = course;
         this.zoom_link = zoom_link;
+        this.seats = seats;
         this.username = username;
         this.password = password;
     }
@@ -105,23 +106,24 @@ public class PersonalOrganization
         this.course = course;
     }
     
-    public void addFreeLancer(String first_name, String last_name, String emailid, int category_id, int course_id, String zoom_link, String username, String password) throws SQLException
+    public void addFreeLancer(String first_name, String last_name, String emailid, int category_id, int course_id, String zoom_link, int seats, String username, String password) throws SQLException
     {
-        PreparedStatement ps = db.getPreStatement("Insert into free_lancer(first_name, last_name, email_id, category_id, course_id, zoom_link, username, password)" + "values (?, ?, ?, ?, ?, ?, ?, ?)");
+        PreparedStatement ps = db.getPreStatement("Insert into free_lancer(first_name, last_name, email_id, category_id, course_id, zoom_link, seats, username, password)" + "values (?, ?, ?, ?, ?, ?, ?, ?)");
         ps.setString(1, first_name);
         ps.setString(2, last_name);
         ps.setString(3, emailid);
         ps.setInt(4, category_id);
         ps.setInt(5, course_id);
         ps.setString(6, zoom_link);
-        ps.setString(7, username);
-        ps.setString(8, password);
+        ps.setInt(7, seats);
+        ps.setString(8, username);
+        ps.setString(9, password);
         ps.execute();
     }
     
     public ResultSet getallPO()
     {
-        resultSet = db.selectQuery("select free_lancer.id, free_lancer.first_name, free_lancer.last_name, free_lancer.email_id, field_of_interest.category, course.course_name, free_lancer.zoom_link from field_of_interest inner join free_lancer on free_lancer.category_id = field_of_interest.id inner join course on free_lancer.course_id = course.id;");
+        resultSet = db.selectQuery("select free_lancer.id, free_lancer.first_name, free_lancer.last_name, free_lancer.email_id, field_of_interest.category, course.course_name, free_lancer.zoom_link, free_lancer.seats from field_of_interest inner join free_lancer on free_lancer.category_id = field_of_interest.id inner join course on free_lancer.course_id = course.id;");
         return resultSet;
     }
     

@@ -6,6 +6,7 @@ package UI.Funding;
 
 import Schooling.UI.ManageDepartments_Read;
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import javax.swing.JPanel;
 
 /**
@@ -23,6 +24,7 @@ public class Funding_ManageInvestors extends javax.swing.JPanel {
         initComponents();
          this.controlArea = controlArea;
         this.workArea = workArea;
+        setPreferredSize(new Dimension(769, 515)); 
     }
 
     /**
@@ -38,7 +40,11 @@ public class Funding_ManageInvestors extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         btnRead = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(102, 102, 102));
+
+        btnDelete.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 14)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -46,6 +52,7 @@ public class Funding_ManageInvestors extends javax.swing.JPanel {
             }
         });
 
+        btnAdd.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 14)); // NOI18N
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -53,6 +60,7 @@ public class Funding_ManageInvestors extends javax.swing.JPanel {
             }
         });
 
+        btnRead.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 14)); // NOI18N
         btnRead.setText("Read");
         btnRead.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,6 +68,7 @@ public class Funding_ManageInvestors extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 14)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -67,31 +76,36 @@ public class Funding_ManageInvestors extends javax.swing.JPanel {
             }
         });
 
+        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/donation 1.jpg")); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnDelete)
-                    .addComponent(btnUpdate)
-                    .addComponent(btnRead)
-                    .addComponent(btnAdd))
-                .addContainerGap(56, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(btnRead, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnDelete, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(36, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(21, 21, 21)
+                .addComponent(jLabel1)
+                .addGap(31, 31, 31)
                 .addComponent(btnAdd)
                 .addGap(31, 31, 31)
                 .addComponent(btnRead)
                 .addGap(30, 30, 30)
                 .addComponent(btnUpdate)
-                .addGap(35, 35, 35)
+                .addGap(31, 31, 31)
                 .addComponent(btnDelete)
-                .addContainerGap(280, Short.MAX_VALUE))
+                .addContainerGap(256, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -138,5 +152,6 @@ public class Funding_ManageInvestors extends javax.swing.JPanel {
     private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRead;
     private javax.swing.JButton btnUpdate;
+    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

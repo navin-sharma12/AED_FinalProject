@@ -5,9 +5,12 @@
 package Schooling.UI;
 
 import DataConnection.db;
+import Users.Users;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -24,10 +27,22 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
     JPanel controlArea;
     JPanel workArea;
     ResultSet resultSet;
+    int department_id = 2;
+    Users user = new Users();
     public ManageDepartments_Update(JPanel controlArea, JPanel workArea) {
-        initComponents();
-        this.controlArea = controlArea;
-        this.workArea = workArea;
+        try 
+        {
+            initComponents();
+            jTextFieldEmailID.setEditable(false);
+            resultSet = user.getAllDepartmentUser(department_id);
+            this.controlArea = controlArea;
+            this.workArea = workArea;
+            ViewTable();
+        } 
+        catch (SQLException ex) 
+        {
+//            Logger.getLogger(ManageDepartments_Update.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -41,7 +56,6 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
 
         jTextFieldName = new javax.swing.JTextField();
         jButtonView = new javax.swing.JButton();
-        jButtonFetch = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
         jLabelName = new javax.swing.JLabel();
@@ -53,9 +67,6 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
         jTextFieldLastName = new javax.swing.JTextField();
         jLabelLastName = new javax.swing.JLabel();
         jButtonUpdate = new javax.swing.JButton();
-        jButtonSearch = new javax.swing.JButton();
-        jTextFieldSearch = new javax.swing.JTextField();
-        jLabelSearch = new javax.swing.JLabel();
 
         jTextFieldName.setToolTipText("");
 
@@ -63,13 +74,6 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
         jButtonView.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonViewActionPerformed(evt);
-            }
-        });
-
-        jButtonFetch.setText("Fetch");
-        jButtonFetch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFetchActionPerformed(evt);
             }
         });
 
@@ -107,15 +111,6 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
             }
         });
 
-        jButtonSearch.setText("Search");
-        jButtonSearch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonSearchActionPerformed(evt);
-            }
-        });
-
-        jLabelSearch.setText("Search:");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,12 +118,9 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
             .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButtonFetch, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addComponent(jButtonView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE)
-                        .addComponent(jButtonSearch, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jButtonView, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonUpdate, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 95, Short.MAX_VALUE))
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
@@ -142,16 +134,12 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
                             .addComponent(jLabelDepartment))
                         .addGap(33, 33, 33)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldEmailID)
-                            .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 247, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelName)
-                            .addComponent(jLabelSearch))
-                        .addGap(40, 40, 40)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldSearch, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldName, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 247, Short.MAX_VALUE))))
+                            .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.DEFAULT_SIZE, 262, Short.MAX_VALUE)
+                            .addComponent(jComboBoxDepartment, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jLabelName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 262, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
@@ -162,19 +150,11 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonFetch)
-                        .addGap(91, 91, 91)
                         .addComponent(jButtonView)
-                        .addGap(91, 91, 91)
-                        .addComponent(jButtonSearch)
-                        .addGap(91, 91, 91)
+                        .addGap(42, 42, 42)
                         .addComponent(jButtonUpdate))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jTextFieldSearch, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelSearch))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelName)
@@ -191,7 +171,7 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabelDepartment)
                             .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(30, 30, 30))
+                .addContainerGap(29, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -206,70 +186,27 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
         else
         {
             DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
-            resultSet = db.selectQuery("select * from user");
-            try 
+            jTextFieldName.setText(table_model.getValueAt(selectedRowIndex, 0).toString());
+            jTextFieldLastName.setText(table_model.getValueAt(selectedRowIndex, 1).toString());
+            jTextFieldEmailID.setText(table_model.getValueAt(selectedRowIndex, 2).toString());
+            if (table_model.getValueAt(selectedRowIndex, 3).toString().equals("Jobs Department")) 
             {
-                while (resultSet.next()) 
-                {
-                    if (resultSet.getString(3).equals(table_model.getValueAt(selectedRowIndex, 0))) 
-                    {
-                        jTextFieldName.setText(resultSet.getString(3));
-                        jTextFieldLastName.setText(resultSet.getString(4));
-                        jTextFieldEmailID.setText(resultSet.getString(5));
-                        if (resultSet.getString(6).equals("Jobs Department"))
-                        {
-                            jComboBoxDepartment.setSelectedItem("Jobs Department");
-                        }
-                        if (resultSet.getString(6).equals("Personal Org. Department")) 
-                        {
-                            jComboBoxDepartment.setSelectedItem("Personal Org. Department");
-                        }
-                        if (resultSet.getString(6).equals("Universities Department")) 
-                        {
-                            jComboBoxDepartment.setSelectedItem("Universities Department");
-                        }
-                    }
-                }
-            } 
-            catch (SQLException ex) 
+                jComboBoxDepartment.setSelectedItem("Jobs Department");
+            }
+            if (table_model.getValueAt(selectedRowIndex, 3).toString().equals("Personal Org. Department")) 
             {
-//            Logger.getLogger(ManageDepartments_Read.class.getName()).log(Level.SEVERE, null, ex);
+                jComboBoxDepartment.setSelectedItem("Personal Org. Department");
+            }
+            if (table_model.getValueAt(selectedRowIndex, 3).toString().equals("Universities Department"))
+            {
+                jComboBoxDepartment.setSelectedItem("Universities Department");
             }
         }
     }//GEN-LAST:event_jButtonViewActionPerformed
 
-    private void jButtonFetchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFetchActionPerformed
-        // TODO add your handling code here:
-        resultSet = db.selectQuery("select * from user");
-        try
-        {
-            ViewTable();
-        }
-        catch (SQLException ex)
-        {
-//            Logger.getLogger(ManageDepartments_Read.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButtonFetchActionPerformed
-
-    private void jButtonSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSearchActionPerformed
-        // TODO add your handling code here:
-        String first_name;
-        first_name = jTextFieldName.getText();
-        resultSet = db.selectQuery("select * from user where firstname = '"+first_name+"'");
-        try
-        {
-            ViewTable();
-        }
-        catch (SQLException ex)
-        {
-//            Logger.getLogger(ManageDepartments_Read.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButtonSearchActionPerformed
-
     private void jButtonUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUpdateActionPerformed
         // TODO add your handling code here:
         String first_name, last_name, emailId, department, username, password;
-        int department_id;
         
         first_name = jTextFieldName.getText();
         if(first_name.isEmpty())
@@ -278,7 +215,6 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
         }
         else
         {
-            resultSet = db.selectQuery("select * from user where firstname = '"+first_name+"'");
             last_name = jTextFieldLastName.getText();
             if (last_name.isEmpty()) 
             {
@@ -294,28 +230,27 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
                 }
                 else
                 {
-                    username = last_name + "." + first_name;
+                    username = emailId;
                     password = last_name + "." + first_name;
-                    department_id = 2; //to be changed with loop of id
 
                     try 
                     {
+                        resultSet = user.getUserbyEmailid(emailId);
                         while(resultSet.next())
                         {
-                            if(resultSet.getString(5) == emailId)
+                            if(resultSet.getString(5).equals(emailId))
                             {
-                                PreparedStatement ps = db.getPreStatement("Update user(firstname, lastname, emailid, organization)" + "values (?,?,?,?)");
-                                ps.setString(1, first_name);
-                                ps.setString(2, last_name);
-                                ps.setString(3, emailId);
-                                ps.setString(4, department);
-                                ps.execute();
+                                Users us_new = new Users(resultSet.getInt(1), department_id, first_name, last_name, emailId, department, username, password);
+                                us_new.updateUser(us_new);
                             }
                         }
                     }
                     catch (SQLException ex) 
                     {
-//                        Logger.getLogger(ManageDepartments_Add.class.getName()).log(Level.SEVERE, null, ex);
+                        if(ex.getMessage().contains("Duplicate entry"))
+                        {
+                            JOptionPane.showMessageDialog(this, "User already exists.");
+                        }
                     }
                 }
             }
@@ -324,8 +259,6 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonFetch;
-    private javax.swing.JButton jButtonSearch;
     private javax.swing.JButton jButtonUpdate;
     private javax.swing.JButton jButtonView;
     private javax.swing.JComboBox<String> jComboBoxDepartment;
@@ -333,17 +266,15 @@ public class ManageDepartments_Update extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelEmailID;
     private javax.swing.JLabel jLabelLastName;
     private javax.swing.JLabel jLabelName;
-    private javax.swing.JLabel jLabelSearch;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable;
     private javax.swing.JTextField jTextFieldEmailID;
     private javax.swing.JTextField jTextFieldLastName;
     private javax.swing.JTextField jTextFieldName;
-    private javax.swing.JTextField jTextFieldSearch;
     // End of variables declaration//GEN-END:variables
 
-private void ViewTable() throws SQLException
+    private void ViewTable() throws SQLException
     {
         DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
         table_model.setRowCount(0);

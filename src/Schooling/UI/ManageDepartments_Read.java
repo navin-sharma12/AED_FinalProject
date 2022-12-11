@@ -5,8 +5,11 @@
 package Schooling.UI;
 
 import DataConnection.db;
+import Users.Users;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
@@ -23,11 +26,22 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
     JPanel controlArea;
     JPanel workArea;
     ResultSet resultSet;
+    Users user = new Users();
+    int id = 2;
     public ManageDepartments_Read(JPanel controlArea, JPanel workArea) 
     {
-        initComponents();
-        this.controlArea = controlArea;
-        this.workArea = workArea;
+        try 
+        {
+            initComponents();
+            resultSet = user.getAllDepartmentUser(id);
+            this.controlArea = controlArea;
+            this.workArea = workArea;
+            ViewTable();
+        } 
+        catch (SQLException ex) 
+        {
+//            Logger.getLogger(ManageDepartments_Read.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -42,7 +56,6 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
         jLabelTitle = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
-        jButtonFetch = new javax.swing.JButton();
         jButtonView = new javax.swing.JButton();
         jTextFieldName = new javax.swing.JTextField();
         jLabelLastName = new javax.swing.JLabel();
@@ -69,13 +82,6 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
             }
         ));
         jScrollPane1.setViewportView(jTable);
-
-        jButtonFetch.setText("Fetch");
-        jButtonFetch.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonFetchActionPerformed(evt);
-            }
-        });
 
         jButtonView.setText("View");
         jButtonView.addActionListener(new java.awt.event.ActionListener() {
@@ -122,10 +128,9 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
                                 .addComponent(jTextFieldEmailID)
                                 .addComponent(jComboBoxDepartment, 0, 247, Short.MAX_VALUE))))
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(layout.createSequentialGroup()
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
                             .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(75, 75, 75)
-                            .addComponent(jButtonFetch, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGap(0, 0, Short.MAX_VALUE))
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(30, 30, 30))
         );
@@ -137,9 +142,7 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButtonFetch)
-                    .addComponent(jButtonView))
+                .addComponent(jButtonView)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelName)
@@ -160,19 +163,6 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButtonFetchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFetchActionPerformed
-        // TODO add your handling code here:
-        resultSet = db.selectQuery("select * from user");
-        try 
-        {
-            ViewTable();
-        } 
-        catch (SQLException ex) 
-        {
-//            Logger.getLogger(ManageDepartments_Read.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_jButtonFetchActionPerformed
-
     private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
         // TODO add your handling code here:
         int selectedRowIndex = jTable.getSelectedRow();
@@ -184,41 +174,26 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
         else
         {
             DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
-            resultSet = db.selectQuery("select * from user");
-            try 
+            jTextFieldName.setText(table_model.getValueAt(selectedRowIndex, 0).toString());
+            jTextFieldLastName.setText(table_model.getValueAt(selectedRowIndex, 1).toString());
+            jTextFieldEmailID.setText(table_model.getValueAt(selectedRowIndex, 2).toString());
+            if (table_model.getValueAt(selectedRowIndex, 3).toString().equals("Jobs Department")) 
             {
-                while (resultSet.next()) 
-                {
-                    if (resultSet.getString(3).equals(table_model.getValueAt(selectedRowIndex, 0))) 
-                    {
-                        jTextFieldName.setText(resultSet.getString(3));
-                        jTextFieldLastName.setText(resultSet.getString(4));
-                        jTextFieldEmailID.setText(resultSet.getString(5));
-                        if (resultSet.getString(6).equals("Jobs Department"))
-                        {
-                            jComboBoxDepartment.setSelectedItem("Jobs Department");
-                        }
-                        if (resultSet.getString(6).equals("Personal Org. Department"))
-                        {
-                            jComboBoxDepartment.setSelectedItem("Personal Org. Department");
-                        }
-                        if (resultSet.getString(6).equals("Universities Department")) 
-                        {
-                            jComboBoxDepartment.setSelectedItem("Universities Department");
-                        }
-                    }
-                }
-            } 
-            catch (SQLException ex) 
+                jComboBoxDepartment.setSelectedItem("Jobs Department");
+            }
+            if (table_model.getValueAt(selectedRowIndex, 3).toString().equals("Personal Org. Department")) 
             {
-//            Logger.getLogger(ManageDepartments_Read.class.getName()).log(Level.SEVERE, null, ex);
+                jComboBoxDepartment.setSelectedItem("Personal Org. Department");
+            }
+            if (table_model.getValueAt(selectedRowIndex, 3).toString().equals("Universities Department"))
+            {
+                jComboBoxDepartment.setSelectedItem("Universities Department");
             }
         }
     }//GEN-LAST:event_jButtonViewActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButtonFetch;
     private javax.swing.JButton jButtonView;
     private javax.swing.JComboBox<String> jComboBoxDepartment;
     private javax.swing.JLabel jLabelDepartment;

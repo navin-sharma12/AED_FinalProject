@@ -26,6 +26,7 @@
                   <Component id="jLabelLastName" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelEmailID" alignment="0" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabelZoomLink" alignment="0" min="-2" max="-2" attributes="0"/>
+                  <Component id="jLabelSeats" alignment="0" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="57" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" max="-2" attributes="0">
@@ -40,6 +41,7 @@
                   <Component id="jTextFieldLastName" alignment="0" max="32767" attributes="0"/>
                   <Component id="jTextFieldEmailID" alignment="0" max="32767" attributes="0"/>
                   <Component id="jTextFieldZoomLink" alignment="0" max="32767" attributes="0"/>
+                  <Component id="jTextFieldSeats" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
           </Group>
@@ -82,10 +84,15 @@
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="jLabelSeats" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="jTextFieldSeats" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
                   <Component id="jButtonRegister" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonCourse" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="26" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -179,6 +186,13 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonCourseActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="jLabelSeats">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Seats:"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JTextField" name="jTextFieldSeats">
     </Component>
   </SubComponents>
 </Form>

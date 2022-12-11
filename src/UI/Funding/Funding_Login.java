@@ -4,6 +4,9 @@
  */
 package UI.Funding;
 
+import java.awt.Dimension;
+import javax.swing.JPanel;
+
 /**
  *
  * @author richapatel
@@ -13,8 +16,9 @@ public class Funding_Login extends javax.swing.JPanel {
     /**
      * Creates new form FundingLoginJPanel
      */
-    public Funding_Login() {
+    public Funding_Login(JPanel controlArea, JPanel workArea) {
         initComponents();
+         setPreferredSize(new Dimension(769, 515)); 
     }
 
     /**
@@ -44,25 +48,27 @@ public class Funding_Login extends javax.swing.JPanel {
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitle.setText("Funding : Login");
         add(jLabelTitle);
-        jLabelTitle.setBounds(110, 30, 613, 40);
+        jLabelTitle.setBounds(183, 30, 540, 60);
 
         jLabelUsername.setBackground(new java.awt.Color(255, 255, 255));
         jLabelUsername.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jLabelUsername.setForeground(new java.awt.Color(255, 255, 255));
         jLabelUsername.setText("Username:");
         add(jLabelUsername);
-        jLabelUsername.setBounds(193, 90, 120, 20);
+        jLabelUsername.setBounds(260, 130, 120, 20);
 
         jLabelPassword.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jLabelPassword.setForeground(new java.awt.Color(255, 255, 255));
         jLabelPassword.setText("Password:");
         add(jLabelPassword);
-        jLabelPassword.setBounds(192, 127, 120, 20);
+        jLabelPassword.setBounds(260, 170, 120, 20);
         add(jTextFieldUsername);
-        jTextFieldUsername.setBounds(320, 90, 216, 23);
+        jTextFieldUsername.setBounds(380, 130, 216, 23);
         add(jPasswordFieldPassword);
-        jPasswordFieldPassword.setBounds(320, 130, 216, 23);
+        jPasswordFieldPassword.setBounds(380, 170, 216, 23);
 
+        jButtonLogin.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 14)); // NOI18N
+        jButtonLogin.setForeground(new java.awt.Color(102, 102, 102));
         jButtonLogin.setText("Login");
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -70,17 +76,17 @@ public class Funding_Login extends javax.swing.JPanel {
             }
         });
         add(jButtonLogin);
-        jButtonLogin.setBounds(390, 220, 72, 23);
+        jButtonLogin.setBounds(392, 250, 80, 23);
 
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Department:");
         add(jLabel1);
-        jLabel1.setBounds(190, 177, 120, 20);
+        jLabel1.setBounds(260, 210, 120, 20);
 
         jComboBoxDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Local Investor", "Government Organization" }));
         add(jComboBoxDepartment);
-        jComboBoxDepartment.setBounds(320, 170, 216, 23);
+        jComboBoxDepartment.setBounds(380, 210, 216, 23);
 
         jLabel2.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/inv 2.jpeg")); // NOI18N
         jLabel2.setText("jLabel2");
