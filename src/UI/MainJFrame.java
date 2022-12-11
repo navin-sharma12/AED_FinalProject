@@ -139,10 +139,10 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
         
-        PersonalOrg_login_JPanel hmua = new PersonalOrg_login_JPanel(controlArea, workArea);
-        workArea.add("PersonalOrg_login_JPanel",hmua);
-        CardLayout layout = (CardLayout)workArea.getLayout();
-        layout.next(workArea);
+//        PersonalOrg_login_JPanel hmua = new PersonalOrg_login_JPanel(controlArea, workArea);
+//        workArea.add("PersonalOrg_login_JPanel",hmua);
+//        CardLayout layout = (CardLayout)workArea.getLayout();
+//        layout.next(workArea);
         
       
 

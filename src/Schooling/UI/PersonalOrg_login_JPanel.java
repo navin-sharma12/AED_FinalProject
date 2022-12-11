@@ -105,9 +105,11 @@ public class PersonalOrg_login_JPanel extends javax.swing.JPanel {
 
         String email = jTextFieldUsername.getText();
         String password = jPasswordFieldPassword.getText();
-        if (email.isEmpty()) {
+        if (email.isEmpty()) 
+        {
             JOptionPane.showMessageDialog(this, "Email cannot be null.");
-        } else if (!getEmail(email)) {
+        } 
+        else if (!getEmail(email)) {
             JOptionPane.showMessageDialog(this, "Invalid Email address");
         }
         else if (password.isEmpty()) {

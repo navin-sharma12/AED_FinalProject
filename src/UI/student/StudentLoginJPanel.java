@@ -4,12 +4,11 @@
  */
 package UI.student;
 
-import Schooling.UI.Schooling_Admin;
+import Schooling.UI.JobPortal_Student_Apply;
 import Student.Student;
 import java.awt.CardLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -111,36 +110,46 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
 
         String email = jTextFieldUsername.getText();
         String password = jPasswordFieldPassword.getText();
-        if (email.isEmpty()) {
+        if (email.isEmpty()) 
+        {
             JOptionPane.showMessageDialog(this, "Email cannot be null.");
-        } else if (!getEmail(email)) {
+        } 
+        else if (!getEmail(email))
+        {
             JOptionPane.showMessageDialog(this, "Invalid Email address");
         } 
-        else if (password.isEmpty()) {
+        else if (password.isEmpty())
+        {
             JOptionPane.showMessageDialog(this, "Password cannot be null.");
-        } else {
-            try {
+        } 
+        else 
+        {
+            try 
+            {
                 ResultSet res = student.checkLogin(email, password);
-                if (!res.isBeforeFirst()) {
+                if (!res.isBeforeFirst()) 
+                {
                     JOptionPane.showMessageDialog(this, "Invalid Input");
-                } else {
-                    while (res.next()) {
+                } 
+                else 
+                {
+                    while (res.next()) 
+                    {
 //                    All any panel from here
                         int student_id = res.getInt(1);
-                        System.out.println(student_id);
-                         jTextFieldUsername.setText("");
-                       jPasswordFieldPassword.setText("");
-//                    Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea, student_id);
-//                    controlArea.add("ControlAreaJPanel", cajp);
-//                    CardLayout layout2 = (CardLayout) controlArea.getLayout();
-//                    layout2.next(controlArea);
+                        jTextFieldUsername.setText("");
+                        jPasswordFieldPassword.setText("");
+                        JobPortal_Student_Apply jpsa = new JobPortal_Student_Apply(controlArea, workArea, student_id);
+                        workArea.add("JobPortal_Student_Apply", jpsa);
+                        CardLayout layout2 = (CardLayout) workArea.getLayout();
+                        layout2.next(workArea);
 
                     }
                 }
-                
-
-            } catch (SQLException e) {
-                e.getMessage();
+            } 
+            catch (SQLException e)
+            {
+//                e.getMessage();
             }
         }
 
