@@ -133,4 +133,19 @@ public class PersonalOrganization
         ps.setString(1, emailid);
         ps.execute(); 
     }
+    
+     public ResultSet checkLogin(String email,String password)
+    {
+        try{
+            System.out.println(email);
+            System.out.println(password);
+            ResultSet rs = db.selectQuery("select * from free_lancer where email_id = '" + email + "' and password = '" + password + "'");
+            return rs;
+        }
+        catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+    
+    
+    }
 }

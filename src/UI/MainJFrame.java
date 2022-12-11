@@ -4,6 +4,7 @@
  */
 package UI;
 import DataConnection.db;
+import Schooling.UI.PersonalOrg_login_JPanel;
 import UI.Funding.Funding_ManageInvestor_Delete;
 import UI.Funding.Funding_ManageInvestor_Update;
 import UI.Funding.Funding_ManageInvestors_Add;
@@ -20,10 +21,14 @@ import UI.Funding.Funding_ReadLocalInvestor_JPanel;
 import UI.Funding.Funding_UpdateGovernmentInvestor_JPanel;
 import UI.Funding.Funding_UpdateLocalInvestor_JPanel;
 import UI.Housing.Housing_AssignHousing_JPanel;
+import UI.Housing.Housing_ManageUser_Add;
+import UI.Housing.Housing_ManageUser_Delete;
+import UI.Housing.Housing_ManageUser_Update;
 import UI.Housing.Housing_OffCampus_AddJPanel;
 import UI.Housing.Housing_OnCampus_AddJPanel;
 import UI.student.StudentAddJPanel;
 import UI.student.StudentDeleteJPanel;
+import UI.student.StudentLoginJPanel;
 import UI.student.StudentUpdateJPanel;
 import UI.student.StudentViewJPanel;
 
@@ -133,12 +138,11 @@ public class MainJFrame extends javax.swing.JFrame {
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
-
-//        Funding_DeleteLocalInvestor_JPanel frijp = new Funding_DeleteLocalInvestor_JPanel(controlArea, workArea);
-//        workArea.add("Funding_DeleteLocalInvestor_JPanel",frijp);
-//        CardLayout layout = (CardLayout)workArea.getLayout();
-//        layout.next(workArea);
-
+        
+        PersonalOrg_login_JPanel hmua = new PersonalOrg_login_JPanel(controlArea, workArea);
+        workArea.add("PersonalOrg_login_JPanel",hmua);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea);
         
       
 

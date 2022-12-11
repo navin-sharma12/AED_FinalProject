@@ -179,7 +179,7 @@ public class ManageDepartment_AddJPanel extends javax.swing.JPanel {
         } else if (department.isEmpty()) {
             JOptionPane.showMessageDialog(this, "department cannot be null.");
         } else {
-            username = last_name.toLowerCase() + "." + first_name.toLowerCase();
+            username = emailId;
             password = last_name.toLowerCase() + "." + first_name.toLowerCase();
             try {
                 Users us_new = new Users(department_id, first_name, last_name, emailId, department, username, password);
