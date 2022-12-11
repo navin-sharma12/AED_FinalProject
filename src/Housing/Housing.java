@@ -113,6 +113,7 @@ public class Housing {
     public ResultSet getHousingByUniversityAndType(int id, String type) throws SQLException {
         try {
             ResultSet rs;
+            System.out.println(type.equalsIgnoreCase("On Campus"));
             if (type.equalsIgnoreCase("On Campus")) {
                 System.out.println("entered housing");
                 rs = db.selectQuery("Select * from housing where university_id = '" + id + "' and is_on_campus = 1");
