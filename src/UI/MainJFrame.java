@@ -4,12 +4,15 @@
  */
 package UI;
 import DataConnection.db;
+import Schooling.UI.PersonalOrg_login_JPanel;
 import UI.Funding.Funding_ManageInvestor_Delete;
 import UI.Funding.Funding_ManageInvestor_Update;
 import UI.Funding.Funding_ManageInvestors_Add;
 import UI.Funding.Funding_ManageInvestors_Read;
 import Schooling.UI.Schooling_Admin;
 import UI.CollegeDept.CollegeDeptAddJPanel;
+import UI.CollegeDept.CollegeDeptReadJPanel;
+import UI.CollegeDept.CollegeDeptUpdateJPanel;
 import UI.Funding.Funding_AddGovernmentInvestor;
 import UI.Funding.Funding_AddLocalInvestor;
 import UI.Funding.Funding_AssignFunds_JPanel;
@@ -20,6 +23,9 @@ import UI.Funding.Funding_ReadLocalInvestor_JPanel;
 import UI.Funding.Funding_UpdateGovernmentInvestor_JPanel;
 import UI.Funding.Funding_UpdateLocalInvestor_JPanel;
 import UI.Housing.Housing_AssignHousing_JPanel;
+import UI.Housing.Housing_ManageUser_Add;
+import UI.Housing.Housing_ManageUser_Delete;
+import UI.Housing.Housing_ManageUser_Update;
 import UI.Housing.Housing_OffCampus_AddJPanel;
 import UI.Housing.Housing_OnCampus_AddJPanel;
 import UI.Ngo.ManageDepartmentControlJPanel;
@@ -27,6 +33,7 @@ import UI.Ngo.ManageDepartmentDeleteJPanel;
 import UI.Ngo.NgoContolAreaJPanel;
 import UI.student.StudentAddJPanel;
 import UI.student.StudentDeleteJPanel;
+import UI.student.StudentLoginJPanel;
 import UI.student.StudentUpdateJPanel;
 import UI.student.StudentViewJPanel;
 
@@ -127,20 +134,23 @@ public class MainJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setLayout() {
-        //Admin_Login admin_login = new Admin_Login(controlArea, workArea);
-        //workArea.add("Admin_Login",admin_login);
-        //CardLayout layout = (CardLayout)workArea.getLayout();
-        //layout.next(workArea); 
+//        Admin_Login admin_login = new Admin_Login(controlArea, workArea);
+//        workArea.add("Admin_Login",admin_login);
+//        CardLayout layout = (CardLayout)workArea.getLayout();
+//        layout.next(workArea); 
         
         ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
+        
 
-        StudentUpdateJPanel frijp = new StudentUpdateJPanel(controlArea, workArea);
-        workArea.add("StudentUpdateJPanel",frijp);
-        CardLayout layout = (CardLayout)workArea.getLayout();
-        layout.next(workArea);
+//        PersonalOrg_login_JPanel hmua = new PersonalOrg_login_JPanel(controlArea, workArea);
+//        workArea.add("PersonalOrg_login_JPanel",hmua);
+//        CardLayout layout = (CardLayout)workArea.getLayout();
+//        layout.next(workArea);
+
+        
 
         
       

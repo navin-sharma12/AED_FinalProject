@@ -237,6 +237,18 @@ public class Student {
 
     }
 
+    public ResultSet getNotAdmittedStudent() throws SQLException {
+        try {
+            System.out.print("entered");
+            ResultSet resultSet = db.selectQuery("select * from student where education_status = 'Not Admitted'");
+            return resultSet;
+
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
+    }
+
 //    get student by ID
     public ResultSet getStudentById(int id) throws SQLException {
         try {
@@ -282,71 +294,130 @@ public class Student {
         }
     }
 
-    public void updateStudentCollege(int student_id, int course_id, int university_id, String university_personal_id, String status, String email) throws SQLException {
-        PreparedStatement ps = db.getPreStatement("update student set course_id = ?, university_id = ? ,university_personal_id = ?, education_status = ? , email = ? where id = ?");
+    public void updateStudentCollege(int student_id, int course_id, int university_id, String university_personal_id, String status, String email, String password) throws SQLException {
+        PreparedStatement ps = db.getPreStatement("update student set course_id = ?, university_id = ? ,university_personal_id = ?, education_status = ? , email = ?, password = ? where id = ?");
         ps.setInt(1, course_id);
         ps.setInt(2, university_id);
         ps.setString(3, university_personal_id);
         ps.setString(4, status);
         ps.setString(5, email);
-        ps.setInt(6, student_id);
+        ps.setString(6, password);
+        ps.setInt(7, student_id);
+
         ps.execute();
     }
 
     public ResultSet getAdmittedStudent() throws SQLException {
         try {
-             System.out.println("admitted");
+            System.out.println("admitted");
             ResultSet rs = db.selectQuery("SELECT s.id,s.firstname,s.lastname,s.gender,s.education_status,u.university_name FROM student as s Left join universities as u ON s.university_id = u.id where s.education_status = 'Admitted' and s.housing_id IS NULL");
-           
+
             System.out.println(rs);
             return rs;
-            
 
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not found");
         }
 
     }
-    
-    
-    public void updateStudentHousing(int student_id,int housing_id,String address,String zipcode) throws SQLException {
-    try{
-        PreparedStatement ps = db.getPreStatement("update student set housing_id = ? , address = ? , zipcode = ? where id = ?");
-        ps.setInt(1, housing_id);
-        ps.setString(2, address);
-        ps.setString(3, zipcode);
-        ps.setInt(4, student_id);
-        ps.execute();
-    }
-   catch (IllegalArgumentException e) {
+
+    public void updateStudentHousing(int student_id, int housing_id, String address, String zipcode) throws SQLException {
+        try {
+            PreparedStatement ps = db.getPreStatement("update student set housing_id = ? , address = ? , zipcode = ? where id = ?");
+            ps.setInt(1, housing_id);
+            ps.setString(2, address);
+            ps.setString(3, zipcode);
+            ps.setInt(4, student_id);
+            ps.execute();
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not found");
         }
     }
-    
-    public ResultSet getStudentWithFundingPending() throws SQLException
-    {
-    try{
-        ResultSet rs = db.selectQuery("SELECT s.id,s.firstname,s.lastname,s.gender,s.education_status FROM AED.student as s  where s.education_status = 'Admitted' and s.fund_id IS NULL");
-        return rs;
-    }
-    catch (IllegalArgumentException e) {
+
+    public ResultSet getStudentWithFundingPending() throws SQLException {
+        try {
+            ResultSet rs = db.selectQuery("SELECT s.id,s.firstname,s.lastname,s.gender,s.education_status FROM AED.student as s  where s.education_status = 'Admitted' and s.fund_id IS NULL");
+            return rs;
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not found");
         }
-    
+
     }
-    
-    
-    public void updateFundsInStudent(int student_id,int fund_id) throws SQLException
-    {
-     try{
-        PreparedStatement ps = db.getPreStatement("update student set fund_id = ? where id = ?");
-        ps.setInt(1, fund_id);
-         ps.setInt(2, student_id);
-        ps.execute();
-    }
-   catch (IllegalArgumentException e) {
+
+    public void updateFundsInStudent(int student_id, int fund_id) throws SQLException {
+        try {
+            PreparedStatement ps = db.getPreStatement("update student set fund_id = ? where id = ?");
+            ps.setInt(1, fund_id);
+            ps.setInt(2, student_id);
+            ps.execute();
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not found");
         }
-    
+
+    }
+
+    public ResultSet checkLogin(String email, String password) {
+        try {
+
+            ResultSet rs = db.selectQuery("select * from student where email = '" + email + "' and password = '" + password + "'");
+            return rs;
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
+    }
+
+    public void updateStudentFreeLancer(int student_id, int course_id, int freelancer_id, String status, String email, String password) throws SQLException {
+        try {
+            PreparedStatement ps = db.getPreStatement("update student set course_id = ?, free_lancer_id = ? , education_status = ? , email = ?, password = ? where id = ?");
+            ps.setInt(1, course_id);
+            ps.setInt(2, freelancer_id);
+            ps.setString(3, status);
+            ps.setString(4, email);
+            ps.setString(5, password);
+            ps.setInt(6, student_id);
+
+            ps.execute();
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
+    }
+
+    public ResultSet getStudentEducationDetails(String status) {
+        try {
+
+            String where_clause = "";
+            if (status != "") {
+                where_clause = "where s.education_status = '" + status + "' ";
+            }
+
+            ResultSet rs = db.selectQuery("SELECT s.firstname,s.lastname,s.education_status, u.university_name,concat(f.first_name, ' ' ,f.last_name) as freelancer_name, c.course_name\n"
+                    + "FROM student as s\n"
+                    + "Left join universities as u \n"
+                    + "on u.id = s.university_id\n"
+                    + "Left join course as c\n"
+                    + "on c.id = s.course_id\n"
+                    + "left join free_lancer as f\n"
+                    + "on f.id = s.free_lancer_id\n"
+                    + where_clause
+            );
+            return rs;
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+    }
+
+    public void updateStudentStatus(String firstname, String lastname, String status) throws SQLException {
+        try {
+            PreparedStatement ps = db.getPreStatement("update student set education_status = ? where firstname = ? and lastname = ?");
+            ps.setString(1, status);
+            ps.setString(2, firstname);
+            ps.setString(3, lastname);
+            ps.execute();
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
     }
 }

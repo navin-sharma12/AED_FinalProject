@@ -4,6 +4,7 @@
  */
 package UI;
 
+import Schooling.UI.Schooling_Main;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -121,6 +122,11 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
 
     private void btnSchoolingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSchoolingActionPerformed
         // TODO add your handling code here:
+        controlArea.removeAll();
+        Schooling_Main sl = new Schooling_Main(controlArea, workArea);
+        controlArea.add("Schooling_Main",sl);
+        CardLayout layout = (CardLayout)controlArea.getLayout();
+        layout.next(controlArea); 
     }//GEN-LAST:event_btnSchoolingActionPerformed
 
     private void btnFundingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFundingActionPerformed

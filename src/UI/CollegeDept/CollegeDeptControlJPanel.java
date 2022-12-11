@@ -29,7 +29,6 @@ public class CollegeDeptControlJPanel extends javax.swing.JPanel {
         btnAdd = new javax.swing.JButton();
         btnRead = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
 
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -52,13 +51,6 @@ public class CollegeDeptControlJPanel extends javax.swing.JPanel {
             }
         });
 
-        btnDelete.setText("Delete");
-        btnDelete.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDeleteActionPerformed(evt);
-            }
-        });
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -66,7 +58,6 @@ public class CollegeDeptControlJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnDelete)
                     .addComponent(btnUpdate)
                     .addComponent(btnRead)
                     .addComponent(btnAdd))
@@ -81,9 +72,7 @@ public class CollegeDeptControlJPanel extends javax.swing.JPanel {
                 .addComponent(btnRead)
                 .addGap(30, 30, 30)
                 .addComponent(btnUpdate)
-                .addGap(35, 35, 35)
-                .addComponent(btnDelete)
-                .addContainerGap(166, Short.MAX_VALUE))
+                .addContainerGap(224, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -114,19 +103,9 @@ public class CollegeDeptControlJPanel extends javax.swing.JPanel {
 //        layout4.next(workArea);
     }//GEN-LAST:event_btnUpdateActionPerformed
 
-    private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
-        // TODO add your handling code here:
-//        workArea.removeAll();
-//        ManageDepartmentDeleteJPanel mdup = new ManageDepartmentDeleteJPanel(controlArea, workArea);
-//        workArea.add("ManageDepartmentDeleteJPanel", mdup);
-//        CardLayout layout2 = (CardLayout) workArea.getLayout();
-//        layout2.next(workArea);
-    }//GEN-LAST:event_btnDeleteActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
-    private javax.swing.JButton btnDelete;
     private javax.swing.JButton btnRead;
     private javax.swing.JButton btnUpdate;
     // End of variables declaration//GEN-END:variables
