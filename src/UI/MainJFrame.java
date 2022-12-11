@@ -137,8 +137,8 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
 
-        NgoContolAreaJPanel frijp = new NgoContolAreaJPanel(controlArea, workArea);
-        workArea.add("NgoContolAreaJPanel",frijp);
+        StudentUpdateJPanel frijp = new StudentUpdateJPanel(controlArea, workArea);
+        workArea.add("StudentUpdateJPanel",frijp);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea);
 

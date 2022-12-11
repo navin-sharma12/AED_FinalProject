@@ -22,6 +22,7 @@ public class StudentControlJPanel extends javax.swing.JPanel {
         initComponents();
          this.controlArea = controlArea;
         this.workArea = workArea;
+        
     }
 
     /**
@@ -38,6 +39,10 @@ public class StudentControlJPanel extends javax.swing.JPanel {
         btnUpdate = new javax.swing.JButton();
         btnDelete = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(0, 102, 153));
+        setBorder(javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(204, 204, 0)));
+
+        btnAdd.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -45,6 +50,7 @@ public class StudentControlJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnRead.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         btnRead.setText("Read");
         btnRead.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,6 +58,7 @@ public class StudentControlJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -59,6 +66,7 @@ public class StudentControlJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnDelete.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         btnDelete.setText("Delete");
         btnDelete.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -71,18 +79,18 @@ public class StudentControlJPanel extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
+                .addGap(25, 25, 25)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(btnDelete)
                     .addComponent(btnUpdate)
                     .addComponent(btnRead)
                     .addComponent(btnAdd))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(107, 107, 107)
                 .addComponent(btnAdd)
                 .addGap(31, 31, 31)
                 .addComponent(btnRead)
@@ -90,7 +98,7 @@ public class StudentControlJPanel extends javax.swing.JPanel {
                 .addComponent(btnUpdate)
                 .addGap(35, 35, 35)
                 .addComponent(btnDelete)
-                .addContainerGap(227, Short.MAX_VALUE))
+                .addContainerGap(167, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -138,3 +146,4 @@ public class StudentControlJPanel extends javax.swing.JPanel {
     private javax.swing.JButton btnUpdate;
     // End of variables declaration//GEN-END:variables
 }
+
