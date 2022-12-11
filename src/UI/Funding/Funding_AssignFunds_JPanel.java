@@ -229,7 +229,6 @@ public class Funding_AssignFunds_JPanel extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(130, 30, 649, 44);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/main logo .jpg")); // NOI18N
         jLabel2.setText("jLabel2");
         add(jLabel2);
         jLabel2.setBounds(550, 420, 210, 120);

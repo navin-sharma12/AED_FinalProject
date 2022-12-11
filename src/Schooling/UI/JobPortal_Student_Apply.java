@@ -5,6 +5,7 @@
 package Schooling.UI;
 
 import Schooling.Model.JobPortal;
+import Schooling.Model.JobPortalStudent;
 import Student.Student;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -24,13 +25,15 @@ public class JobPortal_Student_Apply extends javax.swing.JPanel {
     JPanel controlArea;
     JPanel workArea;
     ResultSet resultSet;
+    int student_id;
     String company_name, job_title, job_type, location, job_description, category;
     JobPortal jp = new JobPortal();
-    public JobPortal_Student_Apply(JPanel controlArea, JPanel workArea) 
+    public JobPortal_Student_Apply(JPanel controlArea, JPanel workArea, int student_id) 
     {
         try 
         {
             initComponents();
+            this.student_id = student_id;
             this.controlArea = controlArea;
             this.workArea = workArea;
             JobPortal jp = new JobPortal();
@@ -320,12 +323,8 @@ public class JobPortal_Student_Apply extends javax.swing.JPanel {
                                     resultSet1.getString(7).equals(job_description))
                                 {
                                     int id = resultSet1.getInt(1);
-                                    Student st = new Student();
-                                    resultSet2 = st.getStudent();
-                                    while(resultSet2.next())
-                                    {
-                                        
-                                    }
+                                    JobPortalStudent jps = new JobPortalStudent(student_id, id);
+                                    jps.addJob(student_id, id);
                                 }
                             }
                         }
