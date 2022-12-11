@@ -6,6 +6,9 @@ package UI.CollegeDept;
 
 import Schooling.Model.PersonalOrganization;
 import Student.Student;
+import UI.Admin_Login;
+import UI.ControlAreaJPanel;
+import java.awt.CardLayout;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -22,9 +25,13 @@ public class CollegeDeptReadJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CollegeDeptReadJPanel
      */
+    JPanel controlArea;
+    JPanel workArea;
     public CollegeDeptReadJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         showTable("Admitted");
+        this.controlArea = controlArea;
+        this.workArea = workArea;
     }
 
     /**
@@ -40,6 +47,7 @@ public class CollegeDeptReadJPanel extends javax.swing.JPanel {
         tblStudent = new javax.swing.JTable();
         jComboBox1 = new javax.swing.JComboBox<>();
         btnFetch = new javax.swing.JButton();
+        btnBack1 = new javax.swing.JButton();
 
         tblStudent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -63,6 +71,13 @@ public class CollegeDeptReadJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnBack1.setText("Back");
+        btnBack1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBack1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -70,6 +85,9 @@ public class CollegeDeptReadJPanel extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnBack1)
+                        .addGap(0, 0, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(46, 46, 46)
@@ -82,7 +100,9 @@ public class CollegeDeptReadJPanel extends javax.swing.JPanel {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(62, Short.MAX_VALUE)
+                .addContainerGap(21, Short.MAX_VALUE)
+                .addComponent(btnBack1)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnFetch))
@@ -98,8 +118,18 @@ public class CollegeDeptReadJPanel extends javax.swing.JPanel {
         showTable(status);
     }//GEN-LAST:event_btnFetchActionPerformed
 
+    private void btnBack1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBack1ActionPerformed
+        // TODO add your handling code here:
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout = (CardLayout) controlArea.getLayout();
+        layout.next(controlArea);
+        workArea.remove(this);
+    }//GEN-LAST:event_btnBack1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack1;
     private javax.swing.JButton btnFetch;
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JScrollPane jScrollPane1;

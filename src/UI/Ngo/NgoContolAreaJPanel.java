@@ -4,6 +4,7 @@
  */
 package UI.Ngo;
 
+import UI.CollegeDept.CollegeDeptControlJPanel;
 import UI.student.StudentControlJPanel;
 import java.awt.CardLayout;
 import java.awt.Dimension;
@@ -103,9 +104,20 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
         layout1.next(controlArea);
     }//GEN-LAST:event_btnStudentsActionPerformed
 
+    private void btnStudents1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStudents1ActionPerformed
+        // TODO add your handling code here:
+        CollegeDeptControlJPanel cdcjp = new CollegeDeptControlJPanel(controlArea, workArea);
+        controlArea.add("StudentControlJPanel", cdcjp);
+        CardLayout layout2 = (CardLayout) controlArea.getLayout();
+        layout2.next(controlArea);
+        
+        
+    }//GEN-LAST:event_btnStudents1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStudents;
+    private javax.swing.JButton btnStudents1;
     private javax.swing.JButton jButtonManageDepartments;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

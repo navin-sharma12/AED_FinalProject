@@ -25,9 +25,13 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
      * Creates new form Housing_OffCampus_AddJPanel
      */
      University un;
+     JPanel controlArea;
+    JPanel workArea;
     public Housing_OffCampus_AddJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.un = new University();
+         this.controlArea = controlArea;
+        this.workArea = workArea;
         populateUniversity();
         setPreferredSize(new Dimension(769, 515));
         
@@ -52,11 +56,15 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
         lblAddress = new java.awt.Label();
         lblZipcode = new java.awt.Label();
         lblUniversity = new java.awt.Label();
+<<<<<<< HEAD
+        btnBack = new javax.swing.JButton();
+=======
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(245, 234, 234));
+>>>>>>> UAT_Testing
 
         txtSlots.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -102,12 +110,21 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
         lblUniversity.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         lblUniversity.setText("University");
 
+<<<<<<< HEAD
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+=======
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jLabel1.setText("                     Housing - Off Campus");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/housing 1.jpeg"))); // NOI18N
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/main logo .jpg"))); // NOI18N
+>>>>>>> UAT_Testing
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -137,20 +154,46 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
                             .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, 248, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(118, 118, 118))
                     .addGroup(layout.createSequentialGroup()
+<<<<<<< HEAD
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblUniversity, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
+                            .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblZipcode, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(lblSlots, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(98, 98, 98)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtAddress)
+                            .addComponent(txtZipcode, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
+                            .addComponent(ComboBoxUniversity, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(txtSlots, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE))))
+                .addGap(146, 146, 146))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(41, 41, 41)
+                .addComponent(btnBack)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+=======
                         .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel3)
                         .addGap(19, 19, 19))))
+>>>>>>> UAT_Testing
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+<<<<<<< HEAD
+                .addGap(19, 19, 19)
+                .addComponent(btnBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 36, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+=======
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(37, 37, 37)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+>>>>>>> UAT_Testing
                     .addComponent(lblUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(ComboBoxUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(17, 17, 17)
@@ -222,17 +265,32 @@ public class Housing_OffCampus_AddJPanel extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_btnAddActionPerformed
 
+<<<<<<< HEAD
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout = (CardLayout) controlArea.getLayout();
+        layout.next(controlArea);
+        workArea.remove(this);
+    }//GEN-LAST:event_btnBackActionPerformed
+=======
     private void ComboBoxUniversityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxUniversityActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_ComboBoxUniversityActionPerformed
+>>>>>>> UAT_Testing
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxUniversity;
     private java.awt.Button btnAdd;
+<<<<<<< HEAD
+    private javax.swing.JButton btnBack;
+=======
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+>>>>>>> UAT_Testing
     private java.awt.Label lblAddress;
     private java.awt.Label lblSlots;
     private java.awt.Label lblUniversity;
