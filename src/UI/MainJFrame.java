@@ -27,6 +27,9 @@ import UI.Housing.Housing_ManageUser_Add;
 import UI.Housing.Housing_ManageUser_Delete;
 import UI.Housing.Housing_ManageUser_Update;
 import UI.Housing.Housing_OffCampus_AddJPanel;
+import UI.Housing.Housing_OffCampus_DeleteJPanel;
+import UI.Housing.Housing_OffCampus_Read;
+import UI.Housing.Housing_OffCampus_UpdateJPanel;
 import UI.Housing.Housing_OnCampus_AddJPanel;
 import UI.Ngo.ManageDepartmentControlJPanel;
 import UI.Ngo.ManageDepartmentDeleteJPanel;
@@ -134,21 +137,21 @@ public class MainJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setLayout() {
-//        Admin_Login admin_login = new Admin_Login(controlArea, workArea);
-//        workArea.add("Admin_Login",admin_login);
-//        CardLayout layout = (CardLayout)workArea.getLayout();
-//        layout.next(workArea); 
+        Admin_Login admin_login = new Admin_Login(controlArea, workArea);
+        workArea.add("Admin_Login",admin_login);
+        CardLayout layout = (CardLayout)workArea.getLayout();
+        layout.next(workArea); 
         
         ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
-        layout2.next(controlArea); 
+        layout2.next(controlArea);
+        
+        
+        
         
 
-//        PersonalOrg_login_JPanel hmua = new PersonalOrg_login_JPanel(controlArea, workArea);
-//        workArea.add("PersonalOrg_login_JPanel",hmua);
-//        CardLayout layout = (CardLayout)workArea.getLayout();
-//        layout.next(workArea);
+
 
         
 

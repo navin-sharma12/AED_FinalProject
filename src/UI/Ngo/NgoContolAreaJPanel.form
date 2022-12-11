@@ -39,9 +39,17 @@
               <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
               <Component id="jButtonManageDepartments" min="-2" max="-2" attributes="0"/>
+<<<<<<< HEAD
+              <EmptySpace min="-2" pref="74" max="-2" attributes="0"/>
+              <Component id="btnStudents" min="-2" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="65" max="-2" attributes="0"/>
+              <Component id="btnStudents1" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="191" max="32767" attributes="0"/>
+=======
               <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
               <Component id="btnStudents" min="-2" max="-2" attributes="0"/>
               <EmptySpace pref="232" max="32767" attributes="0"/>
+>>>>>>> UAT_Testing
           </Group>
       </Group>
     </DimensionLayout>
@@ -69,12 +77,22 @@
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStudentsActionPerformed"/>
       </Events>
     </Component>
+<<<<<<< HEAD
+    <Component class="javax.swing.JButton" name="btnStudents1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Manage College"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnStudents1ActionPerformed"/>
+      </Events>
+=======
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/images/ngo 22.jpeg"/>
         </Property>
       </Properties>
+>>>>>>> UAT_Testing
     </Component>
   </SubComponents>
 </Form>

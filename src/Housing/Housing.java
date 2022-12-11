@@ -151,4 +151,59 @@ public class Housing {
             throw new IllegalArgumentException(e.getMessage() + "Record not saved");
         }
     }
+    
+    public ResultSet getAllOnCampusHousing()
+    {
+        try{
+           ResultSet rs = db.selectQuery("select h.id,u.university_name,h.address,h.zipcode,h.total_slots from housing as h Left join universities as u On h.university_id = u.id where h.is_on_campus = 1");
+        return rs;
+        }
+        catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+    
+    }
+    
+    public void updateOnCampusHousing(int id,int university_id,int slots,String address,int zipcode)  throws SQLException
+    {
+        try{
+            PreparedStatement ps = db.getPreStatement("update housing set university_id = ?, total_slots = ?,address = ?, zipcode = ? where id = ? ");
+             ps.setInt(1, university_id);
+             ps.setInt(2, slots);
+             ps.setString(3, address);
+             ps.setInt(4, zipcode);
+             ps.setInt(5, id);
+              ps.execute();
+        }
+        catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+    }
+    
+    public void deleteHousingById(int id) throws SQLException
+    {
+         try{
+            PreparedStatement ps = db.getPreStatement("delete from housing where id = ?");
+             ps.setInt(1, id);
+            
+              ps.execute();
+        }
+        catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+    
+    }
+     public ResultSet getAllOnOffHousing()
+    {
+        try{
+           ResultSet rs = db.selectQuery("select h.id,u.university_name,h.address,h.zipcode,h.total_slots from housing as h Left join universities as u On h.university_id = u.id where h.is_off_campus = 1");
+        return rs;
+        }
+        catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not saved");
+        }
+    
+    }
+    
+    
 }

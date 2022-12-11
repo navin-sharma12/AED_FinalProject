@@ -19,6 +19,7 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="70" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Component id="btnHouse" min="-2" pref="83" max="-2" attributes="0"/>
                   <Component id="btnFunding" min="-2" pref="83" max="-2" attributes="0"/>
                   <Component id="btnSchooling" min="-2" pref="83" max="-2" attributes="0"/>
                   <Component id="btnNgo" min="-2" pref="83" max="-2" attributes="0"/>
@@ -42,7 +43,9 @@
               <Component id="btnFunding" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="btnInvestor" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="199" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
+              <Component id="btnHouse" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="150" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -86,6 +89,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnInvestorActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="java.awt.Button" name="btnHouse">
+      <Properties>
+        <Property name="label" type="java.lang.String" value="Housing"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnHouseActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

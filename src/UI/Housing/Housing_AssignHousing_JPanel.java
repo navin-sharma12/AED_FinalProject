@@ -434,6 +434,7 @@ public class Housing_AssignHousing_JPanel extends javax.swing.JPanel {
 
     private void populatedTable() {
         try {
+            System.out.println("student in hosuign");
             DefaultTableModel model = (DefaultTableModel) tblStudent.getModel();
             model.setRowCount(0);
             ResultSet rs = s.getAdmittedStudent();

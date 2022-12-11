@@ -4,7 +4,10 @@
  */
 package UI.Housing;
 
+import UI.Admin_Login;
+import UI.ControlAreaJPanel;
 import Users.Users;
+import java.awt.CardLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
@@ -22,11 +25,12 @@ public class Housing_ManageUser_Update extends javax.swing.JPanel {
     /**
      * Creates new form Housing_ManageUser_Update
      */
-      Users user;
+    Users user;
     int id;
     JPanel controlArea;
     JPanel workArea;
-    public Housing_ManageUser_Update(JPanel controlArea1, JPanel workArea1) {
+
+    public Housing_ManageUser_Update(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.user = new Users();
         this.id = id;
@@ -236,20 +240,20 @@ public class Housing_ManageUser_Update extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-//        Funding_Admin fa = new Funding_Admin(controlArea, workArea);
-//        controlArea.add("Funding_Admin", fa);
-//        CardLayout layout = (CardLayout) controlArea.getLayout();
-//        layout.next(controlArea);
-//        workArea.remove(this);
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout = (CardLayout) controlArea.getLayout();
+        layout.next(controlArea);
+        workArea.remove(this);
     }//GEN-LAST:event_btnBackActionPerformed
 
-     public boolean getEmail(String email) {
+    public boolean getEmail(String email) {
         String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
         Pattern pattern = Pattern.compile(regex);
         Matcher matcher = pattern.matcher(email);
         return matcher.matches();
     }
-    
+
     private void populateTable(int id) {
         try {
             DefaultTableModel model = (DefaultTableModel) tblDepartment.getModel();
