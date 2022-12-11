@@ -11,6 +11,8 @@ import UI.Funding.Funding_ManageInvestors_Add;
 import UI.Funding.Funding_ManageInvestors_Read;
 import Schooling.UI.Schooling_Admin;
 import UI.CollegeDept.CollegeDeptAddJPanel;
+import UI.CollegeDept.CollegeDeptReadJPanel;
+import UI.CollegeDept.CollegeDeptUpdateJPanel;
 import UI.Funding.Funding_AddGovernmentInvestor;
 import UI.Funding.Funding_AddLocalInvestor;
 import UI.Funding.Funding_AssignFunds_JPanel;
@@ -139,8 +141,8 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
         
-        CollegeDeptAddJPanel hmua = new CollegeDeptAddJPanel(controlArea, workArea);
-        workArea.add("CollegeDeptAddJPanel",hmua);
+        CollegeDeptUpdateJPanel hmua = new CollegeDeptUpdateJPanel(controlArea, workArea);
+        workArea.add("CollegeDeptUpdateJPanel",hmua);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea);
         

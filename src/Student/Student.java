@@ -237,6 +237,18 @@ public class Student {
 
     }
 
+    public ResultSet getNotAdmittedStudent() throws SQLException {
+        try {
+            System.out.print("entered");
+            ResultSet resultSet = db.selectQuery("select * from student where education_status = 'Not Admitted'");
+            return resultSet;
+
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
+    }
+
 //    get student by ID
     public ResultSet getStudentById(int id) throws SQLException {
         try {
@@ -346,8 +358,7 @@ public class Student {
 
     public ResultSet checkLogin(String email, String password) {
         try {
-            System.out.println(email);
-            System.out.println(password);
+
             ResultSet rs = db.selectQuery("select * from student where email = '" + email + "' and password = '" + password + "'");
             return rs;
         } catch (IllegalArgumentException e) {
@@ -366,6 +377,43 @@ public class Student {
             ps.setString(5, password);
             ps.setInt(6, student_id);
 
+            ps.execute();
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
+    }
+
+    public ResultSet getStudentEducationDetails(String status) {
+        try {
+
+            String where_clause = "";
+            if (status != "") {
+                where_clause = "where s.education_status = '" + status + "' ";
+            }
+
+            ResultSet rs = db.selectQuery("SELECT s.firstname,s.lastname,s.education_status, u.university_name,concat(f.first_name, ' ' ,f.last_name) as freelancer_name, c.course_name\n"
+                    + "FROM student as s\n"
+                    + "Left join universities as u \n"
+                    + "on u.id = s.university_id\n"
+                    + "Left join course as c\n"
+                    + "on c.id = s.course_id\n"
+                    + "left join free_lancer as f\n"
+                    + "on f.id = s.free_lancer_id\n"
+                    + where_clause
+            );
+            return rs;
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+    }
+
+    public void updateStudentStatus(String firstname, String lastname, String status) throws SQLException {
+        try {
+            PreparedStatement ps = db.getPreStatement("update student set education_status = ? where firstname = ? and lastname = ?");
+            ps.setString(1, status);
+            ps.setString(2, firstname);
+            ps.setString(3, lastname);
             ps.execute();
         } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not found");

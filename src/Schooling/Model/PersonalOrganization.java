@@ -172,4 +172,15 @@ public class PersonalOrganization {
         }
 
     }
+
+    public ResultSet getAllFreeLancer() {
+        try {
+
+            ResultSet rs = db.selectQuery("SELECT f.first_name, f.last_name,c.course_name,f.seats FROM free_lancer as f Left join course as c ON f.course_id = c.id ;");
+            return rs;
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
+    }
 }
