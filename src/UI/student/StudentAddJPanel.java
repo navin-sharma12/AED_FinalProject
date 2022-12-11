@@ -50,7 +50,6 @@ public class StudentAddJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jCheckBoxMenuItem1 = new javax.swing.JCheckBoxMenuItem();
-        lblHeader = new java.awt.Label();
         lblFirstname = new java.awt.Label();
         txtFirstname = new javax.swing.JTextField();
         lblLastname = new java.awt.Label();
@@ -69,174 +68,148 @@ public class StudentAddJPanel extends javax.swing.JPanel {
         btnAdd = new java.awt.Button();
         txtDate = new com.toedter.calendar.JDateChooser();
         btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         jCheckBoxMenuItem1.setSelected(true);
         jCheckBoxMenuItem1.setText("jCheckBoxMenuItem1");
 
-        lblHeader.setFont(new java.awt.Font("Helvetica", 1, 14)); // NOI18N
-        lblHeader.setText("Add Student");
+        setLayout(null);
 
+        lblFirstname.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         lblFirstname.setText("Firstname");
+        add(lblFirstname);
+        lblFirstname.setBounds(191, 71, 97, 19);
 
         txtFirstname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFirstnameActionPerformed(evt);
             }
         });
+        add(txtFirstname);
+        txtFirstname.setBounds(386, 71, 153, 23);
 
+        lblLastname.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         lblLastname.setText("Lastname");
+        add(lblLastname);
+        lblLastname.setBounds(191, 119, 97, 19);
 
         txtLastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLastnameActionPerformed(evt);
             }
         });
+        add(txtLastname);
+        txtLastname.setBounds(386, 112, 153, 23);
 
+        lblAge.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         lblAge.setText("Age");
+        add(lblAge);
+        lblAge.setBounds(191, 203, 97, 19);
 
+        lblContact.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         lblContact.setText("Contact No");
+        add(lblContact);
+        lblContact.setBounds(191, 247, 97, 19);
 
+        lblDob.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         lblDob.setText("Date of Birth");
+        add(lblDob);
+        lblDob.setBounds(191, 299, 97, 19);
 
+        lblAddress.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         lblAddress.setText("Address");
+        add(lblAddress);
+        lblAddress.setBounds(191, 348, 97, 19);
 
+        lblGender.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         lblGender.setText("Gender");
+        add(lblGender);
+        lblGender.setBounds(191, 161, 97, 19);
 
+        lblZipcode.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         lblZipcode.setText("Zipcode");
+        add(lblZipcode);
+        lblZipcode.setBounds(191, 391, 97, 19);
 
         txtGender.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtGenderActionPerformed(evt);
             }
         });
+        add(txtGender);
+        txtGender.setBounds(386, 157, 153, 23);
 
         txtAge.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAgeActionPerformed(evt);
             }
         });
+        add(txtAge);
+        txtAge.setBounds(386, 200, 153, 23);
 
         txtContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContactActionPerformed(evt);
             }
         });
+        add(txtContact);
+        txtContact.setBounds(386, 247, 153, 23);
 
         txtAddress.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtAddressActionPerformed(evt);
             }
         });
+        add(txtAddress);
+        txtAddress.setBounds(386, 345, 153, 23);
 
         txtZipcode.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtZipcodeActionPerformed(evt);
             }
         });
+        add(txtZipcode);
+        txtZipcode.setBounds(386, 391, 153, 23);
 
+        btnAdd.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 12)); // NOI18N
         btnAdd.setLabel("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddActionPerformed(evt);
             }
         });
+        add(btnAdd);
+        btnAdd.setBounds(390, 430, 75, 23);
+        add(txtDate);
+        txtDate.setBounds(386, 299, 153, 23);
 
+        btnBack.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack);
+        btnBack.setBounds(40, 20, 80, 30);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(lblHeader, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(126, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblContact, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(lblLastname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblFirstname, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblAge, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(lblDob, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                                .addComponent(lblAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                                .addComponent(lblZipcode, javax.swing.GroupLayout.DEFAULT_SIZE, 97, Short.MAX_VALUE)
-                                .addComponent(lblGender, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                        .addGap(98, 98, 98)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtFirstname)
-                            .addComponent(txtLastname)
-                            .addComponent(txtGender)
-                            .addComponent(txtAge)
-                            .addComponent(txtAddress)
-                            .addComponent(txtDate, javax.swing.GroupLayout.DEFAULT_SIZE, 153, Short.MAX_VALUE)
-                            .addComponent(txtContact)
-                            .addComponent(txtZipcode))))
-                .addGap(185, 185, 185))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(18, 18, 18)
-                .addComponent(btnBack)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(lblHeader, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnBack)
-                                .addGap(19, 19, 19)
-                                .addComponent(lblFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(45, 45, 45)
-                                .addComponent(txtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(lblLastname, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(18, 18, 18)
-                                .addComponent(txtLastname, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addComponent(txtGender, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(lblGender, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(22, 22, 22)
-                        .addComponent(lblAge, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(19, 19, 19)
-                        .addComponent(txtAge, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(24, 24, 24)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtContact, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblDob, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(lblAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(23, 23, 23)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtZipcode, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
-                .addComponent(btnAdd, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(167, Short.MAX_VALUE))
-        );
+        jLabel1.setBackground(new java.awt.Color(35, 53, 100));
+        jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(0, 0, 51));
+        jLabel1.setText("                                         Add : Student ");
+        add(jLabel1);
+        jLabel1.setBounds(122, 10, 640, 40);
+
+        jLabel3.setText("⏎");
+        add(jLabel3);
+        jLabel3.setBounds(20, 10, 20, 40);
+
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/student 1 .png"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        add(jLabel4);
+        jLabel4.setBounds(0, -10, 770, 550);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtFirstnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFirstnameActionPerformed
@@ -338,13 +311,15 @@ public class StudentAddJPanel extends javax.swing.JPanel {
     private java.awt.Button btnAdd;
     private javax.swing.JButton btnBack;
     private javax.swing.JCheckBoxMenuItem jCheckBoxMenuItem1;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private java.awt.Label lblAddress;
     private java.awt.Label lblAge;
     private java.awt.Label lblContact;
     private java.awt.Label lblDob;
     private java.awt.Label lblFirstname;
     private java.awt.Label lblGender;
-    private java.awt.Label lblHeader;
     private java.awt.Label lblLastname;
     private java.awt.Label lblZipcode;
     private javax.swing.JTextField txtAddress;

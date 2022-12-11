@@ -106,7 +106,7 @@ public class Funding_DeleteLocalInvestor_JPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblLocalInvestors);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(70, 140, 615, 241);
+        jScrollPane1.setBounds(70, 130, 615, 241);
 
         btnDelete.setBackground(new java.awt.Color(0, 0, 0));
         btnDelete.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 14)); // NOI18N
@@ -118,7 +118,7 @@ public class Funding_DeleteLocalInvestor_JPanel extends javax.swing.JPanel {
             }
         });
         add(btnDelete);
-        btnDelete.setBounds(80, 410, 90, 23);
+        btnDelete.setBounds(70, 390, 90, 23);
 
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         jLabel1.setText("                                   Local Investors - Delete ");
@@ -127,7 +127,7 @@ public class Funding_DeleteLocalInvestor_JPanel extends javax.swing.JPanel {
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/main logo .jpg"))); // NOI18N
         add(jLabel3);
-        jLabel3.setBounds(560, 390, 205, 120);
+        jLabel3.setBounds(490, 390, 205, 120);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
