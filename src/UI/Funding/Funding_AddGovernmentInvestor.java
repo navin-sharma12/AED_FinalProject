@@ -46,8 +46,8 @@ public class Funding_AddGovernmentInvestor extends javax.swing.JPanel {
         txtOrganization = new javax.swing.JTextField();
         txtContact = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setLayout(null);
@@ -114,14 +114,14 @@ public class Funding_AddGovernmentInvestor extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(50, 30, 480, 80);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/govt 4.jpeg")); // NOI18N
-        jLabel3.setText("jLabel3");
-        add(jLabel3);
-        jLabel3.setBounds(10, 140, 440, 250);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/govt 4.jpeg"))); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2);
+        jLabel2.setBounds(10, 140, 450, 280);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/govt icon 3.jpg")); // NOI18N
-        add(jLabel4);
-        jLabel4.setBounds(680, 0, 90, 120);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/govt icon 3.jpg"))); // NOI18N
+        add(jLabel3);
+        jLabel3.setBounds(670, 0, 100, 120);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -192,8 +192,8 @@ public class Funding_AddGovernmentInvestor extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private java.awt.Label lblContact;
     private java.awt.Label lblEmail;
     private java.awt.Label lblFunds;

@@ -186,7 +186,7 @@ public class Funding_UpdateLocalInvestor_JPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Local Investor : Update ");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/main logo .jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/main logo .jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

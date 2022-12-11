@@ -107,7 +107,7 @@ public class Funding_ReadLocalInvestor_JPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         jLabel1.setText("                   Local Investor : Read");
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/main logo .jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/main logo .jpg"))); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);

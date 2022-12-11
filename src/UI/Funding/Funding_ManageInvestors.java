@@ -76,7 +76,7 @@ public class Funding_ManageInvestors extends javax.swing.JPanel {
             }
         });
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/donation 1.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/donation 1.jpg"))); // NOI18N
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

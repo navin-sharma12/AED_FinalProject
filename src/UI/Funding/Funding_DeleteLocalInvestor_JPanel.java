@@ -43,7 +43,7 @@ public class Funding_DeleteLocalInvestor_JPanel extends javax.swing.JPanel {
         tblLocalInvestors = new javax.swing.JTable();
         btnDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setLayout(null);
@@ -125,10 +125,9 @@ public class Funding_DeleteLocalInvestor_JPanel extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(46, 30, 480, 90);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/main logo .jpg")); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(470, 390, 210, 120);
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/main logo .jpg"))); // NOI18N
+        add(jLabel3);
+        jLabel3.setBounds(560, 390, 205, 120);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -180,7 +179,7 @@ public class Funding_DeleteLocalInvestor_JPanel extends javax.swing.JPanel {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDelete;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblLocalInvestors;
     // End of variables declaration//GEN-END:variables
