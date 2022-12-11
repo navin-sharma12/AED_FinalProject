@@ -63,6 +63,8 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
         jButtonView = new javax.swing.JButton();
         jTextFieldCategory = new javax.swing.JTextField();
         jTextFieldCourse = new javax.swing.JTextField();
+        jLabelSeats = new javax.swing.JLabel();
+        jTextFieldSeats = new javax.swing.JTextField();
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -70,19 +72,16 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
 
         jTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "First name", "Last name", "Email ID", "Category", "Course", "Zoom link"
+                "First name", "Last name", "Email ID", "Category", "Course", "Zoom link", "Seats"
             }
         ));
         jScrollPane1.setViewportView(jTable);
-        if (jTable.getColumnModel().getColumnCount() > 0) {
-            jTable.getColumnModel().getColumn(5).setHeaderValue("Zoom link");
-        }
 
         jLabelCategory.setText("Category:");
 
@@ -105,6 +104,8 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
             }
         });
 
+        jLabelSeats.setText("Seats:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -113,6 +114,7 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelFirstName)
@@ -120,7 +122,8 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
                             .addComponent(jLabelCourse)
                             .addComponent(jLabelLastName)
                             .addComponent(jLabelEmailID)
-                            .addComponent(jLabelZoomLink))
+                            .addComponent(jLabelZoomLink)
+                            .addComponent(jLabelSeats))
                         .addGap(57, 57, 57)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jTextFieldFirstName)
@@ -128,10 +131,10 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
                             .addComponent(jTextFieldEmailID)
                             .addComponent(jTextFieldZoomLink)
                             .addComponent(jTextFieldCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                            .addComponent(jTextFieldCourse))
+                            .addComponent(jTextFieldCourse)
+                            .addComponent(jTextFieldSeats))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -166,7 +169,11 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelZoomLink)
                     .addComponent(jTextFieldZoomLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(32, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelSeats)
+                    .addComponent(jTextFieldSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -186,6 +193,7 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
             jTextFieldCategory.setText(table_model.getValueAt(selectedRowIndex, 3).toString());
             jTextFieldCourse.setText(table_model.getValueAt(selectedRowIndex, 4).toString());
             jTextFieldZoomLink.setText(table_model.getValueAt(selectedRowIndex, 5).toString());
+            jTextFieldSeats.setText(table_model.getValueAt(selectedRowIndex, 6).toString());
         }
     }//GEN-LAST:event_jButtonViewActionPerformed
 
@@ -197,6 +205,7 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelEmailID;
     private javax.swing.JLabel jLabelFirstName;
     private javax.swing.JLabel jLabelLastName;
+    private javax.swing.JLabel jLabelSeats;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelZoomLink;
     private javax.swing.JScrollPane jScrollPane1;
@@ -206,6 +215,7 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
     private javax.swing.JTextField jTextFieldEmailID;
     private javax.swing.JTextField jTextFieldFirstName;
     private javax.swing.JTextField jTextFieldLastName;
+    private javax.swing.JTextField jTextFieldSeats;
     private javax.swing.JTextField jTextFieldZoomLink;
     // End of variables declaration//GEN-END:variables
 
@@ -220,13 +230,14 @@ public class PersonalOrg_Admin_Read extends javax.swing.JPanel {
         {
             while (resultSet.next()) 
             {
-                Object[] row = new Object[6];
+                Object[] row = new Object[7];
                 row[0] = resultSet.getString(2);
                 row[1] = resultSet.getString(3);
                 row[2] = resultSet.getString(4);
                 row[3] = resultSet.getString(5);
                 row[4] = resultSet.getString(6);
                 row[5] = resultSet.getString(7);
+                row[6] = resultSet.getInt(8);
                 table_model.addRow(row);
             }
         } 

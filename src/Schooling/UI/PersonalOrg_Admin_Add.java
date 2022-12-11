@@ -48,6 +48,17 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
 //            Logger.getLogger(PersonalOrg_Admin_Add.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    
+    private boolean isInteger(String a)
+    {
+        try{
+            Integer.parseInt(a);
+            return true;
+        }
+        catch(Exception e){
+            return false;
+        }
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -73,6 +84,8 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
         jTextFieldZoomLink = new javax.swing.JTextField();
         jButtonRegister = new javax.swing.JButton();
         jButtonCourse = new javax.swing.JButton();
+        jLabelSeats = new javax.swing.JLabel();
+        jTextFieldSeats = new javax.swing.JTextField();
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -112,6 +125,8 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
             }
         });
 
+        jLabelSeats.setText("Seats:");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -125,7 +140,8 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
                     .addComponent(jLabelCourse)
                     .addComponent(jLabelLastName)
                     .addComponent(jLabelEmailID)
-                    .addComponent(jLabelZoomLink))
+                    .addComponent(jLabelZoomLink)
+                    .addComponent(jLabelSeats))
                 .addGap(57, 57, 57)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(layout.createSequentialGroup()
@@ -137,7 +153,8 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
                     .addComponent(jComboBoxCourse, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextFieldLastName, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextFieldZoomLink, javax.swing.GroupLayout.Alignment.LEADING))
+                    .addComponent(jTextFieldZoomLink, javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jTextFieldSeats))
                 .addGap(41, 41, 41))
         );
         layout.setVerticalGroup(
@@ -171,16 +188,20 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
                     .addComponent(jTextFieldZoomLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelSeats)
+                    .addComponent(jTextFieldSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButtonRegister)
                     .addComponent(jButtonCourse))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addGap(41, 41, 41))
         );
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
         // TODO add your handling code here:
-        String first_name, last_name, emailid, category, course, zoom_link, username, password;
-        int category_id, course_id;
+        String first_name, last_name, emailid, category, course, zoom_link, username, password, seats1;
+        int category_id, course_id, seats;
         first_name = jTextFieldFirstName.getText();
         if(first_name.isEmpty())
         {
@@ -215,38 +236,52 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
                     }
                     else
                     {
-                        try 
+                        seats1 = jTextFieldSeats.getText();
+                        if (seats1.isEmpty()) 
                         {
-                            username = emailid;
-                            password = last_name+"."+first_name;
-                            
-                            resultSet = foi.getallFieldOfInterest();
-                            while(resultSet.next())
+
+                        } 
+                        else 
+                        {
+                            boolean checker1 = isInteger(seats1);
+                            if (!checker1) 
                             {
-                                if(resultSet.getString(2).equals(category))
+                                JOptionPane.showMessageDialog(this, "seats should be integer");
+                            } 
+                            else 
+                            {
+                                seats = Integer.parseInt(seats1);
+                                try 
                                 {
-                                    category_id = resultSet.getInt(1);
-                                    
-                                    Courses cou = new Courses(category_id);
-                                    resultSet1 = cou.getCourseByCategory(category_id);
-                                    while(resultSet1.next())
+                                    username = emailid;
+                                    password = last_name + "." + first_name;
+
+                                    resultSet = foi.getallFieldOfInterest();
+                                    while (resultSet.next()) 
                                     {
-                                        if(resultSet1.getString(3).equals(course))
+                                        if (resultSet.getString(2).equals(category)) 
                                         {
-                                            course_id = resultSet1.getInt(1);
-                                            
-                                            PersonalOrganization po = new PersonalOrganization(first_name, last_name, emailid, category_id, course_id, zoom_link, username, password);
-                                            po.addFreeLancer(first_name, last_name, emailid, category_id, course_id, zoom_link, username, password);
+                                            category_id = resultSet.getInt(1);
+
+                                            Courses cou = new Courses(category_id);
+                                            resultSet1 = cou.getCourseByCategory(category_id);
+                                            while (resultSet1.next()) 
+                                            {
+                                                if (resultSet1.getString(3).equals(course))
+                                                {
+                                                    course_id = resultSet1.getInt(1);
+
+                                                    PersonalOrganization po = new PersonalOrganization(first_name, last_name, emailid, category_id, course_id, zoom_link, seats, username, password);
+                                                    po.addFreeLancer(first_name, last_name, emailid, category_id, course_id, zoom_link, seats, username, password);
+                                                }
+                                            }
                                         }
                                     }
+                                } catch (SQLException ex) {
+                                    if (ex.getMessage().contains("Duplicate entry")) {
+                                        JOptionPane.showMessageDialog(this, "User already exists");
+                                    }
                                 }
-                            }
-                        } 
-                        catch (SQLException ex)
-                        {
-                            if(ex.getMessage().contains("Duplicate entry"))
-                            {
-                                JOptionPane.showMessageDialog(this, "User already exists");
                             }
                         }
                     }
@@ -298,11 +333,13 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
     private javax.swing.JLabel jLabelEmailID;
     private javax.swing.JLabel jLabelFirstName;
     private javax.swing.JLabel jLabelLastName;
+    private javax.swing.JLabel jLabelSeats;
     private javax.swing.JLabel jLabelTitle;
     private javax.swing.JLabel jLabelZoomLink;
     private javax.swing.JTextField jTextFieldEmailID;
     private javax.swing.JTextField jTextFieldFirstName;
     private javax.swing.JTextField jTextFieldLastName;
+    private javax.swing.JTextField jTextFieldSeats;
     private javax.swing.JTextField jTextFieldZoomLink;
     // End of variables declaration//GEN-END:variables
 
