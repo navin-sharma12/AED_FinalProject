@@ -36,6 +36,9 @@ public class Funding_Admin extends javax.swing.JPanel {
 
         jButtonManageInvestors = new javax.swing.JButton();
 
+        setForeground(new java.awt.Color(102, 102, 102));
+
+        jButtonManageInvestors.setForeground(new java.awt.Color(102, 102, 102));
         jButtonManageInvestors.setText("Manage Investors");
         jButtonManageInvestors.setToolTipText("");
         jButtonManageInvestors.addActionListener(new java.awt.event.ActionListener() {

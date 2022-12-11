@@ -8,6 +8,7 @@ import DataConnection.db;
 import Schooling.UI.ManageDepartments_Add;
 import Users.Users;
 import java.awt.CardLayout;
+import java.awt.Dimension;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -35,6 +36,7 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
         this.controlArea = controlArea;
         this.workArea = workArea;
         this.user = new Users();
+        setPreferredSize(new Dimension(769, 515)); 
     }
 
     /**
@@ -57,104 +59,87 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
         jComboBoxDepartment = new javax.swing.JComboBox<>();
         jButtonAddSubmit = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
 
-        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        setBackground(new java.awt.Color(204, 204, 204));
+        setLayout(null);
+
+        jLabelTitle.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle.setText("Add Investor");
+        jLabelTitle.setText("Manage Investor : Add ");
+        add(jLabelTitle);
+        jLabelTitle.setBounds(170, 30, 507, 65);
 
+        jLabelName.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         jLabelName.setText("First name:");
+        add(jLabelName);
+        jLabelName.setBounds(180, 140, 110, 15);
 
         jTextFieldName.setToolTipText("");
+        jTextFieldName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldNameActionPerformed(evt);
+            }
+        });
+        add(jTextFieldName);
+        jTextFieldName.setBounds(340, 140, 207, 23);
 
+        jLabelLastName.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         jLabelLastName.setText("Last name:");
+        add(jLabelLastName);
+        jLabelLastName.setBounds(180, 190, 90, 15);
+        add(jTextFieldLastName);
+        jTextFieldLastName.setBounds(340, 190, 207, 23);
 
+        jLabelEmailID.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         jLabelEmailID.setText("Email ID:");
+        add(jLabelEmailID);
+        jLabelEmailID.setBounds(180, 240, 70, 15);
+        add(jTextFieldEmailID);
+        jTextFieldEmailID.setBounds(340, 240, 207, 23);
 
+        jLabelDepartment.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         jLabelDepartment.setText("Department:");
+        add(jLabelDepartment);
+        jLabelDepartment.setBounds(180, 290, 90, 15);
 
         jComboBoxDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Local Investor", "Government Organization" }));
+        add(jComboBoxDepartment);
+        jComboBoxDepartment.setBounds(340, 290, 210, 23);
 
+        jButtonAddSubmit.setBackground(new java.awt.Color(0, 0, 0));
+        jButtonAddSubmit.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 12)); // NOI18N
+        jButtonAddSubmit.setForeground(new java.awt.Color(255, 255, 255));
         jButtonAddSubmit.setText("Submit");
         jButtonAddSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonAddSubmitActionPerformed(evt);
             }
         });
+        add(jButtonAddSubmit);
+        jButtonAddSubmit.setBounds(340, 330, 100, 40);
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
         btnBack.setText("Back");
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackActionPerformed(evt);
             }
         });
+        add(btnBack);
+        btnBack.setBounds(70, 40, 87, 36);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(btnBack)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelDepartment)
-                        .addGap(37, 37, 37)
-                        .addComponent(jComboBoxDepartment, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelEmailID)
-                                .addGap(57, 57, 57)
-                                .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelName)
-                                    .addComponent(jLabelLastName))
-                                .addGap(44, 44, 44)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldName))))))
-                .addGap(60, 60, 60))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonAddSubmit)
-                .addGap(124, 124, 124))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addComponent(jLabelTitle))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(btnBack)))
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelName)
-                    .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelLastName)
-                    .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelEmailID)
-                    .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelDepartment)
-                    .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonAddSubmit)
-                .addContainerGap(28, Short.MAX_VALUE))
-        );
+        jLabel1.setText("⏎");
+        add(jLabel1);
+        jLabel1.setBounds(40, 50, 14, 17);
+
+        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/main logo .jpg")); // NOI18N
+        jLabel2.setText("jLabel2");
+        add(jLabel2);
+        jLabel2.setBounds(530, 330, 210, 140);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddSubmitActionPerformed
@@ -201,6 +186,10 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
 
     }//GEN-LAST:event_btnBackActionPerformed
 
+    private void jTextFieldNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldNameActionPerformed
+
     public boolean getEmail(String email) {
         String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
         Pattern pattern = Pattern.compile(regex);
@@ -211,6 +200,8 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton jButtonAddSubmit;
     private javax.swing.JComboBox<String> jComboBoxDepartment;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelDepartment;
     private javax.swing.JLabel jLabelEmailID;
     private javax.swing.JLabel jLabelLastName;
