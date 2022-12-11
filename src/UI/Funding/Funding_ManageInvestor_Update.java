@@ -117,7 +117,7 @@ public class Funding_ManageInvestor_Update extends javax.swing.JPanel {
         jLabelEmailID.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         jLabelEmailID.setText("Email ID:");
         add(jLabelEmailID);
-        jLabelEmailID.setBounds(90, 420, 70, 15);
+        jLabelEmailID.setBounds(80, 420, 70, 15);
 
         tblDepartment.setBackground(new java.awt.Color(102, 102, 102));
         tblDepartment.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 12)); // NOI18N

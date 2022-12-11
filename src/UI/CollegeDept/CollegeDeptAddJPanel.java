@@ -6,6 +6,7 @@ package UI.CollegeDept;
 
 import Schooling.Model.Courses;
 import Schooling.Model.FieldOfInterest;
+import Schooling.Model.PersonalOrganization;
 import Schooling.Model.University;
 import Student.Student;
 import com.sun.mail.handlers.text_plain;
@@ -40,14 +41,16 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CollegeDeptAddJPanel
      */
-    ResultSet rs_course, rs_university, rs_foiId, rs_foi, rs_all_university, rs_all_student, rs_course_id, rs_university_id, rs_seats;
+    ResultSet rs_course, rs_university, rs_foiId, rs_foi, rs_all_university, rs_all_student, rs_course_id, rs_university_id, rs_seats, rs_freelancer,rs_all_freelancer, rs_freelancer_id;
     int student_id;
     String student_email;
     String password;
+
     public CollegeDeptAddJPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         showTable();
         showUniversityTable();
+        showFreeLancer();
 
     }
 
@@ -60,6 +63,7 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblStudent = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
@@ -69,11 +73,14 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
         ComboBoxFOI = new javax.swing.JComboBox<>();
         lblFOI1 = new java.awt.Label();
         ComboBoxCourse = new javax.swing.JComboBox<>();
-        lblUniversity = new java.awt.Label();
         ComboBoxUniversity = new javax.swing.JComboBox<>();
         btnSave = new java.awt.Button();
-        btnFetchUniversity = new java.awt.Button();
         btnFetchCourse1 = new java.awt.Button();
+        jRadioButtonUniversity = new javax.swing.JRadioButton();
+        RadioButtonFree = new javax.swing.JRadioButton();
+        btnFetchUniversity1 = new java.awt.Button();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tblFreeLancer = new javax.swing.JTable();
 
         tblStudent.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -126,21 +133,17 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
             }
         });
 
-        lblUniversity.setText("University");
-
         ComboBoxUniversity.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        ComboBoxUniversity.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ComboBoxUniversityActionPerformed(evt);
+            }
+        });
 
         btnSave.setLabel("Save");
         btnSave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSaveActionPerformed(evt);
-            }
-        });
-
-        btnFetchUniversity.setLabel("Fetch");
-        btnFetchUniversity.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnFetchUniversityActionPerformed(evt);
             }
         });
 
@@ -150,6 +153,37 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
                 btnFetchCourse1ActionPerformed(evt);
             }
         });
+
+        buttonGroup.add(jRadioButtonUniversity);
+        jRadioButtonUniversity.setText("Univerity");
+
+        buttonGroup.add(RadioButtonFree);
+        RadioButtonFree.setText("Freelancer");
+        RadioButtonFree.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                RadioButtonFreeActionPerformed(evt);
+            }
+        });
+
+        btnFetchUniversity1.setLabel("Fetch");
+        btnFetchUniversity1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFetchUniversity1ActionPerformed(evt);
+            }
+        });
+
+        tblFreeLancer.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Firstname", "Lastname", "Course", "Seats"
+            }
+        ));
+        jScrollPane3.setViewportView(tblFreeLancer);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -162,34 +196,44 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 519, Short.MAX_VALUE)
                         .addComponent(jScrollPane2)))
+                .addGap(54, 54, 54)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnFetchCourse1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnFetchUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblFOI1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblFOI1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                                .addComponent(ComboBoxFOI, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jRadioButtonUniversity)
+                                .addGap(18, 18, 18)
+                                .addComponent(RadioButtonFree)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(ComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboBoxFOI, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(157, 157, 157))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ComboBoxUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(lblCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(ComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addGap(32, 32, 32))
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(ComboBoxUniversity, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnFetchUniversity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnFetchCourse1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(146, 146, 146))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 475, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(52, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(59, 59, 59)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(22, 22, 22)
+                        .addComponent(btnAssign, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(89, 89, 89)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -197,28 +241,25 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
                             .addComponent(lblFOI1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnFetchCourse1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblCourse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(ComboBoxCourse, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(9, 9, 9)
-                                .addComponent(btnFetchUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(ComboBoxUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(lblUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(67, 67, 67))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(59, 59, 59)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(22, 22, 22)))
+                        .addGap(13, 13, 13)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(lblCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(ComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(33, 33, 33)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jRadioButtonUniversity)
+                            .addComponent(RadioButtonFree))
+                        .addGap(46, 46, 46)
+                        .addComponent(btnFetchUniversity1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(26, 26, 26)
+                        .addComponent(ComboBoxUniversity, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(19, 19, 19)))
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnAssign, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 90, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(80, 80, 80))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 447, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(60, 60, 60))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -252,32 +293,6 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_ComboBoxCourseActionPerformed
 
-    private void btnFetchUniversityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFetchUniversityActionPerformed
-        // TODO add your handling code here:
-        try {
-            if (ComboBoxFOI.getSelectedItem() != null) {
-                Courses cs_uni = new Courses();
-                rs_course_id = cs_uni.getCourseIdByName(ComboBoxCourse.getSelectedItem().toString());
-                ComboBoxUniversity.removeAllItems();
-
-                while (rs_course_id.next()) {
-                    University uni = new University();
-                    System.out.println(rs_course_id.getInt(1));
-                    rs_university = uni.getUniversityByCourseId(rs_course_id.getInt(1));
-
-                    while (rs_university.next()) {
-
-                        ComboBoxUniversity.addItem(rs_university.getString(3));
-
-                    }
-
-                }
-            }
-        } catch (SQLException ex) {
-            ex.getMessage();
-        }
-    }//GEN-LAST:event_btnFetchUniversityActionPerformed
-
     private void btnFetchCourse1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFetchCourse1ActionPerformed
         // TODO add your handling code here:
         try {
@@ -303,67 +318,41 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         // TODO add your handling code here:
-        int selectedRowIndex = tblStudent.getSelectedRow();
-        if (selectedRowIndex < 0) {
-            JOptionPane.showMessageDialog(this, "Please select a row");
-            return;
+        if (jRadioButtonUniversity.isSelected()) {
+            assignUniversity();
+        } else if (RadioButtonFree.isSelected()) {
+            assignFreeLancer();
         }
-        DefaultTableModel model = (DefaultTableModel) tblStudent.getModel();
-        student_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
-        if (!(ComboBoxCourse.getSelectedItem() != null || ComboBoxUniversity.getSelectedItem() != null)) {
-            JOptionPane.showMessageDialog(this, "Please select from dropdown");
-        } else {
-            String course_name = ComboBoxCourse.getSelectedItem().toString();
-            String university_name = ComboBoxUniversity.getSelectedItem().toString();
-            try {
-                Courses cs = new Courses();
-                rs_course_id = cs.getCourseIdByName(course_name);
 
-                while (rs_course_id.next()) {
-                    int course_id, university_id;
-                    course_id = rs_course_id.getInt(1);
-                    University uni = new University();
-                    rs_university_id = uni.getUniversityIdByName(university_name);
-                    student_email = model.getValueAt(selectedRowIndex, 2).toString().toLowerCase() + "." + model.getValueAt(selectedRowIndex, 1).toString().toLowerCase().charAt(0) + "@" + university_name.toLowerCase().split(" ")[0] + ".edu";
-                    password = model.getValueAt(selectedRowIndex, 1).toString().toLowerCase() + "." + model.getValueAt(selectedRowIndex, 2).toString().toLowerCase();
-                    while (rs_university_id.next()) {
-                        university_id = rs_university_id.getInt(1);
-                        System.out.println(course_id);
-                        System.out.println(university_id);
-
-                        rs_seats = cs.findSeats(course_id, university_id);
-                        while (rs_seats.next()) {
-                            if (rs_seats.getInt(1) < 1) {
-                                JOptionPane.showMessageDialog(this, "No seats Avaliable");
-                            } else {
-                                uni.updateSeats(course_id, university_id, rs_seats.getInt(1) - 1);
-                                Student s_update = new Student();
-                                String student_college_id = university_name.substring(0,3).toUpperCase() + "-" +getRandomNumber();
-                                 s_update.updateStudentCollege(student_id, course_id, university_id,student_college_id, "Admitted", student_email,password);
-                                showUniversityTable();
-                                ComboBoxFOI.removeAllItems();
-                                ComboBoxCourse.removeAllItems();
-                                ComboBoxUniversity.removeAllItems();
-                                System.out.println(student_email);
-                                sentEmail(student_email, university_name,password);
-                            }
-                        }
-                    }
-
-                }
-
-            } catch (SQLException ex) {
-                JOptionPane.showMessageDialog(this, ex.getMessage());
-            }
-        }
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void RadioButtonFreeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RadioButtonFreeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_RadioButtonFreeActionPerformed
+
+    private void btnFetchUniversity1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFetchUniversity1ActionPerformed
+        // TODO add your handling code here:
+        if (jRadioButtonUniversity.isSelected()) {
+            fetchUniversity();
+        } else if (RadioButtonFree.isSelected()) {
+            fetchFreeLancer();
+        } else {
+            JOptionPane.showMessageDialog(this, "Please select radio button");
+        }
+
+
+    }//GEN-LAST:event_btnFetchUniversity1ActionPerformed
+
+    private void ComboBoxUniversityActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ComboBoxUniversityActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_ComboBoxUniversityActionPerformed
 
     private void showTable() {
         try {
             DefaultTableModel model = (DefaultTableModel) tblStudent.getModel();
             model.setRowCount(0);
             Student student = new Student();
-            rs_all_student = student.getStudent();
+            rs_all_student = student.getNotAdmittedStudent();
 
             while (rs_all_student.next()) {
                 Object[] row = new Object[5];
@@ -387,33 +376,37 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
     }
 
     public String getRandomNumber() {
-         List<Integer> numbers;
+        List<Integer> numbers;
         numbers = new ArrayList<Integer>();
-    for(int i = 0; i < 10; i++){
-        numbers.add(i);
-    }
+        for (int i = 0; i < 10; i++) {
+            numbers.add(i);
+        }
 
-    Collections.shuffle(numbers);
+        Collections.shuffle(numbers);
 
-    String result = "";
-    for(int i = 0; i < 4; i++){
-        result += numbers.get(i).toString();
-    }
-    return result;
+        String result = "";
+        for (int i = 0; i < 4; i++) {
+            result += numbers.get(i).toString();
+        }
+        return result;
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> ComboBoxCourse;
     private javax.swing.JComboBox<String> ComboBoxFOI;
     private javax.swing.JComboBox<String> ComboBoxUniversity;
+    private javax.swing.JRadioButton RadioButtonFree;
     private java.awt.Button btnAssign;
     private java.awt.Button btnFetchCourse1;
-    private java.awt.Button btnFetchUniversity;
+    private java.awt.Button btnFetchUniversity1;
     private java.awt.Button btnSave;
+    private javax.swing.ButtonGroup buttonGroup;
+    private javax.swing.JRadioButton jRadioButtonUniversity;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private java.awt.Label lblCourse;
     private java.awt.Label lblFOI1;
-    private java.awt.Label lblUniversity;
+    private javax.swing.JTable tblFreeLancer;
     private javax.swing.JTable tblStudent;
     private javax.swing.JTable tblUniversity;
     // End of variables declaration//GEN-END:variables
@@ -487,5 +480,213 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
             JOptionPane.showMessageDialog(this, e.getMessage());
         }
 
+    }
+
+    private void fetchUniversity() {
+        try {
+            Courses cs = new Courses();
+            if (ComboBoxCourse.getSelectedItem() != null) {
+                rs_course = cs.getCourseIdByName(ComboBoxCourse.getSelectedItem().toString());
+
+                while (rs_course.next()) {
+                    System.out.println(rs_course.getInt(1));
+                    University un = new University();
+                    rs_university = un.getUniversityByCourseId(rs_course.getInt(1));
+                    ComboBoxUniversity.removeAllItems();
+                    while (rs_university.next()) {
+                        System.out.println(rs_university.getString(3));
+                        ComboBoxUniversity.addItem(rs_university.getString(3));
+                    }
+
+                }
+
+            }
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+
+    }
+
+    private void fetchFreeLancer() {
+        try {
+            Courses cs = new Courses();
+            if (ComboBoxCourse.getSelectedItem() != null) {
+                rs_course = cs.getCourseIdByName(ComboBoxCourse.getSelectedItem().toString());
+
+                while (rs_course.next()) {
+                    System.out.println(rs_course.getInt(1));
+                    PersonalOrganization ps = new PersonalOrganization();
+                    rs_freelancer = ps.getFreelancerByCourseId(rs_course.getInt(1));
+                    ComboBoxUniversity.removeAllItems();
+                    while (rs_freelancer.next()) {
+                        ComboBoxUniversity.addItem(rs_freelancer.getString(2) + " " + rs_freelancer.getString(3));
+                    }
+
+                }
+
+            }
+        } catch (SQLException ex) {
+            ex.getMessage();
+        }
+    }
+
+    private void assignUniversity() {
+        int selectedRowIndex = tblStudent.getSelectedRow();
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblStudent.getModel();
+        student_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+        if (!(ComboBoxCourse.getSelectedItem() != null || ComboBoxUniversity.getSelectedItem() != null)) {
+            JOptionPane.showMessageDialog(this, "Please select from dropdown");
+        } else {
+            String course_name = ComboBoxCourse.getSelectedItem().toString();
+            String university_name = ComboBoxUniversity.getSelectedItem().toString();
+            try {
+                Courses cs = new Courses();
+                rs_course_id = cs.getCourseIdByName(course_name);
+
+                while (rs_course_id.next()) {
+                    int course_id, university_id;
+                    course_id = rs_course_id.getInt(1);
+                    University uni = new University();
+                    rs_university_id = uni.getUniversityIdByName(university_name);
+                    student_email = model.getValueAt(selectedRowIndex, 2).toString().toLowerCase() + "." + model.getValueAt(selectedRowIndex, 1).toString().toLowerCase() + "@" + university_name.toLowerCase().split(" ")[0] + ".edu";
+                    password = model.getValueAt(selectedRowIndex, 1).toString().toLowerCase() + "." + model.getValueAt(selectedRowIndex, 2).toString().toLowerCase();
+                    while (rs_university_id.next()) {
+                        university_id = rs_university_id.getInt(1);
+
+                        rs_seats = cs.findSeats(course_id, university_id);
+                        while (rs_seats.next()) {
+                            if (rs_seats.getInt(1) < 1) {
+                                JOptionPane.showMessageDialog(this, "No seats Avaliable");
+                            } else {
+                                uni.updateSeats(course_id, university_id, rs_seats.getInt(1) - 1);
+                                Student s_update = new Student();
+                                String student_college_id = university_name.substring(0, 3).toUpperCase() + "-" + getRandomNumber();
+                                s_update.updateStudentCollege(student_id, course_id, university_id, student_college_id, "Admitted", student_email, password);
+                                 showTable();
+                                showUniversityTable();
+                                ComboBoxFOI.removeAllItems();
+                                ComboBoxCourse.removeAllItems();
+                                ComboBoxUniversity.removeAllItems();
+                                System.out.println(student_email);
+                                sentEmail(student_email, university_name, password);
+                            }
+                        }
+                    }
+
+                }
+
+            } catch (SQLException ex) {
+                ex.getMessage();
+            }
+        }
+    }
+
+    private void assignFreeLancer() {
+        int selectedRowIndex = tblStudent.getSelectedRow();
+        if (selectedRowIndex < 0) {
+            JOptionPane.showMessageDialog(this, "Please select a row");
+            return;
+        }
+        DefaultTableModel model = (DefaultTableModel) tblStudent.getModel();
+        student_id = Integer.parseInt(model.getValueAt(selectedRowIndex, 0).toString());
+        if (!(ComboBoxCourse.getSelectedItem() != null || ComboBoxUniversity.getSelectedItem() != null)) {
+            JOptionPane.showMessageDialog(this, "Please select from dropdown");
+        } else {
+            String course_name = ComboBoxCourse.getSelectedItem().toString();
+            String freelancer_name = ComboBoxUniversity.getSelectedItem().toString();
+            try {
+                Courses cs = new Courses();
+                rs_course_id = cs.getCourseIdByName(course_name);
+                while (rs_course_id.next()) {
+                    int course_id, freelancer_id;
+                    course_id = rs_course_id.getInt(1);
+                    PersonalOrganization ps = new PersonalOrganization();
+                    rs_freelancer_id = ps.getFreelancerIdByName(freelancer_name.split(" ")[0], freelancer_name.split(" ")[1]);
+                    student_email = model.getValueAt(selectedRowIndex, 2).toString().toLowerCase() + "." + model.getValueAt(selectedRowIndex, 1).toString().toLowerCase() + "@gmail.com";
+                    password = model.getValueAt(selectedRowIndex, 1).toString().toLowerCase() + "." + model.getValueAt(selectedRowIndex, 2).toString().toLowerCase();
+                    while (rs_freelancer_id.next()) {
+                        freelancer_id = rs_freelancer_id.getInt(1);
+                        int seats = rs_freelancer_id.getInt(8);
+                        if (seats < 1) {
+                            JOptionPane.showMessageDialog(this, "No seats Avaliable");
+                        } else {
+                            ps.updateSeats(freelancer_id, seats - 1);
+                            Student s_update = new Student();
+
+                            s_update.updateStudentFreeLancer(student_id, course_id, freelancer_id, "Admitted", student_email, password);
+                               showTable();
+                                showFreeLancer();
+                            String zoom_link = rs_freelancer_id.getString(7);
+                            sentFreeLancerEmail(student_email, freelancer_name, course_name, zoom_link, password);
+                            ComboBoxFOI.removeAllItems();
+                            ComboBoxCourse.removeAllItems();
+                            ComboBoxUniversity.removeAllItems();
+                            System.out.println(student_email);
+
+                        }
+                    }
+                }
+            } catch (SQLException ex) {
+                ex.getMessage();
+            }
+        }
+    }
+
+    private void sentFreeLancerEmail(String student_email, String freelancer_name, String course_name, String zoom_link, String password) {
+        try {
+            Properties properties = new Properties();
+            properties.put("mail.smtp.auth", "true");
+            properties.put("mail.smtp.starttls.enable", "true");
+            properties.put("mail.smtp.ssl.host", "smtp.gmail.com");
+            properties.put("mail.smtp.host", "smtp.gmail.com");
+            properties.put("mail.smtp.port", 587);
+            Session session = Session.getDefaultInstance(properties,
+                    new Authenticator() {
+                @Override
+                protected PasswordAuthentication getPasswordAuthentication() {
+                    return new PasswordAuthentication("helpinghomeless.aed@gmail.com", "gygsgpsczxfzjvjj");
+
+                }
+            });
+            String content = "Welcome to course " + course_name + " by " + freelancer_name + ".\r\n here the zoom link: " + zoom_link + "\r\n Your email: " + student_email + "\r\n password: " + password + "\r\n for the portal.";
+
+            System.out.println(session);
+            Message message = new MimeMessage(session);
+            message.setSubject("Welcome to course " + course_name + "");
+            message.setContent(content, "text/plain");
+            message.setFrom(new InternetAddress("helpinghomeless.aed@gmail.com"));
+            message.setRecipient(RecipientType.TO, new InternetAddress(student_email));
+            message.setSentDate(new Date());
+
+            Transport.send(message);
+            JOptionPane.showMessageDialog(this, "Email Sent");
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, e.getMessage());
+        }
+    }
+
+    private void showFreeLancer() {
+         try {
+            DefaultTableModel model = (DefaultTableModel) tblFreeLancer.getModel();
+            model.setRowCount(0);
+            PersonalOrganization ps  = new PersonalOrganization();
+            rs_all_freelancer = ps.getAllFreeLancer();
+            while (rs_all_freelancer.next()) {
+                Object[] row = new Object[4];
+
+                row[0] = rs_all_freelancer.getString(1);
+                row[1] = rs_all_freelancer.getString(2);
+                row[2] = rs_all_freelancer.getString(3);
+                row[3] = rs_all_freelancer.getInt(4);
+
+                model.addRow(row);
+            }
+        } catch (SQLException ex) {
+            JOptionPane.showMessageDialog(this, ex.getMessage());
+        }
     }
 }
