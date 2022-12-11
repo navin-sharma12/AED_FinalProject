@@ -113,7 +113,7 @@ public class Funding_ManageInvestor_Delete extends javax.swing.JPanel {
         add(jLabel3);
         jLabel3.setBounds(30, 30, 40, 30);
 
-        jLabel4.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/main logo .jpg")); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/main logo .jpg"))); // NOI18N
         jLabel4.setText("jLabel4");
         add(jLabel4);
         jLabel4.setBounds(450, 360, 210, 116);
