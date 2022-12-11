@@ -343,19 +343,33 @@ public class Student {
         }
 
     }
-    
-    public ResultSet checkLogin(String email,String password)
-    {
-        try{
+
+    public ResultSet checkLogin(String email, String password) {
+        try {
             System.out.println(email);
-             System.out.println(password);
+            System.out.println(password);
             ResultSet rs = db.selectQuery("select * from student where email = '" + email + "' and password = '" + password + "'");
             return rs;
-        }
-        catch (IllegalArgumentException e) {
+        } catch (IllegalArgumentException e) {
             throw new IllegalArgumentException(e.getMessage() + "Record not found");
         }
-    
-    
+
+    }
+
+    public void updateStudentFreeLancer(int student_id, int course_id, int freelancer_id, String status, String email, String password) throws SQLException {
+        try {
+            PreparedStatement ps = db.getPreStatement("update student set course_id = ?, free_lancer_id = ? , education_status = ? , email = ?, password = ? where id = ?");
+            ps.setInt(1, course_id);
+            ps.setInt(2, freelancer_id);
+            ps.setString(3, status);
+            ps.setString(4, email);
+            ps.setString(5, password);
+            ps.setInt(6, student_id);
+
+            ps.execute();
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
     }
 }

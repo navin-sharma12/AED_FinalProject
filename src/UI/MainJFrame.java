@@ -129,18 +129,18 @@ public class MainJFrame extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setLayout() {
-        Admin_Login admin_login = new Admin_Login(controlArea, workArea);
-        workArea.add("Admin_Login",admin_login);
-        CardLayout layout = (CardLayout)workArea.getLayout();
-        layout.next(workArea); 
+//        Admin_Login admin_login = new Admin_Login(controlArea, workArea);
+//        workArea.add("Admin_Login",admin_login);
+//        CardLayout layout = (CardLayout)workArea.getLayout();
+//        layout.next(workArea); 
         
         ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
         
-        PersonalOrg_login_JPanel hmua = new PersonalOrg_login_JPanel(controlArea, workArea);
-        workArea.add("PersonalOrg_login_JPanel",hmua);
+        CollegeDeptAddJPanel hmua = new CollegeDeptAddJPanel(controlArea, workArea);
+        workArea.add("CollegeDeptAddJPanel",hmua);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea);
         
