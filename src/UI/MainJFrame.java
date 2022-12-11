@@ -147,7 +147,10 @@ public class MainJFrame extends javax.swing.JFrame {
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea);
         
-        
+//         Housing_OnCampus_AddJPanel hocad = new Housing_OnCampus_AddJPanel(controlArea, workArea);
+//        workArea.add("Housing_OnCampus_AddJPanel",hocad);
+//        CardLayout layout = (CardLayout)workArea.getLayout();
+//        layout.next(workArea);
         
         
 
