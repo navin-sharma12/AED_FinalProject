@@ -56,8 +56,8 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
         lblLastname = new java.awt.Label();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setLayout(null);
@@ -76,7 +76,7 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
 
         lblContact.setText("Contact No");
         add(lblContact);
-        lblContact.setBounds(430, 260, 110, 20);
+        lblContact.setBounds(430, 250, 110, 20);
 
         lblEmail.setText("Email");
         add(lblEmail);
@@ -116,7 +116,7 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
             }
         });
         add(txtContact);
-        txtContact.setBounds(540, 260, 210, 20);
+        txtContact.setBounds(540, 250, 210, 20);
 
         lblLastname.setText("Lastname");
         add(lblLastname);
@@ -129,22 +129,21 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(540, 300, 100, 23);
+        jButton1.setBounds(540, 290, 100, 23);
 
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         jLabel1.setText("                                                           Local-Investor : Add");
         add(jLabel1);
         jLabel1.setBounds(10, 20, 750, 30);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/local invst 1 add.jpeg")); // NOI18N
-        jLabel2.setText("jLabel2");
-        add(jLabel2);
-        jLabel2.setBounds(0, 70, 410, 380);
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/local invst 1 add.jpeg"))); // NOI18N
+        jLabel4.setText("jLabel4");
+        add(jLabel4);
+        jLabel4.setBounds(20, 70, 400, 360);
 
-        jLabel3.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/main logo .jpg")); // NOI18N
-        jLabel3.setText("jLabel3");
-        add(jLabel3);
-        jLabel3.setBounds(560, 340, 210, 120);
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/main logo .jpg"))); // NOI18N
+        add(jLabel2);
+        jLabel2.setBounds(550, 340, 210, 130);
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtLastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastnameActionPerformed
@@ -261,7 +260,7 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private java.awt.Label lblContact;
     private java.awt.Label lblEmail;
     private java.awt.Label lblFirstname;

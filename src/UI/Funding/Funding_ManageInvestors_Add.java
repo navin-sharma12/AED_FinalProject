@@ -136,7 +136,7 @@ public class Funding_ManageInvestors_Add extends javax.swing.JPanel {
         add(jLabel1);
         jLabel1.setBounds(40, 50, 14, 17);
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/richapatel/Desktop/main logo .jpg")); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/main logo .jpg"))); // NOI18N
         jLabel2.setText("jLabel2");
         add(jLabel2);
         jLabel2.setBounds(530, 330, 210, 140);
