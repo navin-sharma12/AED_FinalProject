@@ -7,7 +7,6 @@ package UI.Funding;
 import Investor.Investor;
 import UI.ControlAreaJPanel;
 import java.awt.CardLayout;
-import java.awt.Dimension;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -16,22 +15,20 @@ import javax.swing.table.DefaultTableModel;
 
 /**
  *
- * @author richapatel
+ * @author pikku
  */
-public class Funding_ReadLocalInvestor_JPanel extends javax.swing.JPanel {
+public class Funding_ReadGovernInvestor_JPanel extends javax.swing.JPanel {
 
     /**
-     * Creates new form Funding_ReadLocalInvestor_JPanel
+     * Creates new form Funding_ReadGovernInvestor_JPanel
      */
      JPanel controlArea;
     JPanel workArea;
-    public Funding_ReadLocalInvestor_JPanel(JPanel controlArea, JPanel workArea) {
+    public Funding_ReadGovernInvestor_JPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
-        populateLocalInvestor();
+         populateGovernmentInvestor();
          this.controlArea = controlArea;
         this.workArea = workArea;
-        
-        setPreferredSize(new Dimension(769, 515)); 
     }
 
     /**
@@ -113,7 +110,7 @@ public class Funding_ReadLocalInvestor_JPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblLocalInvestors);
 
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
-        jLabel1.setText("                   Local Investor : Read");
+        jLabel1.setText("                   Government Investor : Read");
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/main logo .jpg"))); // NOI18N
 
@@ -134,38 +131,40 @@ public class Funding_ReadLocalInvestor_JPanel extends javax.swing.JPanel {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel2)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(52, 52, 52)
                         .addComponent(jLabel4)
                         .addGap(31, 31, 31)
                         .addComponent(btnBack)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(210, 210, 210))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel2)
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 698, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(33, 33, 33)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(43, 43, 43)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
-                            .addGap(10, 10, 10)
-                            .addComponent(jLabel4))
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jLabel4))
+                            .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)))
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 268, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel2)
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap(25, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -189,21 +188,20 @@ public class Funding_ReadLocalInvestor_JPanel extends javax.swing.JPanel {
         workArea.remove(this);
     }//GEN-LAST:event_btnBackActionPerformed
 
- private void populateLocalInvestor() {
+private void populateGovernmentInvestor() {
         try {
             DefaultTableModel model = (DefaultTableModel) tblLocalInvestors.getModel();
             model.setRowCount(0);
             Investor in = new Investor();
-            ResultSet rs = in.getAllLocalInvestor();
+            ResultSet rs = in.getAllGovernmentInvestor();
 
             while (rs.next()) {
-                Object[] row = new Object[6];
+                Object[] row = new Object[5];
                 row[0] = rs.getInt(1);
-                row[1] = rs.getString(2);
-                row[2] = rs.getString(3);
-                row[3] = rs.getString(5);
-                row[4] = rs.getString(11);
-                row[5] = rs.getString(6);
+                row[1] = rs.getString(4);
+                row[2] = rs.getString(5);
+                row[3] = rs.getString(11);
+                row[4] = rs.getString(6);
                 model.addRow(row);
 
             }

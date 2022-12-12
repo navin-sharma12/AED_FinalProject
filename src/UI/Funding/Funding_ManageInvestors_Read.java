@@ -5,6 +5,7 @@
 package UI.Funding;
 
 import DataConnection.db;
+import UI.ControlAreaJPanel;
 import Users.Users;
 import java.awt.CardLayout;
 import java.awt.Dimension;
@@ -176,8 +177,8 @@ public class Funding_ManageInvestors_Read extends javax.swing.JPanel {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-         Funding_Admin fa = new Funding_Admin(controlArea, workArea);
-        controlArea.add("Funding_Admin", fa);
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
         CardLayout layout = (CardLayout) controlArea.getLayout();
         layout.next(controlArea);
         workArea.remove(this);

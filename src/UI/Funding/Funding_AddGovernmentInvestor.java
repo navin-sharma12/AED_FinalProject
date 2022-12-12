@@ -5,6 +5,8 @@
 package UI.Funding;
 
 import Investor.Investor;
+import UI.ControlAreaJPanel;
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -21,9 +23,13 @@ public class Funding_AddGovernmentInvestor extends javax.swing.JPanel {
     /**
      * Creates new form Funding_AddGovernmentInvestor
      */
+     JPanel controlArea;
+    JPanel workArea;
     public Funding_AddGovernmentInvestor(JPanel controlArea, JPanel workArea) {
         initComponents();
-         setPreferredSize(new Dimension(769, 515)); 
+         setPreferredSize(new Dimension(769, 515));
+          this.controlArea = controlArea;
+        this.workArea = workArea;
 
     }
 
@@ -48,6 +54,8 @@ public class Funding_AddGovernmentInvestor extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setLayout(null);
@@ -111,9 +119,9 @@ public class Funding_AddGovernmentInvestor extends javax.swing.JPanel {
 
         jLabel1.setBackground(new java.awt.Color(153, 153, 153));
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
-        jLabel1.setText("                                     Goverment-Investor : Add");
+        jLabel1.setText("                       Goverment-Investor : Add");
         add(jLabel1);
-        jLabel1.setBounds(50, 30, 480, 80);
+        jLabel1.setBounds(190, 20, 450, 80);
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/govt 4.jpeg"))); // NOI18N
         jLabel2.setText("jLabel2");
@@ -123,6 +131,22 @@ public class Funding_AddGovernmentInvestor extends javax.swing.JPanel {
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/govt icon 3.jpg"))); // NOI18N
         add(jLabel3);
         jLabel3.setBounds(670, 0, 100, 120);
+
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack);
+        btnBack.setBounds(75, 20, 72, 36);
+
+        jLabel4.setText("⏎");
+        add(jLabel4);
+        jLabel4.setBounds(30, 30, 14, 17);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -177,6 +201,15 @@ public class Funding_AddGovernmentInvestor extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtOrganizationActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout = (CardLayout) controlArea.getLayout();
+        layout.next(controlArea);
+        workArea.remove(this);
+    }//GEN-LAST:event_btnBackActionPerformed
+
  public boolean getContact(String no) {
         String regex = "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$";
         Pattern pattern = Pattern.compile(regex);
@@ -191,10 +224,12 @@ public class Funding_AddGovernmentInvestor extends javax.swing.JPanel {
         return matcher.matches();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private java.awt.Label lblContact;
     private java.awt.Label lblEmail;
     private java.awt.Label lblFunds;

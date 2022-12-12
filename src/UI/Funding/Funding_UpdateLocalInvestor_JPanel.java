@@ -6,6 +6,8 @@ package UI.Funding;
 
 import Investor.Investor;
 import Student.Student;
+import UI.ControlAreaJPanel;
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -25,10 +27,13 @@ public class Funding_UpdateLocalInvestor_JPanel extends javax.swing.JPanel {
      * Creates new form Funding_UpdateLocalInvestor_JPanel
      */
     int id;
-
+JPanel controlArea;
+    JPanel workArea;
     public Funding_UpdateLocalInvestor_JPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.id = id;
+         this.controlArea = controlArea;
+        this.workArea = workArea;
         populateLocalInvestor();
          setPreferredSize(new Dimension(769, 515)); 
     }
@@ -58,6 +63,8 @@ public class Funding_UpdateLocalInvestor_JPanel extends javax.swing.JPanel {
         txtFirstname = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        jLabel4 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
 
@@ -188,6 +195,18 @@ public class Funding_UpdateLocalInvestor_JPanel extends javax.swing.JPanel {
 
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/main logo .jpg"))); // NOI18N
 
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+
+        jLabel4.setText("⏎");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -222,13 +241,24 @@ public class Funding_UpdateLocalInvestor_JPanel extends javax.swing.JPanel {
                     .addComponent(btnUpdate)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 621, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67))
-            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addComponent(jLabel4)
+                .addGap(31, 31, 31)
+                .addComponent(btnBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(10, 10, 10)
+                            .addComponent(jLabel4))
+                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(20, 20, 20)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 188, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -343,6 +373,15 @@ public class Funding_UpdateLocalInvestor_JPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     }//GEN-LAST:event_txtFirstnameActionPerformed
 
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout = (CardLayout) controlArea.getLayout();
+        layout.next(controlArea);
+        workArea.remove(this);
+    }//GEN-LAST:event_btnBackActionPerformed
+
     public boolean getContact(String no) {
         String regex = "^(\\+\\d{1,2}\\s)?\\(?\\d{3}\\)?[\\s.-]?\\d{3}[\\s.-]?\\d{4}$";
         Pattern pattern = Pattern.compile(regex);
@@ -357,10 +396,12 @@ public class Funding_UpdateLocalInvestor_JPanel extends javax.swing.JPanel {
         return matcher.matches();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private java.awt.Label lblContact;
     private java.awt.Label lblEmail;
