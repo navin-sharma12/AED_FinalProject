@@ -68,67 +68,57 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
-        setLayout(null);
+        setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         txtLastname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtLastnameActionPerformed(evt);
             }
         });
-        add(txtLastname);
-        txtLastname.setBounds(540, 130, 210, 20);
+        add(txtLastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 190, 210, 20));
 
         lblFunds.setText("Funds");
-        add(lblFunds);
-        lblFunds.setBounds(430, 210, 110, 20);
+        add(lblFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 190, 110, -1));
 
         lblContact.setText("Contact No");
-        add(lblContact);
-        lblContact.setBounds(430, 250, 110, 20);
+        add(lblContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 230, 110, -1));
 
         lblEmail.setText("Email");
-        add(lblEmail);
-        lblEmail.setBounds(430, 170, 110, 20);
+        add(lblEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 150, 110, -1));
 
         txtEmail.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtEmailActionPerformed(evt);
             }
         });
-        add(txtEmail);
-        txtEmail.setBounds(540, 170, 210, 20);
+        add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 150, 210, -1));
 
         lblFirstname.setText("Firstname");
-        add(lblFirstname);
-        lblFirstname.setBounds(430, 90, 110, 20);
+        add(lblFirstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 150, 110, -1));
 
         txtFunds.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFundsActionPerformed(evt);
             }
         });
-        add(txtFunds);
-        txtFunds.setBounds(540, 210, 210, 20);
+        add(txtFunds, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 190, 210, -1));
 
         txtFirstname.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtFirstnameActionPerformed(evt);
             }
         });
-        add(txtFirstname);
-        txtFirstname.setBounds(540, 90, 210, 20);
+        add(txtFirstname, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 210, 20));
 
         txtContact.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtContactActionPerformed(evt);
             }
         });
-        add(txtContact);
-        txtContact.setBounds(540, 250, 210, 20);
+        add(txtContact, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 230, 210, -1));
 
         lblLastname.setText("Lastname");
-        add(lblLastname);
-        lblLastname.setBounds(430, 130, 110, 20);
+        add(lblLastname, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 190, 110, -1));
 
         jButton1.setText("Add");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -136,14 +126,14 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
                 jButton1ActionPerformed(evt);
             }
         });
-        add(jButton1);
-        jButton1.setBounds(540, 290, 100, 23);
+        add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 230, 100, -1));
 
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         jLabel1.setText("                                                           Local-Investor : Add");
-        add(jLabel1);
-        jLabel1.setBounds(10, 20, 750, 30);
-
+        add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 750, 30));
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/local invst gif.gif"))); // NOI18N
+        jLabel3.setText("jLabel3");
+        add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 800, 370));
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/local invst 1 add.jpeg"))); // NOI18N
         jLabel4.setText("jLabel4");
         add(jLabel4);

@@ -36,6 +36,10 @@ public class FreeLancer_Main extends javax.swing.JPanel {
         jButtonLogin = new javax.swing.JButton();
         jButtonRegister = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(255, 102, 102));
+        setBorder(javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createCompoundBorder(null, javax.swing.BorderFactory.createMatteBorder(1, 1, 1, 1, new java.awt.Color(102, 102, 255)))));
+
+        jButtonLogin.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jButtonLogin.setText("Login");
         jButtonLogin.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -43,6 +47,7 @@ public class FreeLancer_Main extends javax.swing.JPanel {
             }
         });
 
+        jButtonRegister.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jButtonRegister.setText("Register");
         jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -55,20 +60,20 @@ public class FreeLancer_Main extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonRegister, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonLogin, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(52, Short.MAX_VALUE))
+                    .addComponent(jButtonLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+                .addGap(206, 206, 206)
                 .addComponent(jButtonLogin)
                 .addGap(42, 42, 42)
                 .addComponent(jButtonRegister)
-                .addContainerGap(601, Short.MAX_VALUE))
+                .addContainerGap(423, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
