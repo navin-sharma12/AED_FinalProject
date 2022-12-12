@@ -3,6 +3,7 @@
 ## Pre-requisites
 
 Java SWING
+
 Java development IDE
 
 ## Problem Statement The objective of this research project is to help homeless students to get an education. As we can see there are lot of capable homeless people that are not getting proper education. There are some universities that are offering courses of homeless people. And also there are Ngo's, social workers and philanthropist that are ready to offer help to such people. There is no single place to connect all these entities with each other.
