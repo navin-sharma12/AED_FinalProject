@@ -63,7 +63,6 @@ public class Funding_ManageInvestors_Read extends javax.swing.JPanel {
         jLabelTitle.setText("Manage Investors : Read Details");
 
         tblDepartment.setBackground(new java.awt.Color(102, 102, 102));
-        tblDepartment.setForeground(null);
         tblDepartment.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null, null},

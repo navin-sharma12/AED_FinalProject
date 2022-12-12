@@ -62,10 +62,9 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
         lblLastname = new java.awt.Label();
         jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
+        jLabel5 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -131,17 +130,10 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         jLabel1.setText("                                                           Local-Investor : Add");
         add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 50, 750, 30));
+
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/local invst gif.gif"))); // NOI18N
         jLabel3.setText("jLabel3");
         add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, 800, 370));
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/local invst 1 add.jpeg"))); // NOI18N
-        jLabel4.setText("jLabel4");
-        add(jLabel4);
-        jLabel4.setBounds(20, 70, 400, 360);
-
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/main logo .jpg"))); // NOI18N
-        add(jLabel2);
-        jLabel2.setBounds(550, 340, 210, 130);
 
         btnBack.setBackground(new java.awt.Color(0, 0, 0));
         btnBack.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
@@ -152,12 +144,10 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
                 btnBackActionPerformed(evt);
             }
         });
-        add(btnBack);
-        btnBack.setBounds(60, 20, 80, 30);
+        add(btnBack, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 20, 80, 30));
 
-        jLabel3.setText("⏎");
-        add(jLabel3);
-        jLabel3.setBounds(40, 20, 20, 30);
+        jLabel5.setText("⏎");
+        add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 20, 30));
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtLastnameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtLastnameActionPerformed
@@ -283,9 +273,8 @@ public class Funding_AddLocalInvestor extends javax.swing.JPanel {
     private javax.swing.JButton btnBack;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private java.awt.Label lblContact;
     private java.awt.Label lblEmail;
     private java.awt.Label lblFirstname;

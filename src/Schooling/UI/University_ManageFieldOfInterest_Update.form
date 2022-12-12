@@ -27,13 +27,11 @@
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
                   <Component id="jButtonBack" pref="80" max="32767" attributes="0"/>
-                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                      <Component id="jButtonSearch" max="32767" attributes="0"/>
-                      <Component id="jButtonUpdate" max="32767" attributes="0"/>
-                      <Component id="jButtonView" pref="80" max="32767" attributes="0"/>
-                  </Group>
+                  <Component id="jButtonSearch" max="32767" attributes="0"/>
+                  <Component id="jButtonUpdate" max="32767" attributes="0"/>
+                  <Component id="jButtonView" pref="80" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="31" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -64,7 +62,7 @@
                   <Component id="jTextFieldUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jButtonUpdate" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="27" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="27" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
