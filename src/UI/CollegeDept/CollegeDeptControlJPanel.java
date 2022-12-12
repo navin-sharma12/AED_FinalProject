@@ -37,6 +37,9 @@ public class CollegeDeptControlJPanel extends javax.swing.JPanel {
         btnRead = new javax.swing.JButton();
         btnUpdate = new javax.swing.JButton();
 
+        setBackground(new java.awt.Color(204, 204, 255));
+
+        btnAdd.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 12)); // NOI18N
         btnAdd.setText("Add");
         btnAdd.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,6 +47,7 @@ public class CollegeDeptControlJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnRead.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 12)); // NOI18N
         btnRead.setText("Read");
         btnRead.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,6 +55,7 @@ public class CollegeDeptControlJPanel extends javax.swing.JPanel {
             }
         });
 
+        btnUpdate.setFont(new java.awt.Font(".AppleSystemUIFont", 0, 12)); // NOI18N
         btnUpdate.setText("Update");
         btnUpdate.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -68,18 +73,18 @@ public class CollegeDeptControlJPanel extends javax.swing.JPanel {
                     .addComponent(btnUpdate)
                     .addComponent(btnRead)
                     .addComponent(btnAdd))
-                .addContainerGap(45, Short.MAX_VALUE))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(42, 42, 42)
+                .addGap(108, 108, 108)
                 .addComponent(btnAdd)
                 .addGap(31, 31, 31)
                 .addComponent(btnRead)
                 .addGap(30, 30, 30)
                 .addComponent(btnUpdate)
-                .addContainerGap(224, Short.MAX_VALUE))
+                .addContainerGap(164, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 

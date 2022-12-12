@@ -51,8 +51,18 @@ public class JobPortal_Add extends javax.swing.JPanel {
         jLabelLocation = new javax.swing.JLabel();
         jTextFieldCompanyName = new javax.swing.JTextField();
         jLabelCompanyName = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
+        setBackground(new java.awt.Color(242, 224, 206));
+        setLayout(null);
+
+        add(jComboBoxJobType);
+        jComboBoxJobType.setBounds(394, 231, 235, 23);
+
+        jLabelJobType.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jLabelJobType.setText("Job Type:");
+        add(jLabelJobType);
+        jLabelJobType.setBounds(237, 233, 125, 17);
 
         jComboBoxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "On Campus", "Off Campus" }));
         jComboBoxCategory.addActionListener(new java.awt.event.ActionListener() {
@@ -60,111 +70,66 @@ public class JobPortal_Add extends javax.swing.JPanel {
                 jComboBoxCategoryActionPerformed(evt);
             }
         });
+        add(jComboBoxCategory);
+        jComboBoxCategory.setBounds(394, 190, 235, 23);
+        add(jTextFieldJobTitle);
+        jTextFieldJobTitle.setBounds(394, 149, 235, 23);
 
+        jLabelCategory.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jLabelCategory.setText("Category:");
+        add(jLabelCategory);
+        jLabelCategory.setBounds(241, 192, 121, 17);
 
+        jLabelJobTitle.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jLabelJobTitle.setText("Job Title:");
+        add(jLabelJobTitle);
+        jLabelJobTitle.setBounds(241, 151, 123, 17);
 
+        jButtonSubmit.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jButtonSubmit.setText("Submit");
         jButtonSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButtonSubmitActionPerformed(evt);
             }
         });
+        add(jButtonSubmit);
+        jButtonSubmit.setBounds(467, 422, 84, 23);
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle.setText("Add Job");
+        jLabelTitle.setText("Job Portal : Add Job");
+        add(jLabelTitle);
+        jLabelTitle.setBounds(0, 25, 862, 50);
 
         jTextAreaJobDescription.setColumns(20);
         jTextAreaJobDescription.setRows(5);
         jScrollPaneJobDescription.setViewportView(jTextAreaJobDescription);
 
+        add(jScrollPaneJobDescription);
+        jScrollPaneJobDescription.setBounds(394, 313, 235, 91);
+
+        jLabelJobDescription.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jLabelJobDescription.setText("Job Description:");
+        add(jLabelJobDescription);
+        jLabelJobDescription.setBounds(237, 349, 125, 17);
+        add(jTextFieldLocation);
+        jTextFieldLocation.setBounds(394, 272, 235, 23);
 
+        jLabelLocation.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jLabelLocation.setText("Location:");
+        add(jLabelLocation);
+        jLabelLocation.setBounds(237, 274, 125, 17);
+        add(jTextFieldCompanyName);
+        jTextFieldCompanyName.setBounds(394, 108, 235, 23);
 
+        jLabelCompanyName.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
         jLabelCompanyName.setText("Company Name:");
+        add(jLabelCompanyName);
+        jLabelCompanyName.setBounds(241, 110, 123, 17);
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelJobType)
-                            .addComponent(jLabelLocation)
-                            .addComponent(jLabelJobDescription))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jComboBoxJobType, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jButtonSubmit)
-                                        .addGap(78, 78, 78))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextFieldLocation)
-                                        .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelCompanyName)
-                                    .addComponent(jLabelJobTitle))
-                                .addGap(30, 30, 30))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelCategory)
-                                .addGap(72, 72, 72)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldJobTitle)
-                            .addComponent(jTextFieldCompanyName)
-                            .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(30, 30, 30))
-            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
-                .addComponent(jLabelTitle)
-                .addGap(35, 35, 35)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCompanyName)
-                    .addComponent(jTextFieldCompanyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelJobTitle)
-                    .addComponent(jTextFieldJobTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelCategory)
-                    .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jComboBoxJobType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabelJobType))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabelLocation)
-                    .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addComponent(jLabelJobDescription))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
-                .addComponent(jButtonSubmit)
-                .addContainerGap(22, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Job portal.png"))); // NOI18N
+        add(jLabel1);
+        jLabel1.setBounds(60, 40, 720, 390);
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSubmitActionPerformed
@@ -245,6 +210,7 @@ public class JobPortal_Add extends javax.swing.JPanel {
     private javax.swing.JButton jButtonSubmit;
     private javax.swing.JComboBox<String> jComboBoxCategory;
     private javax.swing.JComboBox<String> jComboBoxJobType;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelCategory;
     private javax.swing.JLabel jLabelCompanyName;
     private javax.swing.JLabel jLabelJobDescription;
