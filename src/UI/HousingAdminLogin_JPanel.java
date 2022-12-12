@@ -145,13 +145,16 @@ public class HousingAdminLogin_JPanel extends javax.swing.JPanel {
                 } else {
                     while (res.next()) {
                         if (department.equals("On Campus Department")) {
-                            workArea.removeAll();
+                            
+                            
+                            
                             controlArea.removeAll();
 
                             Housing_ManageOnCampus_ControlJPanel hmocp = new Housing_ManageOnCampus_ControlJPanel(controlArea, workArea);
                             controlArea.add("Housing_ManageOnCampus_ControlJPanel", hmocp);
                             CardLayout layout1 = (CardLayout) controlArea.getLayout();
                             layout1.next(controlArea);
+                            workArea.remove(this);
 
                         } else {
                             workArea.removeAll();
@@ -160,6 +163,7 @@ public class HousingAdminLogin_JPanel extends javax.swing.JPanel {
                             controlArea.add("Housing_ManageOffCampus_ControlJPanel", hmoccp);
                             CardLayout layout2 = (CardLayout) controlArea.getLayout();
                             layout2.next(controlArea);
+                            workArea.remove(this);
 
                         }
 

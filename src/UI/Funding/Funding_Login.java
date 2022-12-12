@@ -4,7 +4,17 @@
  */
 package UI.Funding;
 
+import UI.CollegeDept.CollegeDeptControlJPanel;
+import UI.Housing.Housing_ManageOffCampus_ControlJPanel;
+import UI.Housing.Housing_ManageOnCampus_ControlJPanel;
+import Users.Users;
+import java.awt.CardLayout;
 import java.awt.Dimension;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -16,9 +26,14 @@ public class Funding_Login extends javax.swing.JPanel {
     /**
      * Creates new form FundingLoginJPanel
      */
+     int department_id = 2;
+      JPanel controlArea;
+    JPanel workArea;
     public Funding_Login(JPanel controlArea, JPanel workArea) {
         initComponents();
          setPreferredSize(new Dimension(769, 515)); 
+          this.controlArea = controlArea;
+        this.workArea = workArea;
     }
 
     /**
@@ -62,6 +77,12 @@ public class Funding_Login extends javax.swing.JPanel {
         jLabelPassword.setText("Password:");
         add(jLabelPassword);
         jLabelPassword.setBounds(260, 170, 120, 20);
+
+        jTextFieldUsername.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextFieldUsernameActionPerformed(evt);
+            }
+        });
         add(jTextFieldUsername);
         jTextFieldUsername.setBounds(380, 130, 216, 23);
         add(jPasswordFieldPassword);
@@ -85,6 +106,11 @@ public class Funding_Login extends javax.swing.JPanel {
         jLabel1.setBounds(260, 210, 120, 20);
 
         jComboBoxDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Local Investor", "Government Organization" }));
+        jComboBoxDepartment.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxDepartmentActionPerformed(evt);
+            }
+        });
         add(jComboBoxDepartment);
         jComboBoxDepartment.setBounds(380, 210, 216, 23);
 
@@ -96,8 +122,70 @@ public class Funding_Login extends javax.swing.JPanel {
 
     private void jButtonLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonLoginActionPerformed
         // TODO add your handling code here:
+        String email = jTextFieldUsername.getText();
+        String password = jPasswordFieldPassword.getText();
+        String department = jComboBoxDepartment.getSelectedItem().toString();
+        if (email.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Email cannot be null.");
+        } else if (!getEmail(email)) {
+            JOptionPane.showMessageDialog(this, "Invalid Email address");
+        } else if (password.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Password cannot be null.");
+        } else {
+            try {
+                Users us = new Users();
+                ResultSet res = us.checkLogin(email, password, department, department_id);
+                if (!res.isBeforeFirst()) {
+                    JOptionPane.showMessageDialog(this, "Invalid Input");
+                } else {
+                    while (res.next()) {
+
+                        if (department.equals("Local Investor")) {
+                            workArea.removeAll();
+                            controlArea.removeAll();
+
+                            Funding_AdminControlAreaPanel facap = new Funding_AdminControlAreaPanel(controlArea, workArea);
+                            controlArea.add("Funding_AdminControlAreaPanel", facap);
+                            CardLayout layout1 = (CardLayout) controlArea.getLayout();
+                            layout1.next(controlArea);
+                             workArea.remove(this);
+
+                        } else {
+                            workArea.removeAll();
+                            controlArea.removeAll();
+                            Funding_AdminGovernmentControl_JPanel fagcp = new Funding_AdminGovernmentControl_JPanel(controlArea, workArea);
+                            controlArea.add("Funding_AdminGovernmentControl_JPanel", fagcp);
+                            CardLayout layout2 = (CardLayout) controlArea.getLayout();
+                            layout2.next(controlArea);
+                             workArea.remove(this);
+                            
+                            
+                            
+
+                        }
+
+                    }
+                }
+            } catch (SQLException e) {
+                e.getMessage();
+            }
+        }
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
+    private void jComboBoxDepartmentActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxDepartmentActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxDepartmentActionPerformed
+
+    private void jTextFieldUsernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextFieldUsernameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextFieldUsernameActionPerformed
+
+    public boolean getEmail(String email) {
+        String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
+        Pattern pattern = Pattern.compile(regex);
+        Matcher matcher = pattern.matcher(email);
+        return matcher.matches();
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonLogin;

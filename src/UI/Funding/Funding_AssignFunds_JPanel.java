@@ -129,7 +129,7 @@ public class Funding_AssignFunds_JPanel extends javax.swing.JPanel {
         jScrollPane1.setViewportView(tblStudent);
 
         add(jScrollPane1);
-        jScrollPane1.setBounds(210, 100, 550, 148);
+        jScrollPane1.setBounds(110, 100, 550, 148);
 
         tblFunder.setBackground(new java.awt.Color(102, 102, 102));
         tblFunder.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 14)); // NOI18N
@@ -190,14 +190,14 @@ public class Funding_AssignFunds_JPanel extends javax.swing.JPanel {
         jScrollPane2.setViewportView(tblFunder);
 
         add(jScrollPane2);
-        jScrollPane2.setBounds(210, 260, 550, 150);
+        jScrollPane2.setBounds(110, 380, 550, 150);
 
         ComboxFunderType.setBackground(new java.awt.Color(0, 0, 0));
         ComboxFunderType.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 14)); // NOI18N
         ComboxFunderType.setForeground(new java.awt.Color(255, 255, 255));
         ComboxFunderType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Local", "Government" }));
         add(ComboxFunderType);
-        ComboxFunderType.setBounds(10, 310, 168, 23);
+        ComboxFunderType.setBounds(120, 340, 168, 23);
 
         jButton1.setBackground(new java.awt.Color(0, 0, 0));
         jButton1.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 14)); // NOI18N
@@ -209,7 +209,7 @@ public class Funding_AssignFunds_JPanel extends javax.swing.JPanel {
             }
         });
         add(jButton1);
-        jButton1.setBounds(10, 260, 72, 23);
+        jButton1.setBounds(310, 340, 72, 23);
 
         btnAdd.setBackground(new java.awt.Color(0, 0, 0));
         btnAdd.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 14)); // NOI18N
@@ -221,13 +221,13 @@ public class Funding_AssignFunds_JPanel extends javax.swing.JPanel {
             }
         });
         add(btnAdd);
-        btnAdd.setBounds(100, 260, 72, 23);
+        btnAdd.setBounds(590, 550, 72, 23);
 
         jLabel1.setBackground(new java.awt.Color(0, 0, 0));
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         jLabel1.setText("                                              Assigning Fund");
         add(jLabel1);
-        jLabel1.setBounds(130, 30, 649, 44);
+        jLabel1.setBounds(60, 30, 649, 44);
 
         jLabel2.setText("jLabel2");
         add(jLabel2);

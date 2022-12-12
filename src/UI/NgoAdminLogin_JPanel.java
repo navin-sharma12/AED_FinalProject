@@ -149,6 +149,7 @@ public class NgoAdminLogin_JPanel extends javax.swing.JPanel {
                             controlArea.add("StudentControlJPanel", scjp);
                             CardLayout layout1 = (CardLayout) controlArea.getLayout();
                             layout1.next(controlArea);
+                             workArea.remove(this);
                          
                             
 
@@ -160,6 +161,7 @@ public class NgoAdminLogin_JPanel extends javax.swing.JPanel {
                             controlArea.add("CollegeDeptControlJPanel", cdcjp);
                             CardLayout layout2 = (CardLayout) controlArea.getLayout();
                             layout2.next(controlArea);
+                             workArea.remove(this);
                              
                             
                         }
