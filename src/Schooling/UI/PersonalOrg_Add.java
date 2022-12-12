@@ -7,12 +7,13 @@ package Schooling.UI;
 import Schooling.Model.Courses;
 import Schooling.Model.FieldOfInterest;
 import Schooling.Model.PersonalOrganization;
+import UI.ControlAreaJPanel;
 import java.awt.CardLayout;
-import java.util.regex.Matcher;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.Properties;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -28,16 +29,16 @@ import javax.swing.JPanel;
  *
  * @author navinsharma
  */
-public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
+public class PersonalOrg_Add extends javax.swing.JPanel {
 
     /**
-     * Creates new form PersonalOrg_Admin_Add
+     * Creates new form PersonalOrg_Add
      */
     JPanel controlArea;
     JPanel workArea;
     ResultSet resultSet, resultSet1, resultSet2, resultSet3, resultSet4;
     FieldOfInterest foi = new FieldOfInterest();
-    public PersonalOrg_Admin_Add(JPanel controlArea, JPanel workArea) 
+    public PersonalOrg_Add(JPanel controlArea, JPanel workArea) 
     {
         initComponents();
         this.controlArea = controlArea;
@@ -69,7 +70,6 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
             return false;
         }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,32 +79,24 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelTitle = new javax.swing.JLabel();
-        jLabelFirstName = new javax.swing.JLabel();
-        jTextFieldFirstName = new javax.swing.JTextField();
-        jLabelCategory = new javax.swing.JLabel();
         jComboBoxCategory = new javax.swing.JComboBox<>();
-        jLabelCourse = new javax.swing.JLabel();
-        jComboBoxCourse = new javax.swing.JComboBox<>();
-        jLabelLastName = new javax.swing.JLabel();
-        jTextFieldLastName = new javax.swing.JTextField();
-        jLabelEmailID = new javax.swing.JLabel();
-        jTextFieldEmailID = new javax.swing.JTextField();
-        jLabelZoomLink = new javax.swing.JLabel();
+        jLabelCategory = new javax.swing.JLabel();
+        jTextFieldFirstName = new javax.swing.JTextField();
+        jLabelFirstName = new javax.swing.JLabel();
         jTextFieldZoomLink = new javax.swing.JTextField();
-        jButtonRegister = new javax.swing.JButton();
-        jButtonCourse = new javax.swing.JButton();
-        jLabelSeats = new javax.swing.JLabel();
-        jTextFieldSeats = new javax.swing.JTextField();
+        jLabelTitle = new javax.swing.JLabel();
+        jLabelZoomLink = new javax.swing.JLabel();
+        jTextFieldEmailID = new javax.swing.JTextField();
+        jLabelEmailID = new javax.swing.JLabel();
+        jTextFieldLastName = new javax.swing.JTextField();
+        jLabelLastName = new javax.swing.JLabel();
+        jComboBoxCourse = new javax.swing.JComboBox<>();
+        jLabelCourse = new javax.swing.JLabel();
         jButtonBack = new javax.swing.JButton();
-
-        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle.setText("Register");
-
-        jLabelFirstName.setText("First name:");
-
-        jLabelCategory.setText("Category:");
+        jTextFieldSeats = new javax.swing.JTextField();
+        jLabelSeats = new javax.swing.JLabel();
+        jButtonCourse = new javax.swing.JButton();
+        jButtonRegister = new javax.swing.JButton();
 
         jComboBoxCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -112,22 +104,32 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
             }
         });
 
-        jLabelCourse.setText("Course:");
+        jLabelCategory.setText("Category:");
 
-        jLabelLastName.setText("Last name:");
+        jLabelFirstName.setText("First name:");
 
-        jTextFieldLastName.setToolTipText("");
-
-        jLabelEmailID.setText("Email id:");
+        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("Register");
 
         jLabelZoomLink.setText("Zoom link:");
 
-        jButtonRegister.setText("Register");
-        jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
+        jLabelEmailID.setText("Email id:");
+
+        jTextFieldLastName.setToolTipText("");
+
+        jLabelLastName.setText("Last name:");
+
+        jLabelCourse.setText("Course:");
+
+        jButtonBack.setText("Back");
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegisterActionPerformed(evt);
+                jButtonBackActionPerformed(evt);
             }
         });
+
+        jLabelSeats.setText("Seats:");
 
         jButtonCourse.setText("Course");
         jButtonCourse.addActionListener(new java.awt.event.ActionListener() {
@@ -136,12 +138,10 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
             }
         });
 
-        jLabelSeats.setText("Seats:");
-
-        jButtonBack.setText("Back");
-        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegister.setText("Register");
+        jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBackActionPerformed(evt);
+                jButtonRegisterActionPerformed(evt);
             }
         });
 
@@ -221,6 +221,46 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jComboBoxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCategoryActionPerformed
+
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        // TODO add your handling code here:
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel",cajp);
+        CardLayout layout2 = (CardLayout)controlArea.getLayout();
+        layout2.next(controlArea);
+    }//GEN-LAST:event_jButtonBackActionPerformed
+
+    private void jButtonCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCourseActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            String category_name;
+            int category_id;
+            category_name = jComboBoxCategory.getSelectedItem().toString();
+            resultSet3 = foi.getallFieldOfInterest();
+            while(resultSet3.next())
+            {
+                if(category_name.equals(resultSet3.getString(2)))
+                {
+                    category_id = resultSet3.getInt(1);
+                    Courses cou = new Courses(category_id);
+                    resultSet4 = cou.getCourseByCategory(category_id);
+                    while(resultSet4.next())
+                    {
+                        jComboBoxCourse.addItem(resultSet4.getString(3));
+                    }
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            //            Logger.getLogger(PersonalOrg_Admin_Add.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonCourseActionPerformed
+
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
         // TODO add your handling code here:
         String first_name, last_name, emailid, category, course, zoom_link, username, password, seats1;
@@ -260,35 +300,35 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
                     else
                     {
                         seats1 = jTextFieldSeats.getText();
-                        if (seats1.isEmpty()) 
+                        if (seats1.isEmpty())
                         {
 
-                        } 
-                        else 
+                        }
+                        else
                         {
                             boolean checker1 = isInteger(seats1);
-                            if (!checker1) 
+                            if (!checker1)
                             {
                                 JOptionPane.showMessageDialog(this, "seats should be integer");
-                            } 
-                            else 
+                            }
+                            else
                             {
                                 seats = Integer.parseInt(seats1);
-                                try 
+                                try
                                 {
                                     username = emailid;
                                     password = last_name + "." + first_name;
 
                                     resultSet = foi.getallFieldOfInterest();
-                                    while (resultSet.next()) 
+                                    while (resultSet.next())
                                     {
-                                        if (resultSet.getString(2).equals(category)) 
+                                        if (resultSet.getString(2).equals(category))
                                         {
                                             category_id = resultSet.getInt(1);
 
                                             Courses cou = new Courses(category_id);
                                             resultSet1 = cou.getCourseByCategory(category_id);
-                                            while (resultSet1.next()) 
+                                            while (resultSet1.next())
                                             {
                                                 if (resultSet1.getString(3).equals(course))
                                                 {
@@ -296,19 +336,19 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
 
                                                     PersonalOrganization po = new PersonalOrganization(first_name, last_name, emailid, category_id, course_id, zoom_link, seats, username, password);
                                                     po.addFreeLancer(first_name, last_name, emailid, category_id, course_id, zoom_link, seats, username, password);
-                                                    
+
                                                     sentEmail(emailid, first_name, password);
-                                                    
+
                                                     PersonalOrg_login_JPanel polp = new PersonalOrg_login_JPanel(controlArea, workArea);
                                                     workArea.add("PersonalOrg_login_JPanel",polp);
                                                     CardLayout layout = (CardLayout)workArea.getLayout();
-                                                    layout.next(workArea); 
+                                                    layout.next(workArea);
                                                 }
                                             }
                                         }
                                     }
-                                } 
-                                catch (SQLException ex) 
+                                }
+                                catch (SQLException ex)
                                 {
                                     if (ex.getMessage().contains("Duplicate entry"))
                                     {
@@ -322,47 +362,6 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
             }
         }
     }//GEN-LAST:event_jButtonRegisterActionPerformed
-
-    private void jComboBoxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxCategoryActionPerformed
-
-    private void jButtonCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCourseActionPerformed
-        // TODO add your handling code here:
-        try 
-        {
-            String category_name;
-            int category_id;
-            category_name = jComboBoxCategory.getSelectedItem().toString();
-            resultSet3 = foi.getallFieldOfInterest();
-            while(resultSet3.next())
-            {
-                if(category_name.equals(resultSet3.getString(2)))
-                {
-                    category_id = resultSet3.getInt(1);
-                    Courses cou = new Courses(category_id);
-                    resultSet4 = cou.getCourseByCategory(category_id);
-                    while(resultSet4.next())
-                    {
-                        jComboBoxCourse.addItem(resultSet4.getString(3));
-                    }
-                }
-            }
-        } 
-        catch (SQLException ex) 
-        {
-//            Logger.getLogger(PersonalOrg_Admin_Add.class.getName()).log(Level.SEVERE, null, ex);
-        }        
-    }//GEN-LAST:event_jButtonCourseActionPerformed
-
-    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
-        // TODO add your handling code here:
-        controlArea.removeAll();
-        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
-        controlArea.add("ControlAreaJPanel", cajp);
-        CardLayout layout2 = (CardLayout) controlArea.getLayout();
-        layout2.next(controlArea);
-    }//GEN-LAST:event_jButtonBackActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -5,6 +5,7 @@
 package Schooling.UI;
 
 import Schooling.Model.JobPortal;
+import java.awt.CardLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -66,6 +67,7 @@ public class JobPortal_Read extends javax.swing.JPanel {
         jTable = new javax.swing.JTable();
         jLabelJobDescription = new javax.swing.JLabel();
         jLabelTitle = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jButtonView.setText("View");
         jButtonView.addActionListener(new java.awt.event.ActionListener() {
@@ -116,13 +118,22 @@ public class JobPortal_Read extends javax.swing.JPanel {
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitle.setText("Read Jobs");
 
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(30, 30, 30)
+            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addGroup(layout.createSequentialGroup()
@@ -152,15 +163,16 @@ public class JobPortal_Read extends javax.swing.JPanel {
                         .addGap(104, 104, 104)
                         .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(30, 30, 30))
-            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(39, 39, 39)
                 .addComponent(jLabelTitle)
-                .addGap(48, 48, 48)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -190,7 +202,7 @@ public class JobPortal_Read extends javax.swing.JPanel {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -248,8 +260,18 @@ public class JobPortal_Read extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonViewActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        controlArea.removeAll();
+        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout2 = (CardLayout) controlArea.getLayout();
+        layout2.next(controlArea);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonView;
     private javax.swing.JComboBox<String> jComboBoxCategory;
     private javax.swing.JComboBox<String> jComboBoxJobType;

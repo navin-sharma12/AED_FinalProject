@@ -4,8 +4,10 @@
  */
 package UI.student;
 
-import Schooling.UI.JobPortal_Student_Apply;
+import Schooling.UI.JobPortal_Student_View;
+import Schooling.UI.Schooling_Main;
 import Student.Student;
+import UI.ControlAreaJPanel;
 import java.awt.CardLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -49,6 +51,7 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
         jButtonLogin = new javax.swing.JButton();
         jLabelTitile = new javax.swing.JLabel();
         jLabelUsername = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabelPassword.setText("Password:");
 
@@ -64,6 +67,13 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
         jLabelTitile.setText("Student Login");
 
         jLabelUsername.setText("Email");
+
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -85,13 +95,19 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
                         .addGap(230, 230, 230)
                         .addComponent(jButtonLogin)))
                 .addContainerGap(164, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(59, 59, 59))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabelTitile)
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUsername)
                     .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -139,22 +155,31 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
                         int student_id = res.getInt(1);
                         jTextFieldUsername.setText("");
                         jPasswordFieldPassword.setText("");
-                        JobPortal_Student_Apply jpsa = new JobPortal_Student_Apply(controlArea, workArea, student_id);
-                        workArea.add("JobPortal_Student_Apply", jpsa);
-                        CardLayout layout2 = (CardLayout) workArea.getLayout();
-                        layout2.next(workArea);
-
+                        controlArea.remove(this);
+                        JobPortal_Student_View jpsa = new JobPortal_Student_View(controlArea, workArea, student_id);
+                        controlArea.add("JobPortal_Student", jpsa);
+                        CardLayout layout2 = (CardLayout) controlArea.getLayout();
+                        layout2.next(controlArea);
                     }
                 }
             } 
             catch (SQLException e)
             {
-//                e.getMessage();
+                JOptionPane.showMessageDialog(this, e.getMessage());
+                
             }
         }
 
 
     }//GEN-LAST:event_jButtonLoginActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel",cajp);
+        CardLayout layout2 = (CardLayout)controlArea.getLayout();
+        layout2.next(controlArea);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
  public boolean getEmail(String email) {
         String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
@@ -163,6 +188,7 @@ public class StudentLoginJPanel extends javax.swing.JPanel {
         return matcher.matches();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelTitile;

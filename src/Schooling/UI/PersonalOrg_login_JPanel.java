@@ -5,6 +5,7 @@
 package Schooling.UI;
 
 import Schooling.Model.PersonalOrganization;
+import UI.ControlAreaJPanel;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JOptionPane;
@@ -22,10 +23,14 @@ public class PersonalOrg_login_JPanel extends javax.swing.JPanel {
     /**
      * Creates new form PersonalOrg_login_JPanel
      */
+    JPanel controlArea;
+    JPanel workArea;
     PersonalOrganization ps;
     public PersonalOrg_login_JPanel(JPanel controlArea, JPanel workArea) {
         
         initComponents();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
         this.ps = new PersonalOrganization();
     }
 
@@ -44,6 +49,7 @@ public class PersonalOrg_login_JPanel extends javax.swing.JPanel {
         jPasswordFieldPassword = new javax.swing.JPasswordField();
         jButtonLogin = new javax.swing.JButton();
         jLabelTitile = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabelUsername.setText("Email");
 
@@ -59,6 +65,13 @@ public class PersonalOrg_login_JPanel extends javax.swing.JPanel {
         jLabelTitile.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitile.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabelTitile.setText("Free Lancer");
+
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -80,13 +93,19 @@ public class PersonalOrg_login_JPanel extends javax.swing.JPanel {
                         .addGap(230, 230, 230)
                         .addComponent(jButtonLogin)))
                 .addContainerGap(159, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(46, 46, 46))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(36, 36, 36)
                 .addComponent(jLabelTitile)
-                .addGap(54, 54, 54)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(13, 13, 13)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelUsername)
                     .addComponent(jTextFieldUsername, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -109,30 +128,35 @@ public class PersonalOrg_login_JPanel extends javax.swing.JPanel {
         {
             JOptionPane.showMessageDialog(this, "Email cannot be null.");
         } 
-        else if (!getEmail(email)) {
+        else if (!getEmail(email)) 
+        {
             JOptionPane.showMessageDialog(this, "Invalid Email address");
         }
-        else if (password.isEmpty()) {
+        else if (password.isEmpty()) 
+        {
             JOptionPane.showMessageDialog(this, "Password cannot be null.");
-        } else {
-            try {
+        }
+        else 
+        {
+            try 
+            {
                 ResultSet res = ps.checkLogin(email, password);
-                if (!res.isBeforeFirst()) {
+                if (!res.isBeforeFirst()) 
+                {
                     JOptionPane.showMessageDialog(this, "Invalid Input");
-                } else {
-                    while (res.next()) {
-                        //                    All any panel from here
+                } 
+                else 
+                {
+                    while (res.next()) 
+                    {
                         int personal_id = res.getInt(1);
-                       jTextFieldUsername.setText("");
-                       jPasswordFieldPassword.setText("");
-                       
-                        //                    Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea, student_id);
-                        //                    controlArea.add("ControlAreaJPanel", cajp);
-                        //                    CardLayout layout2 = (CardLayout) controlArea.getLayout();
-                        //                    layout2.next(controlArea);
-                        
-                        
+                        jTextFieldUsername.setText("");
+                        jPasswordFieldPassword.setText("");
 
+                        PersonalOrg_Dashboard cajp = new PersonalOrg_Dashboard(controlArea, workArea, personal_id);
+                        workArea.add("PersonalOrg_Dashboard", cajp);
+                        CardLayout layout2 = (CardLayout) workArea.getLayout();
+                        layout2.next(workArea);
                     }
                 }
 
@@ -143,6 +167,14 @@ public class PersonalOrg_login_JPanel extends javax.swing.JPanel {
 
     }//GEN-LAST:event_jButtonLoginActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel",cajp);
+        CardLayout layout2 = (CardLayout)controlArea.getLayout();
+        layout2.next(controlArea);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 public boolean getEmail(String email) {
         String regex = "^[A-Za-z0-9+_.-]+@(.+)$";
         Pattern pattern = Pattern.compile(regex);
@@ -150,6 +182,7 @@ public boolean getEmail(String email) {
         return matcher.matches();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonLogin;
     private javax.swing.JLabel jLabelPassword;
     private javax.swing.JLabel jLabelTitile;

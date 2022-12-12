@@ -4,6 +4,7 @@
  */
 package Schooling.UI;
 
+import UI.ControlAreaJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -39,6 +40,7 @@ public class Schooling_Admin extends javax.swing.JPanel {
         jButtonUniversities = new javax.swing.JButton();
         jButtonPersonalOrganization = new javax.swing.JButton();
         jButtonJobPortal = new javax.swing.JButton();
+        jButtonBack = new javax.swing.JButton();
 
         jButtonManageDepartments.setText("Manage Departments");
         jButtonManageDepartments.addActionListener(new java.awt.event.ActionListener() {
@@ -68,6 +70,13 @@ public class Schooling_Admin extends javax.swing.JPanel {
             }
         });
 
+        jButtonBack.setText("Back");
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -78,7 +87,8 @@ public class Schooling_Admin extends javax.swing.JPanel {
                     .addComponent(jButtonJobPortal, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonPersonalOrganization, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButtonUniversities, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonManageDepartments, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jButtonManageDepartments, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(36, 36, 36))
         );
         layout.setVerticalGroup(
@@ -92,7 +102,9 @@ public class Schooling_Admin extends javax.swing.JPanel {
                 .addComponent(jButtonUniversities)
                 .addGap(50, 50, 50)
                 .addComponent(jButtonManageDepartments)
-                .addContainerGap(395, Short.MAX_VALUE))
+                .addGap(43, 43, 43)
+                .addComponent(jButtonBack)
+                .addContainerGap(329, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -128,8 +140,17 @@ public class Schooling_Admin extends javax.swing.JPanel {
         layout.next(controlArea);
     }//GEN-LAST:event_jButtonUniversitiesActionPerformed
 
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        // TODO add your handling code here:
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel",cajp);
+        CardLayout layout2 = (CardLayout)controlArea.getLayout();
+        layout2.next(controlArea); 
+    }//GEN-LAST:event_jButtonBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonBack;
     private javax.swing.JButton jButtonJobPortal;
     private javax.swing.JButton jButtonManageDepartments;
     private javax.swing.JButton jButtonPersonalOrganization;

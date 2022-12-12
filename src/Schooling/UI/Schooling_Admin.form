@@ -26,7 +26,8 @@
                   <Component id="jButtonJobPortal" max="32767" attributes="0"/>
                   <Component id="jButtonPersonalOrganization" max="32767" attributes="0"/>
                   <Component id="jButtonUniversities" max="32767" attributes="0"/>
-                  <Component id="jButtonManageDepartments" min="-2" pref="156" max="-2" attributes="0"/>
+                  <Component id="jButtonManageDepartments" max="32767" attributes="0"/>
+                  <Component id="jButtonBack" max="32767" attributes="0"/>
               </Group>
               <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
@@ -43,7 +44,9 @@
               <Component id="jButtonUniversities" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="50" max="-2" attributes="0"/>
               <Component id="jButtonManageDepartments" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="395" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="43" max="-2" attributes="0"/>
+              <Component id="jButtonBack" min="-2" max="-2" attributes="0"/>
+              <EmptySpace pref="329" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -79,6 +82,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonJobPortalActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonBack">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Back"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBackActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

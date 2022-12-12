@@ -5,6 +5,7 @@
 package Schooling.UI;
 
 import Users.Users;
+import java.awt.CardLayout;
 import java.sql.SQLException;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -50,6 +51,7 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
         jLabelDepartment = new javax.swing.JLabel();
         jComboBoxDepartment = new javax.swing.JComboBox<>();
         jButtonAdd = new javax.swing.JButton();
+        jButtonBack = new javax.swing.JButton();
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -74,45 +76,52 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
             }
         });
 
+        jButtonBack.setText("Back");
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(60, 60, 60)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabelDepartment)
-                        .addGap(37, 37, 37)
-                        .addComponent(jComboBoxDepartment, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelEmailID)
-                                .addGap(57, 57, 57)
-                                .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelName)
-                                    .addComponent(jLabelLastName))
-                                .addGap(44, 44, 44)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextFieldLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
-                                    .addComponent(jTextFieldName))))))
-                .addGap(60, 60, 60))
+            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonAdd)
-                .addGap(124, 124, 124))
+                .addContainerGap(60, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jButtonAdd)
+                        .addGap(64, 64, 64))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabelName)
+                            .addComponent(jLabelLastName))
+                        .addGap(44, 44, 44)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jTextFieldLastName)
+                            .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabelDepartment)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addComponent(jLabelEmailID)
+                            .addGap(57, 57, 57)
+                            .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(60, 60, 60))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabelTitle)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonBack)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelName)
                     .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -130,7 +139,7 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
                     .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonAdd)
-                .addContainerGap(28, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -193,10 +202,20 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonAddActionPerformed
 
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        // TODO add your handling code here:
+        controlArea.removeAll();
+        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout2 = (CardLayout) controlArea.getLayout();
+        layout2.next(controlArea);
+    }//GEN-LAST:event_jButtonBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButtonAdd;
+    private javax.swing.JButton jButtonBack;
     private javax.swing.JComboBox<String> jComboBoxDepartment;
     private javax.swing.JLabel jLabelDepartment;
     private javax.swing.JLabel jLabelEmailID;

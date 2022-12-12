@@ -6,6 +6,7 @@ package Schooling.UI;
 
 import DataConnection.db;
 import Schooling.Model.FieldOfInterest;
+import java.awt.CardLayout;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -44,6 +45,7 @@ public class University_ManageFieldOfInterest_Add extends javax.swing.JPanel {
         jLabelCourseField = new javax.swing.JLabel();
         jTextFieldCourseField = new javax.swing.JTextField();
         jButtonSubmit = new javax.swing.JButton();
+        jButtonBack = new javax.swing.JButton();
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -58,34 +60,47 @@ public class University_ManageFieldOfInterest_Add extends javax.swing.JPanel {
             }
         });
 
+        jButtonBack.setText("Back");
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 474, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
-                .addGap(50, 50, 50)
-                .addComponent(jLabelCourseField)
-                .addGap(64, 64, 64)
-                .addComponent(jTextFieldCourseField, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(61, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jButtonSubmit)
-                .addGap(132, 132, 132))
+                .addGap(51, 51, 51)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabelCourseField)
+                            .addGap(64, 64, 64)
+                            .addComponent(jTextFieldCourseField, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButtonSubmit)
+                            .addGap(71, 71, 71))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(jLabelTitle)
-                .addGap(29, 29, 29)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCourseField)
                     .addComponent(jTextFieldCourseField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSubmit)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -113,8 +128,18 @@ public class University_ManageFieldOfInterest_Add extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonSubmitActionPerformed
 
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        // TODO add your handling code here:
+        controlArea.removeAll();
+        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout2 = (CardLayout) controlArea.getLayout();
+        layout2.next(controlArea);
+    }//GEN-LAST:event_jButtonBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonBack;
     private javax.swing.JButton jButtonSubmit;
     private javax.swing.JLabel jLabelCourseField;
     private javax.swing.JLabel jLabelTitle;

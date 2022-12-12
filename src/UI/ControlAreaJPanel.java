@@ -110,7 +110,7 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
 
     private void btnAdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdminActionPerformed
         // TODO add your handling code here:
-        Admin_Login al = new Admin_Login(workArea, controlArea);
+        Admin_Login al = new Admin_Login(controlArea, workArea);
         workArea.add("Admin_Login",al);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea); 

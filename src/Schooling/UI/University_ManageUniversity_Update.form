@@ -19,29 +19,32 @@
           <Component id="jLabelTitle" alignment="1" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="1" max="-2" attributes="0">
-                  <Component id="jScrollPane1" alignment="0" pref="432" max="32767" attributes="0"/>
-                  <Group type="102" alignment="0" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jLabelCoursename" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelCategory" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelUniversityName" alignment="0" min="-2" max="-2" attributes="0"/>
-                          <Component id="jLabelSeatsInCourse" alignment="0" min="-2" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Component id="jButtonBack" min="-2" pref="90" max="-2" attributes="0"/>
+                  <Group type="103" groupAlignment="1" max="-2" attributes="0">
+                      <Component id="jScrollPane1" alignment="0" pref="432" max="32767" attributes="0"/>
+                      <Group type="102" alignment="0" attributes="0">
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jLabelCoursename" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelCategory" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelUniversityName" alignment="0" min="-2" max="-2" attributes="0"/>
+                              <Component id="jLabelSeatsInCourse" alignment="0" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" attributes="0">
+                              <Component id="jTextFieldSeatInCourse" alignment="0" pref="302" max="32767" attributes="0"/>
+                              <Component id="jTextFieldCategory" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldCourseName" alignment="0" max="32767" attributes="0"/>
+                              <Component id="jTextFieldUniversityName" alignment="0" max="32767" attributes="0"/>
+                          </Group>
                       </Group>
-                      <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="0" attributes="0">
-                          <Component id="jTextFieldSeatInCourse" alignment="0" pref="302" max="32767" attributes="0"/>
-                          <Component id="jTextFieldCategory" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldCourseName" alignment="0" max="32767" attributes="0"/>
-                          <Component id="jTextFieldUniversityName" alignment="0" max="32767" attributes="0"/>
+                      <Group type="102" alignment="1" attributes="0">
+                          <Component id="jButtonView" max="32767" attributes="0"/>
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                          <Component id="jButtonUpdate" min="-2" pref="98" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
+                          <Component id="jButtonFetch" min="-2" pref="98" max="-2" attributes="0"/>
                       </Group>
-                  </Group>
-                  <Group type="102" alignment="1" attributes="0">
-                      <Component id="jButtonView" max="32767" attributes="0"/>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                      <Component id="jButtonUpdate" min="-2" pref="98" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" pref="68" max="-2" attributes="0"/>
-                      <Component id="jButtonFetch" min="-2" pref="98" max="-2" attributes="0"/>
                   </Group>
               </Group>
               <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
@@ -53,7 +56,9 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
               <Component id="jLabelTitle" min="-2" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
+              <Component id="jButtonBack" min="-2" max="-2" attributes="0"/>
+              <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="168" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -81,7 +86,7 @@
                   <Component id="jLabelSeatsInCourse" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jTextFieldSeatInCourse" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
+              <EmptySpace pref="23" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -174,6 +179,14 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonUpdateActionPerformed"/>
+      </Events>
+    </Component>
+    <Component class="javax.swing.JButton" name="jButtonBack">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Back"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jButtonBackActionPerformed"/>
       </Events>
     </Component>
   </SubComponents>

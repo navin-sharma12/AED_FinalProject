@@ -5,6 +5,7 @@
 package Schooling.UI;
 
 import Schooling.Model.JobPortal;
+import java.awt.CardLayout;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
@@ -51,6 +52,7 @@ public class JobPortal_Add extends javax.swing.JPanel {
         jLabelLocation = new javax.swing.JLabel();
         jTextFieldCompanyName = new javax.swing.JTextField();
         jLabelCompanyName = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         jLabelJobType.setText("Job Type:");
 
@@ -86,55 +88,66 @@ public class JobPortal_Add extends javax.swing.JPanel {
 
         jLabelCompanyName.setText("Company Name:");
 
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelJobType)
-                            .addComponent(jLabelLocation)
-                            .addComponent(jLabelJobDescription))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGap(32, 32, 32)
-                                .addComponent(jComboBoxJobType, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                        .addComponent(jButtonSubmit)
-                                        .addGap(78, 78, 78))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextFieldLocation)
-                                        .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabelCompanyName)
-                                    .addComponent(jLabelJobTitle))
-                                .addGap(30, 30, 30))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(jLabelCategory)
-                                .addGap(72, 72, 72)))
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldJobTitle)
-                            .addComponent(jTextFieldCompanyName)
-                            .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelJobType)
+                                .addComponent(jLabelLocation)
+                                .addComponent(jLabelJobDescription))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(32, 32, 32)
+                                    .addComponent(jComboBoxJobType, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 6, Short.MAX_VALUE))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldLocation)
+                                            .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                            .addComponent(jButtonSubmit)
+                                            .addGap(78, 78, 78))))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabelCompanyName)
+                                        .addComponent(jLabelJobTitle))
+                                    .addGap(30, 30, 30))
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addComponent(jLabelCategory)
+                                    .addGap(72, 72, 72)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextFieldJobTitle)
+                                .addComponent(jTextFieldCompanyName)
+                                .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(30, 30, 30))
-            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(38, 38, 38)
+                .addGap(23, 23, 23)
                 .addComponent(jLabelTitle)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addGap(17, 17, 17)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelCompanyName)
                     .addComponent(jTextFieldCompanyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -163,7 +176,7 @@ public class JobPortal_Add extends javax.swing.JPanel {
                         .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonSubmit)
-                .addContainerGap(22, Short.MAX_VALUE))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -240,8 +253,18 @@ public class JobPortal_Add extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jComboBoxCategoryActionPerformed
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        controlArea.removeAll();
+        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout2 = (CardLayout) controlArea.getLayout();
+        layout2.next(controlArea);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonSubmit;
     private javax.swing.JComboBox<String> jComboBoxCategory;
     private javax.swing.JComboBox<String> jComboBoxJobType;

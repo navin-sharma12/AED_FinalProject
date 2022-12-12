@@ -6,6 +6,7 @@ package Schooling.UI;
 
 import DataConnection.db;
 import Users.Users;
+import java.awt.CardLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -65,6 +66,7 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
         jLabelDepartment = new javax.swing.JLabel();
         jComboBoxDepartment = new javax.swing.JComboBox<>();
         jLabelName = new javax.swing.JLabel();
+        jButtonBack = new javax.swing.JButton();
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -102,6 +104,13 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
 
         jLabelName.setText("First name:");
 
+        jButtonBack.setText("Back");
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -109,29 +118,29 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
             .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelName)
-                                .addComponent(jLabelLastName))
-                            .addGap(40, 40, 40)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldName)
-                                .addComponent(jTextFieldLastName)))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabelEmailID)
-                                .addComponent(jLabelDepartment))
-                            .addGap(33, 33, 33)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jTextFieldEmailID)
-                                .addComponent(jComboBoxDepartment, 0, 247, Short.MAX_VALUE))))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
-                            .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(0, 0, Short.MAX_VALUE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelName)
+                                    .addComponent(jLabelLastName))
+                                .addGap(40, 40, 40)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldName)
+                                    .addComponent(jTextFieldLastName)))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabelEmailID)
+                                    .addComponent(jLabelDepartment))
+                                .addGap(33, 33, 33)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jTextFieldEmailID)
+                                    .addComponent(jComboBoxDepartment, 0, 247, Short.MAX_VALUE))))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jButtonView, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 352, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
@@ -139,7 +148,9 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabelTitle)
-                .addGap(35, 35, 35)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonBack)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButtonView)
@@ -159,7 +170,7 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelDepartment)
                     .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(29, 29, 29))
+                .addContainerGap(27, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -192,8 +203,18 @@ public class ManageDepartments_Read extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonViewActionPerformed
 
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        // TODO add your handling code here:
+        controlArea.removeAll();
+        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout2 = (CardLayout) controlArea.getLayout();
+        layout2.next(controlArea);
+    }//GEN-LAST:event_jButtonBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonBack;
     private javax.swing.JButton jButtonView;
     private javax.swing.JComboBox<String> jComboBoxDepartment;
     private javax.swing.JLabel jLabelDepartment;

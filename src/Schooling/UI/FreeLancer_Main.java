@@ -82,8 +82,8 @@ public class FreeLancer_Main extends javax.swing.JPanel {
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
         // TODO add your handling code here:
-        PersonalOrg_Admin_Add poaa = new PersonalOrg_Admin_Add(controlArea, workArea);
-        workArea.add("PersonalOrg_Admin_Add",poaa);
+        PersonalOrg_Add poaa = new PersonalOrg_Add(controlArea, workArea);
+        workArea.add("PersonalOrg_Add",poaa);
         CardLayout layout = (CardLayout)workArea.getLayout();
         layout.next(workArea); 
     }//GEN-LAST:event_jButtonRegisterActionPerformed

@@ -5,6 +5,7 @@
 package Schooling.UI;
 
 import Schooling.Model.PersonalOrganization;
+import java.awt.CardLayout;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import javax.swing.JOptionPane;
@@ -68,6 +69,7 @@ public class PersonalOrg_Admin_Delete extends javax.swing.JPanel {
         jButtonDelete = new javax.swing.JButton();
         jLabelSeats = new javax.swing.JLabel();
         jTextFieldSeats = new javax.swing.JTextField();
+        jButtonBack = new javax.swing.JButton();
 
         jTextFieldLastName.setToolTipText("");
 
@@ -116,6 +118,13 @@ public class PersonalOrg_Admin_Delete extends javax.swing.JPanel {
 
         jLabelSeats.setText("Seats:");
 
+        jButtonBack.setText("Back");
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -123,30 +132,32 @@ public class PersonalOrg_Admin_Delete extends javax.swing.JPanel {
             .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabelFirstName)
-                            .addComponent(jLabelCategory)
-                            .addComponent(jLabelCourse)
-                            .addComponent(jLabelLastName)
-                            .addComponent(jLabelEmailID)
-                            .addComponent(jLabelZoomLink)
-                            .addComponent(jLabelSeats))
-                        .addGap(57, 57, 57)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldFirstName)
-                            .addComponent(jTextFieldLastName)
-                            .addComponent(jTextFieldEmailID)
-                            .addComponent(jTextFieldZoomLink)
-                            .addComponent(jTextFieldCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
-                            .addComponent(jTextFieldCourse)
-                            .addComponent(jTextFieldSeats))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButtonView, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-                            .addComponent(jButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonBack)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabelFirstName)
+                                .addComponent(jLabelCategory)
+                                .addComponent(jLabelCourse)
+                                .addComponent(jLabelLastName)
+                                .addComponent(jLabelEmailID)
+                                .addComponent(jLabelZoomLink)
+                                .addComponent(jLabelSeats))
+                            .addGap(57, 57, 57)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jTextFieldFirstName)
+                                .addComponent(jTextFieldLastName)
+                                .addComponent(jTextFieldEmailID)
+                                .addComponent(jTextFieldZoomLink)
+                                .addComponent(jTextFieldCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+                                .addComponent(jTextFieldCourse)
+                                .addComponent(jTextFieldSeats))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jButtonView, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                .addComponent(jButtonDelete, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -154,7 +165,9 @@ public class PersonalOrg_Admin_Delete extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabelTitle)
-                .addGap(30, 30, 30)
+                .addGap(18, 18, 18)
+                .addComponent(jButtonBack)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 37, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -186,7 +199,7 @@ public class PersonalOrg_Admin_Delete extends javax.swing.JPanel {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabelSeats)
                     .addComponent(jTextFieldSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addGap(18, 18, 18))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -224,8 +237,18 @@ public class PersonalOrg_Admin_Delete extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonDeleteActionPerformed
 
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        // TODO add your handling code here:
+        controlArea.removeAll();
+        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout2 = (CardLayout) controlArea.getLayout();
+        layout2.next(controlArea);
+    }//GEN-LAST:event_jButtonBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonBack;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonView;
     private javax.swing.JLabel jLabelCategory;

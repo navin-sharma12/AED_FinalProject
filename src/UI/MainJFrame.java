@@ -4,35 +4,7 @@
  */
 package UI;
 import DataConnection.db;
-import Schooling.UI.PersonalOrg_login_JPanel;
-import UI.Funding.Funding_ManageInvestor_Delete;
-import UI.Funding.Funding_ManageInvestor_Update;
-import UI.Funding.Funding_ManageInvestors_Add;
-import UI.Funding.Funding_ManageInvestors_Read;
-import Schooling.UI.Schooling_Admin;
-import UI.CollegeDept.CollegeDeptAddJPanel;
-import UI.CollegeDept.CollegeDeptReadJPanel;
-import UI.CollegeDept.CollegeDeptUpdateJPanel;
-import UI.Funding.Funding_AddGovernmentInvestor;
-import UI.Funding.Funding_AddLocalInvestor;
-import UI.Funding.Funding_AssignFunds_JPanel;
-import UI.Funding.Funding_DeleteLocalInvestor_JPanel;
-import UI.Funding.Funding_LocalInvestor;
-import UI.Funding.Funding_Login;
-import UI.Funding.Funding_ReadLocalInvestor_JPanel;
-import UI.Funding.Funding_UpdateGovernmentInvestor_JPanel;
-import UI.Funding.Funding_UpdateLocalInvestor_JPanel;
-import UI.Housing.Housing_AssignHousing_JPanel;
-import UI.Housing.Housing_ManageUser_Add;
-import UI.Housing.Housing_ManageUser_Delete;
-import UI.Housing.Housing_ManageUser_Update;
-import UI.Housing.Housing_OffCampus_AddJPanel;
-import UI.Housing.Housing_OnCampus_AddJPanel;
-import UI.student.StudentAddJPanel;
-import UI.student.StudentDeleteJPanel;
-import UI.student.StudentLoginJPanel;
-import UI.student.StudentUpdateJPanel;
-import UI.student.StudentViewJPanel;
+import Schooling.UI.JobPortal_Student_View;
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
@@ -140,7 +112,6 @@ public class MainJFrame extends javax.swing.JFrame {
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
         layout2.next(controlArea); 
-        
 
 //        PersonalOrg_login_JPanel hmua = new PersonalOrg_login_JPanel(controlArea, workArea);
 //        workArea.add("PersonalOrg_login_JPanel",hmua);
