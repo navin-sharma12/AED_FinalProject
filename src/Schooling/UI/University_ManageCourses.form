@@ -23,7 +23,7 @@
                   <Component id="jButtonRead" alignment="0" max="32767" attributes="0"/>
                   <Component id="jButtonAdd" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
               </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

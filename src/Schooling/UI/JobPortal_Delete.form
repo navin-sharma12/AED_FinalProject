@@ -1,11 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 
 <Form version="1.5" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
-  <Properties>
-    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-      <Color blue="ce" green="e0" red="f2" type="rgb"/>
-    </Property>
-  </Properties>
   <AuxValues>
     <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
     <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
@@ -23,7 +18,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Component id="jLabelTitle" alignment="0" pref="663" max="32767" attributes="0"/>
           <Group type="102" alignment="0" attributes="0">
-              <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="1" attributes="0">
                   <Component id="jButton1" min="-2" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="0" attributes="0">
@@ -72,7 +67,6 @@
                       </Group>
                   </Group>
               </Group>
-              <EmptySpace max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -83,7 +77,7 @@
               <Component id="jLabelTitle" min="-2" max="-2" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jButton1" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="20" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="189" max="-2" attributes="0"/>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
@@ -97,23 +91,7 @@
                   <Component id="jTextFieldJobTitle" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
-                      <Component id="jScrollPane1" min="-2" pref="123" max="-2" attributes="0"/>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jButtonView" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jButtonDelete" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelCompanyName" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldCompanyName" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
-                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="3" attributes="0">
-                          <Component id="jLabelJobTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                          <Component id="jTextFieldJobTitle" alignment="3" min="-2" max="-2" attributes="0"/>
-                      </Group>
+                  <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
                           <Component id="jLabelCategory" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -140,9 +118,12 @@
                           </Group>
                       </Group>
                   </Group>
-                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                  <Group type="102" alignment="0" attributes="0">
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="jButtonDelete" min="-2" max="-2" attributes="0"/>
+                  </Group>
               </Group>
-              <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -150,9 +131,6 @@
   <SubComponents>
     <Component class="javax.swing.JLabel" name="jLabelCompanyName">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name=".AppleSystemUIFont" size="14" style="1"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Company Name:"/>
       </Properties>
     </Component>
@@ -200,14 +178,11 @@
           <Font name="Helvetica Neue" size="18" style="1"/>
         </Property>
         <Property name="horizontalAlignment" type="int" value="0"/>
-        <Property name="text" type="java.lang.String" value="Job Portal : Delete Jobs"/>
+        <Property name="text" type="java.lang.String" value="Delete Jobs"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelJobType">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name=".AppleSystemUIFont" size="14" style="1"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Job Type:"/>
       </Properties>
     </Component>
@@ -215,9 +190,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelLocation">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name=".AppleSystemUIFont" size="14" style="1"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Location:"/>
       </Properties>
     </Component>
@@ -249,17 +221,11 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabelCategory">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name=".AppleSystemUIFont" size="14" style="1"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Category:"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelJobDescription">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name=".AppleSystemUIFont" size="14" style="1"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Job Description:"/>
       </Properties>
     </Component>
@@ -292,9 +258,6 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabelJobTitle">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name=".AppleSystemUIFont" size="14" style="1"/>
-        </Property>
         <Property name="text" type="java.lang.String" value="Job Title:"/>
       </Properties>
     </Component>

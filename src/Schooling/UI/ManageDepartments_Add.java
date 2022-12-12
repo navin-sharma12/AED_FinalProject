@@ -51,52 +51,23 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
         jLabelDepartment = new javax.swing.JLabel();
         jComboBoxDepartment = new javax.swing.JComboBox<>();
         jButtonAdd = new javax.swing.JButton();
-<<<<<<< HEAD
-        jLabel1 = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(180, 203, 226));
-        setLayout(null);
-=======
         jButtonBack = new javax.swing.JButton();
->>>>>>> Sharma_Navin_002737702
 
         jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
         jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle.setText("Manage Departments : Add");
-        add(jLabelTitle);
-        jLabelTitle.setBounds(60, 30, 712, 124);
+        jLabelTitle.setText("Manage Departments");
 
-        jLabelName.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         jLabelName.setText("First name:");
-        add(jLabelName);
-        jLabelName.setBounds(332, 174, 75, 15);
 
         jTextFieldName.setToolTipText("");
-        add(jTextFieldName);
-        jTextFieldName.setBounds(451, 170, 207, 23);
 
-        jLabelLastName.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         jLabelLastName.setText("Last name:");
-        add(jLabelLastName);
-        jLabelLastName.setBounds(332, 215, 73, 15);
-        add(jTextFieldLastName);
-        jTextFieldLastName.setBounds(451, 211, 207, 23);
 
-        jLabelEmailID.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         jLabelEmailID.setText("Email ID:");
-        add(jLabelEmailID);
-        jLabelEmailID.setBounds(336, 256, 58, 15);
-        add(jTextFieldEmailID);
-        jTextFieldEmailID.setBounds(451, 252, 207, 23);
 
-        jLabelDepartment.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
         jLabelDepartment.setText("Department:");
-        add(jLabelDepartment);
-        jLabelDepartment.setBounds(325, 297, 82, 15);
 
         jComboBoxDepartment.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Jobs Department", "Personal Org. Department", "Universities Department" }));
-        add(jComboBoxDepartment);
-        jComboBoxDepartment.setBounds(451, 293, 207, 23);
 
         jButtonAdd.setText("Submit");
         jButtonAdd.addActionListener(new java.awt.event.ActionListener() {
@@ -104,14 +75,7 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
                 jButtonAddActionPerformed(evt);
             }
         });
-        add(jButtonAdd);
-        jButtonAdd.setBounds(325, 334, 72, 23);
 
-<<<<<<< HEAD
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/MD 1.png"))); // NOI18N
-        add(jLabel1);
-        jLabel1.setBounds(100, 170, 174, 158);
-=======
         jButtonBack.setText("Back");
         jButtonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -123,39 +87,39 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(60, Short.MAX_VALUE)
+                .addGap(60, 60, 60)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButtonBack)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButtonAdd)
-                        .addGap(64, 64, 64))
+                        .addComponent(jLabelDepartment)
+                        .addGap(37, 37, 37)
+                        .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabelEmailID)
+                        .addGap(57, 57, 57)
+                        .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabelName)
                             .addComponent(jLabelLastName))
                         .addGap(44, 44, 44)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextFieldLastName)
-                            .addComponent(jTextFieldName, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(jButtonBack, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(jLabelDepartment)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                            .addComponent(jLabelEmailID)
-                            .addGap(57, 57, 57)
-                            .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(60, 60, 60))
+                            .addComponent(jTextFieldLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 207, Short.MAX_VALUE)
+                            .addComponent(jTextFieldName))))
+                .addContainerGap(60, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(233, 233, 233)
+                .addComponent(jButtonAdd)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addComponent(jLabelTitle)
-                .addGap(18, 18, 18)
+                .addGap(16, 16, 16)
                 .addComponent(jButtonBack)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -175,9 +139,8 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
                     .addComponent(jComboBoxDepartment, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jButtonAdd)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
->>>>>>> Sharma_Navin_002737702
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButtonAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonAddActionPerformed
@@ -254,7 +217,6 @@ public class ManageDepartments_Add extends javax.swing.JPanel {
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonBack;
     private javax.swing.JComboBox<String> jComboBoxDepartment;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabelDepartment;
     private javax.swing.JLabel jLabelEmailID;
     private javax.swing.JLabel jLabelLastName;

@@ -41,7 +41,106 @@ public class CollegeDeptAddJPanel extends javax.swing.JPanel {
     /**
      * Creates new form CollegeDeptAddJPanel
      */
-    ResultSet rs_course, rs_university, rs_foiId, rs_foi, rs_all_university, rs_all_student, rs_course_id, rs_university_id, rs_seats, rs_freelancer,rs_all_freelancer, rs_freelancer_id;
+    ResultSet rs_course,
+
+    /**
+     * Creates new form CollegeDeptAddJPanel1
+     */
+
+    /**
+     * Creates new form CollegeDeptAddJPanel
+     */
+    rs_university, 
+
+    /**
+     * Creates new form CollegeDeptAddJPanel1
+     */
+
+    /**
+     * Creates new form CollegeDeptAddJPanel
+     */
+    rs_foiId, 
+
+    /**
+     * Creates new form CollegeDeptAddJPanel1
+     */
+
+    /**
+     * Creates new form CollegeDeptAddJPanel
+     */
+    rs_foi, 
+
+    /**
+     * Creates new form CollegeDeptAddJPanel1
+     */
+
+    /**
+     * Creates new form CollegeDeptAddJPanel
+     */
+    rs_all_university, 
+
+    /**
+     * Creates new form CollegeDeptAddJPanel1
+     */
+
+    /**
+     * Creates new form CollegeDeptAddJPanel
+     */
+    rs_all_student, 
+
+    /**
+     * Creates new form CollegeDeptAddJPanel1
+     */
+
+    /**
+     * Creates new form CollegeDeptAddJPanel
+     */
+    rs_course_id, 
+
+    /**
+     * Creates new form CollegeDeptAddJPanel1
+     */
+
+    /**
+     * Creates new form CollegeDeptAddJPanel
+     */
+    rs_university_id, 
+
+    /**
+     * Creates new form CollegeDeptAddJPanel1
+     */
+
+    /**
+     * Creates new form CollegeDeptAddJPanel
+     */
+    rs_seats, 
+
+    /**
+     * Creates new form CollegeDeptAddJPanel1
+     */
+
+    /**
+     * Creates new form CollegeDeptAddJPanel
+     */
+    rs_freelancer,
+
+    /**
+     * Creates new form CollegeDeptAddJPanel1
+     */
+
+    /**
+     * Creates new form CollegeDeptAddJPanel
+     */
+    rs_all_freelancer, 
+
+    /**
+     * Creates new form CollegeDeptAddJPanel1
+     */
+
+    /**
+     * Creates new form CollegeDeptAddJPanel
+     */
+    rs_freelancer_id;
     int student_id;
     String student_email;
     String password;

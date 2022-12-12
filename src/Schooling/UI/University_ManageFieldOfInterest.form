@@ -19,10 +19,10 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="37" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                  <Component id="jButtonUpdate" alignment="0" max="32767" attributes="0"/>
-                  <Component id="jButtonAdd" alignment="0" min="-2" pref="73" max="-2" attributes="0"/>
+                  <Component id="jButtonUpdate" max="32767" attributes="0"/>
+                  <Component id="jButtonAdd" max="32767" attributes="0"/>
               </Group>
-              <EmptySpace pref="36" max="32767" attributes="0"/>
+              <EmptySpace min="-2" pref="36" max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>

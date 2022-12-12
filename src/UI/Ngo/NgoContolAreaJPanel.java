@@ -117,7 +117,6 @@ public class NgoContolAreaJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnStudents;
-    private javax.swing.JButton btnStudents1;
     private javax.swing.JButton jButtonManageDepartments;
     private javax.swing.JLabel jLabel2;
     // End of variables declaration//GEN-END:variables

@@ -4,6 +4,7 @@
  */
 package Schooling.UI;
 
+import UI.ControlAreaJPanel;
 import UI.student.StudentLoginJPanel;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
@@ -36,6 +37,7 @@ public class Schooling_Main extends javax.swing.JPanel {
 
         jButtonStudent = new javax.swing.JButton();
         jButtonFreeLancer = new javax.swing.JButton();
+        jButtonBack = new javax.swing.JButton();
 
         jButtonStudent.setText("Student");
         jButtonStudent.addActionListener(new java.awt.event.ActionListener() {
@@ -51,6 +53,13 @@ public class Schooling_Main extends javax.swing.JPanel {
             }
         });
 
+        jButtonBack.setText("Back");
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonBackActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -59,7 +68,8 @@ public class Schooling_Main extends javax.swing.JPanel {
                 .addGap(47, 47, 47)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jButtonFreeLancer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButtonStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButtonStudent, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButtonBack, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(47, 47, 47))
         );
         layout.setVerticalGroup(
@@ -69,7 +79,9 @@ public class Schooling_Main extends javax.swing.JPanel {
                 .addComponent(jButtonStudent)
                 .addGap(45, 45, 45)
                 .addComponent(jButtonFreeLancer)
-                .addContainerGap(379, Short.MAX_VALUE))
+                .addGap(45, 45, 45)
+                .addComponent(jButtonBack)
+                .addContainerGap(311, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -89,8 +101,17 @@ public class Schooling_Main extends javax.swing.JPanel {
         layout.next(controlArea); 
     }//GEN-LAST:event_jButtonFreeLancerActionPerformed
 
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        // TODO add your handling code here:
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel",cajp);
+        CardLayout layout2 = (CardLayout)controlArea.getLayout();
+        layout2.next(controlArea);
+    }//GEN-LAST:event_jButtonBackActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButtonBack;
     private javax.swing.JButton jButtonFreeLancer;
     private javax.swing.JButton jButtonStudent;
     // End of variables declaration//GEN-END:variables

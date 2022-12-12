@@ -4,45 +4,6 @@
  */
 package UI;
 import DataConnection.db;
-<<<<<<< HEAD
-import Schooling.UI.PersonalOrg_login_JPanel;
-import UI.Funding.Funding_ManageInvestor_Delete;
-import UI.Funding.Funding_ManageInvestor_Update;
-import UI.Funding.Funding_ManageInvestors_Add;
-import UI.Funding.Funding_ManageInvestors_Read;
-import Schooling.UI.Schooling_Admin;
-import UI.CollegeDept.CollegeDeptAddJPanel;
-import UI.CollegeDept.CollegeDeptReadJPanel;
-import UI.CollegeDept.CollegeDeptUpdateJPanel;
-import UI.Funding.Funding_AddGovernmentInvestor;
-import UI.Funding.Funding_AddLocalInvestor;
-import UI.Funding.Funding_AssignFunds_JPanel;
-import UI.Funding.Funding_DeleteLocalInvestor_JPanel;
-import UI.Funding.Funding_LocalInvestor;
-import UI.Funding.Funding_Login;
-import UI.Funding.Funding_ReadLocalInvestor_JPanel;
-import UI.Funding.Funding_UpdateGovernmentInvestor_JPanel;
-import UI.Funding.Funding_UpdateLocalInvestor_JPanel;
-import UI.Housing.Housing_AssignHousing_JPanel;
-import UI.Housing.Housing_ManageUser_Add;
-import UI.Housing.Housing_ManageUser_Delete;
-import UI.Housing.Housing_ManageUser_Update;
-import UI.Housing.Housing_OffCampus_AddJPanel;
-import UI.Housing.Housing_OffCampus_DeleteJPanel;
-import UI.Housing.Housing_OffCampus_Read;
-import UI.Housing.Housing_OffCampus_UpdateJPanel;
-import UI.Housing.Housing_OnCampus_AddJPanel;
-import UI.Ngo.ManageDepartmentControlJPanel;
-import UI.Ngo.ManageDepartmentDeleteJPanel;
-import UI.Ngo.NgoContolAreaJPanel;
-import UI.student.StudentAddJPanel;
-import UI.student.StudentDeleteJPanel;
-import UI.student.StudentLoginJPanel;
-import UI.student.StudentUpdateJPanel;
-import UI.student.StudentViewJPanel;
-=======
-import Schooling.UI.JobPortal_Student_View;
->>>>>>> Sharma_Navin_002737702
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
@@ -59,8 +20,8 @@ public class MainJFrame extends javax.swing.JFrame {
     public MainJFrame() {
         initComponents();
         db.connection();
-         setSize(1000, 1000);
-       setPreferredSize(new Dimension(1000,1000));
+         setSize(900, 700);
+       setPreferredSize(new Dimension(900, 700));
        setLayout();
     }
 
@@ -89,11 +50,11 @@ public class MainJFrame extends javax.swing.JFrame {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 733, Short.MAX_VALUE)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 726, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 527, Short.MAX_VALUE)
+            .addComponent(jSplitPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 649, Short.MAX_VALUE)
         );
 
         pack();
@@ -125,6 +86,9 @@ public class MainJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -149,30 +113,7 @@ public class MainJFrame extends javax.swing.JFrame {
         ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
-<<<<<<< HEAD
         layout2.next(controlArea);
-        
-         Funding_AddLocalInvestor hocad = new  Funding_AddLocalInvestor(controlArea, workArea);
-         workArea.add("Funding_AddLocalInvestor",hocad);
-         CardLayout layout = (CardLayout)workArea.getLayout();
-         layout.next(workArea);
-        
-        
-=======
-        layout2.next(controlArea); 
->>>>>>> Sharma_Navin_002737702
-
-
-
-        
-
-        
-      
-
-        
-
-        
-    
     }
     
 }
