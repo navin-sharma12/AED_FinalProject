@@ -420,4 +420,16 @@ public class Student {
         }
 
     }
+    
+    public ResultSet getStudentByFreeLancerId(int id) throws SQLException {
+        try {
+
+            ResultSet resultSet = db.selectQuery("select * from student where free_lancer_id = '" + id + "'");
+            return resultSet;
+
+        } catch (IllegalArgumentException e) {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+
+    }
 }

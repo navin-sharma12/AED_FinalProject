@@ -34,7 +34,6 @@ public class Schooling_PersonalOrg_Admin extends javax.swing.JPanel {
     private void initComponents() {
 
         jButtonDelete = new javax.swing.JButton();
-        jButtonUpdate = new javax.swing.JButton();
         jButtonRead = new javax.swing.JButton();
         jButtonAdd = new javax.swing.JButton();
 
@@ -44,8 +43,6 @@ public class Schooling_PersonalOrg_Admin extends javax.swing.JPanel {
                 jButtonDeleteActionPerformed(evt);
             }
         });
-
-        jButtonUpdate.setText("Update");
 
         jButtonRead.setText("Read");
         jButtonRead.addActionListener(new java.awt.event.ActionListener() {
@@ -69,10 +66,9 @@ public class Schooling_PersonalOrg_Admin extends javax.swing.JPanel {
                 .addGap(46, 46, 46)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButtonDelete)
-                    .addComponent(jButtonUpdate)
                     .addComponent(jButtonRead)
                     .addComponent(jButtonAdd))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addGap(44, 44, 44))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -81,11 +77,9 @@ public class Schooling_PersonalOrg_Admin extends javax.swing.JPanel {
                 .addComponent(jButtonAdd)
                 .addGap(50, 50, 50)
                 .addComponent(jButtonRead)
-                .addGap(50, 50, 50)
-                .addComponent(jButtonUpdate)
-                .addGap(50, 50, 50)
+                .addGap(54, 54, 54)
                 .addComponent(jButtonDelete)
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -118,6 +112,5 @@ public class Schooling_PersonalOrg_Admin extends javax.swing.JPanel {
     private javax.swing.JButton jButtonAdd;
     private javax.swing.JButton jButtonDelete;
     private javax.swing.JButton jButtonRead;
-    private javax.swing.JButton jButtonUpdate;
     // End of variables declaration//GEN-END:variables
 }

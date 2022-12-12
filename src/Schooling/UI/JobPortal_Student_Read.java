@@ -4,6 +4,14 @@
  */
 package Schooling.UI;
 
+import Schooling.Model.JobPortalStudent;
+import java.awt.CardLayout;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
 /**
  *
  * @author navinsharma
@@ -13,8 +21,25 @@ public class JobPortal_Student_Read extends javax.swing.JPanel {
     /**
      * Creates new form JobPortal_Student_Read
      */
-    public JobPortal_Student_Read() {
-        initComponents();
+    JPanel controlArea;
+    JPanel workArea;
+    int student_id;
+    ResultSet resultSet;
+    public JobPortal_Student_Read(JPanel controlArea, JPanel workArea, int student_id) {
+        try 
+        {
+            initComponents();
+            this.controlArea = controlArea;
+            this.workArea = workArea;
+            this.student_id = student_id;
+            JobPortalStudent jps = new JobPortalStudent(student_id);
+            resultSet = jps.getJobsByStudentId(student_id);
+            ViewTable();
+        } 
+        catch (SQLException ex) 
+        {
+//            Logger.getLogger(JobPortal_Student_Read.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -26,19 +51,272 @@ public class JobPortal_Student_Read extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jButtonView = new javax.swing.JButton();
+        jComboBoxJobType = new javax.swing.JComboBox<>();
+        jTextFieldLocation = new javax.swing.JTextField();
+        jLabelCompanyName = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable = new javax.swing.JTable();
+        jLabelJobTitle = new javax.swing.JLabel();
+        jTextFieldCompanyName = new javax.swing.JTextField();
+        jLabelCategory = new javax.swing.JLabel();
+        jLabelJobDescription = new javax.swing.JLabel();
+        jScrollPaneJobDescription = new javax.swing.JScrollPane();
+        jTextAreaJobDescription = new javax.swing.JTextArea();
+        jLabelLocation = new javax.swing.JLabel();
+        jTextFieldJobTitle = new javax.swing.JTextField();
+        jComboBoxCategory = new javax.swing.JComboBox<>();
+        jLabelJobType = new javax.swing.JLabel();
+        jLabelTitle = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
+
+        jButtonView.setText("View");
+        jButtonView.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonViewActionPerformed(evt);
+            }
+        });
+
+        jComboBoxJobType.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Part time", "Full time", "Intern" }));
+
+        jLabelCompanyName.setText("Company Name:");
+
+        jTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null},
+                {null, null, null, null, null, null}
+            },
+            new String [] {
+                "Company name", "Job title", "Category", "Job Type", "Location", "Job description"
+            }
+        ));
+        jScrollPane1.setViewportView(jTable);
+
+        jLabelJobTitle.setText("Job Title:");
+
+        jLabelCategory.setText("Category:");
+
+        jLabelJobDescription.setText("Job Description:");
+
+        jTextAreaJobDescription.setColumns(20);
+        jTextAreaJobDescription.setRows(5);
+        jScrollPaneJobDescription.setViewportView(jTextAreaJobDescription);
+
+        jLabelLocation.setText("Location:");
+
+        jComboBoxCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "On Campus", "Off Campus" }));
+        jComboBoxCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jComboBoxCategoryActionPerformed(evt);
+            }
+        });
+
+        jLabelJobType.setText("Job Type:");
+
+        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("Read Jobs");
+
+        jButton1.setText("Back");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(30, 30, 30)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabelJobType)
+                                            .addComponent(jLabelLocation)
+                                            .addComponent(jLabelJobDescription))
+                                        .addGap(32, 32, 32)
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxJobType, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                    .addComponent(jLabelCompanyName)
+                                                    .addComponent(jLabelJobTitle))
+                                                .addGap(30, 30, 30))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                                .addComponent(jLabelCategory)
+                                                .addGap(72, 72, 72)))
+                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                            .addComponent(jTextFieldJobTitle, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jTextFieldCompanyName, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 235, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(104, 104, 104)
+                                .addComponent(jButtonView, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 589, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton1))
+                        .addGap(30, 30, 30)))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(32, 32, 32)
+                .addComponent(jLabelTitle)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCompanyName)
+                    .addComponent(jTextFieldCompanyName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButtonView))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelJobTitle)
+                    .addComponent(jTextFieldJobTitle, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelCategory)
+                    .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBoxJobType, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabelJobType))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabelLocation)
+                    .addComponent(jTextFieldLocation, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addComponent(jLabelJobDescription))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPaneJobDescription, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(24, 24, 24))
         );
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButtonViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonViewActionPerformed
+        // TODO add your handling code here:
+        int selectedRowIndex = jTable.getSelectedRow();
+        if (selectedRowIndex<0)
+        {
+            JOptionPane.showMessageDialog(this, "Please select a row to view");
+        }
+        else
+        {
+            DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
+            jTextFieldCompanyName.setText(table_model.getValueAt(selectedRowIndex, 0).toString());
+            jTextFieldJobTitle.setText(table_model.getValueAt(selectedRowIndex, 1).toString());
+            if("On Campus".equals(table_model.getValueAt(selectedRowIndex, 2).toString()))
+            {
+                jComboBoxCategory.setSelectedItem("On Campus");
+            }
+            else
+            {
+                jComboBoxCategory.setSelectedItem("Off Campus");
+            }
+            if("Part time".equals(table_model.getValueAt(selectedRowIndex, 3).toString()))
+            {
+                jComboBoxJobType.setSelectedItem("Part time");
+            }
+            if("Full time".equals(table_model.getValueAt(selectedRowIndex, 3).toString()))
+            {
+                jComboBoxJobType.setSelectedItem("Full time");
+            }
+            else
+            {
+                jComboBoxJobType.setSelectedItem("Intern");
+            }
+            jTextFieldLocation.setText(table_model.getValueAt(selectedRowIndex, 4).toString());
+            jTextAreaJobDescription.setText(table_model.getValueAt(selectedRowIndex, 5).toString());
+        }
+    }//GEN-LAST:event_jButtonViewActionPerformed
+
+    private void jComboBoxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoryActionPerformed
+        // TODO add your handling code here:
+        String category;
+
+        category = jComboBoxCategory.getSelectedItem().toString();
+        if("Off Campus".equals(category))
+        {
+            jComboBoxJobType.addItem("Part time");
+            jComboBoxJobType.addItem("Full time");
+            jComboBoxJobType.addItem("Intern");
+        }
+        else
+        {
+            jComboBoxJobType.removeAllItems();
+        }
+    }//GEN-LAST:event_jComboBoxCategoryActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        controlArea.removeAll();
+        Schooling_Main sl = new Schooling_Main(controlArea, workArea);
+        controlArea.add("Schooling_Main",sl);
+        CardLayout layout = (CardLayout)controlArea.getLayout();
+        layout.next(controlArea);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButtonView;
+    private javax.swing.JComboBox<String> jComboBoxCategory;
+    private javax.swing.JComboBox<String> jComboBoxJobType;
+    private javax.swing.JLabel jLabelCategory;
+    private javax.swing.JLabel jLabelCompanyName;
+    private javax.swing.JLabel jLabelJobDescription;
+    private javax.swing.JLabel jLabelJobTitle;
+    private javax.swing.JLabel jLabelJobType;
+    private javax.swing.JLabel jLabelLocation;
+    private javax.swing.JLabel jLabelTitle;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPaneJobDescription;
+    private javax.swing.JTable jTable;
+    private javax.swing.JTextArea jTextAreaJobDescription;
+    private javax.swing.JTextField jTextFieldCompanyName;
+    private javax.swing.JTextField jTextFieldJobTitle;
+    private javax.swing.JTextField jTextFieldLocation;
     // End of variables declaration//GEN-END:variables
+
+    private void ViewTable() throws SQLException
+    {
+        DefaultTableModel table_model = (DefaultTableModel) jTable.getModel();
+        table_model.setRowCount(0);
+        
+        try 
+        {
+            while (resultSet.next()) 
+            {
+                Object[] row = new Object[6];
+                row[0] = resultSet.getString(2);
+                row[1] = resultSet.getString(3);
+                row[2] = resultSet.getString(4);
+                row[3] = resultSet.getString(5);
+                row[4] = resultSet.getString(6);
+                row[5] = resultSet.getString(7);
+                table_model.addRow(row);
+            }
+        } 
+        catch (IllegalArgumentException e) 
+        {
+            throw new IllegalArgumentException(e.getMessage() + "Record not found");
+        }
+    }
 }

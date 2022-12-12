@@ -7,12 +7,13 @@ package Schooling.UI;
 import Schooling.Model.Courses;
 import Schooling.Model.FieldOfInterest;
 import Schooling.Model.PersonalOrganization;
+import UI.ControlAreaJPanel;
 import java.awt.CardLayout;
-import java.util.regex.Matcher;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
 import java.util.Properties;
+import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.mail.Authenticator;
 import javax.mail.Message;
@@ -28,16 +29,16 @@ import javax.swing.JPanel;
  *
  * @author navinsharma
  */
-public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
+public class PersonalOrg_Add extends javax.swing.JPanel {
 
     /**
-     * Creates new form PersonalOrg_Admin_Add
+     * Creates new form PersonalOrg_Add
      */
     JPanel controlArea;
     JPanel workArea;
     ResultSet resultSet, resultSet1, resultSet2, resultSet3, resultSet4;
     FieldOfInterest foi = new FieldOfInterest();
-    public PersonalOrg_Admin_Add(JPanel controlArea, JPanel workArea) 
+    public PersonalOrg_Add(JPanel controlArea, JPanel workArea) 
     {
         initComponents();
         this.controlArea = controlArea;
@@ -69,7 +70,6 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
             return false;
         }
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -79,40 +79,24 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabelTitle = new javax.swing.JLabel();
-        jLabelFirstName = new javax.swing.JLabel();
-        jTextFieldFirstName = new javax.swing.JTextField();
-        jLabelCategory = new javax.swing.JLabel();
         jComboBoxCategory = new javax.swing.JComboBox<>();
-        jLabelCourse = new javax.swing.JLabel();
-        jComboBoxCourse = new javax.swing.JComboBox<>();
-        jLabelLastName = new javax.swing.JLabel();
-        jTextFieldLastName = new javax.swing.JTextField();
-        jLabelEmailID = new javax.swing.JLabel();
-        jTextFieldEmailID = new javax.swing.JTextField();
-        jLabelZoomLink = new javax.swing.JLabel();
+        jLabelCategory = new javax.swing.JLabel();
+        jTextFieldFirstName = new javax.swing.JTextField();
+        jLabelFirstName = new javax.swing.JLabel();
         jTextFieldZoomLink = new javax.swing.JTextField();
-        jButtonRegister = new javax.swing.JButton();
-        jButtonCourse = new javax.swing.JButton();
-        jLabelSeats = new javax.swing.JLabel();
-        jTextFieldSeats = new javax.swing.JTextField();
-<<<<<<< HEAD
-        jLabel2 = new javax.swing.JLabel();
-
-        setBackground(new java.awt.Color(211, 237, 211));
-=======
+        jLabelTitle = new javax.swing.JLabel();
+        jLabelZoomLink = new javax.swing.JLabel();
+        jTextFieldEmailID = new javax.swing.JTextField();
+        jLabelEmailID = new javax.swing.JLabel();
+        jTextFieldLastName = new javax.swing.JTextField();
+        jLabelLastName = new javax.swing.JLabel();
+        jComboBoxCourse = new javax.swing.JComboBox<>();
+        jLabelCourse = new javax.swing.JLabel();
         jButtonBack = new javax.swing.JButton();
->>>>>>> Sharma_Navin_002737702
-
-        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
-        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabelTitle.setText("Personal Organisation : Register");
-
-        jLabelFirstName.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
-        jLabelFirstName.setText("First name:");
-
-        jLabelCategory.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
-        jLabelCategory.setText("Category:");
+        jTextFieldSeats = new javax.swing.JTextField();
+        jLabelSeats = new javax.swing.JLabel();
+        jButtonCourse = new javax.swing.JButton();
+        jButtonRegister = new javax.swing.JButton();
 
         jComboBoxCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -120,26 +104,32 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
             }
         });
 
-        jLabelCourse.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
-        jLabelCourse.setText("Course:");
+        jLabelCategory.setText("Category:");
 
-        jLabelLastName.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
-        jLabelLastName.setText("Last name:");
+        jLabelFirstName.setText("First name:");
+
+        jLabelTitle.setFont(new java.awt.Font("Helvetica Neue", 1, 18)); // NOI18N
+        jLabelTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabelTitle.setText("Register");
+
+        jLabelZoomLink.setText("Zoom link:");
+
+        jLabelEmailID.setText("Email id:");
 
         jTextFieldLastName.setToolTipText("");
 
-        jLabelEmailID.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
-        jLabelEmailID.setText("Email id:");
+        jLabelLastName.setText("Last name:");
 
-        jLabelZoomLink.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
-        jLabelZoomLink.setText("Zoom link:");
+        jLabelCourse.setText("Course:");
 
-        jButtonRegister.setText("Register");
-        jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
+        jButtonBack.setText("Back");
+        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonRegisterActionPerformed(evt);
+                jButtonBackActionPerformed(evt);
             }
         });
+
+        jLabelSeats.setText("Seats:");
 
         jButtonCourse.setText("Course");
         jButtonCourse.addActionListener(new java.awt.event.ActionListener() {
@@ -148,67 +138,17 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
             }
         });
 
-        jLabelSeats.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 12)); // NOI18N
-        jLabelSeats.setText("Seats:");
-
-<<<<<<< HEAD
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/Personal org .png"))); // NOI18N
-=======
-        jButtonBack.setText("Back");
-        jButtonBack.addActionListener(new java.awt.event.ActionListener() {
+        jButtonRegister.setText("Register");
+        jButtonRegister.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonBackActionPerformed(evt);
+                jButtonRegisterActionPerformed(evt);
             }
         });
->>>>>>> Sharma_Navin_002737702
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-<<<<<<< HEAD
-            .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(240, 240, 240)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jLabelSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 78, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabelFirstName)
-                                        .addComponent(jLabelEmailID)
-                                        .addComponent(jLabelCategory)
-                                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                            .addComponent(jLabelCourse, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabelLastName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jLabelZoomLink)
-                                        .addGap(10, 10, 10)))
-                                .addGap(57, 57, 57)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextFieldLastName)
-                                    .addComponent(jTextFieldEmailID)
-                                    .addComponent(jTextFieldFirstName)))))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(377, 377, 377)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(jButtonCourse, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonRegister, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(21, 21, 21))
-                            .addComponent(jTextFieldSeats, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jTextFieldZoomLink, javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jComboBoxCourse, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jComboBoxCategory, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addGap(28, 28, 28)
-                .addComponent(jLabel2)
-                .addGap(167, 167, 167))
-=======
             .addComponent(jLabelTitle, javax.swing.GroupLayout.DEFAULT_SIZE, 458, Short.MAX_VALUE)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -237,53 +177,12 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
                             .addComponent(jTextFieldZoomLink, javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextFieldSeats, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(40, 40, 40))
->>>>>>> Sharma_Navin_002737702
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jLabelTitle)
-<<<<<<< HEAD
-                .addGap(40, 40, 40)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelFirstName)
-                            .addComponent(jTextFieldFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(25, 25, 25)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelLastName)
-                            .addComponent(jTextFieldLastName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(22, 22, 22)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelEmailID)
-                            .addComponent(jTextFieldEmailID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jComboBoxCategory, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelCategory))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelCourse)
-                            .addComponent(jComboBoxCourse, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabelZoomLink)
-                            .addComponent(jTextFieldZoomLink, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jTextFieldSeats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabelSeats))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jButtonCourse)
-                            .addComponent(jButtonRegister))
-                        .addContainerGap(254, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-=======
                 .addGap(18, 18, 18)
                 .addComponent(jButtonBack)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
@@ -319,9 +218,48 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
                     .addComponent(jButtonRegister)
                     .addComponent(jButtonCourse))
                 .addGap(37, 37, 37))
->>>>>>> Sharma_Navin_002737702
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jComboBoxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoryActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jComboBoxCategoryActionPerformed
+
+    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
+        // TODO add your handling code here:
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel",cajp);
+        CardLayout layout2 = (CardLayout)controlArea.getLayout();
+        layout2.next(controlArea);
+    }//GEN-LAST:event_jButtonBackActionPerformed
+
+    private void jButtonCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCourseActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            String category_name;
+            int category_id;
+            category_name = jComboBoxCategory.getSelectedItem().toString();
+            resultSet3 = foi.getallFieldOfInterest();
+            while(resultSet3.next())
+            {
+                if(category_name.equals(resultSet3.getString(2)))
+                {
+                    category_id = resultSet3.getInt(1);
+                    Courses cou = new Courses(category_id);
+                    resultSet4 = cou.getCourseByCategory(category_id);
+                    while(resultSet4.next())
+                    {
+                        jComboBoxCourse.addItem(resultSet4.getString(3));
+                    }
+                }
+            }
+        }
+        catch (SQLException ex)
+        {
+            //            Logger.getLogger(PersonalOrg_Admin_Add.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButtonCourseActionPerformed
 
     private void jButtonRegisterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonRegisterActionPerformed
         // TODO add your handling code here:
@@ -362,35 +300,35 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
                     else
                     {
                         seats1 = jTextFieldSeats.getText();
-                        if (seats1.isEmpty()) 
+                        if (seats1.isEmpty())
                         {
 
-                        } 
-                        else 
+                        }
+                        else
                         {
                             boolean checker1 = isInteger(seats1);
-                            if (!checker1) 
+                            if (!checker1)
                             {
                                 JOptionPane.showMessageDialog(this, "seats should be integer");
-                            } 
-                            else 
+                            }
+                            else
                             {
                                 seats = Integer.parseInt(seats1);
-                                try 
+                                try
                                 {
                                     username = emailid;
                                     password = last_name + "." + first_name;
 
                                     resultSet = foi.getallFieldOfInterest();
-                                    while (resultSet.next()) 
+                                    while (resultSet.next())
                                     {
-                                        if (resultSet.getString(2).equals(category)) 
+                                        if (resultSet.getString(2).equals(category))
                                         {
                                             category_id = resultSet.getInt(1);
 
                                             Courses cou = new Courses(category_id);
                                             resultSet1 = cou.getCourseByCategory(category_id);
-                                            while (resultSet1.next()) 
+                                            while (resultSet1.next())
                                             {
                                                 if (resultSet1.getString(3).equals(course))
                                                 {
@@ -398,19 +336,19 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
 
                                                     PersonalOrganization po = new PersonalOrganization(first_name, last_name, emailid, category_id, course_id, zoom_link, seats, username, password);
                                                     po.addFreeLancer(first_name, last_name, emailid, category_id, course_id, zoom_link, seats, username, password);
-                                                    
+
                                                     sentEmail(emailid, first_name, password);
-                                                    
+
                                                     PersonalOrg_login_JPanel polp = new PersonalOrg_login_JPanel(controlArea, workArea);
                                                     workArea.add("PersonalOrg_login_JPanel",polp);
                                                     CardLayout layout = (CardLayout)workArea.getLayout();
-                                                    layout.next(workArea); 
+                                                    layout.next(workArea);
                                                 }
                                             }
                                         }
                                     }
-                                } 
-                                catch (SQLException ex) 
+                                }
+                                catch (SQLException ex)
                                 {
                                     if (ex.getMessage().contains("Duplicate entry"))
                                     {
@@ -425,47 +363,6 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
         }
     }//GEN-LAST:event_jButtonRegisterActionPerformed
 
-    private void jComboBoxCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jComboBoxCategoryActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jComboBoxCategoryActionPerformed
-
-    private void jButtonCourseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonCourseActionPerformed
-        // TODO add your handling code here:
-        try 
-        {
-            String category_name;
-            int category_id;
-            category_name = jComboBoxCategory.getSelectedItem().toString();
-            resultSet3 = foi.getallFieldOfInterest();
-            while(resultSet3.next())
-            {
-                if(category_name.equals(resultSet3.getString(2)))
-                {
-                    category_id = resultSet3.getInt(1);
-                    Courses cou = new Courses(category_id);
-                    resultSet4 = cou.getCourseByCategory(category_id);
-                    while(resultSet4.next())
-                    {
-                        jComboBoxCourse.addItem(resultSet4.getString(3));
-                    }
-                }
-            }
-        } 
-        catch (SQLException ex) 
-        {
-//            Logger.getLogger(PersonalOrg_Admin_Add.class.getName()).log(Level.SEVERE, null, ex);
-        }        
-    }//GEN-LAST:event_jButtonCourseActionPerformed
-
-    private void jButtonBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonBackActionPerformed
-        // TODO add your handling code here:
-        controlArea.removeAll();
-        Schooling_Admin cajp = new Schooling_Admin(controlArea, workArea);
-        controlArea.add("ControlAreaJPanel", cajp);
-        CardLayout layout2 = (CardLayout) controlArea.getLayout();
-        layout2.next(controlArea);
-    }//GEN-LAST:event_jButtonBackActionPerformed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButtonBack;
@@ -473,7 +370,6 @@ public class PersonalOrg_Admin_Add extends javax.swing.JPanel {
     private javax.swing.JButton jButtonRegister;
     private javax.swing.JComboBox<String> jComboBoxCategory;
     private javax.swing.JComboBox<String> jComboBoxCourse;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabelCategory;
     private javax.swing.JLabel jLabelCourse;
     private javax.swing.JLabel jLabelEmailID;

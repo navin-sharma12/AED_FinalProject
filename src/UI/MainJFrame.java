@@ -4,6 +4,7 @@
  */
 package UI;
 import DataConnection.db;
+<<<<<<< HEAD
 import Schooling.UI.PersonalOrg_login_JPanel;
 import UI.Funding.Funding_ManageInvestor_Delete;
 import UI.Funding.Funding_ManageInvestor_Update;
@@ -39,6 +40,9 @@ import UI.student.StudentDeleteJPanel;
 import UI.student.StudentLoginJPanel;
 import UI.student.StudentUpdateJPanel;
 import UI.student.StudentViewJPanel;
+=======
+import Schooling.UI.JobPortal_Student_View;
+>>>>>>> Sharma_Navin_002737702
 
 import java.awt.CardLayout;
 import java.awt.Dimension;
@@ -145,6 +149,7 @@ public class MainJFrame extends javax.swing.JFrame {
         ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
         controlArea.add("ControlAreaJPanel",cajp);
         CardLayout layout2 = (CardLayout)controlArea.getLayout();
+<<<<<<< HEAD
         layout2.next(controlArea);
         
          Funding_AddLocalInvestor hocad = new  Funding_AddLocalInvestor(controlArea, workArea);
@@ -153,6 +158,9 @@ public class MainJFrame extends javax.swing.JFrame {
          layout.next(workArea);
         
         
+=======
+        layout2.next(controlArea); 
+>>>>>>> Sharma_Navin_002737702
 
 
 

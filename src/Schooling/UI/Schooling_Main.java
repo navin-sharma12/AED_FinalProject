@@ -77,8 +77,8 @@ public class Schooling_Main extends javax.swing.JPanel {
         // TODO add your handling code here:
         StudentLoginJPanel sljp = new StudentLoginJPanel(controlArea, workArea);
         workArea.add("StudentLoginJPanel",sljp);
-        CardLayout layout = (CardLayout)workArea.getLayout();
-        layout.next(workArea); 
+        CardLayout layout2 = (CardLayout)workArea.getLayout();
+        layout2.next(workArea); 
     }//GEN-LAST:event_jButtonStudentActionPerformed
 
     private void jButtonFreeLancerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonFreeLancerActionPerformed
