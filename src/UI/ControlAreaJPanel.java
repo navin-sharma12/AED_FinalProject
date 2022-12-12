@@ -5,6 +5,7 @@
 package UI;
 
 import Schooling.UI.Schooling_Main;
+import UI.Funding.Funding_Login;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
@@ -123,8 +124,8 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
         Admin_Login al = new Admin_Login(controlArea, workArea);
         workArea.add("Admin_Login",al);
-        CardLayout layout = (CardLayout)workArea.getLayout();
-        layout.next(workArea); 
+        CardLayout layout4 = (CardLayout)workArea.getLayout();
+        layout4.next(workArea); 
     }//GEN-LAST:event_btnAdminActionPerformed
 
     private void btnNgoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNgoActionPerformed
@@ -147,6 +148,11 @@ public class ControlAreaJPanel extends javax.swing.JPanel {
 
     private void btnFundingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFundingActionPerformed
         // TODO add your handling code here:
+        
+        Funding_Login fl = new Funding_Login(controlArea, workArea);
+        workArea.add("Funding_Login",fl);
+        CardLayout layout5 = (CardLayout)workArea.getLayout();
+        layout5.next(workArea);
     }//GEN-LAST:event_btnFundingActionPerformed
 
     private void btnInvestorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnInvestorActionPerformed

@@ -5,6 +5,8 @@
 package UI.Funding;
 
 import Investor.Investor;
+import UI.ControlAreaJPanel;
+import java.awt.CardLayout;
 import java.awt.Dimension;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -22,11 +24,14 @@ public class Funding_DeleteLocalInvestor_JPanel extends javax.swing.JPanel {
      * Creates new form Funding_DeleteLocalInvestor_JPanel
      */
     int id;
-
+JPanel controlArea;
+    JPanel workArea;
     public Funding_DeleteLocalInvestor_JPanel(JPanel controlArea, JPanel workArea) {
         initComponents();
         this.id = id;
         populateLocalInvestor();
+        this.controlArea = controlArea;
+        this.workArea = workArea;
          setPreferredSize(new Dimension(769, 515)); 
     }
 
@@ -44,6 +49,8 @@ public class Funding_DeleteLocalInvestor_JPanel extends javax.swing.JPanel {
         btnDelete = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        btnBack = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(204, 204, 204));
         setLayout(null);
@@ -123,11 +130,27 @@ public class Funding_DeleteLocalInvestor_JPanel extends javax.swing.JPanel {
         jLabel1.setFont(new java.awt.Font(".AppleSystemUIFont", 1, 18)); // NOI18N
         jLabel1.setText("                                   Local Investors - Delete ");
         add(jLabel1);
-        jLabel1.setBounds(46, 30, 480, 90);
+        jLabel1.setBounds(140, 30, 480, 90);
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/UI/Funding/main logo .jpg"))); // NOI18N
         add(jLabel3);
         jLabel3.setBounds(490, 390, 205, 120);
+
+        jLabel4.setText("⏎");
+        add(jLabel4);
+        jLabel4.setBounds(20, 30, 14, 17);
+
+        btnBack.setBackground(new java.awt.Color(0, 0, 0));
+        btnBack.setFont(new java.awt.Font(".AppleSystemUIFont", 3, 12)); // NOI18N
+        btnBack.setForeground(new java.awt.Color(255, 255, 255));
+        btnBack.setText("Back");
+        btnBack.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackActionPerformed(evt);
+            }
+        });
+        add(btnBack);
+        btnBack.setBounds(60, 20, 72, 36);
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnDeleteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDeleteActionPerformed
@@ -150,6 +173,15 @@ public class Funding_DeleteLocalInvestor_JPanel extends javax.swing.JPanel {
 
 
     }//GEN-LAST:event_btnDeleteActionPerformed
+
+    private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
+        // TODO add your handling code here:
+        ControlAreaJPanel cajp = new ControlAreaJPanel(controlArea, workArea);
+        controlArea.add("ControlAreaJPanel", cajp);
+        CardLayout layout = (CardLayout) controlArea.getLayout();
+        layout.next(controlArea);
+        workArea.remove(this);
+    }//GEN-LAST:event_btnBackActionPerformed
 
     private void populateLocalInvestor() {
         try {
@@ -177,9 +209,11 @@ public class Funding_DeleteLocalInvestor_JPanel extends javax.swing.JPanel {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnBack;
     private javax.swing.JButton btnDelete;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblLocalInvestors;
     // End of variables declaration//GEN-END:variables
